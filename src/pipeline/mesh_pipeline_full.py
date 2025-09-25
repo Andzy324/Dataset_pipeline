@@ -930,7 +930,7 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
         
         # 先补全资产（在原始位置）
         try:
-            from dataset_toolkits.build_metadata import ensure_complete_asset_anyformat
+            from download_toolkits.build_metadata import ensure_complete_asset_anyformat
             
             # 使用原始mesh目录作为local_roots，保持目录结构
             # _local_roots = [p for p in [mesh_dir, inst_root] if p and p.exists()]

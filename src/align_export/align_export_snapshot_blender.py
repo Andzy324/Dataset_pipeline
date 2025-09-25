@@ -412,7 +412,6 @@ def import_mesh(path: str):
                 bpy.ops.import_scene.obj(filepath=str(use_obj), use_mtl=True)
         except Exception as e:
             raise RuntimeError(f"OBJ import failed: {e}")
-
     elif ext == ".ply":
         bpy.ops.import_mesh.ply(filepath=path)
     elif ext == ".stl":

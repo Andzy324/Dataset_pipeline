@@ -1494,21 +1494,190 @@ def ensure_complete_obj_asset_strict(obj_file: Path, src_url: str, raw_dir: Path
             return fixed, True
         else:
             return mtl_path, False
+    # def _rewrite_mtl_maps_to_local(mtl_path: Path, raw_dir: Path,
+    #                            placement_map: dict[str, str]) -> tuple[Path, bool]:
+    #     """
+    #     只重写 map_* / bump / norm / disp / refl / decal 等贴图行；
+    #     完全跳过 newmtl 行；并保留原始换行风格（LF/CRLF）与文件末尾是否有换行。
+    #     """
+    #     import re, shlex
+    #     DRIVE_RE = re.compile(r'^[A-Za-z]:[\\/]|^\\\\')
 
-    def _rewrite_obj_mtllibs(obj_path: Path, mtl_name_map: dict[str, str], force_write: bool=False) -> tuple[Path, bool]:
+    #     # 读取原文本并记录换行风格与末尾是否带换行
+    #     raw_text = mtl_path.read_text(encoding="utf-8", errors="ignore")
+    #     if "\r\n" in raw_text:
+    #         EOL = "\r\n"
+    #     elif "\r" in raw_text:
+    #         EOL = "\r"
+    #     else:
+    #         EOL = "\n"
+    #     ends_with_eol = raw_text.endswith(("\r\n", "\n", "\r"))
+
+    #     lines = raw_text.splitlines()  # 不保留行尾
+
+    #     out: list[str] = []
+    #     changed = False
+    #     allowed_keys = {"map_ka", "map_kd", "map_ks", "map_ke", "map_ns",
+    #                     "map_d", "bump", "map_bump", "norm", "disp", "decal", "refl"}
+
+    #     textures_dir = raw_dir / "textures"
+
+    #     def _looks_like_path_token(token: str) -> bool:
+    #         return any(ch in token for ch in ("/", "\\", ":")) or "." in token
+
+    #     def _split_options_and_path(rest: str) -> tuple[list[str], str, list[str]] | None:
+    #         rest = rest.strip()
+    #         if not rest:
+    #             return None
+    #         try:
+    #             tokens = shlex.split(rest, posix=True)
+    #         except ValueError:
+    #             tokens = rest.split()
+    #         if not tokens:
+    #             return None
+
+    #         opts_before: list[str] = []
+    #         path_tokens: list[str] = []
+    #         opts_after: list[str] = []
+
+    #         i = 0
+    #         # 前置选项（以及它们的参数）
+    #         while i < len(tokens):
+    #             tok = tokens[i]
+    #             if tok.startswith('-') and not path_tokens:
+    #                 opts_before.append(tok)
+    #                 i += 1
+    #                 # 把非 '-' 开头且不像路径的连续 token 视作该选项的参数
+    #                 while i < len(tokens):
+    #                     nxt = tokens[i]
+    #                     if nxt.startswith('-') or _looks_like_path_token(nxt):
+    #                         break
+    #                     opts_before.append(nxt)
+    #                     i += 1
+    #                 continue
+    #             break
+
+    #         # 解析“路径片段”（允许中间有空格）
+    #         while i < len(tokens):
+    #             tok = tokens[i]
+    #             if not path_tokens and not _looks_like_path_token(tok):
+    #                 path_tokens.append(tok)
+    #                 i += 1
+    #                 continue
+    #             if tok.startswith('-') and path_tokens:
+    #                 break
+    #             path_tokens.append(tok)
+    #             i += 1
+
+    #         if not path_tokens:
+    #             return None
+
+    #         # 剩余为后置选项
+    #         while i < len(tokens):
+    #             opts_after.append(tokens[i])
+    #             i += 1
+
+    #         path = " ".join(path_tokens).strip()
+    #         return opts_before, path, opts_after
+
+    # def _sanitize_tex_basename(name: str) -> str:
+    #     return Path(str(name)).name
+
+    # for ln in lines:
+    #     stripped = ln.strip()
+    #     if not stripped:
+    #         out.append(ln)
+    #         continue
+
+    #     prefix = ln[:len(ln) - len(stripped)]
+    #     key_orig = stripped.split(None, 1)[0]
+    #     key_lower = key_orig.lower()
+
+    #     # 明确跳过 newmtl（不做任何改写）
+    #     if key_lower == "newmtl":
+    #         out.append(ln)
+    #         continue
+
+    #     # 只处理贴图相关的键；其它行（包括 Ka/Kd 数值、Ns、illum 等）保持原样
+    #     if key_lower not in allowed_keys:
+    #         out.append(ln)
+    #         continue
+
+    #     rest = stripped[len(key_orig):].strip()
+    #     parsed = _split_options_and_path(rest)
+    #     if not parsed:
+    #         out.append(ln)
+    #         continue
+
+    #     opts_before, old_token, opts_after = parsed
+    #     old_clean = old_token.strip().strip('"').strip("'").replace("\\", "/")
+
+    #     # 归一化成相对路径语义；盘符/UNC/越级一律收敛为 basename 放 textures/
+    #     def _normalize_relpath(p: str) -> str:
+    #         p = p.strip().strip('"').strip("'").replace("\\", "/")
+    #         while p.startswith("./"):
+    #             p = p[2:]
+    #         if re.match(r"^[A-Za-z]:/", p) or p.startswith("//") or p.startswith("\\\\"):
+    #             return Path(p).name
+    #         if "/../" in f"/{p}":
+    #             return Path(p).name
+    #         return p
+
+    #     norm_path = _normalize_relpath(old_clean)
+    #     bn = _sanitize_tex_basename(norm_path)
+
+    #     # placement_map 用不区分大小写的 basename 做 key
+    #     new_rel = placement_map.get(bn.casefold())
+    #     if not new_rel:
+    #         new_rel = f"textures/{bn}"  # 兜底放到 textures/ 下
+
+    #     # 如果旧 token 是绝对/UNC 或越级路径，也强制收敛
+    #     if DRIVE_RE.match(old_clean) or old_clean.startswith("/") or "/../" in f"/{old_clean}":
+    #         new_rel = f"textures/{bn}"
+
+    #     if new_rel != old_token:
+    #         changed = True
+
+    #     # 重建行：保持原始缩进、关键字大小写、并拼回选项
+    #     rebuilt_tokens = opts_before + [new_rel] + opts_after
+    #     rebuilt = prefix + key_orig
+    #     if rebuilt_tokens:
+    #         rebuilt += " " + " ".join(rebuilt_tokens)
+    #     out.append(rebuilt)
+
+    # fixed = mtl_path.with_name(mtl_path.stem + "_fixed.mtl")
+    # if changed:
+    #     text = EOL.join(out) + (EOL if ends_with_eol else "")
+    #     fixed.write_text(text, encoding="utf-8")
+    #     return fixed, True
+    # else:
+    #     return mtl_path, False
+
+    def _rewrite_obj_mtllibs(obj_path: Path, mtl_name_map: dict[str, str],
+                            force_write: bool=False) -> tuple[Path, bool]:
         """
-        把 OBJ 中每条 mtllib 的文件名按映射替换。
-        - 若 obj 已经是 *_fixed.obj：原地覆盖（不生成 *_fixed_fixed.obj）
-        - 否则仅在发生改动时生成 *_fixed.obj
-        返回 (最终 OBJ 路径, 是否发生改动)
+        仅替换 OBJ 里的 mtllib 引用文件名，保持其它行（包括 newmtl）完全不动；
+        并保留原始换行风格与末尾换行。
         """
-        lines = obj_path.read_text(encoding="utf-8", errors="ignore").splitlines()
+        import shlex
+        raw_text = obj_path.read_text(encoding="utf-8", errors="ignore")
+        if "\r\n" in raw_text:
+            EOL = "\r\n"
+        elif "\r" in raw_text:
+            EOL = "\r"
+        else:
+            EOL = "\n"
+        ends_with_eol = raw_text.endswith(("\r\n", "\n", "\r"))
+
+        lines = raw_text.splitlines()
+
         out = []
         changed = False
 
         for ln in lines:
             stripped = ln.lstrip()
             if not stripped.lower().startswith("mtllib"):
+                # 包括 newmtl 在内的所有行都不动
                 out.append(ln)
                 continue
 
@@ -1542,10 +1711,10 @@ def ensure_complete_obj_asset_strict(obj_file: Path, src_url: str, raw_dir: Path
         is_fixed = obj_path.name.endswith("_fixed.obj")
         target = obj_path if is_fixed else obj_path.with_name(obj_path.stem + "_fixed.obj")
         if force_write or changed:
-            target.write_text("\n".join(out), encoding="utf-8")
+            text = EOL.join(out) + (EOL if ends_with_eol else "")
+            target.write_text(text, encoding="utf-8")
             return target, True
 
-        # 无改动：保持原文件
         return obj_path, False
 
     # # 选用 raw 中的 mtl（否则用 obj 同目录），生成 *_fixed.mtl 与 *_fixed.obj

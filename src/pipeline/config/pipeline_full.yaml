@@ -149,5 +149,9 @@ overwrite_render: true                     # 覆盖已有渲染结果
 ######################################################################
 # github env setting
 ######################################################################
+<<<<<<< HEAD
 
+=======
+github_token: "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"      #"env:GITHUB_TOKEN"   ① 从环境变量读取
+>>>>>>> e871ea5 (dataset pipeline script)
 git_no_prompt: true
