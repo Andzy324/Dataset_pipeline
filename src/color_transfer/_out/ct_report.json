@@ -1,0 +1,7 @@
+{
+  "coverage_ratio": 1.0,
+  "mean_nn_distance": 0.0026946829192037677,
+  "median_nn_distance": 0.0022288192879883905,
+  "over_threshold_ratio": 0.02929042904290429,
+  "used_backend": "open3d"
+}
