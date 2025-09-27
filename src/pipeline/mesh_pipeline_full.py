@@ -575,7 +575,6 @@ def _place_into_raw(src: Path, raw_dir: Path, prefer: str = "hardlink") -> Path:
             return dst
         except Exception:
             pass
-
     shutil.copy2(src, dst)
     return dst
 
@@ -830,20 +829,20 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
     # 7. 处理下载的文件：解压、提取mesh、补全资产
     label_dir = ensure_dir(cat_dir / category)
     processed_count = 0
+    oxl_reports: List[Dict[str, Any]] = []
     
-    oxl_reports: list[dict[str, Any]] = []
-
     for _, rec in df.iterrows():
         sha = rec.get('sha256')
         rel = rec.get('local_path', '')
-        rel_str = str(rel)
         report_entry: Dict[str, Any] = {
             'sha': sha,
             'status': 'pending',
+            'kind': '',
             'missing_textures': '',
             'missing_reason': '',
             'repo_missing': '',
             'repo_failed': '',
+            'source_url': rec.get('source_url', ''),
         }
 
         # 源文件路径
@@ -879,16 +878,15 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
                     obj_path = target
                 except Exception:
                     pass
-        
-        if not obj_path.exists() and not (is_github_repo and zip_in_repo and zip_in_repo.exists()):
-            print(f"[OXL-PER-CAT] ✘ staging file missing for {sha}: {rel_str}")
+        else:
+            print(f"[OXL-PER-CAT] ✘ staging file missing for {sha}: {rel}")
             report_entry['status'] = 'stage_missing'
             oxl_reports.append(report_entry)
             if 'stats' in locals():
                 stats.setdefault('stage_missing', 0)
                 stats['stage_missing'] += 1
             continue
-
+        
         # 解压到mesh目录
         mesh_path = None
         mesh_dir = None
@@ -898,6 +896,8 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
                 _safe_extract_archive(obj_path, mesh_dir)
             except Exception as e:
                 print(f"[OXL-PER-CAT] ✘ extract failed: {obj_path.name} -> {e}")
+                report_entry['status'] = 'extract_failed'
+                oxl_reports.append(report_entry)
                 continue
             
             # 查找mesh文件
@@ -923,15 +923,14 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
         
         if not mesh_path or not mesh_path.exists():
             print(f"[OXL-PER-CAT] ✘ no mesh found for {sha}")
-            if 'stats' in locals():
-                stats["extract_failed"] += 1
+            if 'stats' in locals(): stats["extract_failed"] += 1
             report_entry['status'] = 'no_mesh'
             oxl_reports.append(report_entry)
             continue
         
         # 先补全资产（在原始位置）
         try:
-            from download_toolkits.build_metadata import ensure_complete_asset_anyformat
+            from dataset_toolkits.build_metadata import ensure_complete_asset_anyformat
             
             # 使用原始mesh目录作为local_roots，保持目录结构
             # _local_roots = [p for p in [mesh_dir, inst_root] if p and p.exists()]
@@ -945,7 +944,7 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
                 if isinstance(base, Path) and base.exists():
                     _local_roots.append(base.resolve())
 
-            # 2) 加入 OBJ 的真实父目录（新方案的改进点）
+            # 2) 加入 OBJ 的真实父目录
             try:
                 parent = getattr(mesh_path, "parent", None)
                 if isinstance(parent, Path) and parent.exists():
@@ -956,10 +955,12 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
             # 3) 去重（按字符串，保持顺序）
             _seen = set()
             _local_roots = [p for p in _local_roots if (s := str(p)) not in _seen and not _seen.add(s)]
-            # 确保mesh_dir不为None
-            target_raw_dir = dst_raw if dst_raw.exists() else mesh_dir
+            # 确保mesh_dir不为None if dst_raw.exists() 
+            target_raw_dir = dst_raw 
+            # link mesh to raw dir before collecting, since rewriting the objs should happen in saved dir
+            final_mesh_path = _place_into_raw(mesh_path, dst_raw, prefer=getattr(args, "oxl_consolidate_link_mode", "hardlink"))
             rep = ensure_complete_asset_anyformat(
-                asset_path = mesh_path,
+                asset_path = final_mesh_path, # fix will make it happen at the path 
                 src_url    = rec.get('source_url','') or '',
                 raw_dir    = target_raw_dir,  # 先在mesh目录补全
                 overwrite  = getattr(args, 'overwrite_consolidate', False),
@@ -969,6 +970,7 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
             
             # 输出摘要
             kind = rep.get('kind','?')
+            report_entry['kind'] = kind
             dl = rep.get('downloaded',0)
             miss = rep.get('missing_names',[]) or rep.get('missing',[])
             repo_missing = rep.get('repo_missing_names', []) or []
@@ -976,8 +978,6 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
             missing_reason_map = rep.get('missing_reason_map', {}) or {}
             local_missing = [name for name, reason in missing_reason_map.items() if reason == 'local_missing']
             repo_missing_reason = [name for name, reason in missing_reason_map.items() if reason == 'repo_missing']
-            other_missing = {name: reason for name, reason in missing_reason_map.items()
-                             if reason not in ('local_missing', 'repo_missing')}
 
             print(f"[OXL-PER-CAT] [{sha}] ensure({kind}): downloaded={dl} missing={len(miss)} repo_missing={len(repo_missing)} repo_failed={len(repo_failed)}")
             if repo_missing:
@@ -986,9 +986,6 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
                 print("               · repo_failed examples: " + ", ".join(repo_failed[:5]))
             if local_missing:
                 print("               · local_missing examples: " + ", ".join(local_missing[:5]))
-            if other_missing:
-                sample = list(other_missing.items())[:5]
-                print("               · other_missing: " + ", ".join(f"{k}:{v}" for k,v in sample))
             if 'stats' not in locals():
                 stats = {"total_in_meta": len(meta), "downloaded_rows": 0,
                         "ensure_counts": {"obj": {"downloaded":0,"missing":0},
@@ -1026,15 +1023,14 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
             })
         except Exception as e:
             print(f"[OXL-PER-CAT] ensure assets failed: {e}")
-            if 'stats' in locals():
-                stats["extract_failed"] += 1
+            if 'stats' in locals(): stats["extract_failed"] += 1
             report_entry['status'] = 'ensure_failed'
             report_entry['missing_reason'] = str(e)
             oxl_reports.append(report_entry)
             continue
 
-        # 补全完成后，将mesh文件移动到raw目录
-        final_mesh_path = _place_into_raw(mesh_path, dst_raw, prefer=getattr(args, "oxl_consolidate_link_mode", "hardlink"))
+        # # 补全完成后，将mesh文件移动到raw目录
+        # final_mesh_path = _place_into_raw(mesh_path, dst_raw, prefer=getattr(args, "oxl_consolidate_link_mode", "hardlink"))
         
         # 可选：清理mesh目录
         if getattr(args, 'oxl_prune_mesh_dir', False):
@@ -1047,7 +1043,7 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
         if report_entry['status'] == 'pending':
             report_entry['status'] = 'fetched' if not miss else report_entry['status']
         oxl_reports.append(report_entry)
-
+    
     if oxl_reports:
         total = len(oxl_reports)
         status_counts: Dict[str, int] = {}
@@ -1058,7 +1054,22 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
         print(f"  · total items: {total}")
         for key in sorted(status_counts.keys()):
             print(f"  · {key}: {status_counts[key]}")
-    
+
+        detail_csv = label_dir / "oxl_detailed_report.csv"
+        import csv as _csv
+        with detail_csv.open('w', newline='', encoding='utf-8') as f_det:
+            fieldnames = [
+                "sha", "kind", "status", "missing_textures", "missing_reason",
+                "repo_missing", "repo_failed", "source_url"
+            ]
+            wr_det = _csv.DictWriter(f_det, fieldnames=fieldnames, delimiter=",",
+                                     quoting=_csv.QUOTE_MINIMAL, lineterminator="\n")
+            wr_det.writeheader()
+            for entry in oxl_reports:
+                row = {k: entry.get(k, '') for k in fieldnames}
+                wr_det.writerow(row)
+        print(f"[OXL-PER-CAT] Wrote detailed report: {detail_csv}")
+
     print(f"[OXL-PER-CAT] Processed {processed_count}/{len(df)} objects for category '{category}'")
     
     # 8. 生成metadata.csv
@@ -1254,28 +1265,10 @@ def step_download_assets_oxl(args, P: PipelinePaths) -> None:
     # label -> rows 收集；若无 label 则使用 out_cat 作为聚合目录
     label_to_rows: Dict[str, list] = {}
 
-    oxl_reports: list[dict[str, Any]] = []
-
     for rec in df.to_dict('records'):
         sha = rec.get('sha256')
         rel = rec.get('local_path') or ''
         rel_str = str(rel)
-        report_entry: Dict[str, Any] = {
-            'sha': sha,
-            'status': 'pending',
-            'missing_textures': '',
-            'missing_reason': '',
-            'repo_missing': '',
-            'repo_failed': '',
-        }
-        if not rel_str:
-            print(f"[OXL] ✘ manifest missing for {sha}: empty local_path")
-            report_entry['status'] = 'manifest_missing'
-            oxl_reports.append(report_entry)
-            if 'stats' in locals():
-                stats.setdefault('manifest_missing', 0)
-                stats['manifest_missing'] += 1
-            continue
         # source path from staging area (can be a path inside repo zip for github source)
         obj_path = (stage_dir / rel).resolve()
 
@@ -1762,14 +1755,8 @@ def step_render(args, P: PipelinePaths, models: Iterable[Path], category: str) -
         dt = time.perf_counter() - t0
         print(f"[render/batch] done rc={rc}  total={total}  time={dt:.2f}s  avg={dt/max(total,1):.2f}s/obj")
         return
-    
-    print(f"[render/single] cat={category}  total={total}")
-    t0 = time.perf_counter()
-    iterator = enumerate(models_list, 1)
-    if getattr(args, "progress", False) and tqdm is not None:
-        iterator = zip(range(1, total+1), tqdm(models_list, total=total, ncols=80, desc=f"{category}"))
 
-    for idx, model in iterator:
+    for model in models[:args.limit] if args.limit else models:
         model = Path(model)
         ext = model.suffix.lower()
         out_dir = render_out_dir_for_any(
@@ -2306,13 +2293,12 @@ def build_argparser() -> argparse.ArgumentParser:
     # --- NEW: batch render mode & extra ---
     p.add_argument("--render_batch_mode", choices=["batch", "single"], default="batch",
                    help="batch: 单次调用渲染脚本处理该 category 的清单；single: 逐个模型调用（兼容旧法，便于统计单模型耗时）")
+    p.add_argument("--progress", action=argparse.BooleanOptionalAction, default=False, help="显示 tqdm 进度条")
     p.add_argument("--print_effective", action=argparse.BooleanOptionalAction, default=False,
                help="打印最终生效的参数（完整字典）与组装的伪命令行，便于检查。")
-    p.add_argument("--github_token",
-               type=str, default=None,
+    p.add_argument("--github_token", type=str, default=None,
                help="GitHub token (PAT). 支持直接写明文，或以 'env:VAR' 读取环境变量，或 'file:/path/to/token' 读取文件。")
-    p.add_argument("--git_no_prompt",
-               action=argparse.BooleanOptionalAction, default=False,
+    p.add_argument("--git_no_prompt", action=argparse.BooleanOptionalAction, default=False,
                help="禁用 git 交互式密码提示（GIT_TERMINAL_PROMPT=0）。默认建议开启。")   
     return p
 
@@ -2528,7 +2514,7 @@ def main():
 
     print("[ALL DONE] Outputs:")
     print("- Downloads:", P.downloads)
-    print("- Aligned GLBs:", P.aligned_glb)
+    print("- Aligned 3Ds:", P.aligned_glb)
     print("- Renders:", P.renders)
 
 

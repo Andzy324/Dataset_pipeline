@@ -162,6 +162,7 @@ def _local_find_one(name: Path, roots: list[Path]) -> Path | None:
                 return hits[0]
 
     return None
+
 # ----------------------------------------------------
 
 
@@ -786,9 +787,6 @@ def _obj_find_mtllibs_inline(obj_text: str) -> list[str]:
     # 去重保序
     return list(dict.fromkeys(libs))
 
-import re
-FBX_TEX_EXTS = (".png",".jpg",".jpeg",".tga",".tiff",".bmp",".exr",".dds")
-
 import shlex
 from urllib.parse import urljoin
 
@@ -940,8 +938,10 @@ def parse_mtl_for_textures(mtl_path: Path) -> set[Path]:
                 key = line.split(maxsplit=1)[0]
                 if key not in MTL_MAP_KEYS:
                     continue
+                # 预处理 Windows 路径分隔符，避免 shlex 把 "maps\foo.png" 解析成 "map sfoo.png"
+                line_norm = line.replace('\\', '/')
                 # 用 shlex 解析整行，处理引号/空格/转义
-                toks = shlex.split(line, posix=True)
+                toks = shlex.split(line_norm, posix=True)
                 # 丢掉 key 本身
                 toks = toks[1:]
                 if not toks:
@@ -1278,7 +1278,9 @@ def ensure_complete_obj_asset_strict(obj_file: Path, src_url: str, raw_dir: Path
         if dst.exists() and not overwrite:
             skipped += 1
             # 既然已存在，也要记录到 placement_map
-            placement_map[rel_norm.name] = rel_norm.as_posix()
+            # placement_map[rel_norm.name] = rel_norm.as_posix()
+            bn_key = rel_norm.name.casefold()
+            placement_map[bn_key] = rel_norm.as_posix()
             names.append(rel_norm.as_posix())
             continue
 
@@ -1301,34 +1303,38 @@ def ensure_complete_obj_asset_strict(obj_file: Path, src_url: str, raw_dir: Path
 
     # === 在复制完纹理后：把 raw 下的 MTL 重写为本地相对路径，并生成 *_fixed.obj ===
    
-    #
     def _rewrite_mtl_maps_to_local(mtl_path: Path, raw_dir: Path, placement_map: dict[str, str]) -> tuple[Path, bool]:
-        """
-        仅对 raw_dir 下的 mtl 改写：
-        - 把 C:\..., UNC, 绝对/越级 路径改为 textures/<basename> 或 placement_map 命中的相对路径
-        - 返回 (fixed_mtl_path, changed), to fix the problem of using after autofix_obj_mtllib, in case 2 sets of fixed
-        """
         DRIVE_RE = re.compile(r'^[A-Za-z]:[\\/]|^\\\\')
         lines = mtl_path.read_text(encoding="utf-8", errors="ignore").splitlines()
-        out = []
-        changed = False
+        out = []; changed = False
 
         for ln in lines:
-            l = ln.lstrip().lower()
-            if not (l.startswith("map_") or l.startswith("bump") or l.startswith("disp")):
+            key = ln.lstrip().split(None, 1)[0].lower() if ln.strip() else ""
+            if key not in ("map_ka","map_kd","map_ks","map_ke","map_ns","map_d","bump","map_bump","norm","disp","decal","refl"):
                 out.append(ln); continue
 
-            parts = ln.split()
-            if len(parts) < 2:
+            # 用 shlex 解析整行（去掉 key）
+            rest = ln.strip()[len(key):].strip()
+            toks = shlex.split(rest, posix=True)
+            if not toks:
                 out.append(ln); continue
 
-            old = parts[-1]
-            old_clean = str(old).strip().strip('"').strip("'").replace("\\", "/")
+            # 取“最后一个非选项 token”为文件名，其余以 '-' 开头的保留为选项
+            opt, fname = [], None
+            for t in toks:
+                if t.startswith("-") and fname is None:
+                    opt.append(t)
+                else:
+                    fname = t if fname is None else t  # 继续向后，最终留下最后一个
+            if fname is None:
+                out.append(ln); continue
+
+            old_clean = fname.strip().strip('"').strip("'").replace("\\", "/")
             bn = Path(old_clean).name
 
-            # 先用我们刚放置的相对路径（names → placement_map）
-            new_rel = placement_map.get(bn)
-
+            # 先用我们刚放置的相对路径表
+            # new_rel = placement_map.get(bn)
+            new_rel = placement_map.get(bn.casefold())
             # 兜底：raw 下按 basename 找
             if not new_rel:
                 hits = list(raw_dir.rglob(bn))
@@ -1338,23 +1344,28 @@ def ensure_complete_obj_asset_strict(obj_file: Path, src_url: str, raw_dir: Path
                     except Exception:
                         new_rel = bn
 
-            # 若是盘符/UNC/绝对/越级，强制落 textures/<bn>
+            # 盘符/UNC/绝对/越级 → 强制 textures/<bn>
             if not new_rel or DRIVE_RE.match(old_clean) or old_clean.startswith("/") or "/../" in f"/{old_clean}":
                 new_rel = new_rel or f"textures/{bn}"
 
-            if new_rel != old:
+            if new_rel != fname:
                 changed = True
-            parts[-1] = new_rel
-            out.append(" ".join(parts))
+
+            # 只用“key + 选项 + 新文件名”重建行（不保留旧路径的残片）
+            def _mtl_escape(path: str) -> str:
+                # 推荐：不用双引号，空格写成 '\ '
+                return path.replace(" ", r"\ ")
+            rebuilt = " ".join([key] + opt + [_mtl_escape(new_rel)]).strip()
+            out.append(rebuilt)
 
         fixed = mtl_path.with_name(mtl_path.stem + "_fixed.mtl")
         if changed:
             fixed.write_text("\n".join(out), encoding="utf-8")
             return fixed, True
         else:
-            # 无改动则不生成 *_fixed.mtl，复用原 mtl
             return mtl_path, False
-    def _rewrite_obj_mtllibs(obj_path: Path, mtl_name_map: dict[str, str]) -> tuple[Path, bool]:
+
+    def _rewrite_obj_mtllibs(obj_path: Path, mtl_name_map: dict[str, str], force_write: bool=False) -> tuple[Path, bool]:
         """
         把 OBJ 中每条 mtllib 的文件名按映射替换。
         - 若 obj 已经是 *_fixed.obj：原地覆盖（不生成 *_fixed_fixed.obj）
@@ -1366,32 +1377,46 @@ def ensure_complete_obj_asset_strict(obj_file: Path, src_url: str, raw_dir: Path
         changed = False
 
         for ln in lines:
-            if ln.lstrip().lower().startswith("mtllib"):
-                parts = ln.split()
-                if len(parts) >= 2:
-                    old_name = Path(parts[-1]).name
-                    new_name = mtl_name_map.get(old_name, old_name)
-                    if new_name != parts[-1]:
-                        changed = True
-                    out.append(f"mtllib {new_name}")
-                else:
-                    out.append(ln)
-            else:
+            stripped = ln.lstrip()
+            if not stripped.lower().startswith("mtllib"):
                 out.append(ln)
+                continue
 
-        is_fixed = obj_path.stem.endswith("_fixed")
-        if changed:
-            if is_fixed:
-                # 覆盖现有 *_fixed.obj
-                obj_path.write_text("\n".join(out), encoding="utf-8")
-                return obj_path, True
-            else:
-                fixed_obj = obj_path.with_name(obj_path.stem + "_fixed.obj")
-                fixed_obj.write_text("\n".join(out), encoding="utf-8")
-                return fixed_obj, True
-        else:
-            # 无改动：保持原文件
-            return obj_path, False
+            prefix = ln[:len(ln) - len(stripped)]
+            parts0 = stripped.split(None, 1)
+            if len(parts0) < 2:
+                out.append(ln)
+                continue
+
+            try:
+                tokens = shlex.split(parts0[1], posix=True)
+            except ValueError:
+                out.append(ln)
+                continue
+
+            if not tokens:
+                out.append(ln)
+                continue
+
+            replaced = []
+            for tok in tokens:
+                base = Path(tok).name
+                new_tok = mtl_name_map.get(base, tok)
+                if new_tok != tok:
+                    changed = True
+                replaced.append(new_tok)
+
+            rebuilt = prefix + "mtllib " + " ".join(replaced)
+            out.append(rebuilt)
+
+        is_fixed = obj_path.name.endswith("_fixed.obj")
+        target = obj_path if is_fixed else obj_path.with_name(obj_path.stem + "_fixed.obj")
+        if force_write or changed:
+            target.write_text("\n".join(out), encoding="utf-8")
+            return target, True
+
+        # 无改动：保持原文件
+        return obj_path, False
 
     # # 选用 raw 中的 mtl（否则用 obj 同目录），生成 *_fixed.mtl 与 *_fixed.obj
     # for m in mtls:
@@ -1430,7 +1455,12 @@ def ensure_complete_obj_asset_strict(obj_file: Path, src_url: str, raw_dir: Path
     if mtl_name_map:
         new_obj_file, _obj_changed = _rewrite_obj_mtllibs(obj_file, mtl_name_map)
         obj_file = new_obj_file
-
+    if final_mtl_path.parent != raw_dir:
+        copied = raw_dir / final_mtl_path.name
+        if not copied.exists():
+            shutil.copy2(final_mtl_path, copied)
+        final_mtl_path = copied
+    mtl_name_map[m_name] = final_mtl_path.name
     if local_only:
         # === 终态统计：expected/present/placed/missing 都按“相对路径”统计 ===
         expected = set()
@@ -1906,7 +1936,7 @@ def glb_referenced_externals(glb_path: Path) -> list[Path]:
 import re
 from urllib.parse import urljoin
 
-FBX_TEX_EXTS = (".png",".jpg",".jpeg",".tga",".tiff",".bmp",".exr",".dds",".ktx2")
+FBX_TEX_EXTS = (".png",".jpg",".jpeg",".tga",".tiff",".bmp",".exr",".dds",".ktx2", ".psd")
 
 def _norm_relpath(s: str) -> str:
     s = s.strip().strip('"').strip("'").replace("\\", "/")
@@ -1964,8 +1994,8 @@ def ensure_complete_fbx_asset(fbx_file: Path, src_url: str, raw_dir: Path, overw
             return True
         return False
 
-# （可选）如果你不想下载 PSD：把 PSD 排除掉（保留其它格式）
-    FBX_TEX_EXTS = tuple({'.png','.jpg','.jpeg','.tga','.bmp','.tiff','.ktx2','.dds'})  # 无 .psd
+    # （可选）如果不想下载 PSD：把 PSD 排除掉（保留其它格式）
+    FBX_TEX_EXTS = tuple({'.png','.jpg','.jpeg','.tga','.bmp','.tiff','.ktx2','.dds', '.psd','.tga'})  # include psd and tga for completion
     def _ext_allowed(n: str) -> bool:
         return Path(str(n)).suffix.lower() in FBX_TEX_EXTS
     base_url = re.sub(r"[^/]+$", "", fix_github_blob(src_url))
@@ -1999,11 +2029,13 @@ def ensure_complete_fbx_asset(fbx_file: Path, src_url: str, raw_dir: Path, overw
             blob = p.read_bytes()
         except Exception:
             return refs
-        for m in re.finditer(rb'[^ \t\r\n\x00"]+?\.(png|jpg|jpeg|tga|tif|tiff|bmp|exr|dds|webp|ktx2?)', blob, re.IGNORECASE):
+        for m in re.finditer(rb'[^ \t\r\n\x00"]+?\.(png|jpg|jpeg|tga|tif|tiff|bmp|exr|dds|webp|ktx2|psd?)', blob, re.IGNORECASE):
             s = m.group(0).decode('utf-8', errors='ignore').replace('\\','/')
             parts = [seg for seg in s.split('/') if seg]
-            tail = '/'.join(parts[-2:]) if parts else ''
-            if tail: refs.add(tail)
+            if not parts:
+                continue
+            tail = "/".join(parts[-2:]) if len(parts) >= 2 else parts[-1]
+            refs.add(Path(_norm_relpath(tail)))
         return refs
 
     # 归一化“关键文件名集”
@@ -2013,7 +2045,6 @@ def ensure_complete_fbx_asset(fbx_file: Path, src_url: str, raw_dir: Path, overw
         if nm:
             blender_names.add(nm.split("/")[-1])
     regex_names = {Path(s).name for s in _regex_refs(fbx_file)}
-    # all_names = sorted(set(blender_names) | set(regex_names))
     # 你现有：blender_names, regex_names 这两个集合/列表
     # 先剔除占位名（避免反复 http 尝试 'Map #1.png'）
     blender_placeholders = {x for x in blender_names if _is_placeholder_fbx_name(x)}
@@ -2024,8 +2055,33 @@ def ensure_complete_fbx_asset(fbx_file: Path, src_url: str, raw_dir: Path, overw
     # regex_names   = [x for x in regex_placeholders if x not in regex_placeholders]  # 也可直接置空/忽略
     regex_names = [x for x in regex_names if x not in regex_placeholders]
 
+    # 记录包含空格的完整 basename，并过滤正则提取时误拆的碎片
+    blender_basenames = {Path(x).name for x in blender_names}
+    space_name_bases = {bn for bn in blender_basenames if ' ' in bn}
+    space_name_bases.update(Path(x).name for x in regex_names if ' ' in Path(x).name)
+
+    split_fragments: set[str] = set()
+    if space_name_bases:
+       for bn in space_name_bases:
+            for frag in re.split(r"\s+", bn.strip()):
+                token = frag.strip()
+                if token and '.' in token:
+                    split_fragments.add(token)
+
+    if split_fragments:
+        regex_names = [
+            n for n in regex_names
+            if not (Path(n).name in split_fragments and Path(n).name not in blender_basenames)
+        ]
+
     # 按你原本规则合并后，再按扩展做一次过滤（例如排除 .psd）
     all_names_raw = sorted(set(blender_names) | set(regex_names))
+    if split_fragments:
+        all_names_raw = [
+            n for n in all_names_raw
+            if not (Path(n).name in split_fragments and Path(n).name not in space_name_bases)
+        ]
+    # 按原本规则合并后，再按扩展做一次过滤（例如排除 .psd）
     all_names = [n for n in all_names_raw if _ext_allowed(n)]
 
     # 索引一致性
@@ -2084,8 +2140,15 @@ def ensure_complete_fbx_asset(fbx_file: Path, src_url: str, raw_dir: Path, overw
         # 以 basename 对应回原始 wanted_names，区分“已放置/缺失”
         wanted_base = [Path(n).name for n in wanted_names]
         fetched_names = sorted({bn for bn in wanted_base if (fbm_dir / bn).exists()})
+        IGNORE = {
+            "defaultmaterial_metallic.png", "defaultmaterial_roughness.png",
+            "default_mat_metallic.png", "default_mat_roughness.png"
+        }
+        
         # missing 保留原始名字（含相对路径片段），便于排查
         missing_names = [orig for orig, bn in zip(wanted_names, wanted_base) if (fbm_dir / bn).exists() is False]
+        # 过滤：
+        missing_names = [m for m in missing_names if m.lower() not in IGNORE]
         return {
             'kind': 'fbx',
             'refs_total': len(wanted_names),
