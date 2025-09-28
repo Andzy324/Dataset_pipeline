@@ -7,13 +7,13 @@
 ############################
 # [核心路径 / 脚本入口]
 ############################
-root: /home/zby/Simulation-pipeline/Data    # Pipeline 根目录（会派生 downloads/aligned_glb/renders 等, oxl: ）
+root: /home/vault/v100dd/v100dd26/Dataset    # Pipeline 根目录（会派生 downloads/aligned_glb/renders 等, oxl: ）
 png_root: /home/zby/Simulation-pipeline/Data/G-objaverse      # build_metadata.py 用来推断类别/shape_keys 的 PNG 根, custom mode
-download_root: /home/zby/Simulation-pipeline/Data/datasets   # oxl mode; custom，默认在 root 下派生,  
+download_root: /home/vault/v100dd/v100dd26/Dataset   # oxl mode; custom，默认在 root 下派生,  
 blender: /snap/bin/blender            # Blender 可执行路径
-build_script: /home/zby/Simulation-pipeline/dataset_toolkits/build_metadata.py # 用于 custom mode 下生成 metadata and download
-align_script: /home/zby/Simulation-pipeline/src/align_export_snapshot_blender.py
-render_script: /home/zby/Simulation-pipeline/src/video_render/render_orbit_full.py #
+build_script: /home/hpc/v100dd/v100dd26/project/Dataset_pipeline/src/download_toolkits/build_metadata.py # 用于 custom mode 下生成 metadata and download
+align_script: /home/hpc/v100dd/v100dd26/project/Dataset_pipeline/src/align_export/align_export_snapshot_blender.py
+render_script: /home/hpc/v100dd/v100dd26/project/Dataset_pipeline/src/video_render/render_orbit_full.py #
 
 ############################
 # [流程控制]
