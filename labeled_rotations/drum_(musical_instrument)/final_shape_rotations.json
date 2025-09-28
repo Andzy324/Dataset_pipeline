@@ -1,0 +1,377 @@
+{
+  "997474b01cb56bba632f3ed9f294d12e690d5c57a065862c577efbc158cc5c64": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "drum_(musical_instrument)"
+    ]
+  },
+  "60b627dc8596b48af5cb740b83b5f0bcfc50fc84e37c078234f50701a737b287": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "drum_(musical_instrument)"
+    ]
+  },
+  "73096fe3487779223affcaa8de8f439cd410a99f5f774c3db72fda6ecbf7ea08": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "drum_(musical_instrument)"
+    ]
+  },
+  "38c1b8e6c604a3e49ec9c6349972e4067309157bc2135065dac90d818f2d6b7a": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "drum_(musical_instrument)"
+    ]
+  },
+  "8b762bc7f1516cafca719f3deb877dc1b3bb4a42261b16faebf9d6a9bf678d80": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "drum_(musical_instrument)"
+    ]
+  },
+  "f7117113828719ced04bc01cf7e2f48e4592e07c8916d3a3b751d0a82fc0186d": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "drum_(musical_instrument)"
+    ]
+  },
+  "ce715a4c3e2afc3248be093acf8e637b073eebcf752e80e86ca69cacfbe093c4": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "drum_(musical_instrument)"
+    ]
+  },
+  "07ea25ade3c0d8bdf622a8c626a65abe8d36f7108431f650bd9f5bba6cc2a0cb": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "drum_(musical_instrument)"
+    ]
+  },
+  "7cead382e326b424e42d5a032527da6b090a325d78316fd09f007d69817d9d36": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "drum_(musical_instrument)"
+    ]
+  },
+  "a48f220e0f190cc58f10e3626ce84a4d6e143e052c12ac8ad17ffa849285de19": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "drum_(musical_instrument)"
+    ]
+  },
+  "9221f85ce65a1970d3a407211fba8078df66e231a3ff0ede4831e4f70f088b9f": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "drum_(musical_instrument)"
+    ]
+  },
+  "8f8b5be8d8dc11a37401b901b61a811fe4ec58aa2b9ca22e330f4c93a7a04939": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "drum_(musical_instrument)"
+    ]
+  },
+  "0f3362d32eb42112b1a462d688da403fdedee40a37f1d5e0c6514bbf5689b84c": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "drum_(musical_instrument)"
+    ]
+  },
+  "9a134c5841900ae60269188ef898850b46d932d169adf5a5320d2d45789c8a26": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "drum_(musical_instrument)"
+    ]
+  },
+  "d8412b4e939b21b4350c6b78cf3ca7526c1db5b3225d4ecc7c94e443835efa4c": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "drum_(musical_instrument)"
+    ]
+  }
+}

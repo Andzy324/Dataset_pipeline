@@ -1,0 +1,402 @@
+{
+  "0c107bb42ee056a38cf14231bcc4fa45ef5e96a94ee563fe38b51b13f352c156": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "drone"
+    ]
+  },
+  "736023888867352d40bbac37ddcd115e3e176e8e46882542e4a7d87c1fc39b91": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "drone"
+    ]
+  },
+  "043eed6c5028941a8ad0d079b55bf364e2c28a5b0029a367e40e7f990f6bf1f6": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "drone"
+    ]
+  },
+  "e424373d3806351003f1ff0d4a9f7625ad2635cbaf0debfa27bfae62d43b6007": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "drone"
+    ]
+  },
+  "d7e8135c021fce3e6922eaeabbe41ca4e7de6082876e468cb31b8b07e867c1cf": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "drone"
+    ]
+  },
+  "6ccb98586c822ef428c38e9ba1d97fafc9b29d0dd3e5ec9296f61094764b51c6": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "drone"
+    ]
+  },
+  "602e77f43e5c614802028bce93d2332947a05a7a97d9109f74f2dc5bfc6fa890": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "drone"
+    ]
+  },
+  "b3f97fb5aabbf9fa77b2bc8efc246d27684f83eb025d6630f6736d2334437391": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "drone"
+    ]
+  },
+  "e070448fef2dd054ec889608c40705a3e9dd6b5c1bd117b76f8307faa6c4c97d": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "drone"
+    ]
+  },
+  "e4f44dc1128031c9a71edd52b4d953c0e11655fabc94fc59bf6c81d536a07c29": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "drone"
+    ]
+  },
+  "4e6bc57e64b4ca70d557d46bdbc6800d20a13496be8d53d7ac06393637df9985": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "drone"
+    ]
+  },
+  "cd0228364aa666bb20cd05126cea4fdce81c44481aac64cc6f181a9d19c08465": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "drone"
+    ]
+  },
+  "98ff5385a86cc3fc4494d890407058bd14b835795b6a8d5742de3e78b721c7f9": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "drone"
+    ]
+  },
+  "65a9d8086cd28b8fe9bf148464291276e80375c988c34932aa9373cb298a68ba": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "drone"
+    ]
+  },
+  "72e8636e6a4b36eee8ce657cd20b4850afd8956d650d72b710ebacc7c03bc5d6": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "drone"
+    ]
+  },
+  "fea6eea9fb4c7363bd1c39057bf7f95d54292d77ff5806c5b62c146238020863": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "drone"
+    ]
+  }
+}

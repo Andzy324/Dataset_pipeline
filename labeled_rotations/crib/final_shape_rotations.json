@@ -1,0 +1,452 @@
+{
+  "6fc066f24c83732a426ec4f1e30023ce48be24aad631e5980f8547bc54bb5394": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "crib"
+    ]
+  },
+  "a2e2042f4b67d2e767f48e6dfb97c58c484379eab5ba4a5b009e7defe2cde1d4": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "crib"
+    ]
+  },
+  "1ba571eca248199f33e26181209f9d9cc209b63c33c9916a2b366c5f7d36258d": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.9967346175427393e-16,
+        0.0
+      ],
+      [
+        1.7938038903913487e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "crib"
+    ]
+  },
+  "f36fc443cfc7d7f7ffdd9690a9d7f0885405bceb38a6f5aa8095359c3dc4c17c": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "crib"
+    ]
+  },
+  "da33a90cf61404ed5e1c361a55c8b246d2bfcea0eca726feb101bf09d9d4e7c7": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "crib"
+    ]
+  },
+  "c242068a570448f94e964ea77c9127f85798f5b10f9b000838474072a1c020ce": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "crib"
+    ]
+  },
+  "3b96e033c7ef41125ab9e9b2c5590ce9e98d6986ae82531ce54c7e25de33b26c": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "crib"
+    ]
+  },
+  "c9d575cb2213179ef80872a0a7b8d1303fedabc522720ca5ef13c0296ade9a0b": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "crib"
+    ]
+  },
+  "b3676c794f2a8d452c129c28417654f7dc044148d2843c40b49394401160f971": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "crib"
+    ]
+  },
+  "002606eb3b7ef80d893484076feb487127e91139a2503e48654cc2b6dc11112f": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "crib"
+    ]
+  },
+  "8a1824db6aa37feb6808ebf95a74176e48ac38e55ff6bc1e3346351357e9191c": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "crib"
+    ]
+  },
+  "318ae87902f5becbb8da39e8e45870bdc6f304ff615d15869ea7f7a13815ac9c": {
+    "rotation_matrix": [
+      [
+        1.9967346175427393e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        1.7938038903913487e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "crib"
+    ]
+  },
+  "247b502ddf6401f18250fc3e789cd3a6d65e798ba95ea6484a5e441cec5da279": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "crib"
+    ]
+  },
+  "8451e1df934730ce9245b255c5baa7539313d55019612164e1f0057692e9a351": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "crib"
+    ]
+  },
+  "b943f51eff151f1bf235b464f3192015328a2609d51dcffe6dcfffb98e4d9fd9": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "crib"
+    ]
+  },
+  "52a7683e7fa5205675340b3af7daaa955cf89e7a0dc437ee60304e836630827c": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "crib"
+    ]
+  },
+  "49cd00b3a31b8dc3b9d3f29ab3e29e44ad9cc4c0c368e3bb2f13f6652c270c90": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "crib"
+    ]
+  },
+  "99260e2fdbcb96bcf8708ec395d90ef59d67e368fc272b24f5641b88cc988851": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "crib"
+    ]
+  }
+}

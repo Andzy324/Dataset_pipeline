@@ -1,0 +1,1952 @@
+{
+  "e3e4867fbd992e43b5b23be5a44baa839103be53cecd405f0c890c712a3a5cc3": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "4e99de5cc7da676c6c902f01fec1cc9fcbb6429aa3379862f3bd3d0f1209b09b": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "405f480747626a13e37c8f894c575018cc04a01a8caf2d412bcb638ca75f36b0": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "55d64570d43953c72b224e8d786e72f34af5f374b123de98df5589e6ad631716": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "c2e003d49d849c3541071a8b8875ab8cea1b735cb30671f89179cc503212ea9b": {
+    "rotation_matrix": [
+      [
+        -2.7817808468846267e-16,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        -3.133961632045815e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "3a470d26f8c564c0d6b3a3685394e61149eb3ae5400edd6d890ac6a8b1abe7d3": {
+    "rotation_matrix": [
+      [
+        -2.7817808468846267e-16,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        -3.133961632045815e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "b1d340f658818034e0b4fb71c7263b38aa4553ae0a49ef404c8d979046bac1cd": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "snowman"
+    ]
+  },
+  "8158873c5e92468f5528c92d23e4fbeae8d64b08d82e9a7a67b449482c6b8958": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "9e6bad4027ed15fa298fc0eb3ba92cad4bf5fa0f9043bec9c743631780abd96e": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "fa689749d27142d8877255e8bbed6a21a2685a8f66de617198f1efc98d899f8a": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "3f18366465580911b4c59da8089266454ed766bcd3ba0896ab0c8979918bc692": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "a2d984b022fb0e468e5ed84f52ac3718ac877deb1de0fcefc1673a9fed91974e": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "snowman"
+    ]
+  },
+  "cf0ec102b8a1e4618f61efd7cd7e164c02e677632e4f486bdb8d301635f4c469": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "52b16412b169749b6dcb2e3164e7e73d18d04190e05278edc81f6eaefab81d2e": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "8e30244ea4051dca9508e0d678e6346edd59f13cd3563cd0533c28de092a3a68": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "8c8db7d8e344583088d67ca45bab679a46132c2f74cacfe33d9da0b30b8143fd": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "71f714dbed30ac74426bf00bc22746ff023db489b0e0e1198b4be6ce7147f8d3": {
+    "rotation_matrix": [
+      [
+        1.9967346175427393e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        1.7938038903913487e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "6d39c63701ca9f064e6d4d3617f4835153dcce1c35ec99ef23891001ba1379f9": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "0c3aa866f79a05db879410dc5fefad87271d2543e43f0ce446d5af816a772d7e": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "65f8e5cb7f653485d26d5276caca56989ab47977a1dd6d51be336a38d400fbd8": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "65815d8b70f44db5529f6d59ac960cef33c7e7ae723533556b59d28bf7ab248c": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "97124e795dc7b5147390b1091d2586d75b08f5b92954f20df9c0a21085546930": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "1899e63db4dd7bbf27abe19fc7519d2af49ddee8bc2adb8245bacc9588200dbd": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.9967346175427393e-16,
+        0.0
+      ],
+      [
+        1.7938038903913487e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "d33fc8c1bc747c62c33e85d50d7ead1f69498aa6b777a395abc18a08d396f0ac": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -2.7817808468846267e-16,
+        0.0
+      ],
+      [
+        3.133961632045815e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "8b48283fa36389fbb8824a4baa0df98fa8a8bd469de049d17aa8e5ea7dfcde07": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "976ebe8ab077dcc386808bbe4faf0e825c4a189bf7cfc68157530b5eed612ee5": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "62fcbc15b449af460bd9ad9e76e633449ceef557aa3fb1562d0dccc609f101ef": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "177dc529dee04ac306ffac13f526556c069552cd9f09a0f107c8a2a54f738f40": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "977a6460ef254c5e64f4ad068d58d896cda2977c3e13ce5ba011bac05dfd8385": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "b1740ef8f673ba07f52652efc0d23a3c8a2721d2540dcfe08e89b03f2047661f": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "cd109a06d48c45c010937c0c29cf13ba8d06fc9a626fcd8af74caeab45e6f814": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "ce37fdee278563e48c7f62f2bb7cb5f4c30669c5a39b333a8b0bed973391f2f4": {
+    "rotation_matrix": [
+      [
+        -0.7071067811865474,
+        -0.7071067811865477,
+        0.0
+      ],
+      [
+        0.7071067811865477,
+        -0.7071067811865474,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "f9c8784356fbe6aad77a17c344216e35202f6ebb06a58e83e74919509e1fd89e": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "f08f9f5ede869bd20b845216655c7fc8731909942e5ae362f849bb30832a524b": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "d43da01f8de0660681e07e854ab66a1c509946db06b609d34d7437afce0f5c18": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "ff6e3ae569703868a6cea74d222b906f6f946fda21cec8e1f5918b0282ddaa95": {
+    "rotation_matrix": [
+      [
+        -2.7817808468846267e-16,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        -3.133961632045815e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "82aeee86b012df44434de86c68121bbd369135062946c0c0a962af6de515e29c": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "4b9a06c39fb6141145efbf3053ea75e81de6f1bc2c9627c6a0e0c466137971d5": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "7447afc6da73cbccf878d39a6347d200a4d50e91cf38acc25f52698774b7f3d6": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "snowman"
+    ]
+  },
+  "617b168b8ce734e336bebe0c1cfc5f56f2b1822bb1719b6b4bcb205b8d8e0a36": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "015f9866e70efec8158845b8baffad27fb206b7e586f4b5f0c0fddd3acaac72a": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "ea6df8a3bda362e1d7b67c699411754fab767462f0a5ad942ae33cc181f6de19": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "9a7adb278ee968c2b08fb42af41b0c08282f47966a7dcd7b467a37058fe93d90": {
+    "rotation_matrix": [
+      [
+        -2.7817808468846267e-16,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        -3.133961632045815e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "0ec267f18fa85ecd9ea0c5ec1e4f3badfb6dc7306d51b404d83cc8f70dab8d9a": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "02519f3a69d4bc3528a8890d91bf46f6429ead65dd51e6ab5df66abca7a72d1f": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "d8a0b65b3d1c837f98802c5c0f9faca5106c9edf8f495e9c91a73fe1b84e3ae0": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "cef7062821aaa033bd61a5baaca4950c36b1a08d0a82ff3041d68df6aa08859a": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.9967346175427393e-16,
+        0.0
+      ],
+      [
+        1.7938038903913487e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "9c4bbe12794ab4e882f8e67a237685104eb351e721dd953242c408bef3df604e": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "35b603466ce612ea68e5aba139d3311b9c00b2bb996c156fa51a540860191ab9": {
+    "rotation_matrix": [
+      [
+        1.9967346175427393e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        1.7938038903913487e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "86e7f4fb56f690583f863695faeb6444f1f3a7dfcf9fb53530bf2da1c1615d76": {
+    "rotation_matrix": [
+      [
+        -2.7817808468846267e-16,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        -3.133961632045815e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "449f1d21059123c2c2a130b633ed5b416199b7fd3113fa80c9e5c8770621d226": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "9636225b2567892589635ee490661dca8992bf2267c428f8f10fe8fc486c04e3": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "bdacec323ce8aeb247572560226be1646ef1f4897e3aa5ca08f7a3f8d8f3628c": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "snowman"
+    ]
+  },
+  "1a063ce1247fca4f6bd719df2c62c6954cc83ce44feeae79059336d127912596": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "5ef6b64444b47ddc45f3e4372033e5f7702749a659cf555e5be86f1667129e80": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "snowman"
+    ]
+  },
+  "098735308663c7d861d067b77ec6833821bb1df9360b93faf9e931ac64697995": {
+    "rotation_matrix": [
+      [
+        -2.7817808468846267e-16,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        -3.133961632045815e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "b922d838e7fc243e648097b46890243b16813d7801f5014c40c78ecd40c73909": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "81817ee02170cb5c2d18054fd89816e3da3cbe12db4a5565b11dcc11ec4bc898": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "snowman"
+    ]
+  },
+  "37b951e8a61f17a55933c0c67843382e4107cfa7a243129bb0996a4b874bac75": {
+    "rotation_matrix": [
+      [
+        -2.7817808468846267e-16,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        -3.133961632045815e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "361182836ab5715103adc962641f8090e08df18ac23641633163f85a80eeeac1": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -2.7817808468846267e-16,
+        0.0
+      ],
+      [
+        3.133961632045815e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "7da8064dc79620f2a78542d11af2c598c6b25890e000743192b934a784b4cad5": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "5b78ca351966d66144fdbf4d2c9410307e582394ec91881869069eff642adef3": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "snowman"
+    ]
+  },
+  "fd9344be1ac6a6b0662dd7093f444e2147cadeac486ded967b0f6aa72ed83413": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "416ac534319fe564c251923c070815bde174fe1235cd549949dfca67d212ad75": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "c50a64c7e26018719771553848912d1224142438bdff0cc0bdd9775ecf929367": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "snowman"
+    ]
+  },
+  "82aee19ecf6447a36f6f9edb2c2fc84cbc3c023a4ae12a0f2306341b2a5805b1": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "snowman"
+    ]
+  },
+  "da6c4afb127c6871be18c814c3febd1acade567087074c00157fdc3a45f7ba02": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "e8bc91b071fce0025bbaa9b3e5d3b0943648c2c8bb7283f4c6e50df8c753b40d": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "b5d6d18ec2b84460e1c55e05dcbe39a7df826019192e7741377fc5eb3c017f81": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "d83241e2856f4f0ef4e72d86474563af77d9909410cfa2e561cc49fb91a74dc8": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "27d2cbb269c7f344399026f09cc2f3adaf6fffbeaf3e9891a06214edcf6bfe1f": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "0b9b2a5e9d9b7211f6f801d80f162cb6287910817229012f80549cd6c0a8eb2a": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "b51029dd2cead91ef530bd4990097682e2b73a17186bce6110ea2207aa51a130": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "f982450d93d69ce66351252fd79b393ac4a767571d840a04f74572bb1c6148e1": {
+    "rotation_matrix": [
+      [
+        6.572319354818714e-16,
+        -0.9999999999999998,
+        0.0
+      ],
+      [
+        1.0,
+        6.139453910638015e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 0.9999999999999998,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "d7b85fa17b3bc8409af4379e4d34022417c70da3d30aa978e113fce739cd188a": {
+    "rotation_matrix": [
+      [
+        -2.7817808468846267e-16,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        -3.133961632045815e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "ad97700657105adb49819dbb1031074b5a951561e12ad3f32225092dcdfa9296": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "8d9b644d95c2afb1e5dcdb7854a2ce073f2e164d29265dd90d6b85b2cdb3d4de": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "snowman"
+    ]
+  },
+  "b3c309d3ae05ae9c3a4b6e1fc37af5225ee885a5cbaeee2bc662f5b219215a69": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "snowman"
+    ]
+  }
+}

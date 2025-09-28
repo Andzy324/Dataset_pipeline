@@ -1,0 +1,152 @@
+{
+  "57dc035e9592df92170d68929b576f1a37d52b167f6715ac4de8279a670424bb": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "beer_bottle"
+    ]
+  },
+  "9655c14c87cda9cf00bc68a0c2a240ecaca43f34f2b3a7f61c3e0705a263b2eb": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "beer_bottle"
+    ]
+  },
+  "b02fe6879b9370a1aa7e739c416b85f00d0dcf8d78b33dc333767891e5574434": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "beer_bottle"
+    ]
+  },
+  "b0443489d688c20983ec6c1cc06166af75138403701b6772eefa1c2d2202f183": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        -4.677050100851671e-16,
+        1.0
+      ],
+      [
+        0.0,
+        -0.9999999999999999,
+        -4.47411937370028e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 0.9999999999999999,
+    "description": "Applied rotation matrix",
+    "label": [
+      "beer_bottle"
+    ]
+  },
+  "e108d2bf41b588ea1796f233c1c3c359965c90655d382f4f8a7a0a7196d6d802": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "beer_bottle"
+    ]
+  },
+  "646b216a63dfa716ff5129a7242173147aa81f3317d2f152d3390b077b82bc95": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "beer_bottle"
+    ]
+  }
+}

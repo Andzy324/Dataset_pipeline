@@ -1,0 +1,4052 @@
+{
+  "1fdad6b33471e42df7a4cf0997dec45237733e7057b0d569cc90b31ec662514c": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "d35c8ce77ce410acaf590c6f83a8e64f99150dd1386dc4f848e4df506950674a": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "2325b0c3b0b0919669e8cf7b22d4db04958ec0f4e9075e703fecae9688a493fd": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "99ef1636bd00586bc3205503414d2334290c473e086c03778ecdb700605d1880": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "97b9c43158b8f53b3fabca41fafd58ad0ca828ba65d4c403ae73a2700ceb87c8": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "9f7900e38ea930b38cd7ed4dee15a68ef36e5b8f983ad24c6fe600244e97a5a9": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "d1848fa438902c7e368e4a0704e1d261977edbc3202a213d0062fb6f73beb2d0": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "068147183ee11d3c3064cd61cec68fe4c0690e0062aab93a8dfcb561522542be": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "3ee5a0ec5a2a5b4b202c3d4d0fc72b6f471f0a8a9bf5c6f228f3789269edfdde": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "119eb3f4efd2b9221b609411c31384b635b3f3095c1117dd8fe6c803b3a9ab90": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "dab3b13018697d7fa1a5c70f2a9b018b9f5f6f30bfecaa75b8f2c67a2f89fff7": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "a521afcd552906c444894b74d0d452ac8cedbc060bc15b61f0fd8f72b126f936": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "c3c0bd9880e351668212dcea0b8a9287c0d27784c676f76e485a835b8b553d60": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "3bb20ffdeefe4f782a5098f3c33edef73f0b4309a0319d3475c100a53b4f6ad2": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "dog"
+    ]
+  },
+  "0405ee8cfc2eb6266d77a64fdd65badf65850409014af2afd768cf2d0d50d67e": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "d2c2370e28796be5d3a3bc3840522eb9f13dd3c0f1cb19c64f85111433aff8a6": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "024834710450864054624a3bb7ba48a1a3f5fd3820c7e29fa0e17dc1bbdeeb72": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "36736b2d78a8dfbfd61fc0ac9efa34da1681ab10ef76071cc91ed25fa0b14533": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "23e105c8297b53dd3148b9e7eba859f7d6982a5da6e0b0355490a5c808730fcc": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "fe1e5d835e53c215c15b6cec4c0731557db58ae052b302435e05b056b95ed28d": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "d899ced7b842adb5f927a36944b9e3a5b60f71a388e61d2c6f377a47ec8d0dde": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "49ebbf8c01a87f7e384ae795b0b4ee9f26456ad91b7186bb5c3ce7d564978ece": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "dade2fa60470e75128aeafb407fa3689bdb3c433a9bc4e69f06045137b94927a": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "f29b834fb1848a3b3e5d8f9083490588817770acd72ee40acf16cc89732ef0b9": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "b528bdb8fcc816b2760fa0a6b2d1094d6940381ffabc8595a99f1723d784ac18": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "8e5e84e2ad29d6a8c57833afd4b578d179d8933104d11c31a7e380d33793688b": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "dog"
+    ]
+  },
+  "7fc5cde694368a0cc05a58ba2d51977ad12e9f5394ed32bd1763878ce08e7f7d": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "ff7212a81e462d0b0e0e60021eb95a0d8354c02f3a55e4d2ee882d099d16d48e": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "53736830ede1767f77ac4e06aa46e6774bf8e76915f9a05fc95e14c1aae8d106": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "1cb659dceb22e32421e95bf38f25f2489d0b1f38dce40b24ba530a37ddcf039f": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "ffede1daa915b36974cdd1dcc7cf56f7fd70e558ce7370d32f0e6caffddef649": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "b7abca57aef5e42bcf5fd3b81afa31dd5c3b97429dfd25a9e6eefd245e8889fb": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "cd75d8701cc0607711b0417fceeb16ce70bbca3c084280c7d40d8e0df7d43178": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "ab0f6cd17ad913f93aff2667a648eb9753f6dac9a30b0f45ea13fb7f58a62ca0": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "bfddbe060a3bea00f081d70d9720022d50e8874f3375387a10a8c38273fead70": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "3bd9c026dd85b6c1cd1f300d1bcf669b52ab5018b14bdbc632822b9c8852108e": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "eac196c58c624c46b0e222720a03a7a2797f43b058455a5a5997069faa32e20b": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "3594730703e961a7ee6f555da8d7c02f43a8753a72cfe9996fc7dc5292acd4ff": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "4fa7c795a7f6e8dcece05a3e437099c3f460043af60ab58f3b71cdf29e3155a2": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "d7ef4436294267c41d84b6d8f53d9ef67ce601b52628c17c5f2c996d1b29db00": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "755389258e2a76ce513ea7635c702f04723046789684c4d423f674446e37911a": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "a82ad03bd5e115e682d9d88244dc2d95ee3eb1186ac57f13cdae829fba89130c": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "dog"
+    ]
+  },
+  "42e4353d7ef251eebfd9145bd5dd0709cb80a2ba67292a727c8729d0380ff500": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "788b947ad887ad236f6e767e292bab77343c556f2844ee4b921b187b4ad0b984": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "7376a65b5e9f058365e6f4603d7893c3b4e41757076253cfbc681442b6f74617": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "d94e27447a5613ea9b6be27769687e98ec2fb5fec141591d8ab59b72665a37f5": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "aa3da1ab8d18ecf97206aac164dcbafe065b64e838dd6e4f2c0ab982a9db60e3": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "90b0569aba730eece64b9937a3a08a8a9b78ba7064d33a8bd0605c633b4cf779": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "3aa7386be075ce3a9e7f2401282d17cf8baf37dd02292248973a6a42c66aaa44": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "447a032804fe3916ff94e7e9d5ba36f51cf28d2c04fb10aedba8b86128406eeb": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "b36ed553853e67dc32c65ba9587ce28bec895acb753a081ea2bfda604e7ed88d": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "7e957f52f04f2411f74cf609534c03592b9fb5c41a88316d5ae2fc296ecc80a8": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "105dc85d944c4baf908bbd73a580cbd67acb973d68565e7eea24b6d483238e78": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "dec3dd8d382b873aa5d1c2305549df6faafe7fef7ce29798ccb5eba8686ea3b3": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "a1244f78aebee9d7b85f435f2cca389ebdd53bf05ec58428130a4b3b741b9943": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "020c5474517950befa605374a15ad3d5a9552bda861cd18f01940aa6a08180e6": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "fc0b00bf782a39ea7b1efc16e862304966cd1ceefc1aeeacf8e75e9828eeac37": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "e8ab79dbbe0846b87707a1a2db871d0f5b00760c5b4f302bec04035f0edf7be2": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "edd0ec5fd22804afb9dccb966a492cb742388550b0bfa03d7f170a8e3be319c6": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "9d80528760322ed2c83c52b6c0065a99ba19532dc4d5a98dff4e87b82a3f8c78": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "18b651abc0de839f7e0e2f0d03dd155cda5615f5965ac789b468c9633a080153": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "b9d5831cc2e72a5b0fa7d963c742fd07f4c0d73a1c9020be2a624d93b88e5e89": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "b2afa2cd5b45ab138892e84d92ecb7ea0d55c4dbd426f075b0cd698cc7a3d9bb": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "b22f115b1a7a864f7818b69842a468b8236518412e768cd1aa4d69db717adaad": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "5321f922e9c48f2a19a0cd469799e4f1b4444c0a533993c7affa62defde94089": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "0c775da46aee7481e26280db4068a95109f2e636273a598ca1b909d23fb5229d": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "2e302185abc29ad59e9d6c2882037f1399d9e578b04ad91f3fa260f22286eb3b": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "3a02da8e056a9c2d3be94c06ee48fcf929e22d15ffc49e229180e48a007dddbc": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "c71e532d90291bad30cd637198cd3d9120ac111c8a79134794d78ab95c8402f9": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "d4a3aeaa7d5c730bb90573d75380ad5e50e5cb4d19c516dffbb645cc11c41ee8": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "4f71ef7732003677603537fb8189b6bb806c8c1bd8649db109f08b3dd639fec2": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "2b2599574f14c75675c573f27f6598c2942420feda04543537ec0924d9cf4094": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "33f4e94cb3e85c83e82125eb9099bf8023686e84c2ba143032c3acdfd8a9f494": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "69af4a3c3a3916dfb8cc49f4becd572ce675f0b32d96dcd8c533d2b9768c89f6": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "e0e571be753666a2a3c43a3ce5c46a5afd40ec5a9530059f6db7f89ba68d7ef7": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "f8054cd1aaf754ef8f18858d2e44b10749e888b74a41056de0f560579eda1099": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "5f7c8d8622b67934e0a8346fbb8c5443f069b04feacc5ad5c9dacc2ae3e1fcf7": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "4b400912232ee883f4b3c21cea9dd12f981272b107dea22ec0288f0a63f093ae": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "18603c35ca272c64a0dcee1d1e6877aac6614d1e12ddf2d4a86bf18736073bf8": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "a40dd2568d203fe7e867472a228efb76dc9e2d7ff0fe7b9f482ea782a41c75f8": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "79872ee4c6fddb549ff9555a3e7949e506f272db27cac032aeeb532d544bc6da": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "6cb21ba372224e5de0310ee6f62c108e2bdf1608785348d43f2ff3be73491775": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "9859df063afdcb45ad00a852a1d8533d153cfb4b99e3261ec5f8c274e7547feb": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "eb31e0a274592f8d051b2b90df103e6f34f1182e88fe01248b93c7eb9e6bf611": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "60349b91509c00be2869bd077efdffca449ed06e89b2eceac8155d2dc52de531": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "c4979120e2122769a5bd5775e3568ec8f4b2d67ede317b682d029d9f724ae70f": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "76a5f6b773c4e120f4579a2e1a0bb82ed23a1e6cf9ea9a77ed32ee3350db44a0": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "60ebe3e78fcaabc4b53c2c51da2840d34a72baf673dfefbab62a06e35867fbf4": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "75cffe373629e2a4830879f333d3931bae33f05f3f619b39a4baf75fb690505d": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "ae7c8a8b148fc9a590c512e0f25ecb997e5eb131e799d15ffdea609ddf78a576": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "5674371562af5144cac38e4c78b036f39eeeb07fc7a903f7cf790c68123d8294": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "6ee9e97e1b9e619e0a9df5c19deeca1fde4f533430a87c907e49d8baa6f9c449": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "a0b80463a1e368582310c2f9c269f2409c94ca0ab1b7dce6a893919efca19baa": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "f0f21d7fd52f61b9393ff7ac58382db06b594d1e6e7867a84df6d850529ef6cc": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "a17669c8f73198188026938586f395c27fd0a13343d169b69a35ea1058d04cd0": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "0fa263902c417a8d0ed31457e3f86b66e19b0f5a198c9007a1db1210da23a2f7": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "0cd9a78760737bf46191dcc110c067c292767199e946894103052b4bc88a1b5b": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "06a184a32070f1a2deb4ef83b11534dd4878775ce612562a6c51dca3b3636372": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "3e80c83b20aa00f7ea7d65a544a89cb197beb254fb8a55bda61843824a2da387": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "2ea479aaf02841fe9e7cd6c2dedf3cbc300ef6a3ba38caba65dba762f593daba": {
+    "rotation_matrix": [
+      [
+        1.9967346175427393e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        1.7938038903913487e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "aa43ec25924328b08fbc4ef14975f622893bf2e41106c617a7777ade4ca53134": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "b527ded0e5b616d90a9fdff0a7cafcc22e993dce3e7e65c0ac85ce3a8a63acf9": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "a432f8c8cd79683472f3d2f3fca5e0575cb62710fd8e65e6fec4c06d84ee0d88": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "be27a97a01050ef11fef6cdb97a6cd52395c90f450248a6db27adb7911f6cc14": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "abf4bfae3de9b4c4e268e129e933afb1daf593b610b16c380e6bda919da8b1ca": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "4ec5636338f1bc4bb796be189f4f7c6dbc4d7c8cb5954fc5df163469f8752423": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "e99a674e243518294a8db01bef37ec6d319c160549b84951165241cae7ea0138": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "b61b174c39273a3e660f751146dd8dc0a886dbbea4eafa5743446673fc9abb7b": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "8a5c5053e9194d48e247df82146921979112f9baab4e90666d29b3bd89158709": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "dog"
+    ]
+  },
+  "ae72c2b6db5149eb78c2bb1afb4b4ffcc1863753f9a35907c69a2b4ee4668daf": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "585026ad9a8930543df7319c41b580a9dec41910281566abba3161ddd2b8a9ad": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "9b1b3999edc48a1300c1007b40c0b628894e503931ede59ade03762d15055fe8": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "70dc4f7a05858def3254678be270c9636c26acd52d8dd6ccb3e9967bdbf6622a": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "878cbc0ad283da6f008cd040a9dc72409a187da71138e86d24538bd2f5a87413": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "7b4792faaf6dbe48d7d56f9359c6bbd790ef002b861cd3a2d19a9dc3eb84f79e": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "a04fbaf3f8e52d90127906467dee7782bd1ce27bb8d56ae2a6779bd1990be079": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "6d920c5460f3995e13d143125fe2c6e025f3efddbf44b7485fb8c211b3cb9266": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "8f016dc70c03744d4f55fc756dad07b6923901addf6cc0735a42d962f1c96d1d": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "0c343575d70beb9ef42cee33434d90c68a2e6db06fcd93a38cac06a66735e2f0": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "77329c80a4e782245f7c1711ec68bcbad8d796c7f28650a40ecb68b25233951e": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "f24f78d83f96490204b769f597ce61888f87c64a3195476bf4e9bebb6488605c": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "8185b1c35f21c299e55281cedc511b348d60f179e9016c6458f2da588b4b0911": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "32b6b185df6e18bd59edf42a4ee54793e9952716501fecfc5345b150b38ce2cb": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "7c65099ac06909a111ae4da10f1d799c692864683b70a3d5ac4390dd4b0ea098": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "7de2c96e248dff39d8def4b55aced95a645deebcbc99b9a661cdb30019c03798": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "dog"
+    ]
+  },
+  "d5531cbbd24e6588782315260776a7a7ed9742d39a965a664bb5836ba3d2a79f": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "97371aa43a6d40b7e937aa4c1f78247c90a7543634d3a831c17bc1bc3e78fb6f": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "8cea32c13020e72dfea5a9a063e6a9a8dc354157257955b8292bf83e655a39d2": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "9560cb7b29b8823c04b6bef6afe6ff9f3fb20702167b83c7bf1ae38c5a613d6d": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "4f698319c1e42c5e69644c3fb6aca170532adca743e71f0182e91c291c7a6b70": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "b68fa7258a179b409260928821547d2e67811beef8c461b1ed373b93ecf089cf": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "d697c9c1a1c5deedceb5fa6caf76b1bb7d4e3fb49797ed44d3b9161c5b9cd0ee": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "f829461591b59b5e2e564a349125404b597239da2c1496398a881539b8e3ab78": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "dog"
+    ]
+  },
+  "0395a9cb00138775c7945f341e4c0d2d50a17c2dea5ebc82bcf3f7f8c9edd0c5": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "cc47bc78cf014c34f5f4a4f72f89f9c27dff0106f47482faf4c52f72fbe0366b": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "dog"
+    ]
+  },
+  "63ec4500bdc92ea2563a3ddfdcb3b3d38031d2d660edc013b64989cb59ec1073": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "0155cbd974b49c1a0c502a2851a16338778f91142e8e3d095d673fb3abe6ac99": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "c591ac1ea9b8405598436fa3a200ce3c230ba9f8d8a744c943b42136dae4a9e1": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "2fcb57930255c6e8dd1e5eae0dc86bd51d6060e7f3ef5c59e0e210174f97b619": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "cd004ad99c5df56d605a0cb029dd6a2ea7a4d366dcb50f48e1097698ea218c2e": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "90f2caf17937a0c93d1b6d37bf68b50f86552872b6e33962df8967b439ac652e": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "27a9b88baca85a11b2bf2248ee1413c68c60d6d824a8feb40468d9d9d2e7ef3b": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "bd0251725ac6708c77a9567f0dec8606ccb3c5ea486dbb90bcf51ba4cf1a48f2": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "d58754fa29d4434f48fb24d975159fb5cf77d5dcac344bcad41c6d2a4b46e291": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "21c2c7609edbaf1924bc21eef6af9827b30c392f90a124911e6d311cafca1ad4": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "69e04d81acb065e5657fa2d8db037b14adfdebafe9facf11a7e734112ead2389": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "0c0254696426b72e76317c4d280b7f8a0d475457b4192665b12a69b3a52401ec": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "78ace1e8dea81d6f1225b8e4d4fba224d6d9211e70737f19a12fb47494eff4e2": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "dadff5f02d210dd7a5620727e6e67244e5cc1e06af2468178c87053171e86609": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "bd9fed1a820d9ae7f349b43c0f4c87e7c11460213fc7459d4760b7f3f12b66e9": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "5608d3a6158aec5db097dbb6f754fea273ee8e12b5c17f9825a0bcf94bdc6658": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "30ff171a5eb9221e9853ddfc232bb39893cc744dbebe3a47934e6c3340704c10": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "9ac58ffd3a033d793c37d168a1eaa3bb5f10cc6b712b83782726594608fefdd0": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "99009d2d9e0dfd711fce5a402ce7c342fc363e6cf94629827092e2baa4a11816": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "7255f4b780b1588e2f20a0a0c25a186dafeb73ee1d6dd6712a0dcb0d58d71f1c": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "ac1653936109b0e468e75a3271de18c6920602d47e9d2e97febaee30290de6a7": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "9bed2e34d709ac116e39a264c727e81810a286c81c4e7d830c1ec95e7b03535b": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "41fa97ffe1a3623b8d3fc131a929153480eb22aff60354d43630eba342dfe10a": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "3190af1d32300f0b42ee40d2c8e9264f8f0ebe12fe6785faa05086a45a500830": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "afa3a933327879df6d82aca6aabbdab79c6dfeb2e694225953513fbaba1cbfd3": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "dog"
+    ]
+  },
+  "e03ecf39212abc7bf5d2d23280bc63a88ed3ef8537a214ad48057378863e8c6c": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  },
+  "1d0841d6bc6ed37ac66d5a2a53799bebbf7853ac69361aff970ecea3a3a83f9f": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dog"
+    ]
+  }
+}

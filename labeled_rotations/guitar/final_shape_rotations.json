@@ -1,0 +1,802 @@
+{
+  "889f9d11347bcfcb08ae75d13f6e27e106ef95ca0496d5feafd6f986cf1f0b3e": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "guitar"
+    ]
+  },
+  "462657f1df7cceae8b936102f384aa6f01ad6ec3728410ec0b23e9d3447eac56": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "guitar"
+    ]
+  },
+  "a9840cca754d8f9e1502700194a722dd98df88d6339d73acb084498e44480e7d": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "guitar"
+    ]
+  },
+  "9de9e9982c4daa86c5bdfda8506baeb4e6ae124abb3449297fb453ef6d77f3bd": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "guitar"
+    ]
+  },
+  "269a502ac1dcb18dac2f07e624f6e2b4c760792623af88b6543d5b049244425c": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "guitar"
+    ]
+  },
+  "82a217bc3ba57e1fe4fae903dfe16f1acd53092716bda97380357e482d14f111": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "guitar"
+    ]
+  },
+  "90a665e147fd5a74294bbe093f7cd3b0e0d0cba20efa87c7231b892c9d35acfc": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "guitar"
+    ]
+  },
+  "2732a494578006982c7d8a673f750b2c08db295d3505a3b1eb9d9d0a77b33269": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "guitar"
+    ]
+  },
+  "c11be5b4818464a8cc55c3d38dba5caf3f81a54af370a3a842003ba9a694b32b": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "guitar"
+    ]
+  },
+  "446cd80f66e9df9f71ac15dcd809a60cf067839708073094e40944452b9c29cc": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "guitar"
+    ]
+  },
+  "a0b7c0c9e01e00fcdda33abd4b8dd079eb64146471a8dd3e4dd6cacfd736023d": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "guitar"
+    ]
+  },
+  "9bcbfb22eee72a48ee4807356585768e1c96b92ee12978816e15f9350b414981": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "guitar"
+    ]
+  },
+  "3d2919c63db84597ca1e2db6c93c7f460761bc10a62890b0a71c31c4907f29e5": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "guitar"
+    ]
+  },
+  "b2097d86ea9e9a11963ee5682f0ada511fafbee8e1e70b755028038c6a7f66e6": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "guitar"
+    ]
+  },
+  "2799df323fdf29c98bb3038e98bdaad45ff34b68083f5365ac710146dad457fd": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "guitar"
+    ]
+  },
+  "fdfb650489b8bed7ff97668b9dd6353529880c35810317b5583bc6b6694e1f65": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "guitar"
+    ]
+  },
+  "bb2472a2e1bf7afb710a0155b49900750e2bd4c975f874e10cfb4d585a86e3e7": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "guitar"
+    ]
+  },
+  "a7e1a143014d70120fcaa5abb494feadd3f478b19e9a4e5b6d9ee1bf8318721c": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "guitar"
+    ]
+  },
+  "42510fe0e488fe0496c6f6839388dc27726a9223c48907f3a6b299d75f2c7d07": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "guitar"
+    ]
+  },
+  "bcf7bd214853866138bbd6f87206bd4531cfc95d952ac99583e62e2ff4ca0bf2": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "guitar"
+    ]
+  },
+  "0dafcb8814bcbfb0210dd6eb73c81e283cecf0877e8579cf9c1f94ed5bc4abe5": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "guitar"
+    ]
+  },
+  "a84b7ca790cae74b80f62d293be20db69a7140e72aa5dce7ff6444007c84a108": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "guitar"
+    ]
+  },
+  "ba5ac27c28d640065e70be93f0adb17d86f5fc769f27afb40595a384a1216fd9": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "guitar"
+    ]
+  },
+  "904cff187db97ec3c9fb1b6efe4eced2c5658363e0258e317ac5482f93cc4050": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "guitar"
+    ]
+  },
+  "61e12c6a45e1c661d3d1163288e1d634cde47d38bdfa784d4897fb92cde21470": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "guitar"
+    ]
+  },
+  "3b25ac58c8300503315f79c957441f44974cc3751b67ea54048faeb62b5684ab": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "guitar"
+    ]
+  },
+  "b4258ab4ddf7d1846aaa39d61f1de0129235637e5f4f159e60936d886e2fadcc": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "guitar"
+    ]
+  },
+  "b4a2cd97fe0051699f63b306d57fdb36694a533b7fb7a3edaa2e009042504a12": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "guitar"
+    ]
+  },
+  "c623c55037c610b1907a8ee29e36fc6b503b3a15bb1e2303e2982e4e18a14a7b": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "guitar"
+    ]
+  },
+  "a8b8bb1655e7a6740dfc5dd9f3e21ee1369b7bd3f100ad9588619dc6cded70e0": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "guitar"
+    ]
+  },
+  "addfb6a307ee40e4f77547fbef33720aef12e2713d7938eac785359ee1e6966a": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "guitar"
+    ]
+  },
+  "419bc552f38e696d2b361bca4a1fce2762c130421ae136a10c1aa134da31ee02": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "guitar"
+    ]
+  }
+}

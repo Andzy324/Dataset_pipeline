@@ -1,0 +1,527 @@
+{
+  "a0db60fcab969967ad4a2b6ae1b7f68beb19a75da8cb86e3cca39a2f80d378ee": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "edible_corn"
+    ]
+  },
+  "adb15ea9eb31b70736a24e54ce4298146461ae06761758a09684383c8f0ab3d8": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "edible_corn"
+    ]
+  },
+  "77669a5839e70914994f39367fc12a83be89fde7480c72e86d67cff9605dc854": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "edible_corn"
+    ]
+  },
+  "a9a564b1bdba0be540f6d749af8e48925f77eefeff3f16988ec7f1e35a5fb9d6": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "edible_corn"
+    ]
+  },
+  "f6105c36b907bf52e581deb381553ee1915a157e48c2a1b7be4a7fb62597dffc": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "edible_corn"
+    ]
+  },
+  "1878f8944859ca110473fb6b9f4e032d1ba31846309c483f3fa221f21bf62479": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "edible_corn"
+    ]
+  },
+  "73ab1a3c9a4e90ad981f65f07c88ed5b8f6e7a820b2a3c86b19b2b663d0ff42d": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "edible_corn"
+    ]
+  },
+  "3ce74daa09c61f2a4288231f43142bb20a85bc80ab3882e87356d98b75fe4323": {
+    "rotation_matrix": [
+      [
+        1.9967346175427393e-16,
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        0.0,
+        1.7938038903913487e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "edible_corn"
+    ]
+  },
+  "0dd2321991d2cc4ac0f3bd1151715c03ad60c4099289b21c8f394c9b3595249a": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        -4.677050100851671e-16,
+        1.0
+      ],
+      [
+        0.0,
+        -0.9999999999999999,
+        -4.47411937370028e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 0.9999999999999999,
+    "description": "Applied rotation matrix",
+    "label": [
+      "edible_corn"
+    ]
+  },
+  "797a95bde4d5e08eebce69f8da5dd76ab2c0a24f12fed736e33c5f528f6988df": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "edible_corn"
+    ]
+  },
+  "cf622a57be47c00843108cdf2fa160ecd5b3d309352e0fc94ebcb863b4692365": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        -4.677050100851671e-16,
+        1.0
+      ],
+      [
+        0.0,
+        -0.9999999999999999,
+        -4.47411937370028e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 0.9999999999999999,
+    "description": "Applied rotation matrix",
+    "label": [
+      "edible_corn"
+    ]
+  },
+  "754bdde3dee59bbffaa48ff56ba87bb2d4304584449d507153b8059dde3ffdaa": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "edible_corn"
+    ]
+  },
+  "f10e46dce84715e8bb7c6db5bba967ed39335860e40a4d83acfbfa59e6a1ad86": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "edible_corn"
+    ]
+  },
+  "7fda2835c309ffc38af8a10ed79481de50aa96eb63d62ef628b2d07eb008ac4c": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "edible_corn"
+    ]
+  },
+  "93ffebc50430dbd989f6863290d4491a58fd444fa6be79e4918592cc361e9695": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "edible_corn"
+    ]
+  },
+  "affb8628afee1ff921856f2096ed64f0ca6f24cf1a60c0b65fd23e19f2a7511f": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "edible_corn"
+    ]
+  },
+  "5b1d660d6259a4fe771018de4013fecd78108a83d7688f79a9ac9e097bda1bcb": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "edible_corn"
+    ]
+  },
+  "7fbe8ec1382f2958848cd496974f20c2a4a9397f2eb0741fd0d4135acd9ea8af": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "edible_corn"
+    ]
+  },
+  "60b8005ed8a7604c2d6864e238ddb772161c3639d1108d4f12b3419365660231": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "edible_corn"
+    ]
+  },
+  "1e60c1fdb67ea77cbc31cd44cd351ba8ea92de35138c4c12dde4fc881fdee635": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "edible_corn"
+    ]
+  },
+  "60caca05c8b4289a77b3b11bee827e3c8c9f61eed732d8f60b46bdd31f23aa0b": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "edible_corn"
+    ]
+  }
+}

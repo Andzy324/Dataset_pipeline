@@ -1,0 +1,6164 @@
+{
+  "ae22d18bfa50199364c72d124b14bed82e51fa5cc98540854f72460b93887fdd": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "08c44abe336fce39f5ecb6df61b59502f92bb004cb24252db430f6f1c1b95dc8": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "daea71b548847d547b224723cff6f43ee21c947a26648198644190f9417614b3": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "be92f8b67c5859ecffb6f81e32872a1426fde3d7f48bb07455876f8675143228": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "4056d7e1fe7da763368a1ebb5e2ea8f7c37eadd78f4cc5922963159467173778": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "f85aac335bb705443b5d2186369a182ef69c526dd4991f833759d283d080b98f": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "3b2325b8125bca1b9af207b6fcf538647a20607efcc90c00d6d9903a8898f046": {
+    "rotation_matrix": [
+      [
+        0.7071067811865471,
+        0.7071067811865479,
+        0.0
+      ],
+      [
+        -0.7071067811865479,
+        0.7071067811865471,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "abc17114b4f9dbef4c68763866289d9454b3713b811d51e81255a6b6f64474c8": {
+    "rotation_matrix": [
+      [
+        2.220446049250313e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        2.220446049250313e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "5caaad218a93c9f523781681d1dbcfc1d9bb8bf89a142657c22a1dcb81304cb1": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "5aab9cd6bc36a78cfbd34d358333f4037b6b59a711eac33907086ed013373379": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "b6ff7225d12f42cc95893a20386ca36a8feaaf30b6f5b82ba722c080026a44f1": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "a7aeeaeab5417f9ae4785c4eabbf353b53300aacc23e8676028eaca46de0df80": {
+    "rotation_matrix": [
+      [
+        -0.7071067811865479,
+        0.7071067811865471,
+        0.0
+      ],
+      [
+        -0.7071067811865471,
+        -0.7071067811865479,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "b4e43128efc72e678c41f06d34b2245d30239808a6f33eeccd80b9e3634062e4": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "b34b4697491c1dd76eb4b618faa6f6b5a26d865e30fcb2eddc3f4a01780415f0": {
+    "rotation_matrix": [
+      [
+        2.220446049250313e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        2.220446049250313e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "142a1d2bcecc54b894673de03fcdf17e0faae733b221cdc5475d73a7bce39d17": {
+    "rotation_matrix": [
+      [
+        -3.697785493223493e-32,
+        4.440892098500626e-16,
+        -1.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        6.123233995736765e-17,
+        -1.0,
+        -4.440892098500626e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "d80f84a803012e107bf72472352377ac81294159a409b1110106cc8c760bb702": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "7c1dcb72cb8e2561a4af21631327511480df44720fdbefe001a359325089d6f7": {
+    "rotation_matrix": [
+      [
+        2.220446049250313e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        2.220446049250313e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "78ec802170231e046ae462f1caf03c75361b0da9d1657f5896c6726091d13fb6": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "6e12416d76bbc87f475f700a90234ae86549e948d698d9a255873c7ab6c34d86": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "b03bcb0899066fd929c122e63c7972402db7008a11888113411e7e40f324a33b": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "4a88590e887faf11a8dba41c411f8aa81134cbc4be7eb045e798363f8d78d1f2": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "f4bdb98897201181e2dab437f37f2d03bbcdbe5d9ea5e9cf8861931549f4aa5f": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "348523f7bdb9cddf9c1fea6e16a1365c0c9af4d359c4437cf13ebfc620afe181": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "94a1fa9c8086730c68a04efc1d187b699db625d52152e3b63359a6261be2dc31": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "6aef93c38bfff67fc07ac3c8e43e59dd8d6724210daeacde5abfaa210a3b3dc6": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "3af3b489393d4895112d187dba56fa8c4ee74e096c11d71aad296aa07c1dd29e": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "f4c7210dcbc5d2488357bd7821d34108eaca71576b846e03478b6e19fd6c3d69": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "a8296a46a17bd188c6dc29f2948450b10d3fbbb5f7380d3ed9a7741ab89fc8af": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "fcb033eb60a205d0a7841e8a81cd5833d2ee862f2ea26b5f379482423beec22e": {
+    "rotation_matrix": [
+      [
+        -3.697785493223493e-32,
+        4.440892098500626e-16,
+        -1.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        6.123233995736765e-17,
+        -1.0,
+        -4.440892098500626e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "5e70b9e2d8017c5d0128e9e53248937351fd30ce6a87b6bb3e48a29e6b136fe4": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "73e054c954adba376778bde61c627fa3faed4b69bbeb19254439fcdaedcdf97a": {
+    "rotation_matrix": [
+      [
+        2.220446049250313e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        2.220446049250313e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "57ec40c34d852ead0509c77aa1ae5b1beb5f44c0a54174819625b802165af794": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "f9a0e93d12e3ef4a1c65dbae69385b66e9bf26bb8d7672d471356506a00073a3": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "0621b56abfc2f80521a863c9a2c5068fe1ffa63c9459910ec0ac2bf6a0fce15a": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "5fb271914d9349a5f4f03478f9db4eb861cb1d83fd0cd2166d28d0d47f0ca9bd": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "5f805bfd86b80f1abb1536dd13a3ca0ce10071e532d172bbd34e39b9076557d7": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "562c92ac3e0199f6e1be8dc0a5daa9924dd04bb8dd46fbdfb0786508b1984e7b": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "383bbae1edf6ce36f91b85e14ac2bf8b84357f94c628119bb8f4bca04b0cd948": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "9148e46994296a386a4c3010d2665d589d05e834195bde5876e711ce1dfe23fc": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "c33f82fa4fb242a8475e6c8ac61cab69d15aa09dd7004c0433bcdf50d081b9e7": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "b3ffe5005f7b332e8858826b3bdc03011d54003771f9d0b534c189a8c4dfb996": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "30cc4fce9049393c0908fbb364279ea0a16cef7a2337ad97d7d66ddaf3e6adb6": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "2f8e4c9f4fd75d8674313405c426ee20f7217ec5417b0a565f18efc689bdf67f": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "669f4bc3726a43342675a0a2efb58011cab9d9d9086f16884d16b04489e734fb": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "91bc413a578564f61435e1ae372a5eae6279bc3b9d40c57d4b5661ca71426da5": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "fa431fcf5357ae4a483028b64b021eebc46748391d1f62454ad80ea0ba021e2a": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "a0065e8bd8c01335f65808519f3970379568a6bcd2559ac6a4bc57a0c0bae3e5": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "5d0ee810ffa55dc6bbdadba76ed2b34cee4e011f6b66b3bc428f191460c56d07": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "cd9edf5a166b84236b00b8ffb36341b25b904f76cde4dd8468fbaafdb2a2944c": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "8aa7b33f78e486477f0bde51d10b679217d44ee1619e38f365a5967bde37dbe8": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "81f63216b52cf5b8994644c81947ae77806a27628d30ae1e2e28b12ec01f854c": {
+    "rotation_matrix": [
+      [
+        0.7071067811865479,
+        -0.7071067811865471,
+        0.0
+      ],
+      [
+        0.7071067811865471,
+        0.7071067811865479,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "e8941cc0e9ce6461cd9c487d2a92b36cf2032abf1f50c2dd39456456f59b6e23": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "0c96170903d1fe62ee51cb4d52a6a1dfcfa17f9ba6870e1dcaf1f8fa3b576852": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "e7eb8572f0a7ddbfed910ace65427827d0d71b844dfb5d1ccd5caf1ebfe800b1": {
+    "rotation_matrix": [
+      [
+        -3.697785493223493e-32,
+        4.440892098500626e-16,
+        -1.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        6.123233995736765e-17,
+        -1.0,
+        -4.440892098500626e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "867ec31f691d2d15f001ec52e903d5a80e5579a6e6637afabd40eb4e3fc0f8b6": {
+    "rotation_matrix": [
+      [
+        -0.707106781186547,
+        -0.707106781186548,
+        0.0
+      ],
+      [
+        0.707106781186548,
+        -0.707106781186547,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "c895c06f0cc4c7394c2971f4a6b72dc8ff1def1526cc92f5b36940cbedea7b77": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "ff960767385e484cb91a43eb4e09c4e9804d530158fb6e17e0276a0768f3648e": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "5315acf4cb19acc3e6eaec43ae21f38fcc8fbec192ff867251ad2d4faf49d367": {
+    "rotation_matrix": [
+      [
+        2.220446049250313e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        2.220446049250313e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "2ff0f41eb677b3a39fd649c87e23a03e8c2badd067968e5e4b554ebb2163a54e": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "b2c80100b7e95341d110ecb3d8adce323e86f90d3cb16d0396f4fd1f2539635d": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "d373ec19b6afe80a5cee8b0a8dc601083b1105df4e5d6b789083be4435c6f88a": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "323a1bf6632c7b08aad1d9b9d4e8880b6ad7657e5b5d2e17044319ff38bf601b": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "06c81ba9ffaeb41c750f271939496acf3172ac6a7a4f93eecee41b8afcc70cce": {
+    "rotation_matrix": [
+      [
+        -0.7071067811865475,
+        -0.7071067811865476,
+        0.0
+      ],
+      [
+        0.7071067811865476,
+        -0.7071067811865475,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "5aa350d6744e6a298074c88d65ace32cabd6f83ef42b9a98de2a36d5c393760b": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "beb3d25b00a5f068330d18fbef558d987d42583c9ae81895bc22c9f11dc7f223": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "d479f5bb34137d6ca61872bf2dfdc67c4eb6403a89902fe3bbc0d9e055dcf8c9": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "7ef13ce30889a54ce41e3920cfc5ff93acb34b6e9a93a0edee5730ef36928757": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "dd72b464d6f2597c6362c2f1f0f58986a2d477358fd709154ba9095e55c8ddca": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "67bc66ea5926aa4d71194c0f50731eda5ba1f57864d5ed67b53d1bed994c0337": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "36f8495d04da3c8125380ad02af7e798898f5c8fed2811109e473634c2e87ddd": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "c45b1870c05f12fe845bcae5c9be04ff70a1d9f565f703886c5fee641ac97c31": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "258d3b83f4d334c76879a14f35f07ab64bf843a2f4deeb2bf74150552069be51": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "4b6b282b0f8de50d56afa654c9cc82f0f04ee2bbf06d96163754438560a35142": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "d1380b185356ddcbcb42a1f12e3e876b022994a6c2874bbc8afbb8a11df53559": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "fcfb743b4e0dd5ddf8779ec6808a866d1e0ae84d26f832d1c051306a34e79a9e": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "70ffb3fc9e04d5345ea8f7f81b82a87bad13120e5d23bc7647cce40d3093a723": {
+    "rotation_matrix": [
+      [
+        -0.707106781186547,
+        -0.707106781186548,
+        0.0
+      ],
+      [
+        0.707106781186548,
+        -0.707106781186547,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "5ff8de9ffbfc02c5c794e3e4cdbe01fd91d81a8559b0ebf825e0601b2590bb31": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "67eba66fd150e588394338ddf0847734d4b358a9c5b9693706c38e24fbf36e43": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "1ee6cba6c9587406a01b0bdb96b8f78dc5f304d883d683cca9949c41b90b5f13": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "8d543b456af347920f4523a29748e53787315981b8bc403a20493b9561d5cba7": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "2034491f71b9450bd653543bf9e872d04d68bb6d3b67adfd73a60d343cb9f7b5": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "66ec3cd6cbda9db95f55af27b7936531f054a21a1e1680414275b77fd083a4bc": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "f9b1aeb3be3a34cb0fad7e87b62036333e4f0a2d47621fd8ea5bd9581cca91f7": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "480d5695b3f59c9e8d666ba0d6dacca4cec0b55d1640e42f29e3277e2d83eef9": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "eaf0abee2649298b823cbd7ca64345e31f4e43ed8512de22c27f89c1fc8fda83": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "2869f6420a5223be2e9781b71b917b58f5aa97c04958ac478341cd2d30c1c6c6": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "733ebd9fefccab43d68f2c78416599444e1805a59c36fc7e584e5f9ae2900f0a": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "535dba08840b570c0d618d663efc9e5bb54e9174dd6d04aa861074751a726065": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "c994b21771e296b8fb4688d8c398b06f700ce855984c68e133bc3ad853b96dcf": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "01370f2fc969adbf0955a9bdd0ae0343c1e4dc39df7701f9265eefce0a834cc7": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "d13d91ead939c8582e205d8d86970eb2ed4e0ab1bbb5538c7fbb1a5370d6a853": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "09593d79acbf0bf1a5014e7c672693b2ec2c756c4e191a85942534ef4a73a585": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "0ad6054ab2fda432ec427ddd2825d505c376ecb7aa5f0086697dbf4f24f678ed": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "faab062b12a1db3f78a2fcc820662a0a640a8ebaf28a0785c7ff82070bb0e30d": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "d7ac3feac6a10b1be0befe4db92b991a58d0218eeada4260d815062205bc4c6a": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "0b77c7ffbc2e1b0118817c9ac3b3162048959bc3621cbf0fedfb71c849829374": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "8a2366318333fcd6722113af7494e032bf1fa11d23cc820f307a71b1284a1d2d": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "c874a9a7bf0d7c1d9ce6b467769364e8f86bf03af1dc18353eece1fe2c83ae68": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "b73ac52d992444548d479d5622e0f5a519f2c6df26e3fde9a26f5706ac579ac9": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "d6ca15ce3b2ec980029654c0a3c8f459a7ccbbc5a22cfbd4731309b8bb2ec27e": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "5c89c853b94204493be192018a47b0cc307951797670e99b02152adefe3cd4f1": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "c7b00a31ff9d22ba96544033e8e7352d3353305aa7e9b03059153062115d163e": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "fac68837883f2342ed5aee0e129cfff4d48ec8d827684dd838370fcef508f368": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "22744b138ef0f54ea316690f8fa4179b134aa8ccbc9a943567f7e9a4bf559375": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "3920e9a8be2cb5288eed449a0e56704715ec65a2b10b5ca6df902dc9a93cd61b": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "386d9337e8d703f248a7a3fc2cda18f0a38bf285d04fddebe886b4e79b132c31": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "676b11c3d352029eab6cfe8fc3ad71526f0afc92950edea386a40cfa9f4c7159": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "f88da0b3d9e34ce239bf84cc174b80eff71f79160cdb69fb05aa431594c7602b": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "7de0488b11febf177c007e2d1e058a01d739ce1e070b693a45f6d173f0996954": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "c945ecb0cefe98ac4003fdc7ff0a141c17c040c98c69993e9be1e468abb2177d": {
+    "rotation_matrix": [
+      [
+        -0.7071067811865477,
+        0.7071067811865474,
+        0.0
+      ],
+      [
+        -0.7071067811865474,
+        -0.7071067811865477,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "a89a6193b6d3e81900bebc3e66015d604cfea49fc6c68693b8b71f1c20315a19": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "b0b6ff1230c83fbe3da988b037c2a558b8b5c2c80c7cba47277791a6a8ee73dd": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "6ec0b93df100a8519b8f9e703b53da0d6972f8460ab4416971826adbb8761dd1": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "79fae69c795e3b104158742687561a765e87795057fb4ed67b44adf2ed179c22": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "50ab815d142a19cb9dc6732b78e1f19e942b4f81a960edd794744679bc3149e1": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "050ac1f27cdada1c209cca43ec19154ff7c74457f917ee7e2580e8baa82e9e71": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "5d51799b07844a359510f1b94d7aba92c4eb86c8f930380174f0c47cb2bd6df6": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "37d3d7004dd357d1326c7921e2517165c56320adb222f8a1e7d4799c7f73cf77": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "4620a64a381ff61a35dcab36925753cd5de2ceffb93ab8c9cbded2c4b8e21c4d": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "492f2bb8e67c8a4f21d1f3602ed2aca9e8d2dd3d29ce3ec162e2e36e5a90f0d5": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "e2b1a7aa0f693f032e7c535d44449f72fc60f427f5918dc2b8f115b8e3186f45": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "244a9858a90d71e7a50489bd0cdc4db93be9c4f1a4b302f537d428abe4b6e1b4": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "f3bbfd8b9631780d10ebbb89dcf336b7471ce35c46a4a833180870b83d365fec": {
+    "rotation_matrix": [
+      [
+        -0.7071067811865475,
+        -0.7071067811865476,
+        0.0
+      ],
+      [
+        0.7071067811865476,
+        -0.7071067811865475,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "7c9eb5a225dc6086b2e85bd99f730d760911367d490e3ae2acfeb7e848f76b2e": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "a797b8c85d37765ef2e015bc76a25580a0dc1e2d4abd121a88d3ef0f464043c4": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "42261e486da3fe22e9d38171cc651934a37593222fbd4e1ebdde7f6979d06d7c": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "5f5778c2af04a59d1c458045dc3c30516fdadcdaf75ef915f7dbd9a39af9792a": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "9178dcc9720e1a095000a6baaf58096dab8638a4a92822e6b989a160b7233930": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "5a01f39eef4b5fe3f2a7fec996148daf80e062e52ca3bde31cc130eed43b6ef0": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "5931dceceda6e46b5c9433d1a1b1dc69dac0fe8e39ea6d70a2bf5cce86dd2569": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "54f1d6a8ceb082efba5d26f4a1791663a555bc2dc3fd4fd42fb1593b5de07f1a": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "bf2f31b1a29dd8ebc9c8b76b7b3f584ec12110aaddeec9d2ae665f2dfa8a4234": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "a1c57492bf6730368c5fcbcf6c57f1b807693ff242529b3eeccbcdb286d900bc": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "8a084d6a66cea19bf16384e835621fd4042913c71ca34b8cffebd2d7cbd18a0d": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "67ae78c664b11b7f1aec0cb02733013b4db1106286eac00d98a0ff2520e9c79f": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "ccaebfc3da44392c8e5174d55d7370603d0a5200fafec9c85ce420e7ac04e631": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "085e1ecb62ff22206e698b65ae8b3e2c3c6d8dda8e29359b85ab4ae12571f707": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "c79ada0088eaa15c3d514e834460a4c38c894dc8de4d4f9058c7f3cf1377354a": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "7064358c1ed480ee9557670acb547c4278384f023dfb90126fe03667ef857240": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "e7add8a531f190b08892557a997def34c7ad353d29dd45c0fbc37a9e10e451ca": {
+    "rotation_matrix": [
+      [
+        -0.7071067811865475,
+        -0.7071067811865476,
+        0.0
+      ],
+      [
+        0.7071067811865476,
+        -0.7071067811865475,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "e6d851a1c806c3ea88468d4c16aa3ae0f1853abfe1595b7fed165ab6b7c92d38": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "20af423ebd3ed908d4a4dca23fc32a3dd4fd6a65fca1238d10a4d3669daafe10": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "7da48fd1331a6cceb14a696564bb4894aeeb8245eebca337ed5b35c2d8d3032c": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "955997eeb10b114a14299b3d967038b0a97c27e5de9b42982f97ae1e37add9ed": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "55cf925f1283b3ecaf1c6d7190eb134f7ca934731f17e924d1930c5b9fb56e93": {
+    "rotation_matrix": [
+      [
+        -0.707106781186547,
+        -0.707106781186548,
+        0.0
+      ],
+      [
+        0.707106781186548,
+        -0.707106781186547,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "d782903ff4f74f373380172e5b847d6f5ebd76d744708e783e6b50e08d68155b": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "77c0c115a552b04ac5bf99cb8741ad473c4b7835a5945a3f606c1bc9c6e63128": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "f83fff89aa7032b60bfe12d3598d83c61034863a1b4d806b23eb250b85a1d390": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "1e625764492853c73046a1c4235fe50a8b176e31953afa9195a78308e3125f9f": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "e9b33725f5531216253bb9cb899b22e616eca527bc42ed50467774bf250e696f": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "b5208a456ba3eaebb7788edfc48950acac3e98cae6309cee2f9e1afc7f8e38f9": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "b2743fbfa922b3b19f2fde1e0e5b1cf63ad2c6dc3b6a5edff2f7b6fc472f3e58": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "fd750a81a491102cf1e1aa7c9c629a3066d7c95305911c73d22d8e05d9b71245": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "355562b674274b798776c9df3a667cd1d1815ab2ca845710385baef3a8edba70": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "c66438a4392d85f6141280bfc49fca69f335275d6dc34406614aec8996578c56": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "1799374587dd2a7987a4161337a6a7f8ba03ee18424b8411f1ca35c1a6291d93": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "82fb97462ec8b44b04898a10dff5b0723d9048f359dd419ecb05e7a0c424cc58": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "ee31ece04d818ca54035637bbae4f3727a2ab2e121bf7fc7a38173f0e1324423": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "3772206fb33c11b00858bfe7d0942271a23ae177af9453e5772990064c2e635f": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "c1ac39090768d83df71943e3119e9f68f1949989e0d0b717d804e5b4ff6926b0": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "832e73ec3fa70c9d45cd434f27e6c03254cbe121d104c3c88d330244597504c4": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "f85c0b5d87ea190fd3f06ee010bbafc73b047c2f830eaaa5c8cda3c2b7fcd19b": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "880423577a24289cf9820faea2213faf9e153e17e0c5e8b847e585847889da50": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "3eedef4dbf405e3387678fca83a84961153e2c55b844d7d594675dd07f093c97": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "42cd12967214218dd12bec82416aae740880d115cb6ef75b0cc2dec814e501c8": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "9bc40489d2571fbfd64cfd76023f0e4a29d67de33d597816ccac20acc188a79b": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "3af14701317580f5858c9670244661917363c65d001722da48d2aeb77b0a69b4": {
+    "rotation_matrix": [
+      [
+        4.329780281177463e-17,
+        -0.7071067811865471,
+        -0.7071067811865479
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        4.329780281177468e-17,
+        -0.7071067811865479,
+        0.7071067811865471
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "613e286c2d17aea7a88709d2c1b3087ebb01bdd533fac3b88e586a86bf77d034": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "1774be2650ccb901fbebd8765a123a7a1c17b38cd53d7b817e0c9b34f43be12d": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "b3835c902a0da78f93ca7cb12d41da39e95449b95dae7c0399c2c6bc22175acd": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "e1a5d87842d955986485b72850dd2eae5c32fecfd9e88d58e05a53ed5b47993a": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "db3500f06cf1b654d8fd4944c3f27907deaf9f4ba86b6b3e6814d5cee70cdb05": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "7c63af11bfc906ca86b409ee04d4f6c83e3a2b78c8dd0053da97dd3b972c7390": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "4dc2377d3cc98e0791c3385bdab03f9f20982ad8b3fefeb74665c27838fd9c3d": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "bba5e8d29c4c46b547bf43473986984f2c0bb47902a3c509e1cc76b09a31a395": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "7cfabfa04115c54106030049126160a564c0ace465cc9f845118de1be3910f6d": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "0fdefb069bea3911cdf6f5683e6dab07ac1e7802fb8d986667a8e63dc8746dd7": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "4c6bb03d605b1b42fb745b0741071a8947ffa02d7d5a440fe528c17b9934d70e": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "af93db9fbee11ec71d3c5a1c61947e03964a32173c63f1c1a40febf600cdd2b8": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "4bd60c469fa116363511115b67ce51ab29a31464fc8ac52eaf5044a5438da416": {
+    "rotation_matrix": [
+      [
+        -0.707106781186547,
+        -0.707106781186548,
+        0.0
+      ],
+      [
+        0.707106781186548,
+        -0.707106781186547,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "7db94fa443db5ecbc77da87af9584cbc889a534dbfb4437d285ffcad922707c8": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "503e4f21a600787fa1ef5f6ba53ff668c5e2891cd5b2e681e345c3ba46179de8": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "0fda7a597a8b09c640c161e4c764feeef1139d1005bac521b7e775bb782ffc00": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "a0f80181ade04bd3ddee016a2e9e88ddf9116b870e7cf93bdeba194231b13c3f": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "df376c31ec886b7286e8365eb6580102334188619504b80013df961e35424e91": {
+    "rotation_matrix": [
+      [
+        -0.707106781186547,
+        -0.707106781186548,
+        0.0
+      ],
+      [
+        0.707106781186548,
+        -0.707106781186547,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "0b31fac25fb702c1433ae5e558528d84d3a8a4a2e4baeab130cd3ea5c8fe2087": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "fdb163c4164d64cbd0568a7b802d7983493d0ce7b2d2341e2aed1efc27448f4f": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "d247b1c161ada160a67836c188d142fe5a9393a3ad38e04ef9b2b7ca2db6f82b": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "0d86ce35a3a4f37aefb85491929a5221c4ec2f4e06d35d31c689077350de6efe": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "dad87a6b495991b3e18e58c50f91f38f52ad8539514ab823037061271377b450": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "fe3965aad9399a4f0e68a03e44b3c7c03dd0a00df6ef0ed4e39ae8231a41296c": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "ab448e3f948d76cc842aaac4bbb921e32eec7cb828e479104832afef6afccb1e": {
+    "rotation_matrix": [
+      [
+        -3.697785493223493e-32,
+        4.440892098500626e-16,
+        -1.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        6.123233995736765e-17,
+        -1.0,
+        -4.440892098500626e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "c5e6cc992d03b82c8d4c3a3b79677e36490c5880bd452ae946dc44ecb539b307": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "869559f19279129757e36941ea727dbfda2be63380384809217268d26ba251c1": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "5c4f55138350d1fedc4352e3796631d4d85ae5d586ebf9fbe4400795f4f0cd16": {
+    "rotation_matrix": [
+      [
+        0.7071067811865471,
+        0.7071067811865479,
+        0.0
+      ],
+      [
+        -0.7071067811865479,
+        0.7071067811865471,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "abf3905003f0b71ddda2e735914c3c5f9ab053a10b6dde2e591329e1d1815628": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "d206eb72e3851300b4b430c95dc73860fecdb766cc40010bd2529f18555ceb7a": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "5f6d77f2ca121c4871a54f2fba940d145415114184386e3038d8c0a69fec4243": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "0346568cd65b51af5966457b13076ac04fbee51e6d8739470de08b93327523dc": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "058084d91576810b0d2361baa4b2d35d195f2082be174593c72104b0e7790ae3": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "c0a434a460c85e87efe12ab98e9e72e65fc321e5560ddfdcf3ba65f82a74678a": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "27ca2cde9f6050f10960dc2b3cf6c8b6536a1a188a648bd440fa51e5dc2ddb0c": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "a2b53842d876a819496a5cc1ed528deb7ecd12ef5a6f62ef344f61cdc4c4b7b5": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "f5810ae4f034acedcc6dbd58a3c161d8d20c205b00f2345236c97ac9c41c744e": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "3e40721979035567547daadff7ca189d6adfea2708eed1ef885994d79ea34571": {
+    "rotation_matrix": [
+      [
+        0.7071067811865479,
+        -0.7071067811865471,
+        0.0
+      ],
+      [
+        0.7071067811865471,
+        0.7071067811865479,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "791387bb68c924b8c125a55eb6d7ca4ce304518e2f780c9e79719838b126d0a6": {
+    "rotation_matrix": [
+      [
+        -0.7071067811865475,
+        -0.7071067811865476,
+        0.0
+      ],
+      [
+        0.7071067811865476,
+        -0.7071067811865475,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "e4dabc3d1348dc43a65440bb7e820c1e0161681b9f6b4d836b175b03cb55bbb9": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "cceb375f63a54cb5e09b7ddaa657a02256af967504e78009a121fc3f9912df74": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "d3e6c154ef2be44c5bdf0bb5a727a449ff645631ca596a70f237be69c1695b3e": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "b2133a7a71fc4b114ce062e6bb3ce50b608d7f4358f7ca63272c0c90d9c926a3": {
+    "rotation_matrix": [
+      [
+        2.220446049250313e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        2.220446049250313e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "adfd914b9a1c9f06749160436cd23ca1b3b0fa47afcd82b5169a16262be81db9": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "08041899fb453d9e45de826e0cc71005b5c1c847448d1f4323f96454b862245c": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "1628f561c9e87a57f02739177352c853fa19025f858e91223ee36ce51da3f83c": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "9cf5967a866f0b58c022c2db851ffe36729acec2ac7f6f325a120772f0bf7d0b": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "c90905d209d122b844b349a020f33ca2d477e4b0a10375b1c1910b71482c60f3": {
+    "rotation_matrix": [
+      [
+        -0.7071067811865477,
+        0.7071067811865474,
+        0.0
+      ],
+      [
+        -0.7071067811865474,
+        -0.7071067811865477,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "3dab598572b0033ec04c516957daae1166ab56c4edd0e10420bb85ddedc76dee": {
+    "rotation_matrix": [
+      [
+        -2.7755575615628914e-16,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        -2.7755575615628914e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "891fbc9ed0b6afbf978e8f99ed61d14373cdd2418b71f329e3494cac3758e11c": {
+    "rotation_matrix": [
+      [
+        -0.7071067811865475,
+        -0.7071067811865476,
+        0.0
+      ],
+      [
+        0.7071067811865476,
+        -0.7071067811865475,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "5c57384aed6bff9da3002bbfaa16aac8f544b48c052350394651e1ea18aaa801": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "8d8a0598feaeaa749c2673094a9ac0da1c4206ee4f764a6e6cd06985b4cf5fd3": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "b1105eea8c04787d3c78ba86dd77d6780e87c33ee7f840cf25f33feaf3163195": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "75de115de6a9dee5c724c4ea5b7b38e3ae087ac72101125446ed8a7f0bcae165": {
+    "rotation_matrix": [
+      [
+        0.7071067811865471,
+        0.7071067811865479,
+        0.0
+      ],
+      [
+        -0.7071067811865479,
+        0.7071067811865471,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "8c0fe305c6a3e2d10c884ab2c4b38c5e56272e7145f4750211e65231939d16a2": {
+    "rotation_matrix": [
+      [
+        -2.7755575615628914e-16,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        -2.7755575615628914e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "3852cd496cbe7fbcc62123cc5a5c9619ce19cb309e1328c93d1e49d5ebd1f876": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "d61f1bd0b22096a391a7463dbd02b9216ca941ccdf4984d1746a3ffcc2e50f90": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "c78dc0efee6fc866c8bbde65c971ee1f8ef3656ed17da5a4dc385e752f706d46": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "e6f969d0f954aa2f1153e13a6e78fb19a7b566982f6817f84856bf77ef2c01e0": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "90e79438bbb3be1b208db3ec2663e9eb323d21b1dba267e6e92c5a0936f42811": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "a5ed9145c31cf7f7727a48970ca64a252c1da3d6d63833a39b0f3ad066e8908c": {
+    "rotation_matrix": [
+      [
+        2.220446049250313e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        2.220446049250313e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "5ede7c585f5b7c631318a16633502b39ef05eb8443c01c463965e5851414473a": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "4e6373c6014c942198fd0388270b1c21fc09e4b4649227feed9334b1cd0e596a": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "bf09e0227647c44e431cc9e638225bbd74f8bdee9431d1756250cd176b5c6421": {
+    "rotation_matrix": [
+      [
+        4.329780281177463e-17,
+        -0.7071067811865471,
+        -0.7071067811865479
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        4.329780281177468e-17,
+        -0.7071067811865479,
+        0.7071067811865471
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "8c673e048cc0faa97ada9ec0f29ad2781053750427821e232dc73b82a69c484e": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "1c8d4b5a7eda8ab9c5d0906854dd80e8ed98b8a2c36ac08d2549c2e242517844": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "9637de4dbb43a22ead2a16e5d085cb613dfd7156576110e5f1b5312154409ccd": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "36c9a2f3337f5c3445ec001a0293616dc97d31620458810fe24005ac2098c485": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "5928884d0b12165a5651e9d67441b2ad86e5e4550d496eb92dc9353ea186cdd7": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  },
+  "a84221ca59d9d4b02d69dc21cc32410e2b59a06a70b237dab4cb150f8bcad416": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "armors"
+    ]
+  }
+}

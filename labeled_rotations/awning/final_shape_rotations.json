@@ -1,0 +1,677 @@
+{
+  "128d5d9950d982bbca3a52613461cc52957b6d5171cd216faa7a2530c3fe30be": {
+    "rotation_matrix": [
+      [
+        1.0,
+        2.7817808468846267e-16,
+        0.0
+      ],
+      [
+        -3.133961632045815e-16,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "awning"
+    ]
+  },
+  "74569afc83b2325b2f24be3c31fc87466e531a8970eddb5fd24e3086944e4b35": {
+    "rotation_matrix": [
+      [
+        1.9967346175427393e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        1.7938038903913487e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "awning"
+    ]
+  },
+  "049693e9ecf37747c645db3f350f7ac32b1e9fd8ed5bd86ab408874fe4d298b8": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "awning"
+    ]
+  },
+  "e692fd9582ffa20d542fdec8197a69ce658f5b8a40f16367a2ef70e92d2c4bcd": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "awning"
+    ]
+  },
+  "95bd0a68147af9a664a1fd4b3111d6a3ae7d5015c62f041d9b6629e6ec8e0972": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "awning"
+    ]
+  },
+  "01fe2473968f00f86d5ca16044ce06406759cf635e487a5ff57a07e2f9ea761b": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "awning"
+    ]
+  },
+  "6dd93ae98245a48fed4d60d962500b821efe44b6218bfc6184033506d3026f15": {
+    "rotation_matrix": [
+      [
+        -1.8369701987210297e-16,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        -1.8369701987210297e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "awning"
+    ]
+  },
+  "4a22d2c3aa1e120fcfca4fb00d6b1de337aa54f85fc91b97bab135c007785e7d": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "awning"
+    ]
+  },
+  "8ca8e99b17879079862abbe416240d0c22cdbe67f604efdd2bfe36669b707974": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "awning"
+    ]
+  },
+  "e5d0c042729395c6baee2bca5c834910b76fe4fd033329de2e44a565fd9c47f1": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "awning"
+    ]
+  },
+  "e42241cee42bbcdf521b1ba286b4c5e30c57ba5066e0854b02f7a627fa120cf8": {
+    "rotation_matrix": [
+      [
+        1.0,
+        2.7817808468846267e-16,
+        0.0
+      ],
+      [
+        -3.133961632045815e-16,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "awning"
+    ]
+  },
+  "d763da35989c0923c62b62cf0e649024ec3aa6a34660f37312411fd14e70fa78": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "awning"
+    ]
+  },
+  "675e43d3d13a307c51943735e6f906ce8ff63b749f0fabc1b370f5754f86e2ab": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "awning"
+    ]
+  },
+  "6c75ff2ca54700bb8d3da5934f756375d4c10a0fd768702d746f163a0c0ffd3c": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "awning"
+    ]
+  },
+  "ab6b5a93ecc4a0c219f2e006f13b4006e2ae5f4f1775cdadc1cd5893091a057c": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.9967346175427393e-16,
+        0.0
+      ],
+      [
+        1.7938038903913487e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "awning"
+    ]
+  },
+  "422391c054b3696f89890b001ec5e5ab991239a66c9bd9c4a1d7822033386c99": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "awning"
+    ]
+  },
+  "aee332cbdc19278637aaba687bdd0cd5386a3c33f2f4ed19db5238540e007535": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "awning"
+    ]
+  },
+  "4e41809216f2359ab306da1277b0810e66f32a4c22ef0dd4f24e81a105a5fefe": {
+    "rotation_matrix": [
+      [
+        -1.8369701987210297e-16,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        -1.8369701987210297e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "awning"
+    ]
+  },
+  "624a1af5ffbb8e375608629976cb6c67f9436c8c0e81b1cb68956d1ccf4a9dd5": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "awning"
+    ]
+  },
+  "0b00ab07377c51a0973a912027d7c704d6962163b127c5c70061b6757ef70c72": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "awning"
+    ]
+  },
+  "6be884bf08f3b8025cdbf28370d00cd357c944e5c9a9db63294929b1a104fe21": {
+    "rotation_matrix": [
+      [
+        -2.7817808468846267e-16,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        -3.133961632045815e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "awning"
+    ]
+  },
+  "db7ede7c6c7ad15a188f49ae22c2b284e584360a1c185ab0d2793496e7ed494a": {
+    "rotation_matrix": [
+      [
+        -1.8369701987210297e-16,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        -1.8369701987210297e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "awning"
+    ]
+  },
+  "cc8a63a75e7a3fea5213c161c25f9581fa44eae807b9c540c3cdd80c4d339588": {
+    "rotation_matrix": [
+      [
+        -1.8369701987210297e-16,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        -1.8369701987210297e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "awning"
+    ]
+  },
+  "fde2cb1771eda38b0b141623d6a77a59b442b6cf26ea0ed7417c9f4cf4d8b00d": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "awning"
+    ]
+  },
+  "36576243960d9444d29b2e0a39e26fe67198bb71f6c0d59920fe037619fe7ea8": {
+    "rotation_matrix": [
+      [
+        -1.8369701987210297e-16,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        -1.8369701987210297e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "awning"
+    ]
+  },
+  "ffe23d1c4fbede23f4c02442249ebcebcab302874d6d3b22e4d67a8c643afd9b": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "awning"
+    ]
+  },
+  "e732c75ae0e2254020abaffa6c16f891335d2ab243ee8df3a554c891659c03f6": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "awning"
+    ]
+  }
+}

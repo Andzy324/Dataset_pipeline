@@ -1,0 +1,252 @@
+{
+  "e4ea994f569608d073df3841c7c6d5643efaeb77cdcbea5eb2c2b8d18faceb5b": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        -0.7071067811865481,
+        0.7071067811865467
+      ],
+      [
+        0.0,
+        -0.7071067811865467,
+        -0.7071067811865481
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 0.9999999999999997,
+    "description": "Applied rotation matrix",
+    "label": [
+      "bell_pepper"
+    ]
+  },
+  "1a8eb6a14a72500335244d894ae8d19305ac66805065034119a12b6a72574ffb": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "bell_pepper"
+    ]
+  },
+  "0ee7511f5d9da094e5d6f9d84810ad1239baa022f65af06de010b4ac7eb30051": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "bell_pepper"
+    ]
+  },
+  "75ec558b5f4e0ae0eb5d49a3249f070bd1cd295b432b2ab98248adedc65ebe4a": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "bell_pepper"
+    ]
+  },
+  "f25644338f929739dd985d714a0950a1ae2767c55d256e7cf7d331adc98f36c9": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "bell_pepper"
+    ]
+  },
+  "a450511ea973325459280616ad7f068cf87ae8ea96429eeb54d2bc291d2c3336": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "bell_pepper"
+    ]
+  },
+  "6c859d4f4ead69e74a9dfa02b870c961791cc321fbcd4efbc2f22ac7c5c0c492": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "bell_pepper"
+    ]
+  },
+  "26c6c661d87851b89184b5236633186f2d551e4d56fae91f0018c343780ade40": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "bell_pepper"
+    ]
+  },
+  "8b05ad797a8d82bab46ef0c7d343b330bfb0c0bfb68a75fafa9658ec6ebb0726": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "bell_pepper"
+    ]
+  },
+  "040cbd46539f53f1c1b55e36d25a6be965b1343fc4a4388310af817714d6083b": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "bell_pepper"
+    ]
+  }
+}

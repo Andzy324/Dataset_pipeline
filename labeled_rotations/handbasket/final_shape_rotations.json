@@ -1,0 +1,574 @@
+{
+  "d24c84ccfdd0edffa15d545cf7ea612d3c516115ff62197c48540ae282e32407": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "basket",
+      "handbasket"
+    ]
+  },
+  "a8d938cd555fb765aa62c724af39a38f093af5de9ce58749ebdef4f0680d1a0b": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "basket",
+      "handbasket"
+    ]
+  },
+  "8f7a68a7b9bf0ba9a44e3d8449f80d08ec011571145cf5a7748801698f811197": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "basket",
+      "handbasket"
+    ]
+  },
+  "564f396f25adeb097c0d919d167a34b0267dba75fa51b4966b379519aa5cfaf9": {
+    "rotation_matrix": [
+      [
+        1.9967346175427393e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        1.7938038903913487e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "basket",
+      "handbasket"
+    ]
+  },
+  "4c32adf171818eeb7d33e1b435cc5b32a19fc26cac776f360e7545215afc2473": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "basket",
+      "handbasket"
+    ]
+  },
+  "c0668d798d954f9936961f8151e7d70bce8202c161be2d6e71b8f2ff512f93b6": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "basket",
+      "handbasket"
+    ]
+  },
+  "f09d475cbd20d1fbe1df279d8ff34a5c86c8c3b0f2d68acb84c1cc8551198178": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "basket",
+      "handbasket"
+    ]
+  },
+  "3e03f209d399bbe239783c0ddff515c6507f70741363ad35147f703096111e77": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "basket",
+      "handbasket"
+    ]
+  },
+  "37343cc7fa28794e609273339f7d1f120a0d1f725b2779969892134e92bfa24e": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "basket",
+      "handbasket"
+    ]
+  },
+  "671f619f09173b17d5d5881d6e9a61054f03049ba720b2a58ad688056c8428c3": {
+    "rotation_matrix": [
+      [
+        1.9967346175427393e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        1.7938038903913487e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "basket",
+      "handbasket"
+    ]
+  },
+  "7ae46433c6b7cb68b1dd06c12c01e59921c84e59b3ed28893a4caef19d4bcabc": {
+    "rotation_matrix": [
+      [
+        1.0,
+        -6.123233995736764e-17,
+        1.9967346175427393e-16
+      ],
+      [
+        -1.7938038903913487e-16,
+        1.9967346175427393e-16,
+        1.0
+      ],
+      [
+        -6.123233995736766e-17,
+        -1.0,
+        1.7938038903913487e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "basket",
+      "handbasket"
+    ]
+  },
+  "172caad0dae818ef3166f9358a43e0e26d6239bfbfe770b49cd9ac76d6bf8cd4": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "basket",
+      "handbasket"
+    ]
+  },
+  "40cdd986d0283211ef51ec339596ba79d143e730b71e829e94dd10d4c7b11de5": {
+    "rotation_matrix": [
+      [
+        1.9967346175427393e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        1.7938038903913487e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "basket",
+      "handbasket"
+    ]
+  },
+  "23f60b8cf2957a9553cc02f870f17c21de06cf9d3a5c886e6269bbf3572b13d6": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "basket",
+      "handbasket"
+    ]
+  },
+  "5f207973055047af4e7ec7a8a4d9ae942131fcddb214c19b9cf23fbb0f08b778": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "basket",
+      "handbasket"
+    ]
+  },
+  "b59aacbae0fd7996c3f7b6f0e7ccbcfa5788a66aaad2bac4b6517e9539617bdd": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "basket",
+      "handbasket"
+    ]
+  },
+  "478f0acc44fca7583a0de40e9b0e8d08cd1e01128fc7dde1b186015a4c3baa37": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "basket",
+      "handbasket"
+    ]
+  },
+  "e177cb371b73defe635de81f6466125c4f6dac463a6f5b60ad72c3a8a335e880": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "basket",
+      "handbasket"
+    ]
+  },
+  "dec545db99184340e82860944ae58591b66630bf5cf8dd8de8908876bf693696": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "basket",
+      "handbasket"
+    ]
+  },
+  "66f2e91d7204f7cfd116a4e50302a5a4cb108f68a3aa682ba3254b662c9050d7": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.9967346175427393e-16,
+        0.0
+      ],
+      [
+        1.7938038903913487e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "basket",
+      "handbasket"
+    ]
+  },
+  "4883b1d21f7aa212848e0e284e1689c5115defd31bac35e7dc261083ed649e12": {
+    "rotation_matrix": [
+      [
+        1.9967346175427393e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        1.7938038903913487e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "basket",
+      "handbasket"
+    ]
+  },
+  "096c8325ddb6c53bfcf67fae124e2e8b822483ffcebefe2cee7a8271a319c880": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "basket",
+      "handbasket"
+    ]
+  }
+}

@@ -1,0 +1,1822 @@
+{
+  "b999d2b53fa873ccf9fa323a11b9faeb664f943fc83b5ef18a961b779ad77036": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "d778acbe5d82f0279c52e631c93d66034e24dabd30b4aea117ac3e20b1021b32": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "7f1b8eb64f8debd6752adc52a9988b9d941acafcd1819c9e1f07990648c3cbf7": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "e7111ee38a75acb645f6497f330a0beace76b1a20dec8973b737d3d7bbc6d905": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "382054789e7181724b2459829f934ecdb6f41047ccac6a06bedd4ec3f30dc2b5": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "1c5af4cb850fe84b9572dcf3b44f3d630a9bb039dc9dd103cc6fe9b5ddccf805": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "5287c570cd0cc871e2621204916b5d0927d0c1d01f9cc139d27af2564fbdfb3c": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "27b439fe1fa17f6833f2718d7f8c70bee3c498a138aedaee6b5b4d5df53742ef": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "e8790495a684945bbcc6bae3aaf900f65233624c90d4ca79f1c7a7132d4e6ab9": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "93b420f64693671d5efd5133e9f5a9b9f656778983a0ac6c893aa6d1163af95b": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "b6278832daae71d21d99114480a7fdd3ec728af3379af0dd497c7fc80973a2e1": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "5acc4902ae56aac751d3cfaa352cb00be3ae3e500bfc0a94302b89d3da5eed7e": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "aec4b87f7bdcd3a3691c8d4162f3092250c3a1f87f43e4b4df5bb84e73604577": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "3e897f2cc4353f46d68e2ef26d153270a5cdaf362d5a84db6e0e2b59c840b6e3": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "a5c1275d010ceea311d54750610f6e24f6cacd8165b8f8f4c699484291f1d48f": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "ade2e9e7f1a4219d10ba60809eea73aabd7cf600c75129c1f507f70513b9f0f2": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "2efade4c7ce7cb41bd2bc3b877c2c5aa96460b1f93bb792baaf5701b6aedd5c1": {
+    "rotation_matrix": [
+      [
+        -4.440892098500626e-16,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        -4.440892098500626e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "9d903bb578a893b7fd6f8ff42e3a906e97e6540a3fdc1adcb9e23bf75c25eb54": {
+    "rotation_matrix": [
+      [
+        0.7071067811865476,
+        -0.7071067811865475,
+        0.0
+      ],
+      [
+        0.7071067811865475,
+        0.7071067811865476,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "8305c0c5e851705c80f351d240e534e8b16f96f0a991c06261d04963dcfe729d": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "bde13b239416997f76fe9cc5609836082e2670450ec6fffd9bd22f678f29e8b4": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "2b50232fb83da410540e3418dc39e58efc492aaa8ea6c2a77ecbcaba698dcbbb": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "ba8ee13891c9d701ebd02ad00881b4c1be773f65ed9a91e46c7aac0f455e7dd6": {
+    "rotation_matrix": [
+      [
+        -4.440892098500626e-16,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        -4.440892098500626e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "71475fb57a85067cb37e5b10d82f8fd032cc21555e0ea7da28ce1a33b0249156": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "54bdbeca55a674bb32c77511fdfa4f3924472ee7be129079324fa7ec9fd52781": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "7a184059a5b34b45930bc1a72f4d141cf8342f08b197fe2eff9d6690e15405c0": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "2b3a3c4bec241c0e06228dab07aa9cc02191ba0536dbb948950c150f34883973": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "4723f17acdb41c421ab55aaf250d800e120c5043d03413b42d73dd6053001d63": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "605c047eb0cf77e79c7121a77831f34a50072b10971d1c45ff89df5114b737f0": {
+    "rotation_matrix": [
+      [
+        -4.440892098500626e-16,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        -4.440892098500626e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "417ced571fe618f59860706761cb7df4fc2010ca00ea9225db7333095ab2f6f9": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "304c1e10a6b98f8406d290d28c3fbe6c31d89f615e2f83abf4554e842f4e383a": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "03d5f5c55de74f78c83f76993ab12fd23b59e4e42939beeb72a9395f6eac5d87": {
+    "rotation_matrix": [
+      [
+        7.216449660063518e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        7.216449660063518e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "581eba6a397bea2975bcad80ba4a195c6e977ff9d567f589bdb1912cef035f8d": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "933d8e81043ed497754f280546c24465b71b9117299030de56c4eedee1a5deb9": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "c5c0b8a36eb284382bf4d6355d8392fad16321d7830e6b5252fc3443b611e250": {
+    "rotation_matrix": [
+      [
+        -9.43689570931383e-16,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        -9.43689570931383e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "efa29720367d3681a3f461287241bd33d61d392707ab6e4af1c9510b990a56ce": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "b621f7d12f764d596ab5d1df865dce6561808014c24574776f92dca82b89dd44": {
+    "rotation_matrix": [
+      [
+        2.220446049250313e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        2.220446049250313e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "509e80d7cf015dec8061b17400da92cfe7a2b1d448b5dc0f7ae2a39c8c655583": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "ace1afdb2f2ac1ea485cd6c95470933bec1ee9ebc5c20cab7d5ac51de5a74404": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "eab1f17f92048e2090d9298f15c49e9cf2ccd454724b8eaa080cc7201db5a4df": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "e32a5dfb866639f5e6f44e5a12688f6246a5c5f8a165ec86677a4f9ff4f91b45": {
+    "rotation_matrix": [
+      [
+        -4.440892098500626e-16,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        -4.440892098500626e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "7a6b19e203f36eeaee0fb15e183171a2c2c8fbef7dbb1935edd087d1a7d7b8e9": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "c7f93b8d9ccf52cb2c867612da75489e12ac43f1ed0dffd9a80ce4e2a0b589dc": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "b98a4cea40c2ff0cd3679c86ddce793b80683083fc4efabf053b636002c31f3a": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "b08bc9833549950cdb0fbc16971db6600e6bd259b4f9a51f14b6146b037ce0aa": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "8c2d6c20d2d7ab65f4c78ae46fcd22c8177be012a1fcecce11f9d03876bee381": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "d3c7f3ecda918175ac84610730e284631dc487d912750b66af3c423eaa5d853e": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "7b63f367504b756c14c30c286e6e07f7238844cba5b37426232d5e1a22044797": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "ef54868a43faf4aa16c3ab10df29d918d6ef567a6c1f9e993a34a0c2474cb822": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "69c21789dce9e6b15fc097988199e6c94ea6b4384d0506433d67a00e8b2c30f7": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "a64f20097f4f50358f3116ae0b4920a3c63316bcf81c567865b5e9413776c0c2": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "e86ffcd7c002489121ee2f0a711e07042674cc47c5551a7b182047173136d031": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "78d7fc35a304b6d5aaf439f59ee476ba807aa7ac8e0dde2a0d20a0c320839a1e": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "b4140fb945219127b4aa66adc79f70a4d89af6809c644e6b9cf6073b76f0c562": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "451a9e8fdd05286989102e0f0b1e85dbe5444273a8011d70d397ebddd8b7c581": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "baa46c2ac725ebab44859cad510d0d5c6ca6566822c8decfc85dc5ba22fa0a55": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "3862e04708e50e9d74798e2251eef709c524b3cb3d998bf3cd42a54268fc9e3a": {
+    "rotation_matrix": [
+      [
+        -4.440892098500626e-16,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        -4.440892098500626e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "d5393a43be3b592b6a24e7c571802e2cf2e86cc46de5bec2cbe9dcd72f50368b": {
+    "rotation_matrix": [
+      [
+        7.216449660063518e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        7.216449660063518e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "1c8826de741fbab19e01b6c28181af26fcba8c556e6cf588e124ccf00606ceff": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "4e95299171ed6561c50fc53474fd35ff384212269424f569a9362479de755fd7": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "8c47b6c4a3fc3ef646532411d86f2ccc7cbfbe171f1029c53a77e8d92e96a2e4": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "5dc228917802b441dfd8d96b677d6e3511b766ee2de47859b6dcfe8cf1c70f93": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "34bb93923117bff70a0843a1dda173c2fa8a6bf97acab9f194afab86ac5d684d": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "9cb4007fa5b01bbf5268c9969c5b45531906c66c7ee002f59b402861f5a54253": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "f7211e08372fa167455da2a8caed970ce38e6094b6644f423927b48d8b28e770": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "93ca31c6b7d3bac9534add38bc92669ca505fc97aedbd4f45e1235c860615613": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "f9b9e7f3cec183f994794b8a0462f98d69160cddf1fb7b17a389700b4cd93ebc": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "975fcdb58d1a7c7ee0a45394bd1e5741870f702ba6eb343677f1ca6c4fe9350b": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "c9302340bee1a716e142a21b4c23858bd0511a19632cb55bd2fc8f97d7a9bf0b": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "d92879e7e4074157d1c8af984113a9989749b2441fe45232db1e3c7272df4ad1": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  },
+  "c13356fc765f1060db6a2d5d90889c780042868c568c6b6bb6d574973f61e326": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "armor",
+      "demon"
+    ]
+  }
+}

@@ -1,0 +1,827 @@
+{
+  "1feb679917dff43d7d2e9a35e295d21b5e4ef9b70e5300620dc5fe4fc79fbde3": {
+    "rotation_matrix": [
+      [
+        1.372374090280428e-32,
+        -1.9967346175427393e-16,
+        1.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        -6.123233995736766e-17,
+        1.0,
+        1.7938038903913487e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "gun"
+    ]
+  },
+  "8295c0b85384531f47593b88f657e8c11a7dcb73f981e558d59ea95a8e913937": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "gun"
+    ]
+  },
+  "f2c632f9bd1d1a916ec752ba209de81f8116adff47af5c61035f9e83a2609979": {
+    "rotation_matrix": [
+      [
+        -2.7817808468846267e-16,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        -3.133961632045815e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "gun"
+    ]
+  },
+  "97dc21e557eb944a19f9adc751af52ffa27a8b5eb02a5456739b54c9367ea01b": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "gun"
+    ]
+  },
+  "ae277ff327f001b953ef8bb29bf880187073d163499bae575be5cc5e7586066c": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "gun"
+    ]
+  },
+  "8d17bfa3d58ebd7d4fe6859f21b9e9080c475672fc8d37949359151856743c19": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "gun"
+    ]
+  },
+  "6d898e526417ea9792aa9610c28dd9bc773d017e898869f75152101e5feabf4c": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "gun"
+    ]
+  },
+  "b813bc3314d5a73160549a8eac94f3d1e3f404a0cf703efda1dfdc9782d8f7f3": {
+    "rotation_matrix": [
+      [
+        -4.677050100851671e-16,
+        1.0,
+        0.0
+      ],
+      [
+        -0.9999999999999999,
+        -4.47411937370028e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 0.9999999999999999,
+    "description": "Applied rotation matrix",
+    "label": [
+      "gun"
+    ]
+  },
+  "6a363763927d24f39d05674f4f7d30bf1e7a26446ea6f0c62ca9a1fe9421f30a": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "gun"
+    ]
+  },
+  "d73737039ef93180799c51f977ca1f5353668f751e2903fedcc145bc8e6290b8": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "gun"
+    ]
+  },
+  "e33d873d315a271a18c5116dde495cf49a4b506911cb09a9669d645e7068dd56": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "gun"
+    ]
+  },
+  "df72f8456687cf04819f2daa33858c9e4605ff9e8c4f2883f3b9148f68037296": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "gun"
+    ]
+  },
+  "5f5189bf7025e37b5d3ad278b5d7af2e84e92d65343433fd826b089781112749": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "gun"
+    ]
+  },
+  "81d761d9604b3de0b5c37146d9319a524db3d0a5f14a23c54c498b1cdd3b9d87": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "gun"
+    ]
+  },
+  "7253c21ac3b268542f278a79e917d8c1f218a1dcdd6209bedf098d5b657e6551": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "gun"
+    ]
+  },
+  "fa779dc15b5e96b75d3df27128a80cf7be45d15012443247ddab0f1ee243eacd": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "gun"
+    ]
+  },
+  "aec6d8b0541ef1c77325a4c560b0db311f40bba336861ed24e5e33351f5cdcdb": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "gun"
+    ]
+  },
+  "55968dae0c4e8149c40ed9d6bb6502d2e6fabd02dc025dc93f1b96066a1f8428": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "gun"
+    ]
+  },
+  "04d0240fd28a4683e229d2f086c20623ffc46afe4e3433d9e2acbd1b5af4cfca": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "gun"
+    ]
+  },
+  "1e8eb4fa63be0f28014e33bda8c85c35821b1583180d9660747061d27066b1a2": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "gun"
+    ]
+  },
+  "a4c2244d10c9a2ae4c179a366bc55eda4ebc2937fb072812c66787d86ddaf560": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "gun"
+    ]
+  },
+  "b6da873fe0042fe4bc0166bca1d7f5ec531eb7a94b03302384f09fc0b489ebdb": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "gun"
+    ]
+  },
+  "2299dd287a1e1fcc9d65530b2f01d40a8815a2440b20ae3a25796fdfa8eb9060": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "gun"
+    ]
+  },
+  "b0b2c94bc55c2835a9b5e1235e2a7c517cd97a8f953e4549894b91e3e34796a0": {
+    "rotation_matrix": [
+      [
+        1.372374090280428e-32,
+        -1.9967346175427393e-16,
+        1.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        -6.123233995736766e-17,
+        1.0,
+        1.7938038903913487e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "gun"
+    ]
+  },
+  "e096a53530faa339131a8d6557f564bc0697a58c0872af10db664262190f0c94": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "gun"
+    ]
+  },
+  "f89ad95813b455621ff96350ae8e25b05c640a414f8e12171e68f53c654aac34": {
+    "rotation_matrix": [
+      [
+        -0.9999999999999998,
+        -2.7817808468846267e-16,
+        -6.572319354818714e-16
+      ],
+      [
+        3.133961632045815e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        -6.139453910638015e-16,
+        -1.435340679367884e-31,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 0.9999999999999998,
+    "description": "Applied rotation matrix",
+    "label": [
+      "gun"
+    ]
+  },
+  "5c03b7ff8bddd05d39ea50e1480e2f6e113493386e3404424289e7dee2bb03e5": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "gun"
+    ]
+  },
+  "721dad7110ffd7cbc4fe86894a8a0418a877027db6fbe59fa7d7718288d67363": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "gun"
+    ]
+  },
+  "0e2a24fbaff1892b7691bd0eae6e3763d1d9918237386378d2b3cacd39e37c92": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "gun"
+    ]
+  },
+  "d50a74535a8fccab9a4c08aabf8c01ba0bbf528461d176d42e80682ad7734dce": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "gun"
+    ]
+  },
+  "b3729a374ac3344c600eab22b001d83cd34e27db6d01f54f07c6615c2b517070": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "gun"
+    ]
+  },
+  "d82b54cf91146654e7ee273f36a68b62f1915a170f2feb1279f5575353398228": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "gun"
+    ]
+  },
+  "3f85542b32277dd80e62bf307b53a88cf75fa7ee9d98c3ac9fe9a18fa3507a40": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "gun"
+    ]
+  }
+}

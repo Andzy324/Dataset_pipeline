@@ -1,6 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""Blender align/export script."""
 # align_export_snapshot_blender.py
 # 批量：按 JSON 的 3x3 旋转矩阵对齐每个 shape，(可选) 归一到统一尺度，导出 GLB。
 # 然后把所有 GLB 摆在 NxN 中心对称网格上，自动布相机并渲染一张 snapshot.png。
+from __future__ import annotations
 import bpy, sys, os, json, argparse, math
 import bmesh
 import numpy as np
@@ -544,6 +548,37 @@ def fix_mtl_minimal(mtl_path: Path) -> Path:
             # 去掉 -bm 参数（仅 bump 行有效，map_* 行里一般没有 -bm）
             if head.startswith("bump"):
                 line = bm_re.sub("", line)
+        out_lines.append(line)
+
+    fixed = mtl_path.with_name(mtl_path.stem + "_fixed.mtl")
+    fixed.write_text("\n".join(out_lines), encoding="utf-8")
+    return fixed
+
+def fix_mtl_minimal_export(mtl_path: Path) -> Path:
+    """
+    仅做两件事：
+      - map_*/bump 行中的反斜杠 `\` → `/`
+      - bump 行中去掉 `-bm <num>` 参数
+    其余内容（Kd/illum/Tf/map_Ka/map_Kf 等）保持不变。
+    返回：修复后的 _fixed.mtl 路径
+    """
+    if not mtl_path.exists():
+        return mtl_path
+
+    out_lines = []
+    # 正则：匹配任意 -bm 及后面的数字
+    bm_re = re.compile(r"\s-bm\s+[0-9]*\.?[0-9]+", re.IGNORECASE)
+
+    for raw in mtl_path.read_text(encoding="utf-8", errors="ignore").splitlines():
+        line = raw
+        # 仅在 map_*/bump 行里做路径和 -bm 处理
+        head = line.strip().lower()
+        if head.startswith("map_") or head.startswith("bump"):
+            # 统一路径分隔符
+            line = line.replace("\\", "/")
+            # 去掉 -bm 参数（仅 bump 行有效，map_* 行里一般没有 -bm）
+            # if head.startswith("bump"):
+            #     line = bm_re.sub("", line)
         out_lines.append(line)
 
     fixed = mtl_path.with_name(mtl_path.stem + "_fixed.mtl")
@@ -1440,42 +1475,42 @@ def export_only_selected_glb(obj_or_objs, out_path):
     bpy.ops.object.select_all(action='DESELECT')
 
 
-import bpy, os, shutil
+# import bpy, os, shutil
 
-def _save_or_copy_image(img: bpy.types.Image, dst_dir: Path) -> Path | None:
-    """
-    把材质中用到的图片保存到 dst_dir：
-      - 若是打包图像：另存为 PNG；
-      - 若有文件路径：拷贝到 dst_dir；
-    返回目标路径（相对 dst_dir 的文件）。
-    """
-    try:
-        dst_dir.mkdir(parents=True, exist_ok=True)
-        # 尝试用原始文件名
-        base = Path(img.filepath_raw).name if img.filepath_raw else (img.name + ".png")
-        if not base:
-            base = img.name + ".png"
-        # 去掉奇怪字符
-        base = base.replace("\\", "/").split("/")[-1]
-        tgt = dst_dir / base
+# def _save_or_copy_image(img: bpy.types.Image, dst_dir: Path) -> Path | None:
+#     """
+#     把材质中用到的图片保存到 dst_dir：
+#       - 若是打包图像：另存为 PNG；
+#       - 若有文件路径：拷贝到 dst_dir；
+#     返回目标路径（相对 dst_dir 的文件）。
+#     """
+#     try:
+#         dst_dir.mkdir(parents=True, exist_ok=True)
+#         # 尝试用原始文件名
+#         base = Path(img.filepath_raw).name if img.filepath_raw else (img.name + ".png")
+#         if not base:
+#             base = img.name + ".png"
+#         # 去掉奇怪字符
+#         base = base.replace("\\", "/").split("/")[-1]
+#         tgt = dst_dir / base
 
-        if img.packed_file is not None:
-            # 打包的直接另存为 PNG（最稳）
-            tmp_format = img.file_format
-            img.file_format = 'PNG'
-            img.save(filepath=str(tgt))
-            img.file_format = tmp_format
-        else:
-            src = Path(bpy.path.abspath(img.filepath_raw)) if img.filepath_raw else None
-            if src and src.exists():
-                if str(src.resolve()) != str(tgt.resolve()):
-                    shutil.copy2(str(src), str(tgt))
-            else:
-                # 没路径也没打包，就忽略
-                return None
-        return tgt
-    except Exception:
-        return None
+#         if img.packed_file is not None:
+#             # 打包的直接另存为 PNG（最稳）
+#             tmp_format = img.file_format
+#             img.file_format = 'PNG'
+#             img.save(filepath=str(tgt))
+#             img.file_format = tmp_format
+#         else:
+#             src = Path(bpy.path.abspath(img.filepath_raw)) if img.filepath_raw else None
+#             if src and src.exists():
+#                 if str(src.resolve()) != str(tgt.resolve()):
+#                     shutil.copy2(str(src), str(tgt))
+#             else:
+#                 # 没路径也没打包，就忽略
+#                 return None
+#         return tgt
+#     except Exception:
+#         return None
 
 # def collect_and_dump_textures(obj: bpy.types.Object, textures_dir: Path) -> dict[str, str]:
 #     """
@@ -1490,72 +1525,367 @@ def _save_or_copy_image(img: bpy.types.Image, dst_dir: Path) -> Path | None:
 #             if n.type == "TEX_IMAGE" and n.image:
 #                 dst = _save_or_copy_image(n.image, textures_dir)
 #                 if dst:
-#                     mapping[Path(n.image.filepath_raw).name if n.image.filepath_raw else n.image.name] = dst.name
+#                     orig_name = None
+#                     if n.image.filepath_raw:
+#                         orig_name = Path(n.image.filepath_raw).name
+#                     elif n.image.name:
+#                         orig_name = n.image.name
+#                     if orig_name:
+#                         mapping[orig_name] = dst.name
+#                     mapping.setdefault(dst.name, dst.name)
 #     return mapping
-# —— 收集纹理到 textures/ 并将文件名安全化，返回“原名→安全名”映射（大小写无关）
-def collect_and_dump_textures(
-    bpy_obj, textures_dir: Path, rename: bool = True
-) -> Dict[str, str]:
-    """
-    从 Blender 节点/材质中收集贴图，复制到 textures/；如果 rename=True，同步改名为安全名。
-    返回：orig_basename(casefold) -> safe_basename
-    """
-    textures_dir.mkdir(parents=True, exist_ok=True)
-    mapping: Dict[str, str] = {}
+IMG_EXTS = {".png",".jpg",".jpeg",".tga",".bmp",".tif",".tiff",".exr",".hdr",".webp",".dds",".ktx",".ktx2"}
 
-    import bpy  # 在 Blender 中运行
+def _safe_stem(name: str) -> str:
+    base = Path(name).name  # 只取 basename
+    stem = Path(base).stem  # 去掉一层扩展
+    # 再手动去掉一个常见的“叠加扩展”（例如 foo.jpg.png 的 .png 前还有 .jpg）
+    # 注意：Path.stem 对 .tar.gz 这类多重扩展也只去掉一层，这里按需要再做一次
+    if Path(stem).suffix.lower() in IMG_EXTS:
+        stem = Path(stem).stem
+    # 空格/奇怪字符 -> 下划线
+    stem = re.sub(r"[^\w\.-]+", "_", stem)
+    return stem
 
-    def save_or_copy_image(img, dst_dir: Path) -> Optional[Path]:
-        # 尝试拿到原路径；没有就导出为 PNG
-        raw = Path(bpy.path.abspath(img.filepath_raw or img.filepath)) if (img.filepath_raw or img.filepath) else None
-        if raw and raw.exists():
-            src = raw
-            base = src.name
-            safe = sanitize_basename(base) if rename else base
-            dst = dst_dir / safe
+def _safe_name_keep_ext(name: str) -> str:
+    base = Path(name).name
+    stem = _safe_stem(base)
+    ext = Path(base).suffix.lower()
+    return f"{stem}{ext}" if ext else stem
+
+def _safe_name_as_png(name: str) -> str:
+    stem = _safe_stem(name)
+    return f"{stem}.png"
+
+def _save_or_copy_image(img: bpy.types.Image, dst_dir: Path) -> Path | None:
+    """
+    - 若有物理文件且未打包：拷贝到 dst_dir，保留原扩展；
+    - 若打包/无物理文件：另存为 PNG（确保只有一个 .png 扩展）。
+    返回目标文件完整路径，失败返回 None。
+    """
+    dst_dir.mkdir(parents=True, exist_ok=True)
+    try:
+        # 物理文件路径（优先 raw）
+        src = None
+        if img.filepath_raw:
+            try:
+                p = Path(bpy.path.abspath(img.filepath_raw))
+                if p.exists() and p.is_file():
+                    src = p
+            except Exception:
+                pass
+        if not src and img.filepath:
+            try:
+                p = Path(bpy.path.abspath(img.filepath))
+                if p.exists() and p.is_file():
+                    src = p
+            except Exception:
+                pass
+
+        # 情况 A：有物理文件 & 未打包 → 拷贝并保留原扩展
+        if src and img.packed_file is None:
+            safe = _safe_name_keep_ext(src.name)     # e.g. foo.jpg → foo.jpg
+            dst  = dst_dir / safe
             if str(src.resolve()) != str(dst.resolve()):
-                dst.parent.mkdir(parents=True, exist_ok=True)
                 shutil.copy2(str(src), str(dst))
             return dst
-        else:
-            # 导出内嵌图像为 PNG
-            safe = sanitize_basename((img.name or "image") + ".png") if rename else (img.name or "image") + ".png"
-            dst = dst_dir / safe
-            dst.parent.mkdir(parents=True, exist_ok=True)
-            # 保存为 PNG（避免奇怪格式）
-            try:
-                # 临时设置并保存
-                prev_fp = img.filepath
-                img.filepath = str(dst)
-                img.file_format = 'PNG'
-                img.save()
-                img.filepath = prev_fp
-                return dst
-            except Exception:
-                return None
 
-    # 遍历材质节点收集
-    for mat in (bpy_obj.data.materials or []):
-        if not mat or not mat.use_nodes or not mat.node_tree:
+        # 情况 B：打包 或 无物理文件 → 另存为 PNG（强制 .png，绝不叠加）
+        base_hint = Path(img.name or "image").name
+        safe = _safe_name_as_png(base_hint)          # e.g. foo.jpg / foo → foo.png
+        dst  = dst_dir / safe
+        prev_fmt = img.file_format
+        prev_fp  = img.filepath
+        try:
+            img.file_format = 'PNG'
+            img.filepath = str(dst)
+            img.save()
+        finally:
+            # 恢复
+            img.file_format = prev_fmt
+            img.filepath = prev_fp
+        return dst
+    except Exception:
+        return None
+
+def collect_and_dump_textures(obj: bpy.types.Object, textures_dir: Path) -> dict[str, str]:
+    """
+    遍历对象所有材质节点，把出现的 Image 另存/拷贝到 textures_dir。
+    返回 {原basename(casefold): 安全basename} 的映射，便于后续替换 MTL。
+    """
+    mapping: dict[str, str] = {}
+    textures_dir.mkdir(parents=True, exist_ok=True)
+
+    for mat in obj.data.materials or []:
+        if not mat or not getattr(mat, "use_nodes", False) or not mat.node_tree:
             continue
-        for node in mat.node_tree.nodes:
-            if getattr(node, "type", "") == "TEX_IMAGE" and getattr(node, "image", None):
-                dst = save_or_copy_image(node.image, textures_dir)
-                if dst:
-                    orig = Path(node.image.filepath_raw or node.image.filepath or node.image.name).name
-                    mapping[_canon_key(orig)] = dst.name
-
+        for n in mat.node_tree.nodes:
+            if n.type == "TEX_IMAGE" and n.image:
+                dst = _save_or_copy_image(n.image, textures_dir)
+                if not dst:
+                    continue
+                # 原始名称键：优先 filepath_raw 的 basename；否则用 image.name
+                orig_name = None
+                if n.image.filepath_raw:
+                    orig_name = Path(n.image.filepath_raw).name
+                elif n.image.name:
+                    orig_name = n.image.name
+                # ★ 记录“大小写无关”的映射：原名 → 安全名
+                if orig_name:
+                    mapping[_canon_key(orig_name)] = dst.name
+                # 再加一个“目标名自身”的自映射，方便后面直接命中
+                mapping.setdefault(_canon_key(dst.name), dst.name)
     return mapping
+# —— 收集纹理到 textures/ 并将文件名安全化，返回“原名→安全名”映射（大小写无关）
+IMAGE_EXTS = {".png", ".jpg", ".jpeg", ".tga", ".bmp", ".tif", ".tiff",
+              ".exr", ".dds", ".ktx", ".ktx2", ".webp"}
 
+def normalize_texture_basename(name: str) -> str:
+    """把 Blender 自动加的 .### 去掉，恢复真实扩展。"""
+    name = unicodedata.normalize("NFC", os.path.basename(str(name)))
+    stem, ext = os.path.splitext(name)
+    if ext.lower() not in IMAGE_EXTS and ext[1:].isdigit():
+        inner_stem, inner_ext = os.path.splitext(stem)
+        if inner_ext.lower() in IMAGE_EXTS:
+            name = inner_stem + inner_ext.lower()
+    return name
+
+# def collect_and_dump_textures(
+#     bpy_obj, textures_dir: Path, rename: bool = True
+# ) -> Dict[str, str]:
+#     """
+#     从 Blender 节点/材质中收集贴图，复制到 textures/；如果 rename=True，同步改名为安全名。
+#     返回：orig_basename(casefold) -> safe_basename
+#     """
+#     textures_dir.mkdir(parents=True, exist_ok=True)
+#     mapping: Dict[str, str] = {}
+
+#     import bpy
+#     import os, shutil
+#     IMG_EXTS = {".png",".jpg",".jpeg",".tga",".bmp",".tif",".tiff",".exr",".dds",".ktx",".ktx2",".webp"}
+
+#     def _pick_from_dir(dir_path: Path, img) -> Optional[Path]:
+#         """当原路径是目录（常见 .fbm/）时，优先用 image.name 的 stem 在目录内匹配扩展；否则拿第一个图片文件。"""
+#         stem = Path(img.name or "").stem
+#         # 先按 name 匹配常见扩展
+#         if stem:
+#             for ext in IMG_EXTS:
+#                 cand = dir_path / f"{stem}{ext}"
+#                 if cand.is_file():
+#                     return cand
+#         # 退而求其次：目录中的第一个图片文件
+#         for cand in dir_path.iterdir():
+#             if cand.is_file() and cand.suffix.lower() in IMG_EXTS:
+#                 return cand
+#         return None
+
+#     def save_or_copy_image(img, dst_dir: Path) -> Optional[Path]:
+#         """若有原文件则复制；若是目录则深入挑文件；否则导出为 PNG。"""
+#         raw = None
+#         if (img.filepath_raw or img.filepath):
+#             try:
+#                 raw = Path(bpy.path.abspath(img.filepath_raw or img.filepath))
+#             except Exception:
+#                 raw = None
+
+#         # 1) 有路径 → 文件/目录分别处理
+#         if raw and raw.exists():
+#             src = raw
+#             if src.is_dir():                          # ← 关键：处理 .fbm/ 等目录
+#                 pick = _pick_from_dir(src, img)
+#                 if not pick:
+#                     return None
+#                 src = pick
+#             if not src.is_file():
+#                 return None
+
+#             # base = src.name
+#             # safe = sanitize_basename(base) if rename else base
+#             base = normalize_texture_basename(src.name)
+#             safe = sanitize_basename(base) if rename else base
+#             dst = dst_dir / safe
+#             if str(src.resolve()) != str(dst.resolve()):
+#                 dst.parent.mkdir(parents=True, exist_ok=True)
+#                 shutil.copy2(str(src), str(dst))
+#             return dst
+
+#         # 2) 无可用路径 → 导出内嵌为 PNG；避免 .png.png
+#         # base_name = (img.name or "image")
+#         # stem, ext = os.path.splitext(base_name)
+#         # if not ext:
+#         #     base_name = base_name + ".png"
+#         # safe = sanitize_basename(base_name) if rename else base_name
+#         base_name = normalize_texture_basename(img.name or "image")
+#         if not base_name.lower().endswith(tuple(IMAGE_EXTS)):
+#             base_name += ".png"
+#         safe = sanitize_basename(base_name) if rename else base_name
+
+#         dst = dst_dir / safe
+#         dst.parent.mkdir(parents=True, exist_ok=True)
+#         try:
+#             prev_fp = img.filepath
+#             img.filepath = str(dst)
+#             img.file_format = 'PNG'
+#             img.save()
+#             img.filepath = prev_fp
+#             return dst
+#         except Exception:
+#             return None
+
+#     # 遍历材质节点收集
+#     for mat in (bpy_obj.data.materials or []):
+#         if not mat or not mat.use_nodes or not mat.node_tree:
+#             continue
+#         for node in mat.node_tree.nodes:
+#             if getattr(node, "type", "") == "TEX_IMAGE" and getattr(node, "image", None):
+#                 dst = save_or_copy_image(node.image, textures_dir)
+#                 if dst:
+#                     # 用“原始 basename”与 image.name 两个键都建立大小写无关映射
+#                     orig_bn = Path(node.image.filepath_raw or node.image.filepath or node.image.name).name
+#                     mapping[_canon_key(orig_bn)] = dst.name
+#                     if node.image.name:
+#                         mapping[_canon_key(node.image.name)] = dst.name
+
+#     return mapping
+
+# def ensure_mtl_has_maps(obj, mtl_path: Path, textures_dir: Path):
+#     import bpy, os, shutil, re
+#     # 读取 MTL
+#     txt = mtl_path.read_text(encoding="utf-8", errors="ignore")
+#     lines = txt.splitlines()
+
+#     textures_dir.mkdir(parents=True, exist_ok=True)
+
+#     # -------- Pass 0: 先统计每个 newmtl 块是否已有 map_ 行（按块判断，别整文件 early return）
+#     has_map = {}        # name -> bool
+#     cur = None
+#     for l in lines:
+#         s = l.strip()
+#         if s.lower().startswith("newmtl"):
+#             cur = s.split(None, 1)[1] if " " in s else ""
+#             has_map.setdefault(cur, False)
+#         elif cur and s.lower().startswith(("map_", "bump")):
+#             has_map[cur] = True
+
+#     # -------- 收集每个材质的贴图（沿用你原逻辑）
+#     def dump_image(img) -> str | None:
+#         if not img: return None
+#         bn = Path(bpy.path.basename(img.filepath_raw) or img.name).name
+#         if not bn.lower().endswith((".png",".jpg",".jpeg",".tga",".bmp",".exr",".tif",".tiff",".webp")):
+#             bn += ".png"
+#         dst = textures_dir / bn
+#         try:
+#             abspath = bpy.path.abspath(img.filepath) if img.filepath else ""
+#             if img.packed_file:
+#                 img.save_render(str(dst))
+#             elif abspath and os.path.exists(abspath):
+#                 if str(dst) != abspath:
+#                     shutil.copy2(abspath, dst)
+#             else:
+#                 img.save_render(str(dst))
+#             return bn
+#         except Exception:
+#             return None
+
+#     mat_maps = {}  # name -> {"kd":..., "nm":..., "al":...}
+#     for mat in filter(None, getattr(obj.data, "materials", []) or []):
+#         kd = nm = al = None
+#         if getattr(mat, "use_nodes", False) and mat.node_tree:
+#             nt = mat.node_tree
+#             bsdf = next((n for n in nt.nodes if n.type == "BSDF_PRINCIPLED"), None)
+#             if bsdf:
+#                 # Base Color
+#                 link = next((l for l in nt.links if l.to_socket == bsdf.inputs.get("Base Color")), None)
+#                 node = getattr(link, "from_node", None)
+#                 if node and node.type == "TEX_IMAGE":
+#                     kd = dump_image(node.image)
+#                 # Normal（优先 NORMAL_MAP → Color）
+#                 link = next((l for l in nt.links if l.to_socket == bsdf.inputs.get("Normal")), None)
+#                 node = getattr(link, "from_node", None)
+#                 if node and node.type == "NORMAL_MAP":
+#                     link2 = next((l for l in nt.links if l.to_socket == node.inputs.get("Color")), None)
+#                     node2 = getattr(link2, "from_node", None)
+#                     if node2 and node2.type == "TEX_IMAGE":
+#                         nm = dump_image(node2.image)
+#                 # Alpha（可选）
+#                 link = next((l for l in nt.links if l.to_socket == bsdf.inputs.get("Alpha")), None)
+#                 node = getattr(link, "from_node", None)
+#                 if node and node.type == "TEX_IMAGE":
+#                     al = dump_image(node.image)
+#         if kd or nm or al:
+#             mat_maps[mat.name] = {"kd": kd, "nm": nm, "al": al}
+
+#     # 若完全没采到任何贴图，就不改
+#     if not mat_maps:
+#         return
+
+#     # -------- Pass 1：按块注入（修掉 newmtl 分支的 continue 导致的“永不到达”问题）
+#     out = []
+#     cur_name = None
+#     for line in lines:
+#         s = line.strip()
+#         if s.lower().startswith("newmtl"):
+#             cur_name = s.split(None, 1)[1] if " " in s else ""
+#             out.append(line)
+#             # 仅当该块目前没有 map_ 且我们能从节点树拿到图时，立刻补写
+#             if not has_map.get(cur_name, False) and cur_name in mat_maps:
+#                 m = mat_maps[cur_name]
+#                 def _q(p): return f'"{p}"' if " " in p else p
+#                 # if m.get("kd"): out.append(f'map_Kd {_q("textures/"+m["kd"])}')
+#                 # if m.get("nm"): out.append(f'map_Bump -bm 1 {_q("textures/"+m["nm"])}')
+#                 # if m.get("al"): out.append(f'map_d {_q("textures/"+m["al"])}')
+#                 # get away from the ""
+#                 if m.get("kd"): out.append(f'map_Kd textures/{sanitize_basename(m["kd"])}')
+#                 if m.get("nm"): out.append(f'map_Bump -bm 1 textures/{sanitize_basename(m["nm"])}')
+#                 if m.get("al"): out.append(f'map_d textures/{sanitize_basename(m["al"])}')
+#             continue
+
+#         out.append(line)
+
+#     # 若 MTL 里根本没有任何 newmtl，但我们采到了贴图：补一个默认块
+#     if not has_map and not any(l.strip().lower().startswith("newmtl") for l in lines):
+#         # 选第一个有贴图的材质名
+#         name, m = next(iter(mat_maps.items()))
+#         out += [f"newmtl {name}"]
+#         def _q(p): return f'"{p}"' if " " in p else p
+#         if m.get("kd"): out.append(f'map_Kd {_q("textures/"+m["kd"])}')
+#         if m.get("nm"): out.append(f'map_Bump -bm 1 {_q("textures/"+m["nm"])}')
+#         if m.get("al"): out.append(f'map_d {_q("textures/"+m["al"])}')
+
+#     mtl_path.write_text("\n".join(out), encoding="utf-8")
 def ensure_mtl_has_maps(obj, mtl_path: Path, textures_dir: Path):
     import bpy, os, shutil, re
+    from pathlib import Path
+
+    # 允许的贴图扩展
+    IMG_EXTS = {".png",".jpg",".jpeg",".tga",".bmp",".exr",".tif",".tiff",".webp",".hdr",".dds",".ktx",".ktx2"}
+
+    def _safe_name_keep_ext(name: str) -> str:
+        """空格/奇字符 -> '_'，扩展名小写；不产生二重扩展"""
+        base = Path(name).name
+        stem, ext = os.path.splitext(base)
+        # 处理像 foo.jpg.png 的叠加扩展：再剥一层
+        if os.path.splitext(stem)[1].lower() in IMG_EXTS:
+            stem = os.path.splitext(stem)[0]
+        stem = re.sub(r"[^\w\.-]+", "_", stem)
+        ext = ext.lower()
+        return f"{stem}{ext}" if ext else stem
+
+    def _safe_name_as_png(name: str) -> str:
+        base = Path(name).name
+        stem = os.path.splitext(base)[0]
+        # 再剥一次可能的二级扩展
+        if os.path.splitext(stem)[1].lower() in IMG_EXTS:
+            stem = os.path.splitext(stem)[0]
+        stem = re.sub(r"[^\w\.-]+", "_", stem)
+        return f"{stem}.png"
+
     # 读取 MTL
     txt = mtl_path.read_text(encoding="utf-8", errors="ignore")
     lines = txt.splitlines()
-
     textures_dir.mkdir(parents=True, exist_ok=True)
 
-    # -------- Pass 0: 先统计每个 newmtl 块是否已有 map_ 行（按块判断，别整文件 early return）
+    # -------- Pass 0: 按块统计是否已有 map_ / bump
     has_map = {}        # name -> bool
     cur = None
     for l in lines:
@@ -1566,31 +1896,57 @@ def ensure_mtl_has_maps(obj, mtl_path: Path, textures_dir: Path):
         elif cur and s.lower().startswith(("map_", "bump")):
             has_map[cur] = True
 
-    # -------- 收集每个材质的贴图（沿用你原逻辑）
+    # -------- 收集每个材质的贴图，并确保真实写入 textures/（返回“安全名”）
     def dump_image(img) -> str | None:
-        if not img: return None
-        bn = Path(bpy.path.basename(img.filepath_raw) or img.name).name
-        if not bn.lower().endswith((".png",".jpg",".jpeg",".tga",".bmp",".exr",".tif",".tiff",".webp")):
-            bn += ".png"
-        dst = textures_dir / bn
+        """落盘到 textures_dir 并返回安全文件名（磁盘实存的名字）。"""
+        if not img:
+            return None
+
+        # 先找物理源（raw 优先）
+        src = None
+        for fp in (img.filepath_raw, img.filepath):
+            if not fp:
+                continue
+            try:
+                p = Path(bpy.path.abspath(fp))
+            except Exception:
+                p = None
+            if p and p.exists() and p.is_file():
+                src = p
+                break
+
         try:
-            abspath = bpy.path.abspath(img.filepath) if img.filepath else ""
-            if img.packed_file:
-                img.save_render(str(dst))
-            elif abspath and os.path.exists(abspath):
-                if str(dst) != abspath:
-                    shutil.copy2(abspath, dst)
-            else:
-                img.save_render(str(dst))
-            return bn
+            # 情况 A：有物理文件且未打包 -> 拷贝并保留原扩展
+            if src and img.packed_file is None:
+                safe = _safe_name_keep_ext(src.name)
+                dst = textures_dir / safe
+                if str(src.resolve()) != str(dst.resolve()):
+                    shutil.copy2(str(src), str(dst))
+                return safe
+
+            # 情况 B：打包 / 无物理源 -> 另存为 PNG（强制 .png，不叠加）
+            base_hint = Path(img.name or "image").name
+            safe = _safe_name_as_png(base_hint)
+            dst = textures_dir / safe
+            prev_fmt, prev_fp = img.file_format, img.filepath
+            try:
+                img.file_format = 'PNG'
+                img.filepath = str(dst)
+                img.save()
+            finally:
+                img.file_format = prev_fmt
+                img.filepath = prev_fp
+            return safe
         except Exception:
             return None
 
-    mat_maps = {}  # name -> {"kd":..., "nm":..., "al":...}
+    # 从节点收集（BaseColor / Normal / Alpha）
+    mat_maps = {}  # name -> {"kd":safe_bn, "nm":safe_bn, "al":safe_bn}
     for mat in filter(None, getattr(obj.data, "materials", []) or []):
         kd = nm = al = None
         if getattr(mat, "use_nodes", False) and mat.node_tree:
             nt = mat.node_tree
+            # 找 Principled
             bsdf = next((n for n in nt.nodes if n.type == "BSDF_PRINCIPLED"), None)
             if bsdf:
                 # Base Color
@@ -1598,7 +1954,7 @@ def ensure_mtl_has_maps(obj, mtl_path: Path, textures_dir: Path):
                 node = getattr(link, "from_node", None)
                 if node and node.type == "TEX_IMAGE":
                     kd = dump_image(node.image)
-                # Normal（优先 NORMAL_MAP → Color）
+                # Normal（Normal Map 节点 → Color）
                 link = next((l for l in nt.links if l.to_socket == bsdf.inputs.get("Normal")), None)
                 node = getattr(link, "from_node", None)
                 if node and node.type == "NORMAL_MAP":
@@ -1606,7 +1962,7 @@ def ensure_mtl_has_maps(obj, mtl_path: Path, textures_dir: Path):
                     node2 = getattr(link2, "from_node", None)
                     if node2 and node2.type == "TEX_IMAGE":
                         nm = dump_image(node2.image)
-                # Alpha（可选）
+                # Alpha
                 link = next((l for l in nt.links if l.to_socket == bsdf.inputs.get("Alpha")), None)
                 node = getattr(link, "from_node", None)
                 if node and node.type == "TEX_IMAGE":
@@ -1614,66 +1970,50 @@ def ensure_mtl_has_maps(obj, mtl_path: Path, textures_dir: Path):
         if kd or nm or al:
             mat_maps[mat.name] = {"kd": kd, "nm": nm, "al": al}
 
-    # 若完全没采到任何贴图，就不改
     if not mat_maps:
-        return
+        return  # 无可补图，不动 MTL
 
-    # -------- Pass 1：按块注入（修掉 newmtl 分支的 continue 导致的“永不到达”问题）
+    # -------- Pass 1：逐块补写（仅当该块原先没有任何 map_/bump）
     out = []
     cur_name = None
+
+    def _exists_safe(name: str) -> bool:
+        return bool(name) and (textures_dir / name).is_file()
+
     for line in lines:
         s = line.strip()
         if s.lower().startswith("newmtl"):
             cur_name = s.split(None, 1)[1] if " " in s else ""
             out.append(line)
-            # 仅当该块目前没有 map_ 且我们能从节点树拿到图时，立刻补写
+            # 仅当该块目前没有 map_ 且我们采集到了贴图，才补
             if not has_map.get(cur_name, False) and cur_name in mat_maps:
                 m = mat_maps[cur_name]
-                def _q(p): return f'"{p}"' if " " in p else p
-                # if m.get("kd"): out.append(f'map_Kd {_q("textures/"+m["kd"])}')
-                # if m.get("nm"): out.append(f'map_Bump -bm 1 {_q("textures/"+m["nm"])}')
-                # if m.get("al"): out.append(f'map_d {_q("textures/"+m["al"])}')
-                # get away from the ""
-                if m.get("kd"): out.append(f'map_Kd textures/{sanitize_basename(m["kd"])}')
-                if m.get("nm"): out.append(f'map_Bump -bm 1 textures/{sanitize_basename(m["nm"])}')
-                if m.get("al"): out.append(f'map_d textures/{sanitize_basename(m["al"])}')
+                # 只有当磁盘真实存在时才写入 MTL
+                if _exists_safe(m.get("kd", "")):
+                    out.append(f'map_Kd textures/{m["kd"]}')
+                if _exists_safe(m.get("nm", "")):
+                    # 用 'bump' 写法，保留 -bm 1；部分解析器更兼容
+                    out.append(f'bump -bm 1 textures/{m["nm"]}')
+                if _exists_safe(m.get("al", "")):
+                    out.append(f'map_d textures/{m["al"]}')
             continue
 
         out.append(line)
 
-    # 若 MTL 里根本没有任何 newmtl，但我们采到了贴图：补一个默认块
-    if not has_map and not any(l.strip().lower().startswith("newmtl") for l in lines):
-        # 选第一个有贴图的材质名
+    # 若 MTL 没任何 newmtl，但采到了贴图：补一个默认块
+    if not any(l.strip().lower().startswith("newmtl") for l in lines) and mat_maps:
         name, m = next(iter(mat_maps.items()))
         out += [f"newmtl {name}"]
-        def _q(p): return f'"{p}"' if " " in p else p
-        if m.get("kd"): out.append(f'map_Kd {_q("textures/"+m["kd"])}')
-        if m.get("nm"): out.append(f'map_Bump -bm 1 {_q("textures/"+m["nm"])}')
-        if m.get("al"): out.append(f'map_d {_q("textures/"+m["al"])}')
+        if _exists_safe(m.get("kd", "")):
+            out.append(f'map_Kd textures/{m["kd"]}')
+        if _exists_safe(m.get("nm", "")):
+            out.append(f'bump -bm 1 textures/{m["nm"]}')
+        if _exists_safe(m.get("al", "")):
+            out.append(f'map_d textures/{m["al"]}')
 
     mtl_path.write_text("\n".join(out), encoding="utf-8")
 
-# ======================== MTL/Texture 修复工具（可直接粘贴） ========================
-from __future__ import annotations
-import os, re, shlex, unicodedata, shutil
-from pathlib import Path
-from typing import Dict, List, Tuple, Optional
-
-# —— 规则：仅保留安全字符；空格与奇字符 → "_"；扩展名统一小写 ——
-_SAFE_CHARS_RE = re.compile(r"[^A-Za-z0-9._-]+")
-
-def sanitize_basename(name: str) -> str:
-    """仅规范化 basename：空格/奇字符→'_'；扩展名小写；去首尾 '_'。"""
-    name = unicodedata.normalize("NFC", os.path.basename(str(name)))
-    stem, ext = os.path.splitext(name)
-    stem = _SAFE_CHARS_RE.sub("_", stem).strip("_")
-    return f"{stem}{ext.lower()}" if ext else stem
-
-def _canon_key(s: str) -> str:
-    """用于字典键（大小写无关匹配）的规范化：NFC + basename + casefold。"""
-    return unicodedata.normalize("NFC", os.path.basename(str(s))).casefold()
-# ===================== 导出专用 MTL 修复（可直接粘贴） =====================
-from __future__ import annotations
+# ===================== 导出专用 MTL 修复 =====================
 import os, re, shlex, unicodedata, shutil
 from pathlib import Path
 from typing import Dict, Tuple, Optional, List
@@ -1692,179 +2032,187 @@ def _canon_key(s: str) -> str:
     """生成大小写无关匹配用的键：NFC + basename + casefold。"""
     return unicodedata.normalize("NFC", os.path.basename(str(s))).casefold()
 
-def build_available_textures_index(textures_dir: Path) -> Dict[str, Path]:
-    """
-    在 textures_dir 下建立大小写无关的可用文件索引：canon_key -> 真实 Path。
-    """
-    idx: Dict[str, Path] = {}
-    if not textures_dir.exists():
-        return idx
-    for p in textures_dir.iterdir():
-        if p.is_file():
-            idx[_canon_key(p.name)] = p
-    return idx
+# def build_available_textures_index(textures_dir: Path) -> Dict[str, Path]:
+#     """
+#     在 textures_dir 下建立大小写无关的可用文件索引：canon_key -> 真实 Path。
+#     """
+#     idx: Dict[str, Path] = {}
+#     if not textures_dir.exists():
+#         return idx
+#     for p in textures_dir.iterdir():
+#         if p.is_file():
+#             idx[_canon_key(p.name)] = p
+#     return idx
 
-def ensure_texture_safe_name(p: Path) -> Path:
-    """
-    若 textures/ 下文件名包含空格/奇字符，则重命名为安全名；返回最终路径。
-    """
-    safe = sanitize_basename(p.name)
-    if safe != p.name:
-        q = p.with_name(safe)
-        if not q.exists():
-            p.rename(q)
-        else:
-            # 若已存在同名安全文件，选择覆盖或去重（这里选择覆盖为简单）
-            q.unlink()
-            p.rename(q)
-        return q
-    return p
+# def ensure_texture_safe_name(p: Path) -> Path:
+#     """
+#     若 textures/ 下文件名包含空格/奇字符，则重命名为安全名；返回最终路径。
+#     """
+#     safe = sanitize_basename(p.name)
+#     if safe != p.name:
+#         q = p.with_name(safe)
+#         if not q.exists():
+#             p.rename(q)
+#         else:
+#             # 若已存在同名安全文件，选择覆盖或去重（这里选择覆盖为简单）
+#             q.unlink()
+#             p.rename(q)
+#         return q
+#     return p
 
-def export_fix_mtl(
-    mtl_path: Path,
-    textures_dir: Path,
-    write_fixed: bool = True,
-    fixed_suffix: str = "_fixed",
-    also_rewrite_obj: Optional[Path] = None,   # 若提供 OBJ 路径，则顺手改 mtllib 并产出 *_fixed.obj
-    force_write_obj: bool = True,
-) -> Tuple[Path, Optional[Path]]:
-    """
-    导出阶段专用的 MTL 修复：
-      1) 不删除 -bm、不删任何 map_*；最大限度保留原语义；
-      2) 统一反斜杠为 '/'；
-      3) 贴图路径一律写成相对路径：textures/<安全名>（无引号）；
-      4) 把 textures/ 下的贴图文件名同步改为安全名（空格/奇字符→'_'，扩展名小写）；
-      5) 大小写无关匹配以避免 Cat.png / cat.PNG 误判；
-      6) 可选把 OBJ 的 mtllib 指向 *_fixed.mtl 并稳定产出 *_fixed.obj。
+# def _fuzzy_pick_key(idx_keys, old_bn: str) -> Optional[str]:
+#     """从 idx_keys 里挑一个与 old_bn 最接近的 key（按 token 子串倒序优先）。"""
+#     toks = re.split(r"[^A-Za-z0-9]+", old_bn.lower())
+#     toks = [t for t in toks if t]
+#     for t in reversed(toks):  # 倒序优先用末尾 token（如 'neko'）
+#         for k in idx_keys:
+#             if t and t in k:
+#                 return k
+#     return None
 
-    返回：(最终 mtl 路径, 最终 obj 路径或 None)
-    """
-    if not mtl_path.exists():
-        return mtl_path, None
+# def export_fix_mtl(
+#     mtl_path: Path,
+#     textures_dir: Path,
+#     write_fixed: bool = True,
+#     fixed_suffix: str = "_fixed",
+#     also_rewrite_obj: Optional[Path] = None,   # 若提供 OBJ 路径，则顺手改 mtllib 并产出 *_fixed.obj
+#     force_write_obj: bool = True,
+# ) -> Tuple[Path, Optional[Path]]:
+#     """
+#     导出阶段专用的 MTL 修复：
+#       1) 不删除 -bm、不删任何 map_*；最大限度保留原语义；
+#       2) 统一反斜杠为 '/'；
+#       3) 贴图路径一律写成相对路径：textures/<安全名>（无引号）；
+#       4) 把 textures/ 下的贴图文件名同步改为安全名（空格/奇字符→'_'，扩展名小写）；
+#       5) 大小写无关匹配以避免 Cat.png / cat.PNG 误判；
+#       6) 可选把 OBJ 的 mtllib 指向 *_fixed.mtl 并稳定产出 *_fixed.obj。
 
-    textures_dir.mkdir(parents=True, exist_ok=True)
+#     返回：(最终 mtl 路径, 最终 obj 路径或 None)
+#     """
+#     if not mtl_path.exists():
+#         return mtl_path, None
 
-    # 先把 textures/ 里已有文件改名为安全名，并建立索引
-    idx: Dict[str, Path] = {}
-    for p in list(textures_dir.iterdir()):
-        if p.is_file():
-            q = ensure_texture_safe_name(p)
-            idx[_canon_key(q.name)] = q
+#     textures_dir.mkdir(parents=True, exist_ok=True)
 
-    # 读取并重写 MTL
-    KEYS = ("map_ka","map_kd","map_ks","map_ke","map_ns","map_d",
-            "bump","map_bump","norm","disp","decal","refl")
+#     # 先把 textures/ 里已有文件改名为安全名，并建立索引
+#     idx: Dict[str, Path] = {}
+#     for p in list(textures_dir.iterdir()):
+#         if p.is_file():
+#             q = ensure_texture_safe_name(p)
+#             idx[_canon_key(q.name)] = q
 
-    lines = mtl_path.read_text(encoding="utf-8", errors="ignore").splitlines()
-    out: List[str] = []
+#     # 读取并重写 MTL
+#     KEYS = ("map_ka","map_kd","map_ks","map_ke","map_ns","map_d",
+#             "bump","map_bump","norm","disp","decal","refl")
 
-    for raw in lines:
-        ln = raw
-        s = ln.strip()
-        if not s:
-            out.append(ln); continue
+#     lines = mtl_path.read_text(encoding="utf-8", errors="ignore").splitlines()
+#     out: List[str] = []
 
-        key = s.split(None, 1)[0].lower()
-        if key in KEYS:
-            # 统一反斜杠
-            ln = ln.replace("\\", "/")
+#     for raw in lines:
+#         ln = raw
+#         s = ln.strip()
+#         if not s:
+#             out.append(ln); continue
 
-            # 提取选项与“最后一个非选项 token（文件路径）”
-            rest = s[len(key):].strip()
-            toks = shlex.split(rest, posix=True)
-            if not toks:
-                out.append(ln); continue
+#         key = s.split(None, 1)[0].lower()
+#         if key in KEYS:
+#             # 统一反斜杠
+#             ln = ln.replace("\\", "/")
 
-            opts, fname = [], None
-            for t in toks:
-                if t.startswith("-") and fname is None:
-                    opts.append(t)
-                else:
-                    fname = t if fname is None else t
-            if not fname:
-                out.append(ln); continue
+#             # 提取选项与“最后一个非选项 token（文件路径）”
+#             rest = s[len(key):].strip()
+#             toks = shlex.split(rest, posix=True)
+#             if not toks:
+#                 out.append(ln); continue
 
-            old_bn = os.path.basename(fname)
+#             opts, fname = [], None
+#             for t in toks:
+#                 if t.startswith("-") and fname is None:
+#                     opts.append(t)
+#                 else:
+#                     fname = t if fname is None else t
+#             if not fname:
+#                 out.append(ln); continue
 
-            # 在索引中查找（大小写无关）；若没有，则以安全名落地（如果上游已复制，这里只规范名）
-            canon = _canon_key(old_bn)
-            if canon in idx:
-                final_path = idx[canon]
-            else:
-                safe = sanitize_basename(old_bn)
-                final_path = textures_dir / safe
-                # 如果源文件还不在 textures/，这里不做跨目录搜索；导出阶段应已把贴图收集到 textures/
-                # 若不存在，创建一个空占位避免 MTL 指向不存在（也可以选择跳过）
-                if not final_path.exists():
-                    final_path.touch()
+#             old_bn = os.path.basename(fname)
 
-                # 更新索引
-                idx[_canon_key(final_path.name)] = final_path
+#             # 在索引中查找（大小写无关）；若没有，则以安全名落地
+#             if canon in idx:
+#                 final_path = idx[canon]
+#             else:
+#                 # 尝试模糊匹配（避免凭空创建 'neko.jpg' 这类占位）
+#                 pick = _fuzzy_pick_key(idx.keys(), old_bn)
+#                 if pick:
+#                     final_path = idx[pick]
+#                 else:
+#                     # 找不到就保留原行（只做斜杠统一），不要创建新文件
+#                     out.append(ln)   # ln 已经把 '\'→'/' 了
+#                     continue
 
-            # 再保障一次安全名（万一是新 touch 的）
-            final_path = ensure_texture_safe_name(final_path)
+#             # 再保障一次安全名（万一是新 touch 的）
+#             final_path = ensure_texture_safe_name(final_path)
 
-            # 写相对路径（无引号）
-            new_rel = f"textures/{final_path.name}"
-            ln = " ".join([key] + opts + [new_rel])
-            out.append(ln)
-        else:
-            # 非贴图行：保留原始语义
-            out.append(ln)
+#             # 写相对路径（无引号）
+#             new_rel = f"textures/{final_path.name}"
+#             ln = " ".join([key] + opts + [new_rel])
+#             out.append(ln)
+#         else:
+#             # 非贴图行：保留原始语义
+#             out.append(ln)
 
-    # 输出 *_fixed.mtl（或原地覆盖）
-    if write_fixed:
-        mtl_fixed = mtl_path.with_name(mtl_path.stem + fixed_suffix + ".mtl")
-        mtl_fixed.write_text("\n".join(out), encoding="utf-8")
-    else:
-        mtl_fixed = mtl_path
-        mtl_path.write_text("\n".join(out), encoding="utf-8")
+#     # 输出 *_fixed.mtl（或原地覆盖）
+#     if write_fixed:
+#         mtl_fixed = mtl_path.with_name(mtl_path.stem + fixed_suffix + ".mtl")
+#         mtl_fixed.write_text("\n".join(out), encoding="utf-8")
+#     else:
+#         mtl_fixed = mtl_path
+#         mtl_path.write_text("\n".join(out), encoding="utf-8")
 
-    obj_fixed: Optional[Path] = None
-    if also_rewrite_obj:
-        obj_fixed, _ = _rewrite_obj_mtllibs_export(
-            also_rewrite_obj, {mtl_path.name: mtl_fixed.name}, force_write=force_write_obj, fixed_suffix=fixed_suffix
-        )
+#     obj_fixed: Optional[Path] = None
+#     if also_rewrite_obj:
+#         obj_fixed, _ = _rewrite_obj_mtllibs_export(
+#             also_rewrite_obj, {mtl_path.name: mtl_fixed.name}, force_write=force_write_obj, fixed_suffix=fixed_suffix
+#         )
 
-    return mtl_fixed, obj_fixed
+#     return mtl_fixed, obj_fixed
 
-def _rewrite_obj_mtllibs_export(
-    obj_path: Path,
-    mtl_name_map: Dict[str, str],
-    force_write: bool = True,
-    fixed_suffix: str = "_fixed",
-) -> Tuple[Path, bool]:
-    """
-    导出用的 mtllib 重写（健壮 & 稳定产出）：
-      - 用 shlex 解析，支持一行多个 mtllib / 带空格 token；
-      - 只替换文件名部分；
-      - force_write=True 时无论比较结果都写 *_fixed.obj（或首次创建）。
-    """
-    if not obj_path.exists():
-        return obj_path, False
+# def _rewrite_obj_mtllibs_export(
+#     obj_path: Path,
+#     mtl_name_map: Dict[str, str],
+#     force_write: bool = True,
+#     fixed_suffix: str = "_fixed",
+# ) -> Tuple[Path, bool]:
+#     """
+#     导出用的 mtllib 重写（健壮 & 稳定产出）：
+#       - 用 shlex 解析，支持一行多个 mtllib / 带空格 token；
+#       - 只替换文件名部分；
+#       - force_write=True 时无论比较结果都写 *_fixed.obj（或首次创建）。
+#     """
+#     if not obj_path.exists():
+#         return obj_path, False
 
-    src = obj_path.read_text(encoding="utf-8", errors="ignore").splitlines()
-    out, changed = [], False
-    for ln in src:
-        if ln.lstrip().lower().startswith("mtllib"):
-            rest = ln.split(None, 1)[1] if " " in ln else ""
-            toks = shlex.split(rest, posix=True)
-            new_toks = []
-            for tok in toks:
-                base = os.path.basename(tok)
-                rep = mtl_name_map.get(base, tok)
-                if rep != tok:
-                    changed = True
-                new_toks.append(rep)
-            out.append("mtllib " + " ".join(new_toks))
-        else:
-            out.append(ln)
+#     src = obj_path.read_text(encoding="utf-8", errors="ignore").splitlines()
+#     out, changed = [], False
+#     for ln in src:
+#         if ln.lstrip().lower().startswith("mtllib"):
+#             rest = ln.split(None, 1)[1] if " " in ln else ""
+#             toks = shlex.split(rest, posix=True)
+#             new_toks = []
+#             for tok in toks:
+#                 base = os.path.basename(tok)
+#                 rep = mtl_name_map.get(base, tok)
+#                 if rep != tok:
+#                     changed = True
+#                 new_toks.append(rep)
+#             out.append("mtllib " + " ".join(new_toks))
+#         else:
+#             out.append(ln)
 
-    target = obj_path.with_name(obj_path.stem + fixed_suffix + ".obj")
-    if force_write or changed or not target.exists():
-        target.write_text("\n".join(out), encoding="utf-8")
-        return target, True
-    return (target if target.exists() else obj_path), False
+#     target = obj_path.with_name(obj_path.stem + fixed_suffix + ".obj")
+#     if force_write or changed or not target.exists():
+#         target.write_text("\n".join(out), encoding="utf-8")
+#         return target, True
+#     return (target if target.exists() else obj_path), False
 
 def export_selected_as_obj_with_textures(obj: bpy.types.Object, out_dir: Path, name="model"):
     """
@@ -1891,7 +2239,7 @@ def export_selected_as_obj_with_textures(obj: bpy.types.Object, out_dir: Path, n
     #     )
     # except Exception:
     #     pass
-    tex_map = collect_and_dump_textures(bpy_obj=obj, textures_dir=textures_dir, rename=True)
+    tex_map = collect_and_dump_textures(obj, textures_dir=textures_dir)
 
     # 只导出所选
     bpy.ops.object.select_all(action='DESELECT')
@@ -1964,7 +2312,8 @@ def export_selected_as_obj_with_textures(obj: bpy.types.Object, out_dir: Path, n
         s = raw.strip().lower()
         if s.startswith("map_") or s.startswith("bump"):
             # 取最后一个非选项 token 当作路径
-            parts = shlex.split(raw)  # 支持引号/空格
+            line_norm = raw.replace("\\", "/")
+            parts = shlex.split(line_norm) if line_norm else []  # 支持引号/空格
             if len(parts) >= 2:
                 cand = parts[-1]
                 # 已经收集过就略过
@@ -1976,10 +2325,14 @@ def export_selected_as_obj_with_textures(obj: bpy.types.Object, out_dir: Path, n
                 for cp in _candidate_paths(cand):
                     try:
                         if cp.exists() and cp.is_file():
-                            dst = textures_dir / cp.name
+                            safe_name = cp.name.replace(" ", "_") or cp.name
+                            dst = textures_dir / safe_name
                             if str(cp.resolve()) != str(dst.resolve()):
                                 shutil.copy2(str(cp), str(dst))
-                            tex_map[cp.name] = dst.name  # 记录 basename 映射
+                            tex_map[cp.name] = dst.name
+                            tex_map.setdefault(dst.name, dst.name)
+                            norm_cand = cand.replace("\\", "/")
+                            tex_map[norm_cand] = dst.name
                             found = True
                             break
                     except Exception:
@@ -1988,58 +2341,133 @@ def export_selected_as_obj_with_textures(obj: bpy.types.Object, out_dir: Path, n
                 if not found:
                     print(f"[warn] MTL map refers to missing file: {cand}")
 
-    mtl_fixed, obj_fixed = export_fix_mtl(
-        mtl_path=mtl_path,
-        textures_dir=textures_dir,
-        write_fixed=True,                 # 产出 *_fixed.mtl
-        fixed_suffix="_fixed",
-        also_rewrite_obj=obj_path,        # 可选：顺手改 mtllib，稳定产出 *_fixed.obj
-        force_write_obj=True
-    )
+    # mtl_fixed, obj_fixed = export_fix_mtl(
+    #     mtl_path=mtl_path,
+    #     textures_dir=textures_dir,
+    #     write_fixed=True,                 # 产出 *_fixed.mtl
+    #     fixed_suffix="_fixed",
+    #     also_rewrite_obj=None,        # 可选：顺手改 mtllib，稳定产出 *_fixed.obj
+    #     force_write_obj=False
+    # )
 
-    # 3) 修好的内容覆盖回原 model.mtl，就执行：
-    mtl_path.write_text(mtl_fixed.read_text(encoding="utf-8"), encoding="utf-8")
-    try:
-        if mtl_fixed != mtl_path:
-            mtl_fixed.unlink()  # 删除 *_fixed.mtl，避免双份
-    except Exception:
-        pass
-    # # —— 最小修复：路径斜杠 & 去 -bm；同时把 map_* 的文件名改到 textures/ 子目录
-    # fixed = fix_mtl_minimal(mtl_path)
-    # ensure_mtl_has_maps(obj, fixed, textures_dir)
-    # # 把 MTL 里的贴图路径替换为 'textures/<文件名>' （更稳健：支持空格文件名/任意选项）
+    # # 3) 修好的内容覆盖回原 model.mtl，就执行：
+    # mtl_path.write_text(mtl_fixed.read_text(encoding="utf-8"), encoding="utf-8")
+    # try:
+    #     if mtl_fixed != mtl_path:
+    #         mtl_fixed.unlink()  # 删除 *_fixed.mtl，避免双份
+    # except Exception:
+    #     pass
+    # —— 最小修复：路径斜杠 & 去 -bm；同时把 map_* 的文件名改到 textures/ 子目录
+    fixed = fix_mtl_minimal_export(mtl_path)
+    ensure_mtl_has_maps(obj, fixed, textures_dir) # for glb like files which lack the mapping 
+    # 把 MTL 里的贴图路径替换为 'textures/<文件名>' （更稳健：支持空格文件名/任意选项）
     # lines = []
-    # keys = set(tex_map.keys())  # 我们在导出前收集到的“原始 basename”（可能含空格）
+    # keys = set(tex_map.keys())
     # for raw in fixed.read_text(encoding="utf-8", errors="ignore").splitlines():
     #     s_strip = raw.strip()
     #     low = s_strip.lower()
     #     if low.startswith("map_") or low.startswith("bump"):
-    #         # 解析整行：head + opts + path
-    #         tokens = shlex.split(raw)          # 支持引号/空格
+    #         try:
+    #             tokens = shlex.split(raw)
+    #         except Exception:
+    #             tokens = raw.split()
     #         if len(tokens) >= 2:
     #             head = tokens[0]
-    #             # 改成：只保留以 '-' 开头的真选项，其它一律丢弃
     #             raw_opts = tokens[1:-1]
     #             opts_tokens = [t for t in raw_opts if t.startswith('-')]
     #             orig_path = tokens[-1]
     #             bn = Path(orig_path).name
-
-    #             # 你原来的“匹配已收集到的贴图名”的逻辑（可选）
     #             matched = next((k for k in keys if k and k in raw), None)
     #             target_name = tex_map.get(matched or bn, bn)
-
     #             new_path = f"textures/{target_name}"
-    #             # 如果文件名里仍有空格，为稳妥可加引号（许多解析器也能接受）
-    #             if " " in target_name:
-    #                 new_path = f'"{new_path}"'
-
     #             out = " ".join([head] + opts_tokens + [new_path]).strip()
     #             lines.append(out)
     #             continue
-    #     # 非贴图行或异常：原样保留
     #     lines.append(raw)
-
     # fixed.write_text("\n".join(lines), encoding="utf-8")
+    # —— 按“真实存在”与“大小写无关映射”改写为 textures/<安全名>
+    lines = []
+    lut = {k.casefold(): v for k, v in tex_map.items()}  # 原名→安全名（case-insensitive）
+
+    def _exists_in_textures(name: str) -> bool:
+        return (textures_dir / name).is_file()
+
+    for raw in fixed.read_text(encoding="utf-8", errors="ignore").splitlines():
+        # 解析：保留全部选项，只把“路径那段 token”合并并替换
+        try:
+            toks = shlex.split(raw, posix=True)
+        except Exception:
+            toks = raw.split()
+        if len(toks) < 2:
+            lines.append(raw); continue
+
+        head = toks[0]
+        args = toks[1:]
+
+        def _is_option(t: str) -> bool:
+            return t.startswith('-')
+
+        def _is_number_like(t: str) -> bool:
+            # -bm 0 / -boost 1.0 这类数值参数
+            try:
+                float(t); return True
+            except Exception:
+                return False
+
+        # 找到“最后一个非选项 token”作为路径结尾索引 j
+        j = None
+        for idx in range(len(args)-1, -1, -1):
+            if not _is_option(args[idx]):
+                j = idx; break
+        if j is None:
+            lines.append(raw.replace("\\", "/")); continue
+
+        # 从 j 向左扩展，把属于“未加引号的空格路径”的前半段并进来；
+        # 但避免把选项的数值参数（例如 -bm 0 的 '0'）并进路径：
+        i = j
+        while i-1 >= 0 and (not _is_option(args[i-1])):
+            # 若 args[i-1] 是数值，且其前一个是选项，则它更可能是该选项的参数，不往左扩展
+            if i-2 >= 0 and _is_number_like(args[i-1]) and _is_option(args[i-2]):
+                break
+            i -= 1
+
+        # 现在 args[i:j+1] 就是“原路径被拆开的各段”，合并为一个路径字符串
+        orig_path = " ".join(args[i:j+1])
+        orig_bn_ci = Path(orig_path).name.casefold()
+
+        # —— 使用你已有的映射查找目标安全名（大小写无关）
+        target_name = lut.get(orig_bn_ci)
+        if target_name is None:
+            raw_ci = raw.casefold()
+            pick = next((k for k in lut.keys() if k and k in raw_ci), None)
+            if pick:
+                target_name = lut[pick]
+
+        # 必须 textures/ 下真实存在才替换；否则保留原样（仅统一斜杠）
+        if not (target_name and _exists_in_textures(target_name)):
+            lines.append(raw.replace("\\", "/"))
+            continue
+
+        new_path = f"textures/{target_name}"
+
+        # 重新拼接整行：保持路径左侧的参数、路径右侧（如 -bm 0）的参数都不变
+        left_opts  = args[:i]
+        right_opts = args[j+1:]
+        new_line = " ".join([head] + left_opts + [new_path] + right_opts).strip()
+        lines.append(new_line)
+
+
+    fixed.write_text("\n".join(lines), encoding="utf-8")
+
+    # 覆盖回原始 MTL，并清理 *_fixed.mtl
+    try:
+        mtl_path.write_text(fixed.read_text(encoding="utf-8"), encoding="utf-8")
+        if fixed != mtl_path:
+            with contextlib.suppress(Exception):
+                fixed.unlink()
+    except Exception as e:
+        print(f"[WARN] failed to overwrite original MTL with fixed: {e}")
+
     # # —— 将修好的 fixed.mtl 覆盖回原始 model.mtl，避免 .obj 继续引用旧 mtl
     # try:
     #     fixed_text = fixed.read_text(encoding="utf-8")
@@ -2431,7 +2859,7 @@ def main():
                     except Exception as e: print(f"[WARN] rm -r {out_obj_dir}: {e}")
 
                 try:
-                    export_selected_as_obj_with_tfextures(main_obj, out_obj_dir, name="model") #name = src_base
+                    export_selected_as_obj_with_textures(main_obj, out_obj_dir, name="model") #name = src_base
                     model_obj = out_obj_dir / "model.obj"
                     if model_obj.exists():
                         exported.append({'kind':'obj', 'path': str(out_obj_dir), 'dim': float(max(main_obj.dimensions[:]))})

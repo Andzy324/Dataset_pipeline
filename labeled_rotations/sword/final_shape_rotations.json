@@ -1,0 +1,402 @@
+{
+  "ccf3fcd2a8afc8700cfddc9fe0a9094c52130fe0d017f6802a5c9a8c069a80f5": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "sword"
+    ]
+  },
+  "790fee95b2a90e24bf1b0ba6e4f2612b83962da8a225333f2ffb12ecd89067f4": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "sword"
+    ]
+  },
+  "f0129acb7174b77a95408d47612ba82c662f793d413576ec30683f78a7063d4e": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "sword"
+    ]
+  },
+  "de13712094f5b7a4603cb3d9d97070481910adb1f72a6331d216a41d6ed2480a": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "sword"
+    ]
+  },
+  "cb511388f873dbbfae8deeef3fbf624c2f2b24cfac1beef527e75b2cc4705b88": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "sword"
+    ]
+  },
+  "e3b47379501c701930fe960a889c7152406a2e106bbe8f99a22a15bd59fcf7ec": {
+    "rotation_matrix": [
+      [
+        -6.123233995736766e-17,
+        -1.0,
+        2.7817808468846267e-16
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        -2.2645854311202262e-32,
+        -3.133961632045815e-16,
+        -1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "sword"
+    ]
+  },
+  "b2aed8b0cc688227bb358a32a4a42bb8f023a42c4e385c2a798b8625dbbf3394": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "sword"
+    ]
+  },
+  "5ff41ae3a7b5b6d3f9607e0dcf62f7cf385dd2d905664c98509bcc10ac23fb0e": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "sword"
+    ]
+  },
+  "ded8fc286dfaf27d334ff2acefc2962547e158d04b06ad95430b91babb37a90a": {
+    "rotation_matrix": [
+      [
+        8.14241181350249e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.9999999999999998,
+        7.709546369321791e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 0.9999999999999998,
+    "description": "Applied rotation matrix",
+    "label": [
+      "sword"
+    ]
+  },
+  "30aee3ca9f4ef3d74f21341a92b99a6244de0f000703b440511040daf1b0aa0d": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "sword"
+    ]
+  },
+  "5f7aa839de6a6f11f2bef1c7c8d8c888db8ca0e813247de070aaf5f413a47390": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "sword"
+    ]
+  },
+  "ada81672093e38cbfa2b3567ab6f689bd34d9d2e321a3cbc80bd762365af4e80": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "sword"
+    ]
+  },
+  "8b492b14a9fd4b7a72c6b8711c373d440dccb2aa3b0eabbcce3eb624736771dd": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "sword"
+    ]
+  },
+  "800bbb8e41f7ad95cd40f1ac791d7922840871df989625639ab142a7be3f6506": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "sword"
+    ]
+  },
+  "b9c33f487ae4a8ceec4629760f51dbfd239acd02013cc2c014a63806ca90f1dc": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "sword"
+    ]
+  },
+  "ee91c2aa1c518c3fb15e63e34e73f1e9cc65e36806174e18bb161b8338608311": {
+    "rotation_matrix": [
+      [
+        1.9967346175427393e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        1.7938038903913487e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "sword"
+    ]
+  }
+}

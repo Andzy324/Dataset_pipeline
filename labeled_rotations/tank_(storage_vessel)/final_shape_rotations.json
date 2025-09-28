@@ -1,0 +1,302 @@
+{
+  "290eaa95eed3e501c171a4ffa7e047fa1cf2136817daf6e1f1cd8f42b6d1ec4b": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "tank_(storage_vessel)"
+    ]
+  },
+  "33468c82d126bf86a81a3656026b0a71cec298138ab138da5ab263d82e541e6a": {
+    "rotation_matrix": [
+      [
+        1.9967346175427393e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        1.7938038903913487e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "tank_(storage_vessel)"
+    ]
+  },
+  "0547289cf94126faee5d09d698a7cf02bf5e399c96782ffef3ec158517aff379": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "tank_(storage_vessel)"
+    ]
+  },
+  "f859cf4f7f177b332bb6ed9cab8c32b417018304fb9c33a80af6f6d69accbca2": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "tank_(storage_vessel)"
+    ]
+  },
+  "2fdea0dda5e11b1e0e11aa9632b34eb8af1f5d32914c18cd6c94ff976483d730": {
+    "rotation_matrix": [
+      [
+        0.9999999999999998,
+        6.572319354818714e-16,
+        0.0
+      ],
+      [
+        -6.139453910638015e-16,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 0.9999999999999998,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "tank_(storage_vessel)"
+    ]
+  },
+  "14f401ab1f3f7b29684fbd6e36ae2a68255e5c05c875ce5e11a24776a66a1517": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "tank_(storage_vessel)"
+    ]
+  },
+  "f82528645f0f15d6bf2646cc72226b3a89162af4afbf88e83a3b85917e5143cf": {
+    "rotation_matrix": [
+      [
+        2.7817808468846267e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        3.133961632045815e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "tank_(storage_vessel)"
+    ]
+  },
+  "d6d4171dba21ff5b0cc25038e0dbc01f033cf08515b27d917c5d784a673997f2": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "tank_(storage_vessel)"
+    ]
+  },
+  "8bf222f9aa8353ccf448a6fbe928240090abac56cb1f7e077fb048eda5f1867f": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "tank_(storage_vessel)"
+    ]
+  },
+  "fae964654f80d93a4ca956c677da7a22e4938331e70f4e3d43131e71d37a8464": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "tank_(storage_vessel)"
+    ]
+  },
+  "55280d53abb21de7dde546033058b81f6a87f5b2a70dd5890506a5587d0bcf15": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "tank_(storage_vessel)"
+    ]
+  },
+  "9519468158f02ac8100950aa1143ed26daac25326cc5867ee0507a86596395b9": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "tank_(storage_vessel)"
+    ]
+  }
+}

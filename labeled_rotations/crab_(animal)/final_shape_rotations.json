@@ -1,0 +1,252 @@
+{
+  "b8daadf74fa05aa1b2057f050b17118ed8ec66831e2bcae64b0eaa261b1ab01d": {
+    "rotation_matrix": [
+      [
+        -2.7817808468846267e-16,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        -3.133961632045815e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "crab_(animal)"
+    ]
+  },
+  "f6a55f089697a578e992d09a702b3f55e5b9476854333c61d33120645057f34e": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "crab_(animal)"
+    ]
+  },
+  "73a651995d612bb4d2de18e0698e44e08973ed3fcbf3293c0c95d3c075f2c699": {
+    "rotation_matrix": [
+      [
+        2.7817808468846267e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        3.133961632045815e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "crab_(animal)"
+    ]
+  },
+  "205c034b6d9eaaca9a67bd6192f42ed6e20aff5af0248a32a9f8767ba1c4458e": {
+    "rotation_matrix": [
+      [
+        -4.677050100851671e-16,
+        1.0,
+        0.0
+      ],
+      [
+        -0.9999999999999999,
+        -4.47411937370028e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 0.9999999999999999,
+    "description": "Applied rotation matrix",
+    "label": [
+      "crab_(animal)"
+    ]
+  },
+  "6c93463e887695f62e3b657f3b900a7072fbb63207f3aadfa598f611f49415b7": {
+    "rotation_matrix": [
+      [
+        2.7817808468846267e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        3.133961632045815e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "crab_(animal)"
+    ]
+  },
+  "32c497a74edf9d68caa381e9a409503691889906bb56cab56e3db9dd3786a8ee": {
+    "rotation_matrix": [
+      [
+        1.0,
+        4.677050100851671e-16,
+        0.0
+      ],
+      [
+        -4.47411937370028e-16,
+        0.9999999999999999,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 0.9999999999999999,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "crab_(animal)"
+    ]
+  },
+  "8c436d403ea66ead3edfe008b05ffa0ae8281e82373a21a59eb1ce93d0e8f16a": {
+    "rotation_matrix": [
+      [
+        1.0,
+        4.677050100851671e-16,
+        0.0
+      ],
+      [
+        -4.47411937370028e-16,
+        0.9999999999999999,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 0.9999999999999999,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "crab_(animal)"
+    ]
+  },
+  "2a622450b3ce4131a854af51e177be6646a308f6e2d03c9a5e9707a8369cb136": {
+    "rotation_matrix": [
+      [
+        2.7817808468846267e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        3.133961632045815e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "crab_(animal)"
+    ]
+  },
+  "2afb4c8de588e914c5c90b38b4960d90b5e5b759dc3980e4ade7e6760eaef05b": {
+    "rotation_matrix": [
+      [
+        2.7817808468846267e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        3.133961632045815e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "crab_(animal)"
+    ]
+  },
+  "18c6cdde7d655fdc6362604deea5000ca573c49c7ed8a4764e1a1926d228a4ee": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "crab_(animal)"
+    ]
+  }
+}

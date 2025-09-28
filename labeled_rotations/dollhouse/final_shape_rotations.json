@@ -1,0 +1,602 @@
+{
+  "b4f6ac14c6d7f9fc393b711b3e9506177c7938949ba5d66b77e35d0a86d6bbf1": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dollhouse"
+    ]
+  },
+  "920c26fbd9d8b9bdc681a45368f34fea67e683d2187a7ba6ca292ffe5564f4db": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dollhouse"
+    ]
+  },
+  "faa691d80db04160aa3dfbdd819bea2795abc32348d0b395e262fff22e3290e6": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dollhouse"
+    ]
+  },
+  "8f8c9bc4afd8cfff8a81b4c6975717ec2845aad3c1c0fca5497d4d96fb9ea1e2": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dollhouse"
+    ]
+  },
+  "2763fa952dafc9b65f7d245ef859865328e4e0f6aeb9cc40ea1c287029478418": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.9967346175427393e-16,
+        0.0
+      ],
+      [
+        1.7938038903913487e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dollhouse"
+    ]
+  },
+  "c9221d3121aa9d67265a06ef61d78ebc104ec124dda6a564b112c79a4b0b3d40": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dollhouse"
+    ]
+  },
+  "dad414ab2164dd6a4d63a26add79118f19d10dcf65ff6876e1294128e201c500": {
+    "rotation_matrix": [
+      [
+        1.0,
+        4.677050100851671e-16,
+        0.0
+      ],
+      [
+        -4.47411937370028e-16,
+        0.9999999999999999,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 0.9999999999999999,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "dollhouse"
+    ]
+  },
+  "ca9b4b4b73e0014fd570bc72d1e4969610dce1cbecfa5b34cf67f1180a098f3a": {
+    "rotation_matrix": [
+      [
+        6.572319354818714e-16,
+        -0.9999999999999998,
+        0.0
+      ],
+      [
+        1.0,
+        6.139453910638015e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 0.9999999999999998,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dollhouse"
+    ]
+  },
+  "0075116a72aa489181d568e94db1ac5c46bf541b62e77536615e96f2a7bff58c": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dollhouse"
+    ]
+  },
+  "5e5729042c802b714c21b4056bd4ae6d33fad36a070d25a3c0b1e6f26817aa1e": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dollhouse"
+    ]
+  },
+  "61a6c0c9fbc48b7656a53fe17a147f28d908fbcf11b4924a46ef632c0ebfabfb": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dollhouse"
+    ]
+  },
+  "b13cb262415333855377b9f61120009436ae773c928f5416fa55f1ccb12ae8f9": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dollhouse"
+    ]
+  },
+  "8a7ff2d3b3070854577db7eec20ec9ef1cd6280fbe9ae2f8dd932f92735a75a3": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -2.7817808468846267e-16,
+        0.0
+      ],
+      [
+        3.133961632045815e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dollhouse"
+    ]
+  },
+  "a2427e9f81abb54dd2550b52c41ea8018773d09a82f042a12a35e6f6d59a1185": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.9967346175427393e-16,
+        0.0
+      ],
+      [
+        1.7938038903913487e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dollhouse"
+    ]
+  },
+  "4d5545eedb522015385959b5e514dbc83dfd78c591d2dda73f02f53901eba46a": {
+    "rotation_matrix": [
+      [
+        1.0,
+        1.9967346175427393e-16,
+        0.0
+      ],
+      [
+        -1.7938038903913487e-16,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "dollhouse"
+    ]
+  },
+  "7549fd014c990f0200fa444b01b3b8a205cfd5f609901b9d64cec715791c9d4e": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "dollhouse"
+    ]
+  },
+  "066408b4c22f3e911c094cb6d62c08f36a232359456d025eb012e490e31dafe8": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dollhouse"
+    ]
+  },
+  "de8e45b6375728a9af2010f16ffebbfa8f53ca60b1cbaefb949d67e39f1cac7a": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dollhouse"
+    ]
+  },
+  "01db6f3af0dbb3d16a0013c4346d1762acdde9ec4efc46f208710c4bfbcba8ee": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "dollhouse"
+    ]
+  },
+  "806a1f5171a3b5acd58d3a50a0e7f7675f257b068a15f7fcb569fe9921846e7e": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dollhouse"
+    ]
+  },
+  "e289eb9bd4558480d58e410a2b918748cbbff76137c37e0aa10402801915eef9": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "dollhouse"
+    ]
+  },
+  "729c50e690b94fb1628e2feb416951a4af50416d5c99f20976ea45572322df4d": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dollhouse"
+    ]
+  },
+  "de0355586a3ff99cb85f9334958620c8903c2cdd10865b2d45cac4d4d8060565": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dollhouse"
+    ]
+  },
+  "1960677caaf0a91198d167eecb5c4231ed28a448006a30c32cabddd88e8f1c9d": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "dollhouse"
+    ]
+  }
+}

@@ -1,0 +1,477 @@
+{
+  "bf2afde58a8ec31a28c908597164da09692df232a87d9e246ca97cbe8c0e82cb": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "ring"
+    ]
+  },
+  "c5776c7b7b90fe2d27caa14846ccef7c514572fd81406e356ac454c281446f49": {
+    "rotation_matrix": [
+      [
+        1.9967346175427393e-16,
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        0.0,
+        1.7938038903913487e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "ring"
+    ]
+  },
+  "0894a5913cc1c82468e37d3550a93dd103915d3df904a8f9400e55874629015b": {
+    "rotation_matrix": [
+      [
+        1.372374090280428e-32,
+        -1.9967346175427393e-16,
+        1.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        -6.123233995736766e-17,
+        1.0,
+        1.7938038903913487e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "ring"
+    ]
+  },
+  "4b9c708b8c092f1f12f7cd6ff8644bcaf15c0e161f20d7d68e35924efee16bf0": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "ring"
+    ]
+  },
+  "2fd34559d63762a7ff7bbc8bc2c6a3b0064e0eafc2d93ec657e2d3e76e258c06": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "ring"
+    ]
+  },
+  "095b8e021db237128458d837161b4688e9add6d85f2f962f78150256ad3e95ce": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "ring"
+    ]
+  },
+  "f2c6c999b7e06b6deb29c33921afa2bf01d4f3b530efb7873bae141440a2f90c": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "ring"
+    ]
+  },
+  "be2a221cba6d4eafc5fb0dd00818c92532bad14f1b51c81ab524d7a74d0f9ee8": {
+    "rotation_matrix": [
+      [
+        1.9967346175427393e-16,
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        0.0,
+        1.7938038903913487e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "ring"
+    ]
+  },
+  "49c52c86b48e700e2b8884de492cd28ef1062144eb4c8ed575ea8cb3ebf03c3b": {
+    "rotation_matrix": [
+      [
+        1.9967346175427393e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        1.7938038903913487e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "ring"
+    ]
+  },
+  "36056b2285e47ad1fadb9beb746319e13cf85d3a0effd442ade804eec0cde4d6": {
+    "rotation_matrix": [
+      [
+        -3.912333853504046e-32,
+        4.677050100851671e-16,
+        -1.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        6.123233995736766e-17,
+        -0.9999999999999999,
+        -4.47411937370028e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 0.9999999999999999,
+    "description": "Applied rotation matrix",
+    "label": [
+      "ring"
+    ]
+  },
+  "36e1813ec5ef46337f4a96db39fbf16f279af7e9d22dd8efb3137ccccb5c8e40": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "ring"
+    ]
+  },
+  "cf0e26f4a86bd7ed46ec925dd2c9a16520d5c4b6dc6fa29da40e0738351c82c0": {
+    "rotation_matrix": [
+      [
+        4.677050100851671e-16,
+        7.824667707008092e-32,
+        -1.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        -0.9999999999999999,
+        -1.2246467991473532e-16,
+        -4.47411937370028e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 0.9999999999999999,
+    "description": "Applied rotation matrix",
+    "label": [
+      "ring"
+    ]
+  },
+  "67d4a32e83fa1b566645e6577c172b8918837121bd221afc88ff767a44828558": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "ring"
+    ]
+  },
+  "e337980849f6f0d33181343f0d58370593fb0adb580d3d070560d93f1114a392": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "ring"
+    ]
+  },
+  "f81b1657df800fc47eedac5190f75930de89732afb53bfa75a95a2345c5f5d5e": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "ring"
+    ]
+  },
+  "0b4583af49388900ebc29df592cfbbdc469f13551f8cc012b7d25e4511ac39dc": {
+    "rotation_matrix": [
+      [
+        -1.9967346175427393e-16,
+        -2.744748180560856e-32,
+        1.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        1.2246467991473532e-16,
+        1.7938038903913487e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "ring"
+    ]
+  },
+  "6dc10175ac0291acde55e8d9b4bc79d27a7f096128b609646e19b80dd99545fd": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "ring"
+    ]
+  },
+  "0b84c6bcc2c01eda77000846743f95b6ca0bb9f01b66d403b4f428e1280a3a3c": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "ring"
+    ]
+  },
+  "5d4159d90378363e854385c06e2da8d4a7618a4ca06e81038f2d0b7e7f9eed82": {
+    "rotation_matrix": [
+      [
+        1.9967346175427393e-16,
+        4.677050100851671e-16,
+        -1.0
+      ],
+      [
+        1.0,
+        -8.905559267381297e-32,
+        1.7938038903913487e-16
+      ],
+      [
+        0.0,
+        -0.9999999999999999,
+        -4.47411937370028e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 0.9999999999999999,
+    "description": "Applied rotation matrix",
+    "label": [
+      "ring"
+    ]
+  }
+}

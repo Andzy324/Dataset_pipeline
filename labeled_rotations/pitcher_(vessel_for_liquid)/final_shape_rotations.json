@@ -1,0 +1,427 @@
+{
+  "bede89be6436fa28860285f7f9473c584511d3004be10a503c1de272fe4cc25e": {
+    "rotation_matrix": [
+      [
+        8.14241181350249e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.9999999999999998,
+        7.709546369321791e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 0.9999999999999998,
+    "description": "Applied rotation matrix",
+    "label": [
+      "pitcher_(vessel_for_liquid)"
+    ]
+  },
+  "e82d073199872e508b98f130a2cb14792a8be4e13c51c974aa95ab2684cd5753": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "pitcher_(vessel_for_liquid)"
+    ]
+  },
+  "db8689f27068293b603af7bf8a60f8e161dce3e817aa6cc51a8a73c8416673e9": {
+    "rotation_matrix": [
+      [
+        0.7071067811865479,
+        -0.707106781186547,
+        0.0
+      ],
+      [
+        0.7071067811865471,
+        0.7071067811865478,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 0.9999999999999999,
+    "description": "Applied rotation matrix",
+    "label": [
+      "pitcher_(vessel_for_liquid)"
+    ]
+  },
+  "d6b03af3a1bad5b937dab9374adcbc76ea646e83f6cb8dd2f6a9799f320a6f85": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "pitcher_(vessel_for_liquid)"
+    ]
+  },
+  "3c91750be239816ca00c6905adbc772c61c777fb6b7e6a7ab17dac0054519028": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "pitcher_(vessel_for_liquid)"
+    ]
+  },
+  "ffab1dc07db463717a7bb5acffaa8b4efd2c2037752d02758436064650f3b718": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "pitcher_(vessel_for_liquid)"
+    ]
+  },
+  "e120108fd2bb223b4fa2b8e7097e06c61500d228ba6cd1a2ab0b4d6cf288b4a8": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "pitcher_(vessel_for_liquid)"
+    ]
+  },
+  "60b2f1845eda4f80f190a37ffe68c072b3b7638c6d1592725bd996ae874a6f42": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "pitcher_(vessel_for_liquid)"
+    ]
+  },
+  "345f83e0311e11df23deafda785bf80d0a69f6dd2bd61b0d9042da246797db39": {
+    "rotation_matrix": [
+      [
+        1.0,
+        4.677050100851671e-16,
+        0.0
+      ],
+      [
+        -4.47411937370028e-16,
+        0.9999999999999999,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 0.9999999999999999,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "pitcher_(vessel_for_liquid)"
+    ]
+  },
+  "64ba891907f20083c2db63949052e7cf7de2557b5dfd76dc76b2b98b9b481129": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.9967346175427393e-16,
+        0.0
+      ],
+      [
+        1.7938038903913487e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "pitcher_(vessel_for_liquid)"
+    ]
+  },
+  "6d7e11c0e335680b87f5e87f154e109be7a9f87e5f9e815278c141a47c814097": {
+    "rotation_matrix": [
+      [
+        1.0,
+        4.677050100851671e-16,
+        0.0
+      ],
+      [
+        -4.47411937370028e-16,
+        0.9999999999999999,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 0.9999999999999999,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "pitcher_(vessel_for_liquid)"
+    ]
+  },
+  "b3a2cdef249643ce8abf47d176dea05b07db935c7203e384d661afc9413c6b84": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.9967346175427393e-16,
+        0.0
+      ],
+      [
+        1.7938038903913487e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "pitcher_(vessel_for_liquid)"
+    ]
+  },
+  "5d4b8c3bb5ba2425d1a1c9e2e6ed6ebeea2644499c26e1e5ff802d4a72a15b4e": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.9967346175427393e-16,
+        0.0
+      ],
+      [
+        1.7938038903913487e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "pitcher_(vessel_for_liquid)"
+    ]
+  },
+  "a2997e361b880b92f2d91b22439e75795678b960c949d17311d41e2eca7886a7": {
+    "rotation_matrix": [
+      [
+        1.0,
+        4.677050100851671e-16,
+        0.0
+      ],
+      [
+        -4.47411937370028e-16,
+        0.9999999999999999,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 0.9999999999999999,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "pitcher_(vessel_for_liquid)"
+    ]
+  },
+  "d59dcbfab8372e766dd9614272804ce6c951c7c95516424db28439cf0535e627": {
+    "rotation_matrix": [
+      [
+        0.7071067811865467,
+        0.7071067811865481,
+        0.0
+      ],
+      [
+        -0.7071067811865481,
+        0.7071067811865467,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 0.9999999999999997,
+    "description": "Applied rotation matrix",
+    "label": [
+      "pitcher_(vessel_for_liquid)"
+    ]
+  },
+  "2457252320d488aa2006e81bfc0093516ac61a65d288230fa019397641c29365": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "pitcher_(vessel_for_liquid)"
+    ]
+  },
+  "2bb1351dababa4ba9f7fe3bd3406c6ac0cf729b888eac6f020d530c4e7a2392e": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "pitcher_(vessel_for_liquid)"
+    ]
+  }
+}

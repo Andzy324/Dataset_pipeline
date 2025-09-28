@@ -794,14 +794,17 @@ from urllib.parse import urljoin
 OBJ_TEX_EXTS = (".png", ".jpg", ".jpeg", ".tga", ".tiff", ".bmp", ".exr", ".dds")
 
 # MTL 里常见的贴图指令（按 glTF/PBR 兼容尽量多列）
+# MTL_MAP_KEYS = {
+#     "map_Kd", "map_Ks", "map_Ka", "map_d", "map_bump", "bump", "disp", "norm",
+#     "map_Ke",  # emissive
+#     "map_Pr",  # roughness (some exporters)
+#     "map_Pm",  # metallic
+#     "map_Ps",  # sheen
+# }
 MTL_MAP_KEYS = {
-    "map_Kd", "map_Ks", "map_Ka", "map_d", "map_bump", "bump", "disp", "norm",
-    "map_Ke",  # emissive
-    "map_Pr",  # roughness (some exporters)
-    "map_Pm",  # metallic
-    "map_Ps",  # sheen
-}
-
+    "map_ka","map_kd","map_ks","map_ke","map_ns","map_d","map_pr","map_pm","map_ps"
+    "bump","map_bump","norm","disp","decal","refl"
+} # uniformed to lowe_case
 def _normalize_relpath(p: str) -> str:
     p = str(p).strip().strip('"').strip("'").replace("\\", "/")
     while p.startswith("./"):
@@ -935,36 +938,44 @@ def parse_mtl_for_textures(mtl_path: Path) -> set[Path]:
                 line = raw.strip()
                 if not line or line.startswith("#"):
                     continue
-                key = line.split(maxsplit=1)[0]
-                if key not in MTL_MAP_KEYS:
+                # key = line.split(maxsplit=1)[0]
+                # if key not in MTL_MAP_KEYS:
+                #     continue
+                line_norm = line.replace('\\', '/') # fix map_Bump not recognized problem
+                key = line_norm.split(maxsplit=1)[0].lower()   # <<< 统一小写
+                if key not in MTL_MAP_KEYS:                    # <<< MTL_MAP_KEYS 里也用全小写
                     continue
                 # 预处理 Windows 路径分隔符，避免 shlex 把 "maps\foo.png" 解析成 "map sfoo.png"
                 line_norm = line.replace('\\', '/')
                 # 用 shlex 解析整行，处理引号/空格/转义
                 toks = shlex.split(line_norm, posix=True)
-                # 丢掉 key 本身
                 toks = toks[1:]
                 if not toks:
                     continue
-                # 跳过以 '-' 开头的选项（如 -bm 0.3 -clamp on ...），取最后一个非选项 token
+
+                def _is_tex_token(tok: str) -> bool:
+                    try:
+                        bn = Path(tok.strip().strip('"').strip("'").replace('\\', '/')).name
+                    except Exception:
+                        return False
+                    ext = Path(bn).suffix.lower()
+                    return bool(ext) and ext in OBJ_TEX_EXTS
+
                 path_tok = None
                 for t in reversed(toks):
                     if t.startswith("-"):
                         continue
-                    path_tok = t
-                    break
+                    if _is_tex_token(t):
+                        path_tok = t
+                        break
                 if not path_tok:
                     continue
+
                 rel = _normalize_relpath(path_tok)
                 if not rel:
                     continue
-                # NEW: Windows 绝对/UNC 直接取 basename
                 if re.match(r"^[a-zA-Z]:/", rel) or rel.startswith("//") or rel.startswith("\\\\"):
                     rel = Path(rel).name
-                # 只接受常见贴图扩展（有些导出器会把 .exr/.dds 放进来）
-                if not any(rel.lower().endswith(ext) for ext in OBJ_TEX_EXTS):
-                    # 仍然加入，后面下载失败就记失败，不强行过滤
-                    pass
                 refs.add(Path(rel))
     except Exception as e:
         print(f"    ⚠ parse_mtl_for_textures error ({mtl_path}): {e}")
@@ -1263,39 +1274,46 @@ def ensure_complete_obj_asset_strict(obj_file: Path, src_url: str, raw_dir: Path
         if loc.exists():
             tex_refs |= parse_mtl_for_textures(loc)
 
-    placement_map: dict[str, str] = {}  # basename -> 相对路径（用于后续改写 mtl）
+    # --- legacy（保留旧版本以便对比） ---
+    """
+    placement_map: dict[str, str] = {}
+    for rel in sorted(tex_refs, key=lambda p: p.as_posix().lower()):
+        ...
+    """
+    def _sanitize_tex_basename(name: str) -> str:
+        name = os.path.basename(str(name)).replace("\\", "/")
+        return Path(name).name
+
+    textures_dir = raw_dir / "textures"
+    textures_dir.mkdir(parents=True, exist_ok=True)
+    placement_map: dict[str, str] = {}
 
     for rel in sorted(tex_refs, key=lambda p: p.as_posix().lower()):
-        # 统一成字符串并规范化（去引号、反斜杠、..、url 编码等）
         rel_str = rel.as_posix() if hasattr(rel, "as_posix") else str(rel)
         rel_norm = Path(_normalize_relpath(rel_str))
+        bn = _sanitize_tex_basename(rel_norm.name) 
+        bn = Path(rel_norm.name)
+        bn_key = bn.name.casefold()
+        dest_rel = Path("textures") / bn
+        dst = textures_dir / bn
 
-        # 防御：拒绝绝对/越级/盘符；降级到 textures/<basename>
-        if rel_norm.is_absolute() or any(part == ".." for part in rel_norm.parts) or re.match(r"^[A-Za-z]:", rel_str):
-            rel_norm = Path("textures") / Path(rel_str).name
-
-        dst = raw_dir / rel_norm
         if dst.exists() and not overwrite:
             skipped += 1
-            # 既然已存在，也要记录到 placement_map
-            # placement_map[rel_norm.name] = rel_norm.as_posix()
-            bn_key = rel_norm.name.casefold()
-            placement_map[bn_key] = rel_norm.as_posix()
-            names.append(rel_norm.as_posix())
+            placement_map[bn_key] = dest_rel.as_posix()
+            names.append(dest_rel.as_posix())
             continue
 
-        # 本地查找：先按规范化相对路径，再按 basename 兜底
         src = _local_find_one(rel_norm, local_roots) or _local_find_one(Path(rel_norm.name), local_roots)
         if src:
             try:
                 dst.parent.mkdir(parents=True, exist_ok=True)
                 try:
-                    os.link(src, dst)   # 先硬链提速
+                    os.link(src, dst)
                 except Exception:
                     shutil.copy2(src, dst)
                 ok += 1
-                placement_map[rel_norm.name] = rel_norm.as_posix()
-                names.append(rel_norm.as_posix())  # 记录相对路径！不是 name
+                placement_map[bn_key] = dest_rel.as_posix()
+                names.append(dest_rel.as_posix())
             except Exception:
                 fail += 1
         else:
@@ -1303,59 +1321,171 @@ def ensure_complete_obj_asset_strict(obj_file: Path, src_url: str, raw_dir: Path
 
     # === 在复制完纹理后：把 raw 下的 MTL 重写为本地相对路径，并生成 *_fixed.obj ===
    
-    def _rewrite_mtl_maps_to_local(mtl_path: Path, raw_dir: Path, placement_map: dict[str, str]) -> tuple[Path, bool]:
+    # def _rewrite_mtl_maps_to_local(mtl_path: Path, raw_dir: Path, placement_map: dict[str, str]) -> tuple[Path, bool]:
+    #     DRIVE_RE = re.compile(r'^[A-Za-z]:[\\/]|^\\\\')
+    #     lines = mtl_path.read_text(encoding="utf-8", errors="ignore").splitlines()
+    #     out = []; changed = False
+
+    #     for ln in lines:
+    #         key = ln.lstrip().split(None, 1)[0].lower() if ln.strip() else ""
+    #         if key not in ("map_ka","map_kd","map_ks","map_ke","map_ns","map_d","bump","map_bump","norm","disp","decal","refl"):
+    #             out.append(ln); continue
+
+    #         # 用 shlex 解析整行（去掉 key）
+    #         rest = ln.strip()[len(key):].strip()
+    #         toks = shlex.split(rest, posix=True)
+    #         if not toks:
+    #             out.append(ln); continue
+
+    #         # 取“最后一个非选项 token”为文件名，其余以 '-' 开头的保留为选项
+    #         opt, fname = [], None
+    #         for t in toks:
+    #             if t.startswith("-") and fname is None:
+    #                 opt.append(t)
+    #             else:
+    #                 fname = t if fname is None else t  # 继续向后，最终留下最后一个
+    #         if fname is None:
+    #             out.append(ln); continue
+
+    #         old_clean = fname.strip().strip('"').strip("'").replace("\\", "/")
+    #         old_norm = _normalize_relpath(old_clean)
+    #         bn = Path(old_norm).name
+
+    #         new_rel = placement_map.get(old_norm.casefold()) or placement_map.get(bn.casefold())
+    #         # 兜底：raw 下按 basename 找
+    #         if not new_rel:
+    #             hits = list(raw_dir.rglob(bn))
+    #             if hits:
+    #                 try:
+    #                     new_rel = hits[0].relative_to(raw_dir).as_posix()
+    #                 except Exception:
+    #                     new_rel = bn
+
+    #         # 盘符/UNC/绝对/越级 → 强制 textures/<bn>
+    #         if not new_rel or DRIVE_RE.match(old_clean) or old_clean.startswith("/") or "/../" in f"/{old_clean}":
+    #             new_rel = new_rel or f"textures/{bn}"
+
+    #         if new_rel != fname:
+    #             changed = True
+
+    #         # 只用“key + 选项 + 新文件名”重建行（不保留旧路径的残片）
+    #         def _mtl_escape(path: str) -> str:
+    #             # 推荐：不用双引号，空格写成 '\ '
+    #             return path.replace(" ", r"\ ")
+    #         rebuilt = " ".join([key] + opt + [_mtl_escape(new_rel)]).strip()
+    #         out.append(rebuilt)
+
+    #     fixed = mtl_path.with_name(mtl_path.stem + "_fixed.mtl")
+    #     if changed:
+    #         fixed.write_text("\n".join(out), encoding="utf-8")
+    #         return fixed, True
+    #     else:
+    #         return mtl_path, False
+
+    def _rewrite_mtl_maps_to_local(mtl_path: Path, raw_dir: Path,
+                               placement_map: dict[str, str]) -> tuple[Path, bool]:
         DRIVE_RE = re.compile(r'^[A-Za-z]:[\\/]|^\\\\')
         lines = mtl_path.read_text(encoding="utf-8", errors="ignore").splitlines()
-        out = []; changed = False
+        out: list[str] = []
+        changed = False
+        allowed_keys = {"map_ka", "map_kd", "map_ks", "map_ke", "map_ns",
+                        "map_d", "bump", "map_bump", "norm", "disp", "decal", "refl"}
+
+        textures_dir = raw_dir / "textures"
+
+        def _looks_like_path_token(token: str) -> bool:
+            return any(ch in token for ch in ("/", "\\", ":")) or "." in token
+
+        def _split_options_and_path(rest: str) -> tuple[list[str], str, list[str]] | None:
+            rest = rest.strip()
+            if not rest:
+                return None
+
+            try:
+                tokens = shlex.split(rest, posix=True)
+            except ValueError:
+                tokens = rest.split()
+
+            if not tokens:
+                return None
+
+            opts_before: list[str] = []
+            path_tokens: list[str] = []
+            opts_after: list[str] = []
+
+            i = 0
+            # 捕获前置选项及其参数
+            while i < len(tokens):
+                tok = tokens[i]
+                if tok.startswith('-') and not path_tokens:
+                    opts_before.append(tok)
+                    i += 1
+                    while i < len(tokens):
+                        nxt = tokens[i]
+                        if nxt.startswith('-') or _looks_like_path_token(nxt):
+                            break
+                        opts_before.append(nxt)
+                        i += 1
+                    continue
+                break
+
+            # 解析路径 token（允许包含空格）
+            while i < len(tokens):
+                tok = tokens[i]
+                if not path_tokens and not _looks_like_path_token(tok):
+                    # 尚未开始且当前 token 不像路径 → 视作路径开头空格片段
+                    path_tokens.append(tok)
+                    i += 1
+                    continue
+                if tok.startswith('-') and path_tokens:
+                    break
+                path_tokens.append(tok)
+                i += 1
+
+            if not path_tokens:
+                return None
+
+            # 剩余部分视为后置选项
+            while i < len(tokens):
+                tok = tokens[i]
+                opts_after.append(tok)
+                i += 1
+
+            path = " ".join(path_tokens).strip()
+            return opts_before, path, opts_after
 
         for ln in lines:
-            key = ln.lstrip().split(None, 1)[0].lower() if ln.strip() else ""
-            if key not in ("map_ka","map_kd","map_ks","map_ke","map_ns","map_d","bump","map_bump","norm","disp","decal","refl"):
-                out.append(ln); continue
+            stripped = ln.strip()
+            if not stripped:
+                out.append(ln)
+                continue
 
-            # 用 shlex 解析整行（去掉 key）
-            rest = ln.strip()[len(key):].strip()
-            toks = shlex.split(rest, posix=True)
-            if not toks:
-                out.append(ln); continue
+            prefix = ln[:len(ln) - len(stripped)]
+            key_orig = stripped.split(None, 1)[0]
+            key_lower = key_orig.lower()
+            if key_lower not in allowed_keys:
+                out.append(ln)
+                continue
 
-            # 取“最后一个非选项 token”为文件名，其余以 '-' 开头的保留为选项
-            opt, fname = [], None
-            for t in toks:
-                if t.startswith("-") and fname is None:
-                    opt.append(t)
-                else:
-                    fname = t if fname is None else t  # 继续向后，最终留下最后一个
-            if fname is None:
-                out.append(ln); continue
+            rest = stripped[len(key_orig):].strip()
+            parsed = _split_options_and_path(rest)
+            if not parsed:
+                out.append(ln)
+                continue
+            opts_before, old_token, opts_after = parsed
 
-            old_clean = fname.strip().strip('"').strip("'").replace("\\", "/")
-            bn = Path(old_clean).name
+            old_clean = old_token.strip().strip('"').strip("'").replace("\\", "/")
+            norm_path = _normalize_relpath(old_clean)
+            bn = _sanitize_tex_basename(norm_path)
+            new_rel = placement_map.get(bn.casefold()) or f"textures/{bn}"
 
-            # 先用我们刚放置的相对路径表
-            # new_rel = placement_map.get(bn)
-            new_rel = placement_map.get(bn.casefold())
-            # 兜底：raw 下按 basename 找
-            if not new_rel:
-                hits = list(raw_dir.rglob(bn))
-                if hits:
-                    try:
-                        new_rel = hits[0].relative_to(raw_dir).as_posix()
-                    except Exception:
-                        new_rel = bn
-
-            # 盘符/UNC/绝对/越级 → 强制 textures/<bn>
-            if not new_rel or DRIVE_RE.match(old_clean) or old_clean.startswith("/") or "/../" in f"/{old_clean}":
-                new_rel = new_rel or f"textures/{bn}"
-
-            if new_rel != fname:
+            if new_rel != old_token:
                 changed = True
 
-            # 只用“key + 选项 + 新文件名”重建行（不保留旧路径的残片）
-            def _mtl_escape(path: str) -> str:
-                # 推荐：不用双引号，空格写成 '\ '
-                return path.replace(" ", r"\ ")
-            rebuilt = " ".join([key] + opt + [_mtl_escape(new_rel)]).strip()
+            rebuilt_tokens = opts_before + [new_rel] + opts_after
+            rebuilt = prefix + key_orig
+            if rebuilt_tokens:
+                rebuilt += " " + " ".join(rebuilt_tokens)
             out.append(rebuilt)
 
         fixed = mtl_path.with_name(mtl_path.stem + "_fixed.mtl")
@@ -1475,13 +1605,61 @@ def ensure_complete_obj_asset_strict(obj_file: Path, src_url: str, raw_dir: Path
                         rel_s = Path("textures") / rel_s.name
                     expected.add(rel_s.as_posix())
 
-        present = set()
-        for rel_s in expected:
-            if (raw_dir / rel_s).exists():
-                present.add(rel_s)
-
         placed = set(names)  # names 现在存的就是相对路径
-        missing = sorted(expected - present - placed)
+        textures_dir = raw_dir / "textures"
+        available_basenames: set[str] = set()
+        if textures_dir.exists():
+            for p in textures_dir.rglob("*"):
+                if p.is_file():
+                    available_basenames.add(p.name.casefold())
+        placed_basenames = {Path(n).name.casefold() for n in placed}
+
+        def _candidate_variants(rel: str) -> list[Path]:
+            rel_path = Path(rel)
+            names: list[str] = []
+            names.append(rel_path.name)
+            if " " in rel_path.name:
+                names.append(rel_path.name.replace(" ", "_"))
+            sanitized = _sanitize_tex_basename(rel_path.name)
+            if sanitized and sanitized not in names:
+                names.append(sanitized)
+
+            variants: list[Path] = []
+            seen: set[str] = set()
+
+            def _add_variant(p: Path):
+                key = p.as_posix()
+                if key not in seen:
+                    variants.append(p)
+                    seen.add(key)
+
+            for nm in names:
+                _add_variant(rel_path.with_name(nm))
+                _add_variant(Path("textures") / nm)
+                _add_variant(Path(nm))
+
+            return variants
+
+        present: set[str] = set()
+        missing_list: list[str] = []
+        for rel_s in expected:
+            found = False
+            for cand in _candidate_variants(rel_s):
+                cand_posix = cand.as_posix()
+                cand_name_ci = cand.name.casefold()
+                if cand_posix in placed:
+                    found = True
+                elif (raw_dir / cand).exists():
+                    found = True
+                elif cand_name_ci in available_basenames or cand_name_ci in placed_basenames:
+                    found = True
+                if found:
+                    present.add(rel_s)
+                    break
+            if not found:
+                missing_list.append(rel_s)
+
+        missing = sorted(missing_list)
 
         print(f"    ▶ OBJ(local): mtl_copied={(raw_dir.glob('*.mtl')) and sum(1 for _ in raw_dir.glob('*.mtl')) or 0} "
             f"tex_copied={len(placed)} skipped={skipped} failed={fail} "

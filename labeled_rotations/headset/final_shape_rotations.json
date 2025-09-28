@@ -1,0 +1,877 @@
+{
+  "949b1d866958a2a317501965ffd7e0536f9faacc61fe65401c7c42eb59cb1127": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "headset"
+    ]
+  },
+  "6b81d3efdd61ede8eaa068d0a76172a3068739b1a2b19d0c4de700e3f62eebe9": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "headset"
+    ]
+  },
+  "4d986eaa4bb8a615f6ea38da0b15a0f13901c235d5e57c40661fe5efdc225a35": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        0.9999999999999998,
+        -6.572319354818714e-16
+      ],
+      [
+        4.677050100851671e-16,
+        6.139453910638015e-16,
+        1.0
+      ],
+      [
+        0.9999999999999999,
+        -6.123233995736797e-17,
+        -4.47411937370028e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 0.9999999999999997,
+    "description": "Applied rotation matrix",
+    "label": [
+      "headset"
+    ]
+  },
+  "76d1fdd53d3038023ecc9e3f4480ed38e6037737963d3e31989fe5f06da92fab": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "headset"
+    ]
+  },
+  "0ce724a1eabf008292d485ed9d0b3aa4b35a68d290e5c61788e74f1e09833938": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "headset"
+    ]
+  },
+  "afbe3fd51994f3f29b7fe4a9402fc9cc08266b85d981722f56ca506ffe44ac49": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "headset"
+    ]
+  },
+  "3ad3ca40fc99e8aa0f8c79c194576ee9548e5b98867b5481da97cf082a120442": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "headset"
+    ]
+  },
+  "8eecb579b16b50ad2e244a4013979a4244c6360e437911d8eaa28d281ac847b6": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "headset"
+    ]
+  },
+  "4ed6f77d61dfda512d360ab020de61289aff4ebbffcefa3303cbaa2efaf2e65c": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "headset"
+    ]
+  },
+  "2d74f16b5f3c1defd7db66cdedbf674a375ff33b5d54819b189ba7f91db0fb72": {
+    "rotation_matrix": [
+      [
+        -1.996734617542739e-16,
+        -1.9967346175427393e-16,
+        1.0
+      ],
+      [
+        6.123233995736769e-17,
+        -1.0,
+        -1.7938038903913487e-16
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        1.7938038903913487e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "headset"
+    ]
+  },
+  "a3266e6936880a380fcdffadd12004409d5960be52d15cb7c0f807d57c0a7427": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "headset"
+    ]
+  },
+  "49c5cd2d7134bcb8fe00ff584a6458609d0225c51da4d18100a2171a1318772b": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "headset"
+    ]
+  },
+  "55a55b189204298225b056beb61e4efc117014a9c63036a6be4d6db6af7c0610": {
+    "rotation_matrix": [
+      [
+        1.9967346175427393e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        1.7938038903913487e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "headset"
+    ]
+  },
+  "cd0f6107a8f3c1f472a1f3f65017b6779bc5fd49e0bcd0e27ce0bf21992cf466": {
+    "rotation_matrix": [
+      [
+        -2.7817808468846267e-16,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        -3.133961632045815e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "headset"
+    ]
+  },
+  "f59474992fdd2adf0d63ecac9387c65ccbb676eac42491b4d81d139235ef15c4": {
+    "rotation_matrix": [
+      [
+        4.3297802811774633e-17,
+        -0.707106781186547,
+        -0.7071067811865479
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        4.3297802811774695e-17,
+        -0.7071067811865478,
+        0.7071067811865471
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 0.9999999999999999,
+    "description": "Applied rotation matrix",
+    "label": [
+      "headset"
+    ]
+  },
+  "2559ea3f05408d439f720b46426c530fe5c9eb26cea8d18ad55b94a686027152": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "headset"
+    ]
+  },
+  "a0a765a2a99169ba0f67bf7bf18fdee52f0687498f25baec37e33448bae96107": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "headset"
+    ]
+  },
+  "4f2e051d733547914a5af7ddb47d011543a7799ab76188a95bef768bb295ef3b": {
+    "rotation_matrix": [
+      [
+        1.372374090280428e-32,
+        -1.9967346175427393e-16,
+        1.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        -6.123233995736766e-17,
+        1.0,
+        1.7938038903913487e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "headset"
+    ]
+  },
+  "48c85c007d07b317e8f8e599f8953d5c79f50990c60fa4ac712570a2459b48fe": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "headset"
+    ]
+  },
+  "0c71b78b55fba4ab835d1bdd57e0d9a6a6e6e26806c736bd2bd2c18894bc1201": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "headset"
+    ]
+  },
+  "c25b9a260738b866c0c7e9db5dc04a916ef4fc6c43f537728bae10398ab1a526": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "headset"
+    ]
+  },
+  "24ce27f0a35811dfd5edcfd61f3f478810d483fe7a801409e8c300d38ec07469": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "headset"
+    ]
+  },
+  "3d09393bdfce277bbfb507f9daffbcec7f3e380b3fcca874b544dd6beeb5852a": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "headset"
+    ]
+  },
+  "b4b09c47c5591e05d67062f1b2b4f15f46707191e1a10fe6ce559e9f84fafaaa": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "headset"
+    ]
+  },
+  "c7b8ac9aa7b0027d9595a91a88d161e751a28889a5c00e2583c4528cdb20c42a": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "headset"
+    ]
+  },
+  "5cefcf38b9e9a22fc5ede979bc40c83673950f5ed7e22c3030655ee5350fa3f4": {
+    "rotation_matrix": [
+      [
+        1.372374090280428e-32,
+        1.9967346175427393e-16,
+        1.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        -6.123233995736766e-17,
+        -1.0,
+        1.7938038903913487e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "headset"
+    ]
+  },
+  "3295d968a6c37206910a1927f144759d9afa04c18dc9c0c8d04fcc60b125e5b6": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "headset"
+    ]
+  },
+  "df67ef8bb1e767ed4ff5bec98fcb2e3b2048747187ca35887fa6b1ca2c2029e4": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "headset"
+    ]
+  },
+  "86eb851660f0ccc9dace9d60a5266b1775793c3f8b789aad54ba702bf7a7aef0": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "headset"
+    ]
+  },
+  "b85d502e5e28069ed4680486367263e2a4bd77e2358d25523ede85ff8c024e26": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "headset"
+    ]
+  },
+  "1431a64debe966f4c117ae7f92499ad1939f1d009b36508ae2c70d5264f76a44": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "headset"
+    ]
+  },
+  "bb743290153a0970abaf98330c54d652e791d64e4bd9899d79732c4c5b835e62": {
+    "rotation_matrix": [
+      [
+        1.9967346175427393e-16,
+        -1.996734617542739e-16,
+        1.0
+      ],
+      [
+        1.0,
+        3.577270158580454e-32,
+        -1.7938038903913487e-16
+      ],
+      [
+        0.0,
+        1.0,
+        1.7938038903913487e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "headset"
+    ]
+  },
+  "39f713ed2b063090edbe70e936c782c1aeff87b00e2ce9b605c25f732094c062": {
+    "rotation_matrix": [
+      [
+        1.9967346175427393e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        1.7938038903913487e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "headset"
+    ]
+  },
+  "4c554561d3a831173ecf71fcb24e908cfe2c6256d4ebb8b3ad3fd56bf89afdea": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "headset"
+    ]
+  },
+  "3b362dea7ec53c306431abccc9b7530ac65ee3db43129b0b21b56759066f353c": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "headset"
+    ]
+  }
+}

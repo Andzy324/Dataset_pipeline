@@ -1,0 +1,1752 @@
+{
+  "e995dd7a188d218119752c104bc60cc0fffb88a8b555933f4c23320491fdb84b": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "232e7047699069124a596979fabadc69be32433fee5e6c92b95af14bbbf752e2": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "hammer"
+    ]
+  },
+  "d08c09a3e56119df0599010bd1372e0601c6dc86a6b437e4b01897186f2ae192": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "704772f5cb2e3272bd3b5c6eee844a892ecb7ba67500d3c30b45a2bef6a9293e": {
+    "rotation_matrix": [
+      [
+        -3.912333853504046e-32,
+        -4.677050100851671e-16,
+        -1.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        6.123233995736766e-17,
+        0.9999999999999999,
+        -4.47411937370028e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 0.9999999999999999,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "9fe0db46320b47884ea450a3e42729de337e662eeb258c5ec1af7fa1303ad2c1": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "4128671ae847241c25168835c4d49d1af76e26f2e274ee4523131b4ccd6ca33f": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "2432812804d16af04cbed17f1d1e695cc1173b17ec45cfe7678040d01b914ee3": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "2671e9875d2a0bea73f3972492aac73edde75b0db8e34640275f077d076d766b": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "14ee5413345094b554ebf4fe9560c2e0513d319f0d13cf3fec004fcf3d83a6c1": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "hammer"
+    ]
+  },
+  "6161de83d26ecf256f519272b5033e4789c2c2ff9b6fdc3d409484a9e4ff9394": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "hammer"
+    ]
+  },
+  "a9829481c93b0754b8188bb661aaa1b3ec0f7185bf5b1e04cd41d2dfc17bc4ec": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "hammer"
+    ]
+  },
+  "ec78998d1831ffafcc2de294baee40a7b6672fede91fe4c696ea72b526541b2e": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "hammer"
+    ]
+  },
+  "2f1bb39780fc148bcb03c0913f1e52a025b50af48eb2a1450a893ca387d6e6fb": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "a240dccf989ff9d8f3b5934c56909a288f7d4c02c5a5a8c18c244adcb589effc": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "hammer"
+    ]
+  },
+  "f9ce29779a44da4deed493b510be6640b7b04806a72533b73840bdb7ad8211c2": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "a6f42fd0e86b8a18fba1494701c903426d369a70ee42694efb9ca8839bf2e9e9": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "4a4a69ec8e033ecf8ce8296269e3b6b87176fc11db7b18083ab6b8c83265ece4": {
+    "rotation_matrix": [
+      [
+        -3.912333853504046e-32,
+        4.677050100851671e-16,
+        -1.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        6.123233995736766e-17,
+        -0.9999999999999999,
+        -4.47411937370028e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 0.9999999999999999,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "28fee2f165a4dfa4e898416edf66035065917f413e4fbbf2de50af103b10c4ff": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "bc6aacb82a469f4a529f5cc9b5f3757184e994206457fa19706015b113577e14": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "ef72a82bcc77cacbb35a0eec3672c2d5e50d2d144b6ba3b6cb53e2e2154a925a": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "4fd377c90cfdf49efbecf7c10e11ad46920711c9c9e1b5a0c047705030d5767c": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "3a779c7276a9c020f90f6a8d7a59ab390576c61b25bdb614cdd6b7c8c0cbd734": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "4d3ce04ce23b18b906e60e3eac09ab97655dcb12c9013f8346f41b2a6fb23401": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "hammer"
+    ]
+  },
+  "048995a7cd841b38d8f681a878ef963d38beef2d3f711808e0d1e78ed7f8f048": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "hammer"
+    ]
+  },
+  "63f5cb1c6ea57f2318d589f0df2eada8ae75ad1b9fc28458aa163cffe0a79a78": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "4250bbfe43da08f66f924349df69aeb6bba6467b4491cf0c0a6fae80fdd958ba": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "hammer"
+    ]
+  },
+  "e28443bf749e68098d4c8db25610e0b605b11e5cdb2862e72a9f2c7d1c9bde4d": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "hammer"
+    ]
+  },
+  "8902d3e67db7172ce459487bd7066093d22ea67dfab65b4301a28b258ccd6687": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "e2467cc765f22c80518932b72b59c506de6dcc816b891fe63b09a46af5314dad": {
+    "rotation_matrix": [
+      [
+        4.677050100851671e-16,
+        7.824667707008092e-32,
+        -1.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        -0.9999999999999999,
+        -1.2246467991473532e-16,
+        -4.47411937370028e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 0.9999999999999999,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "bde401d757de36b60a6231701c378034a923accc50febfc36f0e496522f489ab": {
+    "rotation_matrix": [
+      [
+        4.677050100851671e-16,
+        7.824667707008092e-32,
+        -1.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        -0.9999999999999999,
+        -1.2246467991473532e-16,
+        -4.47411937370028e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 0.9999999999999999,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "8514fd0851f75c6911a51548f65fbef1ee38427b22fe30753f79bc2e45ab246b": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "3f91f31807cbbeb07be9ea1d79055c0823592bb33b7f8b4b9c74e05a6e83cf2f": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "50a26f1caef046f94d055ac625594e0b6d70a48ad37d9a33a9b56b5710429587": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "c25991886fb3214221837302a0f2b667bf17f8ed19dde7183a506d34f57d17d1": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "hammer"
+    ]
+  },
+  "365924c87eac5233117a6787e30eed942e1d5d80507f7da576f01e705d846866": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "300935d7f184515a0a27a23db60d68100cc560541dfa0f617cad806731f5d98e": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.9967346175427393e-16,
+        1.372374090280428e-32,
+        -1.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        1.7938038903913487e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "d1d62cdda2026776d12cbf337f97eb521242b3bfd198539a0ee51e12deeb4d53": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -6.123233995736769e-17,
+        1.9967346175427393e-16
+      ],
+      [
+        1.7938038903913487e-16,
+        -1.996734617542739e-16,
+        1.0
+      ],
+      [
+        -6.123233995736766e-17,
+        1.0,
+        1.7938038903913487e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "993af851cff727cf4126d1f5bfc5cf3c77dc83be1d34a233f618054539dbb404": {
+    "rotation_matrix": [
+      [
+        4.677050100851671e-16,
+        7.824667707008092e-32,
+        -1.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        -0.9999999999999999,
+        -1.2246467991473532e-16,
+        -4.47411937370028e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 0.9999999999999999,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "332457e17acdfb632e3fdd1a3bcea2fbbf30d27673609e78ad5ac7bb787f4b06": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "89191d494a7584dcdb70c80cca6ec0c5367d13d4af7ae391a0a276339de32353": {
+    "rotation_matrix": [
+      [
+        1.0,
+        -6.123233995736764e-17,
+        1.9967346175427393e-16
+      ],
+      [
+        -1.7938038903913487e-16,
+        1.9967346175427393e-16,
+        1.0
+      ],
+      [
+        -6.123233995736766e-17,
+        -1.0,
+        1.7938038903913487e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "6d6a8a938329f409680a770d6e691d6eeeb950cfa261e97442cba441ebfcdee1": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "aab59142d374dde57377558cecab5b71b64be553a44387d43ecb9ccce90a43ce": {
+    "rotation_matrix": [
+      [
+        -1.2246467991473535e-16,
+        1.0,
+        1.9967346175427393e-16
+      ],
+      [
+        -1.996734617542739e-16,
+        -1.7938038903913487e-16,
+        1.0
+      ],
+      [
+        1.0,
+        1.2246467991473532e-16,
+        1.7938038903913487e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "8e10c0e49ef5d446355a6da3e5b8111aa9bac9b95dcf48ce2cd5a2141a125508": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "b0e17772933318b16cb3a74a71ca1bb753f9ce8a4d7387ad49b8a10babd65433": {
+    "rotation_matrix": [
+      [
+        1.0,
+        -1.9967346175427393e-16,
+        2.7817808468846267e-16
+      ],
+      [
+        -1.7938038903913487e-16,
+        -1.0,
+        -4.1935677407843693e-32
+      ],
+      [
+        3.133961632045815e-16,
+        2.2645854311202262e-32,
+        -1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "5b39f72e03428f7832a3703358e49a49e037e0220bc33e19ccdbc8bfb51cdbae": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "hammer"
+    ]
+  },
+  "191aa8fb68c1cd702a693034144b1249adfd6cf3d342695b030e07674b2cc98e": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "0b2e2130a40cd9fba93f0bc792ddebd79763d014e20b5c04f435d16b1b556de9": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "hammer"
+    ]
+  },
+  "b9413a9a30f98bd3e2f6376cd7d571cd76e0c67d5420417d0e466585ad7c27ae": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "1b61a821030a27df627d7e631c622f899611135b6a3c1b326878b37dabd3de00": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "70174c4b632b1c428c70da15db64c8510277744543f28aa84c8df8651b88940f": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "hammer"
+    ]
+  },
+  "7ff9e9b85b59c66e5f656231e55fef72c5f19e829ad499e39716aec1a453d028": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "526703ebaff95f91ddf93519e1daa49034087be316e664aafd9642956b9a1aaa": {
+    "rotation_matrix": [
+      [
+        1.0,
+        -6.123233995736775e-17,
+        -1.6715578222594702e-16
+      ],
+      [
+        -1.7938038903913487e-16,
+        -1.082272729681142e-15,
+        -0.9999999999999998
+      ],
+      [
+        6.123233995736766e-17,
+        0.9999999999999998,
+        -1.0715038647913992e-15
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 0.9999999999999996,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "05815ac276bf7ff4a33c7ee524e3ab7ac4c7c9dcdf008e1b57371e988e7f0a21": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        0.0,
+        2.7817808468846267e-16
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        -3.133961632045815e-16,
+        0.0,
+        -1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "ffba9f312a5c06fe4b4d8fa2f74b35f7fee06a13ff8a0262d4bdc4d77d7d8889": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "0045234c83aa0cb9d5f1e4e82e28e81765a7dfd4cddd7fccc9cb984caacc3bd2": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "372b0fe8863f4f58c4bc126ff5f73bc24e035569d6954b474c3b26226afe5b16": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "bc2a15b6cda4f31d59aaa8e3c8723d9a6d059a0cd1f408d30fa28206b25046a7": {
+    "rotation_matrix": [
+      [
+        1.9967346175427393e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        1.7938038903913487e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "9fb48ac0b9f09a450ca3965cd12830eecccce0e27bd8e184a4414852d5e3763c": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "774f104043f96f602753ce26a848243e001e6bd635481a07bfa537abe5aa6806": {
+    "rotation_matrix": [
+      [
+        -8.113208190840148e-32,
+        -1.0,
+        -1.9967346175427393e-16
+      ],
+      [
+        -4.677050100851671e-16,
+        1.7938038903913487e-16,
+        -1.0
+      ],
+      [
+        0.9999999999999999,
+        0.0,
+        -4.47411937370028e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 0.9999999999999999,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "99ff0af043b870d4368e900f31f308c17b9b537887ba9631cbe453c13d0703c5": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "652cd892104d5dc2c627b868d9d1b443d89f645a15e9ab05e7315f3ca42f2020": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "7aa85c7c3f1ef99ae6eb33cb7b65ead91373b548c0c0e0c396c38097eb29623a": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "479a300b23e2be39da76348c3f1ca81e39601b305588cdd69d2ba061bef676bb": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "hammer"
+    ]
+  },
+  "89357811bef9ba7accff6f148b5b27d2b23b24faf15bc7fff087839e51b7f82f": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.9967346175427393e-16,
+        0.0
+      ],
+      [
+        1.7938038903913487e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "fd1323047a09a2bbf77e0cf3ec37c4ac7fa7d487d677280700207bc3eaf9d499": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "hammer"
+    ]
+  },
+  "578091890b3e649f832eb8495503683fae0d84cfea11bd35ee5ecb57ba08472c": {
+    "rotation_matrix": [
+      [
+        -8.113208190840148e-32,
+        -1.0,
+        -1.9967346175427393e-16
+      ],
+      [
+        -4.677050100851671e-16,
+        1.7938038903913487e-16,
+        -1.0
+      ],
+      [
+        0.9999999999999999,
+        0.0,
+        -4.47411937370028e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 0.9999999999999999,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "bed6f2b5727e012038cbc9b8e3f71e2f50e0602ee02923161518364e39918ec3": {
+    "rotation_matrix": [
+      [
+        -3.912333853504046e-32,
+        -4.677050100851671e-16,
+        -1.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        6.123233995736766e-17,
+        0.9999999999999999,
+        -4.47411937370028e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 0.9999999999999999,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "001d6133ab18ea4a26a909453d4f9598cc9911265221508bfc4baad7f0e666a2": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  },
+  "2e1a2ba3d0ddc0be20fd31f0932d489e9e47948b2e7a66a79fb5da10abf805b8": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "hammer"
+    ]
+  },
+  "f2cc82848d5e08d20eba2544ef92cc6fdd059a5ce02202f73fbeb076dc693c76": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "hammer"
+    ]
+  }
+}

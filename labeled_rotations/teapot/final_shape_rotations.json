@@ -1,0 +1,1727 @@
+{
+  "766f63328a63862eb4708917bb9c572be19bd7b4741de563dfe5449c788408ef": {
+    "rotation_matrix": [
+      [
+        -1.8369701987210297e-16,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        -1.8369701987210297e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "teapot"
+    ]
+  },
+  "503ea70d530043d93d4dc5a1656ac9282baedb8ad49394b89dece598a8973549": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "teapot"
+    ]
+  },
+  "16f3e2dce4d919251821de7b4e8fecb118f37ef2ce53da8fe50f9f9074aa7c3a": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -2.7817808468846267e-16,
+        0.0
+      ],
+      [
+        3.133961632045815e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "teapot"
+    ]
+  },
+  "f7190f4277381082f837fe612efcffc79bc20b69cd0ab907f84bef9e30a1d4f0": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "teapot"
+    ]
+  },
+  "551cfb9580e644af989e705b97ce1ac33d207f1cbe5a8246e87c507e00cd5a25": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "teapot"
+    ]
+  },
+  "96830cb209cf86ebc535d56f34e63239c8477d27980558b2bf099672b44c27e0": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "teapot"
+    ]
+  },
+  "12eab457f9e653cdd9ae0976477bb268d10c317dfd44e04ac7c59385946c30cf": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "teapot"
+    ]
+  },
+  "596912f2b5c3fa4f9702ab14b685e84d5f864e8b7873fd6a9edf380218352618": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "teapot"
+    ]
+  },
+  "f20e010089d650bb8dcfdfe1d9112e76f567e44af2dd412c6eac5b9c44bce99e": {
+    "rotation_matrix": [
+      [
+        -1.8369701987210297e-16,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        -1.8369701987210297e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "teapot"
+    ]
+  },
+  "de2562ce26ee80c3817a3b3d3fea0d642b958fad0fd12379383b90706af42442": {
+    "rotation_matrix": [
+      [
+        1.0,
+        2.4492935982947064e-16,
+        0.0
+      ],
+      [
+        -2.4492935982947064e-16,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "teapot"
+    ]
+  },
+  "6eb18742d00ccef747c00a8cdf0592cba282f3ca1e12cae79396d91c44c91546": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "teapot"
+    ]
+  },
+  "2c4e8b8a6881668dad341f4a1e095d2b0cf842d55537ea0e1fb9877901b36237": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "teapot"
+    ]
+  },
+  "5b4e7c12d97bfc9dfda18244417f6a5c5b829bff821a6f6293fedae99422b64e": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "teapot"
+    ]
+  },
+  "7421ea8bd9ef098f29c025d9d67779e5c3253d528a869769005520beeb661c4b": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "teapot"
+    ]
+  },
+  "c81c2df76bbcd9d0169f63b16c3a729f4cb6fb2cd936fa50b7a270a43a58f92d": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "teapot"
+    ]
+  },
+  "c62d9a2b6f65cf3286823e5801d7d7f7ff9bf0bfe1da7fb173b91d26e1e1b400": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "teapot"
+    ]
+  },
+  "89336cb7961e8dba5fd3883a05c1cd2b69465ff0c62c05cea448a4e03f63b754": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "teapot"
+    ]
+  },
+  "3f6b3dc2a82a7ca3e5a93d0948ac63d0649e70cc5b7a137752846c832b373f34": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "teapot"
+    ]
+  },
+  "903b0ae52f0ecd543dac2dba6de35ecd9c1d902b22a56460d888b10deb90dc47": {
+    "rotation_matrix": [
+      [
+        1.0,
+        2.4492935982947064e-16,
+        0.0
+      ],
+      [
+        -2.4492935982947064e-16,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "teapot"
+    ]
+  },
+  "36fbc463d98a6652e27a24cf14f868f32a6e7df2f20a6b2fa769019066838e8d": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "teapot"
+    ]
+  },
+  "94d93c900a7eb5617efed127313c3bae216e893f27d95aad73b59a8d6c0983c9": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "teapot"
+    ]
+  },
+  "0feb537bfa16a1ee35bc4e6605d1cf9409b68ddc344e59b4c6c2eb6f205cbd46": {
+    "rotation_matrix": [
+      [
+        1.0,
+        2.4492935982947064e-16,
+        0.0
+      ],
+      [
+        -2.4492935982947064e-16,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "teapot"
+    ]
+  },
+  "0be268f9ffd236cd0ef26dc9893da4704dd96dd72428cedd25c8a74dda8ef615": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "teapot"
+    ]
+  },
+  "01864e0f55c4c254fa90aa0721ac17748fadecf48ae7d2cfa178a67bf14d7b13": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "teapot"
+    ]
+  },
+  "e9de9ab666a330fe27f157d1e664e411f18aab7ebab6078ac862e1a6ee099427": {
+    "rotation_matrix": [
+      [
+        1.0,
+        2.4492935982947064e-16,
+        0.0
+      ],
+      [
+        -2.4492935982947064e-16,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "teapot"
+    ]
+  },
+  "659f5366bb38f80219dd16661bd21d243ddf9031fc29d5ea28ae025db86c3d6b": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "teapot"
+    ]
+  },
+  "658f2f2f6afda2c0988750a6328d09d91eeb46d51caf738213e65c5cd2e1e6f2": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "teapot"
+    ]
+  },
+  "5b22b94f9d0ac2ec05741397b69769dc514fb401ada2712cfd4fb5fc9bf06e87": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "teapot"
+    ]
+  },
+  "baf0e5be252422f65f27f360ca88df17436da3eff8550a7fca4b669f97943c6d": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "teapot"
+    ]
+  },
+  "1bc1eb61fe33ae823931cace97982e90a41e5459d53b285e35d30a0be4bdee8f": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "teapot"
+    ]
+  },
+  "b749a9a463228947587a40116db755fc7c1636ca1b3157d7e789106147f24587": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "teapot"
+    ]
+  },
+  "e6c5870c467b8c946d4a4c66a553a87f6ccf8078e9073af7df189353878c5eba": {
+    "rotation_matrix": [
+      [
+        1.0,
+        2.4492935982947064e-16,
+        0.0
+      ],
+      [
+        -2.4492935982947064e-16,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "teapot"
+    ]
+  },
+  "f4b915d7abc5738e38834ce269a9d3ec356b9c574631daa332b1c276a7f14181": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "teapot"
+    ]
+  },
+  "fe078508173f66e65347ce68b93f04a9e7a0902647e56ee97cce2e7626089540": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "teapot"
+    ]
+  },
+  "88eaaae76f97a9f18359505aa7439063ceccb56c7b96379626709556b1672ae1": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "teapot"
+    ]
+  },
+  "71056e277ae34f35e29c23a9dcd998c2b8c054c3c064a5eb3d05fdd407de99ba": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "teapot"
+    ]
+  },
+  "e745ee7f59fef758cba9067e5398f3b81ae54011cc506a93742c54b36d00ab23": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "teapot"
+    ]
+  },
+  "686eca2653475836446bf7d5741377e6789b81edd593b8ffd0bbec943ec3c58d": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "teapot"
+    ]
+  },
+  "d4cce8512365f4fbd977c634d3153e1b375b5ca9d2cf5ce09fb80ee20a7a5f50": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "teapot"
+    ]
+  },
+  "f59baaac0a7a0a73705b4bab77a5569006f2901ee3c81c566f4e14a99ac2a97a": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "teapot"
+    ]
+  },
+  "1cbf0746662a0a3ea0a6cd48ee24b3d3e5db03a0b55b9a8955d851bf98057185": {
+    "rotation_matrix": [
+      [
+        1.0,
+        2.4492935982947064e-16,
+        0.0
+      ],
+      [
+        -2.4492935982947064e-16,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "teapot"
+    ]
+  },
+  "c65f4010f30cd1cf69fc9363a4f71eb197c6da36d36d18087d1706222c496b3e": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "teapot"
+    ]
+  },
+  "1cd9af27ae68febd1b746ef22b0dbd56b7f73b1ddd3aad93fdbc9175b09f6a14": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "teapot"
+    ]
+  },
+  "43513b5d9a605d68af24a3e1ee1dbd134012c9a870f0a994ef889799dc7f5037": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "teapot"
+    ]
+  },
+  "5e32f9bb0bd07f68fe7c532009b90a3dadadf0960c9cfbf8fc743c757e1b82da": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "teapot"
+    ]
+  },
+  "493fcada05e101f46d3fad41bb82f89a1e1d028e4f710aebe1b8a3e4cdc7f978": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "teapot"
+    ]
+  },
+  "0cd50a547d3ce0d481fc61522d718f6f1775fea22f97b855169b3a4053ceae33": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "teapot"
+    ]
+  },
+  "a5a80e56d074394b71aa6325dab7685f531cd39906ea8d96a2dd46635464ec08": {
+    "rotation_matrix": [
+      [
+        -1.8369701987210297e-16,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        -1.8369701987210297e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "teapot"
+    ]
+  },
+  "a06bd09dc9474b0c234c1be8a99e1c86b0e497fcd450983533d9eac321100b90": {
+    "rotation_matrix": [
+      [
+        1.0,
+        2.4492935982947064e-16,
+        0.0
+      ],
+      [
+        -2.4492935982947064e-16,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "teapot"
+    ]
+  },
+  "92143b6d88d2d5f3faa9f01964c28950befe242d215ccb9aae936e646c65f69f": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "teapot"
+    ]
+  },
+  "411e15877c7f8a76400585004b34723457912c4b68557af35a715fc913bc2fd4": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "teapot"
+    ]
+  },
+  "e3010683815697de11304be53a26505d43317a4a90a832ecb13a1948de2ca40e": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "teapot"
+    ]
+  },
+  "1b665f97d7138337b2c3cf7d8062a602b6fe0e3f2321b6b05e344772039f6a54": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "teapot"
+    ]
+  },
+  "3ce3a5189e8f81e02adb5fbfb118931b8cd7fb7158abc5972120dd7ddeebdd62": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "teapot"
+    ]
+  },
+  "e725c233cfa24b01a9fff8688f05526b5b5225a7c86a419f001d209672591929": {
+    "rotation_matrix": [
+      [
+        1.0,
+        2.4492935982947064e-16,
+        0.0
+      ],
+      [
+        -2.4492935982947064e-16,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "teapot"
+    ]
+  },
+  "5dc577e3ab496c30d1b032fc6631be5ddabf20b24e46f794020df8d2ad596482": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "teapot"
+    ]
+  },
+  "3108ece19d6f1e7b9076022764f798689ac58d58421241e911f5d69311abf747": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "teapot"
+    ]
+  },
+  "2daa96e115679fd7933a9250978bc23dddd5f2e9d943db098bd6699f9df59b0a": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "teapot"
+    ]
+  },
+  "730afa87244293eb6979839d8d0743e97ccac663e90ae4cf74d4a52feebb6641": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "teapot"
+    ]
+  },
+  "a45c20cf2653866a31e67b90ec76805a95ccd3de7269f88cf06e979169b58ff3": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "teapot"
+    ]
+  },
+  "2e6f9b69b689100f80108a6b89c65c7a57dbb4ee1f5b07e081b4ecf3e2afafdd": {
+    "rotation_matrix": [
+      [
+        1.0,
+        2.4492935982947064e-16,
+        0.0
+      ],
+      [
+        -2.4492935982947064e-16,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "teapot"
+    ]
+  },
+  "fa2647d0ae8eca30905c73c29dacbdefcdd39537f9c039da7fda4d4d9931325e": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "teapot"
+    ]
+  },
+  "df1974572e06de3c3c08ee0e7b00906e53a464a2c899deeef55730052bda5905": {
+    "rotation_matrix": [
+      [
+        -1.8369701987210297e-16,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        -1.8369701987210297e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "teapot"
+    ]
+  },
+  "09f221b1c1b7d4fc75c5e86aad66cba03e3b6eea407c97e99cd18e8338c94166": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "teapot"
+    ]
+  },
+  "c57177d8e24c012218c2777cb54dc665687dd67ab2018033c7fbf9a1eb0dc731": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "teapot"
+    ]
+  },
+  "ab50e1db37290f01e9f85540c6d819d04342a69e448583ebf86b5458e75ed9ce": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "teapot"
+    ]
+  },
+  "caa49832ab1d8a49a0dd2500e79d7f52b4a95dd56026bc4c3599b6327e16358a": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "teapot"
+    ]
+  },
+  "7fa91ed59a92fdc78b63140da2bdd7ca649bc86d2611f9c4321cc273a499b68a": {
+    "rotation_matrix": [
+      [
+        1.0,
+        2.4492935982947064e-16,
+        0.0
+      ],
+      [
+        -2.4492935982947064e-16,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "teapot"
+    ]
+  },
+  "4605ee637ff527fad84bcd56df709fa6de81d4b15f9bdd6e3898bc51cb6154d7": {
+    "rotation_matrix": [
+      [
+        1.0,
+        2.4492935982947064e-16,
+        0.0
+      ],
+      [
+        -2.4492935982947064e-16,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "teapot"
+    ]
+  }
+}

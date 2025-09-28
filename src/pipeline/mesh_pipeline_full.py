@@ -2099,6 +2099,9 @@ def github_auth_env(args):
     在 with 块内注入 GITHUB_TOKEN / GH_TOKEN 与 GIT_TERMINAL_PROMPT=0。
     退出时恢复原值。
     """
+    os.environ["GCM_INTERACTIVE"] = "0"   # Git Credential Manager 禁止交互
+    os.environ["GIT_ASKPASS"] = "echo"    # 没有可用凭据时立刻返回空
+
     token = _materialize_github_token(args)
     old = {}
     keys = ["GITHUB_TOKEN", "GH_TOKEN", "GIT_TERMINAL_PROMPT"]

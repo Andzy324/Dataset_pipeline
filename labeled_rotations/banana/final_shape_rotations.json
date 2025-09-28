@@ -1,0 +1,377 @@
+{
+  "f013c6c4dd64d33abdeb2a04a3637b2ce2428cdab317133cdb47cf4115b9727c": {
+    "rotation_matrix": [
+      [
+        1.996734617542739e-16,
+        -1.9967346175427393e-16,
+        1.0
+      ],
+      [
+        -1.9967346175427395e-16,
+        -1.0,
+        -1.7938038903913487e-16
+      ],
+      [
+        1.0,
+        -1.7938038903913487e-16,
+        -1.7938038903913487e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "banana"
+    ]
+  },
+  "8ad98f674e007e1c62734372000f039f6bd44ffbce5cd4f325d42fa69551624f": {
+    "rotation_matrix": [
+      [
+        1.0,
+        2.4492935982947064e-16,
+        0.0
+      ],
+      [
+        -2.4492935982947064e-16,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "banana"
+    ]
+  },
+  "5a87b063350601bccaab6ec0c8257762cd8474db3362d4246e638371753fc1e2": {
+    "rotation_matrix": [
+      [
+        1.0,
+        2.4492935982947064e-16,
+        0.0
+      ],
+      [
+        -2.4492935982947064e-16,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "banana"
+    ]
+  },
+  "6f871b0bf5cbafb5725f602c899d721ef325e4ef463f2a981497984f82614193": {
+    "rotation_matrix": [
+      [
+        -4.677050100851671e-16,
+        -1.048466635774144e-32,
+        -1.0
+      ],
+      [
+        -0.9999999999999998,
+        1.9967346175427393e-16,
+        4.47411937370028e-16
+      ],
+      [
+        1.5638691733620395e-16,
+        1.0,
+        -7.688696406572144e-32
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 0.9999999999999998,
+    "description": "Applied rotation matrix",
+    "label": [
+      "banana"
+    ]
+  },
+  "dbc084865c5bb1d3622bfda257904e32997b49c50a6bf345c9b530257bb0a2c6": {
+    "rotation_matrix": [
+      [
+        -4.677050100851671e-16,
+        4.677050100851671e-16,
+        1.0
+      ],
+      [
+        -6.123233995736746e-17,
+        0.9999999999999999,
+        -4.47411937370028e-16
+      ],
+      [
+        -0.9999999999999999,
+        -6.123233995736766e-17,
+        -4.47411937370028e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 0.9999999999999998,
+    "description": "Applied rotation matrix",
+    "label": [
+      "banana"
+    ]
+  },
+  "e486edc228ef844c3d35772ad4eb7bd41c7f5237eb0db17939546afab1fed850": {
+    "rotation_matrix": [
+      [
+        1.0,
+        2.4492935982947064e-16,
+        0.0
+      ],
+      [
+        -2.4492935982947064e-16,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "banana"
+    ]
+  },
+  "5bcae5389664ec4c1f6f825de4d8139558fb2995136b86d04ec52626a44de619": {
+    "rotation_matrix": [
+      [
+        1.0,
+        2.4492935982947064e-16,
+        0.0
+      ],
+      [
+        -2.4492935982947064e-16,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "banana"
+    ]
+  },
+  "b24bd98be81cedef397daf29b513780fca12067e83758620b3fb0c195a1d2880": {
+    "rotation_matrix": [
+      [
+        -1.1775693440128312e-16,
+        -3.251767952832691e-17,
+        1.0
+      ],
+      [
+        0.7071067811865477,
+        -0.7071067811865474,
+        0.0
+      ],
+      [
+        0.7071067811865474,
+        0.7071067811865477,
+        1.7938038903913487e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "banana"
+    ]
+  },
+  "79f3f23a85360a0a5c433f2940fe4aaa91f773e662e4e9ae5dcccdccc6d35a98": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        -1.082272729681142e-15,
+        -8.556465180346019e-32,
+        0.9999999999999998
+      ],
+      [
+        -0.9999999999999998,
+        -6.123233995736766e-17,
+        -1.0715038647913992e-15
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 0.9999999999999996,
+    "description": "Applied rotation matrix",
+    "label": [
+      "banana"
+    ]
+  },
+  "1b4355fc2d94761093776ed282d9fca77940479200868136b3570b2bffd7c204": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.9967346175427393e-16,
+        1.372374090280428e-32,
+        -1.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        1.7938038903913487e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "banana"
+    ]
+  },
+  "2199f86531c2d083946d384f8440f2856651527e113f2d00d7b7a8b828c31a70": {
+    "rotation_matrix": [
+      [
+        -2.449293598294704e-16,
+        1.0,
+        4.677050100851671e-16
+      ],
+      [
+        4.677050100851672e-16,
+        -4.47411937370028e-16,
+        0.9999999999999999
+      ],
+      [
+        0.9999999999999999,
+        2.4492935982947064e-16,
+        -4.47411937370028e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 0.9999999999999998,
+    "description": "Applied rotation matrix",
+    "label": [
+      "banana"
+    ]
+  },
+  "17d7b99cde4bb29a70f29c7ad6c5ff8e0aba10def76d6a78a28bb94e125aa86b": {
+    "rotation_matrix": [
+      [
+        0.7071067811865472,
+        -1.9967346175427393e-16,
+        -0.7071067811865477
+      ],
+      [
+        8.523925487295624e-17,
+        -1.0,
+        2.1252039709963534e-16
+      ],
+      [
+        -0.7071067811865477,
+        -1.731912112470987e-16,
+        -0.7071067811865474
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 0.9999999999999999,
+    "description": "Applied rotation matrix",
+    "label": [
+      "banana"
+    ]
+  },
+  "f3139bba365c4ad92b30e90ea8402c2709359840ae7c2f0a6715b72164178d23": {
+    "rotation_matrix": [
+      [
+        -0.707106781186547,
+        -4.677050100851671e-16,
+        0.7071067811865479
+      ],
+      [
+        5.551115123125783e-16,
+        -0.9999999999999999,
+        -3.1401849173675503e-16
+      ],
+      [
+        0.7071067811865478,
+        1.9670161006069775e-16,
+        0.7071067811865471
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 0.9999999999999998,
+    "description": "Applied rotation matrix",
+    "label": [
+      "banana"
+    ]
+  },
+  "ca336869cd0dbf193ea920d0e1a4beed1fcdafe656fe2cfa6b0909399e2ec3d8": {
+    "rotation_matrix": [
+      [
+        -4.677050100851671e-16,
+        4.677050100851671e-16,
+        1.0
+      ],
+      [
+        -6.123233995736746e-17,
+        0.9999999999999999,
+        -4.47411937370028e-16
+      ],
+      [
+        -0.9999999999999999,
+        -6.123233995736766e-17,
+        -4.47411937370028e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 0.9999999999999998,
+    "description": "Applied rotation matrix",
+    "label": [
+      "banana"
+    ]
+  },
+  "4c271279050396175bd1b2bb5cc15ccba615a04d5cb72518ed137328622f41af": {
+    "rotation_matrix": [
+      [
+        1.0,
+        1.8369701987210292e-16,
+        -1.9967346175427393e-16
+      ],
+      [
+        -1.7938038903913487e-16,
+        -4.677050100851672e-16,
+        -1.0
+      ],
+      [
+        -1.8369701987210297e-16,
+        0.9999999999999999,
+        -4.47411937370028e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 0.9999999999999999,
+    "description": "Applied rotation matrix",
+    "label": [
+      "banana"
+    ]
+  }
+}

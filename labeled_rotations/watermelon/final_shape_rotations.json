@@ -1,0 +1,577 @@
+{
+  "3f40b09c577ec7dc49ba873493dec5ee170849521981e40ee2338d2889bb91ce": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.9967346175427393e-16,
+        0.0
+      ],
+      [
+        1.7938038903913487e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "watermelon"
+    ]
+  },
+  "89524e84d64cc2f3df99949c46494ae5a02997319f108860bcd9aae1a2997887": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.9967346175427393e-16,
+        -1.0
+      ],
+      [
+        0.0,
+        1.0,
+        1.7938038903913487e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "watermelon"
+    ]
+  },
+  "ca44b51663c5613c0ae117f72ade9fa6726055f7b3f5e17e116924b6f0005318": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "watermelon"
+    ]
+  },
+  "a83137c45d7f47fc5b4e9b94f37d1589f9d9b0c4ce878d3a4f1956f25b92eba2": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "watermelon"
+    ]
+  },
+  "7cf5bdd97c9d965f60c027a785e74a120a814455a3da415704b619866fe8e447": {
+    "rotation_matrix": [
+      [
+        1.9967346175427393e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        1.7938038903913487e-16,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "watermelon"
+    ]
+  },
+  "8b340998afc729b044118f029e5203a2c0cf4ed46afbe97102fbf958f187aaf0": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "watermelon"
+    ]
+  },
+  "7f587bd6114e6681bce8dcc12487299477e9c9dabe967b17cd7c789175295424": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.9967346175427393e-16,
+        1.372374090280428e-32,
+        -1.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        1.7938038903913487e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "watermelon"
+    ]
+  },
+  "7edc543cac0e0421fb5473f2f24e40c67ba10e90c2a1381616ada05b5bceca86": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "watermelon"
+    ]
+  },
+  "9f50156c833d27e5416c0f7d6ff978b371d6e4653f11c694af395220487665a7": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "watermelon"
+    ]
+  },
+  "5ec05d15877776492bd53243e08147ca858e97a8b57557e7b89936d3eb345c7e": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.9967346175427393e-16,
+        -1.0
+      ],
+      [
+        0.0,
+        1.0,
+        1.7938038903913487e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "watermelon"
+    ]
+  },
+  "2b369a31fef99aefdd09a0c39ef3ca1a24e5996c53a25ee180fec431d371ee96": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "watermelon"
+    ]
+  },
+  "e3e1e797ed2bac79e0c23c9763fd09c7c5c667484bcbe4780c5d3ccaaf197003": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.9967346175427393e-16,
+        -1.0
+      ],
+      [
+        0.0,
+        1.0,
+        1.7938038903913487e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "watermelon"
+    ]
+  },
+  "4226df4abecc1d435181dd98226683568ad39a57d85490b4dde841acfbb48409": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "watermelon"
+    ]
+  },
+  "767bf4ad7143d41cc4bf6f3a19a489994981d59c5bf9b532c8246cf7cd267313": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.9967346175427393e-16,
+        -1.0
+      ],
+      [
+        0.0,
+        1.0,
+        1.7938038903913487e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "watermelon"
+    ]
+  },
+  "c789c93fdc8b89f90b33de83bad496fcded89817a70d8984ae2d80646bce1991": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.9967346175427393e-16,
+        0.0
+      ],
+      [
+        1.7938038903913487e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "watermelon"
+    ]
+  },
+  "fe3e187cf8127a1ae58fddf54606ded2f5b9df495cd55731333ec7fc1a9f97ef": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "watermelon"
+    ]
+  },
+  "7bf600994e4b256a8c9186f71d7b7f5d0ef799ff00d7d986ee4d948d67c16979": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "watermelon"
+    ]
+  },
+  "db98d798644d9972513adca7de9fcd5d429e49b32fc42e61f4f251fdff065a6f": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.9967346175427393e-16,
+        1.372374090280428e-32,
+        -1.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        1.7938038903913487e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "watermelon"
+    ]
+  },
+  "454ae59dd30305e82829b56bcfdc24ffe9c144cd4de93dc47bb602834d31230f": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.9967346175427393e-16,
+        -1.0
+      ],
+      [
+        0.0,
+        1.0,
+        1.7938038903913487e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "watermelon"
+    ]
+  },
+  "a0854101f2493f93712fd857edcf711cb0a777763e09349fcf3d60bd43d7608c": {
+    "rotation_matrix": [
+      [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0
+      ],
+      [
+        1.2246467991473532e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "watermelon"
+    ]
+  },
+  "b05a601f8fab182888eceb03cebd647c8a33aa068a2268ae08e786e13cc2618a": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "watermelon"
+    ]
+  },
+  "00070c22fe401523541e67af06d658eaabe8f743b277931f1218f007f07dd122": {
+    "rotation_matrix": [
+      [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      [
+        1.9967346175427393e-16,
+        1.372374090280428e-32,
+        -1.0
+      ],
+      [
+        1.0,
+        6.123233995736766e-17,
+        1.7938038903913487e-16
+      ]
+    ],
+    "is_identity": false,
+    "matrix_determinant": 1.0,
+    "description": "Applied rotation matrix",
+    "label": [
+      "watermelon"
+    ]
+  },
+  "651f24bdc9f1eaec3fbcd97aea3eecf32152675da2c70aa69bb7f1a6603c54b8": {
+    "rotation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "is_identity": true,
+    "matrix_determinant": 1.0,
+    "description": "Identity matrix (no rotation)",
+    "label": [
+      "watermelon"
+    ]
+  }
+}
