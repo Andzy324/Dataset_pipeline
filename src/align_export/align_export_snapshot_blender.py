@@ -2387,12 +2387,15 @@ def export_selected_as_obj_with_textures(obj: bpy.types.Object, out_dir: Path, n
     # —— 按“真实存在”与“大小写无关映射”改写为 textures/<安全名>
     lines = []
     lut = {k.casefold(): v for k, v in tex_map.items()}  # 原名→安全名（case-insensitive）
-
+    MTL_MAP_KEYS = {
+        "map_ka","map_kd","map_ks","map_ke","map_ns","map_d","map_pr","map_pm","map_ps"
+        "bump","map_bump","norm","disp","decal","refl"
+    }
     def _exists_in_textures(name: str) -> bool:
         return (textures_dir / name).is_file()
 
     for raw in fixed.read_text(encoding="utf-8", errors="ignore").splitlines():
-        # 解析：保留全部选项，只把“路径那段 token”合并并替换
+        
         try:
             toks = shlex.split(raw, posix=True)
         except Exception:
@@ -2401,8 +2404,16 @@ def export_selected_as_obj_with_textures(obj: bpy.types.Object, out_dir: Path, n
             lines.append(raw); continue
 
         head = toks[0]
+        head_l = head.lower()
         args = toks[1:]
+        if head_l == "newmtl":
+            lines.append(raw)
+            continue
 
+        # ★ 最小改动 2：非贴图类关键字也跳过（防误改），原样保留
+        if head_l not in MTL_MAP_KEYS:
+            lines.append(raw)
+            continue
         def _is_option(t: str) -> bool:
             return t.startswith('-')
 
@@ -2887,9 +2898,6 @@ def main():
     if not exported:
         print("No shapes exported; stop.")
         return
-
-    # ---------- Pass 2：拼图 & 快照 ----------
-
     # —— 快照拼图：
     # ---------- Pass 2：拼图 & 快照 ----------
     clear_scene_hard()
