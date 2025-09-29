@@ -8,9 +8,9 @@
 # [核心路径 / 脚本入口]
 ############################
 root: /home/vault/v100dd/v100dd26/Dataset    # Pipeline 根目录（会派生 downloads/aligned_glb/renders 等, oxl: ）
-png_root: /home/zby/Simulation-pipeline/Data/G-objaverse      # build_metadata.py 用来推断类别/shape_keys 的 PNG 根, custom mode
+png_root: /home/vault/v100dd/v100dd26/Dataset      # build_metadata.py 用来推断类别/shape_keys 的 PNG 根, custom mode
 download_root: /home/vault/v100dd/v100dd26/Dataset   # oxl mode; custom，默认在 root 下派生,  
-blender: /snap/bin/blender            # Blender 可执行路径
+blender: /home/hpc/v100dd/v100dd26/blender-4.5.3-linux-x64/blender           # Blender 可执行路径
 build_script: /home/hpc/v100dd/v100dd26/project/Dataset_pipeline/src/download_toolkits/build_metadata.py # 用于 custom mode 下生成 metadata and download
 align_script: /home/hpc/v100dd/v100dd26/project/Dataset_pipeline/src/align_export/align_export_snapshot_blender.py
 render_script: /home/hpc/v100dd/v100dd26/project/Dataset_pipeline/src/video_render/render_orbit_full.py #
@@ -31,8 +31,8 @@ categories: [cat]       # 显式指定类别；否则依 rot_dir 或 png_root �
 ids_json:                                  # 仅处理该 JSON 中列出的 shape id（可空）, for custom mode
 ids_txt:                                   # 仅处理该 TXT（每行一个 shape_key）（可空）
 debug_limit:                               # 整体 debug 限制数量（整数，可空）
-label_dir: /home/zby/Simulation-pipeline/Data/datasets/labeled_rotations
-sha_index_csv: /home/zby/Simulation-pipeline/shape_canonicalization_tool/data_downloader/core_data/metadata.csv
+label_dir: /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/labeled_rotations
+sha_index_csv: /home/vault/v100dd/v100dd26/Dataset/core_data/metadata.csv
 
 ############################
 # [rotations / 合并策略（多类别驱动）], rot_dir and rot_filename used by oxl mode as well
@@ -60,17 +60,17 @@ dl_backend: oxl                            # 下载后端：custom / oxl（Objav
 overwrite_download: true                   # 强制覆盖已下载资源（custom 分支）
 # —— OXL 专属选项 —— /<download_root>/<oxl_out_category>/<label>/<sha>/mesh and raw, raw is the selected out 3d assets; mesh is extracted zip
 oxl_source: github                         # OXL 数据源：sketchfab / github
-label_json: /home/zby/Simulation-pipeline/shape_canonicalization_tool/data_downloader/core_data/all_sha256_to_rotation.json  # 用于按 label 预筛
+label_json: /home/vault/v100dd/v100dd26/Dataset/core_data/all_sha256_to_rotation.json  # 用于按 label 预筛
 labels: [cat]                              # OXL 预筛标签（逗号分隔字符串也可）
 label_match_mode: any                      # any/all：与 labels 的匹配逻辑
 oxl_out_category: ObjaverseXL_github       # OXL 下载存放的大类名；空串则保持你现在的用法 
 oxl_labels: [cat]                         # OXL 下游渲染/对齐所用的 label 子目录白名单 oxl_labels == labels
 oxl_stage_dir:                             # 暂存目录（zip/原始）默认 <download_root>/<oxl_out_category>/_stage
-oxl_keep_stage: true                       # consolidate 后是否保留 _stage
+oxl_keep_stage: false                       # consolidate 后是否保留 _stage
 oxl_keep_pool: false                       # consolidate 后是否保留 _pool, _pool stores the expressed repos and used to pick the meshes and textures out, but disabled in per_category_flow mode
 oxl_prune_zips: false                      # 成功解压并选取 mesh 后是否删除原 zip
 oxl_prefer_label_root: true                # consolidate 时优先布局到 <out_cat>/<label>/<sha>/raw, not used
-oxl_prune_mesh_dir: false                  # 资产完成后是否清理 <sha>/mesh 临时目录
+oxl_prune_mesh_dir: true                  # 资产完成后是否清理 <sha>/mesh 临时目录
 overwrite_download_repo: true              # 强制重下仓库/zip：会清空 _stage 并重来
 overwrite_consolidate: true                # 强制重做 consolidate：清空目标 sha 后重建, use df to build the queue for consolidate, so need to overwrite the download_repo as well
 oxl_force_reconsolidate: false             # 即使本次 metadata 无新增，也从 _stage 扫描归拢
@@ -149,9 +149,5 @@ overwrite_render: true                     # 覆盖已有渲染结果
 ######################################################################
 # github env setting
 ######################################################################
-<<<<<<< HEAD
-
-=======
-github_token: "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"      #"env:GITHUB_TOKEN"   ① 从环境变量读取
->>>>>>> e871ea5 (dataset pipeline script)
+github_token: "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" 
 git_no_prompt: true
