@@ -1,0 +1,216 @@
+20:59:18.268755 git.c:463               trace: built-in: git config --global http.proxy http://proxy.nhr.fau.de:80
+20:59:18.351315 git.c:463               trace: built-in: git config --global https.proxy http://proxy.nhr.fau.de:80
+20:59:18.361395 git.c:463               trace: built-in: git config --global lfs.concurrenttransfers 3
+2025-09-30 20:59:41.918 | INFO     | objaverse.xl.github:download_objects:602 - Provided 101 repoIds with 143 objects to process.
+2025-09-30 20:59:41.918 | INFO     | objaverse.xl.github:download_objects:614 - Found 101 repoIds not yet downloaded. Downloading now...
+Grouping objects by repository:   0%|          | 0/101 [00:00<?, ?it/s]Grouping objects by repository: 100%|██████████| 101/101 [00:00<00:00, 21583.77it/s]
+Downloading repositories:   0%|          | 0/101 [00:00<?, ?it/s]2025-09-30 20:59:45.837 | ERROR    | objaverse.xl.github:_run_command_with_check:172 - Error:
+2025-09-30 20:59:45.837 | ERROR    | objaverse.xl.github:_run_command_with_check:173 - None
+2025-09-30 20:59:45.837 | ERROR    | objaverse.xl.github:_run_command_with_check:174 - None
+2025-09-30 20:59:45.837 | ERROR    | objaverse.xl.github:_process_repo:217 - Could not clone captain-cook-83/cute_kitty
+Downloading repositories:   1%|          | 1/101 [00:00<00:44,  2.24it/s]2025-09-30 20:59:45.843 | ERROR    | objaverse.xl.github:_run_command_with_check:172 - Error:
+2025-09-30 20:59:45.843 | ERROR    | objaverse.xl.github:_run_command_with_check:173 - None
+2025-09-30 20:59:45.843 | ERROR    | objaverse.xl.github:_run_command_with_check:174 - None
+2025-09-30 20:59:45.843 | ERROR    | objaverse.xl.github:_process_repo:217 - Could not clone ardmos/3DMultiPlayGame_Study
+2025-09-30 20:59:45.851 | ERROR    | objaverse.xl.github:_run_command_with_check:172 - Error:
+2025-09-30 20:59:45.852 | ERROR    | objaverse.xl.github:_run_command_with_check:173 - None
+2025-09-30 20:59:45.852 | ERROR    | objaverse.xl.github:_run_command_with_check:174 - None
+2025-09-30 20:59:45.852 | ERROR    | objaverse.xl.github:_process_repo:217 - Could not clone Go-Ba/MECHOOTS
+Handling 3D object files:   0%|          | 0/1 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 1/1 [00:00<00:00, 1786.33it/s]
+2025-09-30 20:59:46.086 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving unaunaunagi/same as zip
+Downloading repositories:   4%|▍         | 4/101 [00:00<00:15,  6.30it/s]Handling 3D object files:   0%|          | 0/1 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 1/1 [00:00<00:00, 267.66it/s]
+2025-09-30 20:59:46.393 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving TakashiYoshinaga/ChatGPT-A-Frame-Sample as zip
+Handling 3D object files:   0%|          | 0/32 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 32/32 [00:00<00:00, 2064.51it/s]
+2025-09-30 20:59:46.446 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving designlol80/WebGl as zip
+Handling 3D object files:   0%|          | 0/5 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 5/5 [00:00<00:00, 658.32it/s]
+2025-09-30 20:59:46.500 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving guanlun/animal-battle as zip
+Handling 3D object files:   0%|          | 0/18 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 18/18 [00:00<00:00, 5143.93it/s]
+2025-09-30 20:59:46.713 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving CansyLand/hungry-cat as zip
+Handling 3D object files:   0%|          | 0/5 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 5/5 [00:00<00:00, 877.80it/s]
+2025-09-30 20:59:46.873 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving lparkos/3dModels as zip
+Handling 3D object files:   0%|          | 0/12 [00:00<?, ?it/s]Handling 3D object files:   0%|          | 0/1 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 1/1 [00:00<00:00, 3771.86it/s]
+2025-09-30 20:59:47.046 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving nicholas-maltbie/Recolor-Shader-Example as zip
+Handling 3D object files:  58%|█████▊    | 7/12 [00:00<00:00, 65.47it/s]Handling 3D object files:   0%|          | 0/3 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 12/12 [00:00<00:00, 58.75it/s]
+2025-09-30 20:59:47.198 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving kougaku/Ninja as zip
+Handling 3D object files: 100%|██████████| 3/3 [00:00<00:00, 55.26it/s]
+Handling 3D object files:   0%|          | 0/10 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 10/10 [00:00<00:00, 1737.92it/s]
+2025-09-30 20:59:47.238 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving pingkungjaza/arjs-demo as zip
+2025-09-30 20:59:47.252 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving iamrequest/curse-of-the-pinyaata as zip
+Handling 3D object files:   0%|          | 0/51 [00:00<?, ?it/s]Downloading repositories:   5%|▍         | 5/101 [00:02<00:48,  2.00it/s]Handling 3D object files: 100%|██████████| 51/51 [00:00<00:00, 626.61it/s]
+2025-09-30 20:59:47.567 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving ManjaKang/deploy_test as zip
+Downloading repositories:   6%|▌         | 6/101 [00:02<00:36,  2.57it/s]Downloading repositories:   7%|▋         | 7/101 [00:02<00:33,  2.80it/s]Handling 3D object files:   0%|          | 0/3 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 3/3 [00:00<00:00, 269.10it/s]
+2025-09-30 20:59:48.137 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving WavJaby/Me as zip
+Handling 3D object files:   0%|          | 0/2 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 2/2 [00:00<00:00, 1897.88it/s]
+2025-09-30 20:59:48.940 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving wak31415/raytracer as zip
+Downloading repositories:   8%|▊         | 8/101 [00:04<01:06,  1.41it/s]Downloading repositories:   9%|▉         | 9/101 [00:04<00:58,  1.56it/s]Handling 3D object files:   0%|          | 0/7 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 7/7 [00:00<00:00, 5012.83it/s]
+2025-09-30 20:59:50.208 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving dhee9000/arzoostarter as zip
+Downloading repositories:  11%|█         | 11/101 [00:05<00:48,  1.86it/s]Handling 3D object files:   0%|          | 0/8 [00:00<?, ?it/s]Handling 3D object files:  75%|███████▌  | 6/8 [00:00<00:00, 54.25it/s]Handling 3D object files: 100%|██████████| 8/8 [00:00<00:00, 63.55it/s]
+2025-09-30 20:59:51.393 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving piwvis/danyilk-portfolio as zip
+Handling 3D object files:   0%|          | 0/4 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 4/4 [00:00<00:00, 434.00it/s]
+2025-09-30 20:59:51.519 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving pgmgent-interactiveAR/be-appy-pgm-emmavanderhaeghen as zip
+Handling 3D object files:   0%|          | 0/151 [00:00<?, ?it/s]Downloading repositories:  12%|█▏        | 12/101 [00:06<00:59,  1.49it/s]Handling 3D object files:  30%|██▉       | 45/151 [00:00<00:00, 423.75it/s]Handling 3D object files:  58%|█████▊    | 88/151 [00:00<00:00, 328.04it/s]Handling 3D object files:  81%|████████▏ | 123/151 [00:00<00:00, 259.46it/s]Handling 3D object files: 100%|██████████| 151/151 [00:00<00:00, 228.49it/s]Handling 3D object files: 100%|██████████| 151/151 [00:00<00:00, 255.72it/s]
+2025-09-30 20:59:52.513 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving MartineauAn/pokedex as zip
+Handling 3D object files:   0%|          | 0/24 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 24/24 [00:00<00:00, 2735.86it/s]
+2025-09-30 20:59:52.579 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving MrLorent/NEW_WORLD as zip
+Handling 3D object files:   0%|          | 0/106 [00:00<?, ?it/s]Handling 3D object files:  28%|██▊       | 30/106 [00:00<00:00, 289.29it/s]Handling 3D object files:  56%|█████▌    | 59/106 [00:00<00:00, 169.88it/s]Handling 3D object files:  87%|████████▋ | 92/106 [00:00<00:00, 222.05it/s]Handling 3D object files: 100%|██████████| 106/106 [00:00<00:00, 245.71it/s]
+Handling 3D object files:   0%|          | 0/3 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 3/3 [00:00<00:00, 1220.34it/s]
+2025-09-30 20:59:53.341 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving PaddlePaddle/XWorld as zip
+2025-09-30 20:59:53.355 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving Chadys/OpenGL-Dino-false-game as zip
+Handling 3D object files:   0%|          | 0/52 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 52/52 [00:00<00:00, 2264.16it/s]
+2025-09-30 20:59:53.481 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving maxmills372/GGJ19 as zip
+Handling 3D object files:   0%|          | 0/9 [00:00<?, ?it/s]Handling 3D object files:   0%|          | 0/25 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 25/25 [00:00<00:00, 694.69it/s]
+2025-09-30 20:59:53.634 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving mkim1994/StrawberryJams as zip
+Handling 3D object files:   0%|          | 0/14 [00:00<?, ?it/s]Handling 3D object files:  67%|██████▋   | 6/9 [00:00<00:00, 39.72it/s]Handling 3D object files: 100%|██████████| 9/9 [00:00<00:00, 30.27it/s]
+Handling 3D object files:  64%|██████▍   | 9/14 [00:00<00:00, 52.57it/s]2025-09-30 20:59:53.913 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving acikel/mago-ar as zip
+Handling 3D object files:   0%|          | 0/26 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 26/26 [00:00<00:00, 7557.83it/s]
+Handling 3D object files: 100%|██████████| 14/14 [00:00<00:00, 50.21it/s]
+2025-09-30 20:59:54.026 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving LePon8/PD_BO_GAMELAB1_REMAKE2_GRUPPO1 as zip
+2025-09-30 20:59:54.028 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving KamJaTang/KMU-Graphics-2020 as zip
+Downloading repositories:  14%|█▍        | 14/101 [00:08<01:15,  1.16it/s]Handling 3D object files:   0%|          | 0/16 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 16/16 [00:00<00:00, 331.89it/s]
+2025-09-30 20:59:54.784 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving HillCJL/TimeTunnel as zip
+Downloading repositories:  15%|█▍        | 15/101 [00:09<01:13,  1.18it/s]Handling 3D object files:   0%|          | 0/43 [00:00<?, ?it/s]Handling 3D object files:  47%|████▋     | 20/43 [00:00<00:00, 183.59it/s]Handling 3D object files:   0%|          | 0/163 [00:00<?, ?it/s]Handling 3D object files:  91%|█████████ | 39/43 [00:00<00:00, 168.30it/s]Handling 3D object files: 100%|██████████| 43/43 [00:00<00:00, 157.44it/s]
+Handling 3D object files:  65%|██████▌   | 106/163 [00:00<00:00, 1022.18it/s]Handling 3D object files: 100%|██████████| 163/163 [00:00<00:00, 955.76it/s] 
+2025-09-30 20:59:55.743 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving anggaadypratama/run-minigame as zip
+2025-09-30 20:59:55.835 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving TawsTm/Capture-the-Wild as zip
+Handling 3D object files:   0%|          | 0/49 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 49/49 [00:00<00:00, 646.82it/s]
+2025-09-30 20:59:56.245 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving Solidor777/GGJ_2019 as zip
+Downloading repositories:  16%|█▌        | 16/101 [00:10<01:22,  1.03it/s]20:59:56.422404 git.c:749               trace: exec: git-lfs pull
+20:59:56.422450 run-command.c:657       trace: run_command: git-lfs pull
+20:59:56.684326 trace git-lfs: exec: git '-c' 'filter.lfs.smudge=' '-c' 'filter.lfs.clean=' '-c' 'filter.lfs.process=' '-c' 'filter.lfs.required=false' 'rev-parse' '--git-dir' '--show-toplevel'
+20:59:56.754033 trace git-lfs: exec: git 'rev-parse' '--is-bare-repository'
+20:59:56.774633 trace git-lfs: exec: git 'config' '--includes' '--local' 'lfs.repositoryformatversion'
+20:59:56.831840 trace git-lfs: exec: git 'config' '--includes' '-l'
+20:59:56.857241 trace git-lfs: exec: git 'rev-parse' '--is-bare-repository'
+20:59:56.877315 trace git-lfs: exec: git 'config' '--includes' '-l' '--blob' ':.lfsconfig'
+Handling 3D object files:   0%|          | 0/35 [00:00<?, ?it/s]20:59:56.936754 trace git-lfs: exec: git 'config' '--includes' '-l' '--blob' 'HEAD:.lfsconfig'
+20:59:56.981588 trace git-lfs: exec: git '-c' 'filter.lfs.smudge=' '-c' 'filter.lfs.clean=' '-c' 'filter.lfs.process=' '-c' 'filter.lfs.required=false' 'rev-parse' 'HEAD' '--symbolic-full-name' 'HEAD'
+Handling 3D object files:  34%|███▍      | 12/35 [00:00<00:00, 118.26it/s]20:59:57.035109 trace git-lfs: exec: git '-c' 'filter.lfs.smudge=' '-c' 'filter.lfs.clean=' '-c' 'filter.lfs.process=' '-c' 'filter.lfs.required=false' 'rev-parse' 'HEAD' '--symbolic-full-name' 'HEAD'
+20:59:57.068871 trace git-lfs: exec: git '-c' 'filter.lfs.smudge=' '-c' 'filter.lfs.clean=' '-c' 'filter.lfs.process=' '-c' 'filter.lfs.required=false' 'rev-parse' '--git-dir'
+Handling 3D object files:   0%|          | 0/59 [00:00<?, ?it/s]20:59:57.094185 trace git-lfs: exec: git '-c' 'filter.lfs.smudge=' '-c' 'filter.lfs.clean=' '-c' 'filter.lfs.process=' '-c' 'filter.lfs.required=false' 'remote'
+Handling 3D object files: 100%|██████████| 59/59 [00:00<00:00, 2820.81it/s]
+20:59:57.129963 trace git-lfs: tq: running as batched queue, batch size of 100
+20:59:57.130085 trace git-lfs: exec: git '-c' 'filter.lfs.smudge=' '-c' 'filter.lfs.clean=' '-c' 'filter.lfs.process=' '-c' 'filter.lfs.required=false' 'ls-files' '--cached' '--exclude-standard' '--full-name' '--sparse' '-z' '--format=%(objectmode) %(objecttype) %(objectname) %(objectsize)	%(path)' ':(top,attr:filter=lfs)'
+Handling 3D object files:  69%|██████▊   | 24/35 [00:00<00:00, 92.96it/s] 20:59:57.148936 trace git-lfs: exec: git '-c' 'filter.lfs.smudge=' '-c' 'filter.lfs.clean=' '-c' 'filter.lfs.process=' '-c' 'filter.lfs.required=false' 'rev-parse' '--git-common-dir'
+2025-09-30 20:59:57.163 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving Cadd47/PurrfectRepair as zip
+20:59:57.163104 trace git-lfs: filepathfilter: accepting "Assets/Fonts/PixelMplus10-Regular SDF.asset"
+20:59:57.168620 trace git-lfs: filepathfilter: accepting "Assets/Materials/StarSkybox04/CubemapStars.cubemap"
+20:59:57.203090 trace git-lfs: fetch Assets/Fonts/PixelMplus10-Regular SDF.asset [571bf4b2fd1be5d047dd328bbb7188fc4d62f0a5f2bfd25515329dc8f70b5952]
+20:59:57.203192 trace git-lfs: fetch Assets/Materials/StarSkybox04/CubemapStars.cubemap [b0f8dbc2c17d0fd2dfd627f181ee1cb062b3cae47f569d7d877efaac06f94560]
+20:59:57.203221 trace git-lfs: tq: sending batch of size 2
+20:59:57.204065 trace git-lfs: api: batch 2 files
+20:59:57.204340 trace git-lfs: HTTP: POST https://github.com/ZuoGuoli/CrackTheSky.git/info/lfs/objects/batch
+> POST /ZuoGuoli/CrackTheSky.git/info/lfs/objects/batch HTTP/1.1
+> Host: github.com
+> Accept: application/vnd.git-lfs+json
+> Content-Length: 326
+> Content-Type: application/vnd.git-lfs+json; charset=utf-8
+> User-Agent: git-lfs/3.7.0 (GitHub; linux amd64; go 1.24.4)
+> 
+Handling 3D object files: 100%|██████████| 35/35 [00:00<00:00, 110.18it/s]
+{"operation":"download","objects":[{"oid":"b0f8dbc2c17d0fd2dfd627f181ee1cb062b3cae47f569d7d877efaac06f94560","size":201327588},{"oid":"571bf4b2fd1be5d047dd328bbb7188fc4d62f0a5f2bfd25515329dc8f70b5952","size":137407171}],"transfers":["lfs-standalone-file","basic","ssh"],"ref":{"name":"refs/heads/master"},"hash_algo":"sha256"}2025-09-30 20:59:57.308 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving kizaruu27/WGS-minigames-2 as zip
+20:59:57.471610 trace git-lfs: HTTP: 307
+
+
+< HTTP/2.0 307 Temporary Redirect
+< Content-Length: 218
+< Access-Control-Allow-Origin: *
+< Access-Control-Expose-Headers: ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
+< Content-Security-Policy: default-src 'none'
+< Content-Type: application/json; charset=utf-8
+< Date: Tue, 30 Sep 2025 18:59:57 GMT
+< Location: https://github.com/vodbyte/CrackTheSky.git/info/lfs/objects/batch
+< Referrer-Policy: origin-when-cross-origin, strict-origin-when-cross-origin
+< Server: github.com
+< Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
+< Vary: Accept-Encoding, Accept, X-Requested-With
+< X-Content-Type-Options: nosniff
+< X-Frame-Options: deny
+< X-Github-Api-Version-Selected: 2022-11-28
+< X-Github-Media-Type: unknown
+< X-Github-Request-Id: C332:1C715A:6BB7C0:509E31:68DC28AD
+< X-Ratelimit-Limit: 100
+< X-Ratelimit-Remaining: 99
+< X-Ratelimit-Reset: 1759258857
+< X-Ratelimit-Resource: lfs
+< X-Ratelimit-Used: 1
+< X-Xss-Protection: 0
+< 
+20:59:57.471771 trace git-lfs: api: redirect POST https://github.com/ZuoGuoli/CrackTheSky.git/info/lfs/objects/batch to https://github.com/vodbyte/CrackTheSky.git/info/lfs/objects/batch
+20:59:57.471830 trace git-lfs: HTTP: POST https://github.com/vodbyte/CrackTheSky.git/info/lfs/objects/batch
+> POST /vodbyte/CrackTheSky.git/info/lfs/objects/batch HTTP/1.1
+> Host: github.com
+> Accept: application/vnd.git-lfs+json
+> Content-Length: 326
+> Content-Type: application/vnd.git-lfs+json; charset=utf-8
+> User-Agent: git-lfs/3.7.0 (GitHub; linux amd64; go 1.24.4)
+> 
+{"operation":"download","objects":[{"oid":"b0f8dbc2c17d0fd2dfd627f181ee1cb062b3cae47f569d7d877efaac06f94560","size":201327588},{"oid":"571bf4b2fd1be5d047dd328bbb7188fc4d62f0a5f2bfd25515329dc8f70b5952","size":137407171}],"transfers":["lfs-standalone-file","basic","ssh"],"ref":{"name":"refs/heads/master"},"hash_algo":"sha256"}{"operation":"download","objects":[{"oid":"b0f8dbc2c17d0fd2dfd627f181ee1cb062b3cae47f569d7d877efaac06f94560","size":201327588},{"oid":"571bf4b2fd1be5d047dd328bbb7188fc4d62f0a5f2bfd25515329dc8f70b5952","size":137407171}],"transfers":["lfs-standalone-file","basic","ssh"],"ref":{"name":"refs/heads/master"},"hash_algo":"sha256"}20:59:57.641375 trace git-lfs: http: decompressed gzipped response
+20:59:57.641400 trace git-lfs: HTTP: 403
+
+
+< HTTP/2.0 403 Forbidden
+< Access-Control-Allow-Origin: *
+< Access-Control-Expose-Headers: ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
+< Content-Security-Policy: default-src 'none'
+< Content-Type: application/json; charset=utf-8
+< Date: Tue, 30 Sep 2025 18:59:57 GMT
+< Referrer-Policy: origin-when-cross-origin, strict-origin-when-cross-origin
+< Server: github.com
+< Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
+< Vary: Accept-Encoding, Accept, X-Requested-With
+< X-Content-Type-Options: nosniff
+< X-Frame-Options: deny
+< X-Github-Api-Version-Selected: 2022-11-28
+< X-Github-Media-Type: unknown
+< X-Github-Request-Id: C332:1C715A:6BB963:509F65:68DC28AD
+< X-Ratelimit-Limit: 100
+< X-Ratelimit-Remaining: 99
+< X-Ratelimit-Reset: 1759258857
+< X-Ratelimit-Resource: lfs
+< X-Ratelimit-Used: 1
+< X-Xss-Protection: 0
+< 
+20:59:57.641561 trace git-lfs: HTTP: {"message":"This repository exceeded its LFS budget. The account responsible for the budget should increase it to restore access.","documentation_url":"https://support.github.com/contact","status":"403"}
+{"message":"This repository exceeded its LFS budget. The account responsible for the budget should increase it to restore access.","documentation_url":"https://support.github.com/contact","status":"403"}20:59:57.641607 trace git-lfs: api error: This repository exceeded its LFS budget. The account responsible for the budget should increase it to restore access.
+batch response: This repository exceeded its LFS budget. The account responsible for the budget should increase it to restore access.
+Failed to fetch some objects from 'https://github.com/ZuoGuoli/CrackTheSky.git/info/lfs'
+Handling 3D object files:   0%|          | 0/34 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 34/34 [00:00<00:00, 1424.38it/s]
+2025-09-30 20:59:57.872 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving Namedafterme/ILoveCats as zip
+Downloading repositories:  17%|█▋        | 17/101 [00:12<01:39,  1.18s/it]Handling 3D object files:   0%|          | 0/40 [00:00<?, ?it/s]Downloading repositories:  18%|█▊        | 18/101 [00:13<01:00,  1.38it/s]
+Handling 3D object files: 100%|██████████| 40/40 [00:00<00:00, 744.44it/s]
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/home/vault/v100dd/v100dd26/miniconda3/envs/shapecanon/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/vault/v100dd/v100dd26/miniconda3/envs/shapecanon/lib/python3.10/site-packages/objaverse/xl/github.py", line 449, in _parallel_process_repo
+    return cls._process_repo(
+  File "/home/vault/v100dd/v100dd26/miniconda3/envs/shapecanon/lib/python3.10/site-packages/objaverse/xl/github.py", line 260, in _process_repo
+    cls._pull_lfs_files(target_directory)
+  File "/home/vault/v100dd/v100dd26/miniconda3/envs/shapecanon/lib/python3.10/site-packages/objaverse/xl/github.py", line 395, in _pull_lfs_files
+    subprocess.run(["git", "lfs", "pull"], cwd=repo_dir, check=True)
+  File "/home/vault/v100dd/v100dd26/miniconda3/envs/shapecanon/lib/python3.10/subprocess.py", line 526, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'lfs', 'pull']' returned non-zero exit status 2.
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/hpc/v100dd/v100dd26/project/Dataset_pipeline/src/pipeline/mesh_pipeline_full.py", line 2609, in <module>
+    main()
+  File "/home/hpc/v100dd/v100dd26/project/Dataset_pipeline/src/pipeline/mesh_pipeline_full.py", line 2470, in main
+    step_download_assets_oxl_per_category(args, P, cat)
+  File "/home/hpc/v100dd/v100dd26/project/Dataset_pipeline/src/pipeline/mesh_pipeline_full.py", line 831, in step_download_assets_oxl_per_category
+    df = OXL.download(meta, str(stage_dir))
+  File "/home/hpc/v100dd/v100dd26/project/Dataset_pipeline/src/download_toolkits/trellis/datasets/ObjaverseXL.py", line 81, in download
+    file_paths = oxl.download_objects(
+  File "/home/vault/v100dd/v100dd26/miniconda3/envs/shapecanon/lib/python3.10/site-packages/objaverse/xl/__init__.py", line 147, in download_objects
+    source_downloads = downloaders[source].download_objects(
+  File "/home/vault/v100dd/v100dd26/miniconda3/envs/shapecanon/lib/python3.10/site-packages/objaverse/xl/github.py", line 647, in download_objects
+    out = list(
+  File "/home/vault/v100dd/v100dd26/miniconda3/envs/shapecanon/lib/python3.10/site-packages/tqdm/std.py", line 1181, in __iter__
+    for obj in iterable:
+  File "/home/vault/v100dd/v100dd26/miniconda3/envs/shapecanon/lib/python3.10/multiprocessing/pool.py", line 873, in next
+    raise value
+subprocess.CalledProcessError: Command '['git', 'lfs', 'pull']' returned non-zero exit status 2.

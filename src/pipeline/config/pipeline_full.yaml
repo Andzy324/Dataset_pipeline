@@ -27,18 +27,18 @@ dry_run: false                        # 仅打印命令不执行
 ############################
 # [选择范围 / 数据筛选] oxl mode labels need to be set as well
 ############################
-categories: [cat]       # 显式指定类别；否则依 rot_dir 或 png_root 自动推断
+categories: [cat, chicken_(animal), monkey]       # 显式指定类别；否则依 rot_dir 或 png_root 自动推断
 ids_json:                                  # 仅处理该 JSON 中列出的 shape id（可空）, for custom mode
 ids_txt:                                   # 仅处理该 TXT（每行一个 shape_key）（可空）
 debug_limit:                               # 整体 debug 限制数量（整数，可空）
-label_dir: /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/labeled_rotations
+label_dir: /home/vault/v100dd/v100dd26/Dataset/core_data/labeled_rotations
 sha_index_csv: /home/vault/v100dd/v100dd26/Dataset/core_data/metadata.csv
 
 ############################
 # [rotations / 合并策略（多类别驱动）], rot_dir and rot_filename used by oxl mode as well
 ############################
 rot_json:                                  # 当某类缺省 per-category rotation 时的兜底 JSON
-rot_dir: /home/zby/Simulation-pipeline/Data/datasets/labeled_rotations      # 形如 <rot_dir>/<category>/<rot_filename>
+rot_dir: /home/vault/v100dd/v100dd26/Dataset/core_data/labeled_rotations      # 形如 <rot_dir>/<category>/<rot_filename>
 rot_filename: final_shape_rotations.json   # 每类 rotation 文件名, also for oxl mode
 rot_merge_glob: "*_cluster_*_rotations.json"  # 当 per-category 文件不存在时，用该 glob 匹配合并
 rot_dup_policy: prefer_last                # 合并重复 shape id 的策略：prefer_last/prefer_first/error
@@ -61,10 +61,10 @@ overwrite_download: true                   # 强制覆盖已下载资源（custo
 # —— OXL 专属选项 —— /<download_root>/<oxl_out_category>/<label>/<sha>/mesh and raw, raw is the selected out 3d assets; mesh is extracted zip
 oxl_source: github                         # OXL 数据源：sketchfab / github
 label_json: /home/vault/v100dd/v100dd26/Dataset/core_data/all_sha256_to_rotation.json  # 用于按 label 预筛
-labels: [cat]                              # OXL 预筛标签（逗号分隔字符串也可）
+labels: [cat, chicken_(animal), monkey]                              # OXL 预筛标签（逗号分隔字符串也可）
 label_match_mode: any                      # any/all：与 labels 的匹配逻辑
 oxl_out_category: ObjaverseXL_github       # OXL 下载存放的大类名；空串则保持你现在的用法 
-oxl_labels: [cat]                         # OXL 下游渲染/对齐所用的 label 子目录白名单 oxl_labels == labels
+oxl_labels: [cat, chicken_(animal), monkey]                         # OXL 下游渲染/对齐所用的 label 子目录白名单 oxl_labels == labels
 oxl_stage_dir:                             # 暂存目录（zip/原始）默认 <download_root>/<oxl_out_category>/_stage
 oxl_keep_stage: false                       # consolidate 后是否保留 _stage
 oxl_keep_pool: false                       # consolidate 后是否保留 _pool, _pool stores the expressed repos and used to pick the meshes and textures out, but disabled in per_category_flow mode
@@ -149,5 +149,5 @@ overwrite_render: true                     # 覆盖已有渲染结果
 ######################################################################
 # github env setting
 ######################################################################
-github_token: "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" 
+github_token: "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" 
 git_no_prompt: true

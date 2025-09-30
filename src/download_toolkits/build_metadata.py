@@ -1294,9 +1294,11 @@ def ensure_complete_obj_asset_strict(obj_file: Path, src_url: str, raw_dir: Path
         bn = _sanitize_tex_basename(rel_norm.name) 
         bn = Path(rel_norm.name)
         bn_key = bn.name.casefold()
-        dest_rel = Path("textures") / bn
-        dst = textures_dir / bn
-
+        # dest_rel = Path("textures") / bn
+        # dst = textures_dir / bn
+        dest_rel = Path("textures") / bn.name
+        dst = textures_dir / bn.name
+        
         if dst.exists() and not overwrite:
             skipped += 1
             placement_map[bn_key] = dest_rel.as_posix()
@@ -1740,6 +1742,8 @@ def ensure_complete_obj_asset_strict(obj_file: Path, src_url: str, raw_dir: Path
     mtl_name_map: dict[str, str] = {}  # 原 mtl 文件名 -> 最终使用的 mtl 文件名
     obj_mtls = parse_obj_for_mtllibs(obj_file) or []     # 可能已是 *_fixed.obj
 
+    last_final = None
+    last_name = None
     for m in obj_mtls:
         m_name = Path(m).name
         mtl_in_raw = raw_dir / m_name
@@ -1749,17 +1753,22 @@ def ensure_complete_obj_asset_strict(obj_file: Path, src_url: str, raw_dir: Path
 
         final_mtl_path, _mtl_changed = _rewrite_mtl_maps_to_local(mtl_in_raw, raw_dir, placement_map)
         mtl_name_map[m_name] = final_mtl_path.name  # 仅替换文件名
+        last_final = final_mtl_path
+        last_name = m_name
 
     # 根据映射替换 OBJ 的 mtllib 行：已有 *_fixed.obj 则原地覆盖；否则有改动才生成 *_fixed.obj
     if mtl_name_map:
         new_obj_file, _obj_changed = _rewrite_obj_mtllibs(obj_file, mtl_name_map)
         obj_file = new_obj_file
-    if final_mtl_path.parent != raw_dir:
-        copied = raw_dir / final_mtl_path.name
+
+    if last_final and final_mtl_path.parent != raw_dir:
+        copied = raw_dir / last_final.name
         if not copied.exists():
-            shutil.copy2(final_mtl_path, copied)
-        final_mtl_path = copied
-    mtl_name_map[m_name] = final_mtl_path.name
+            shutil.copy2(last_final, copied)
+        last_final = copied
+        if last_name:
+            mtl_name_map[last_name] = last_final.name
+        
     if local_only:
         # === 终态统计：expected/present/placed/missing 都按“相对路径”统计 ===
         expected = set()
@@ -2421,14 +2430,13 @@ def ensure_complete_fbx_asset(fbx_file: Path, src_url: str, raw_dir: Path, overw
             if not (Path(n).name in split_fragments and Path(n).name not in blender_basenames)
         ]
 
-    # 按你原本规则合并后，再按扩展做一次过滤（例如排除 .psd）
     all_names_raw = sorted(set(blender_names) | set(regex_names))
     if split_fragments:
         all_names_raw = [
             n for n in all_names_raw
             if not (Path(n).name in split_fragments and Path(n).name not in space_name_bases)
         ]
-    # 按原本规则合并后，再按扩展做一次过滤（例如排除 .psd）
+
     all_names = [n for n in all_names_raw if _ext_allowed(n)]
 
     # 索引一致性
@@ -2449,8 +2457,6 @@ def ensure_complete_fbx_asset(fbx_file: Path, src_url: str, raw_dir: Path, overw
     repo_found_but_failed = []
     repo_missing = []
     missing_reason_map: dict[str, str] = {}
-
-    gh = _github_parse_url_inline(src_url)
 
     # 过滤掉明显“占位/无扩展名”的条目，避免浪费请求（例如 'Map #1'）
     def _looks_like_texname(n: str) -> bool:
@@ -2515,6 +2521,8 @@ def ensure_complete_fbx_asset(fbx_file: Path, src_url: str, raw_dir: Path, overw
             'tex_index_regex_count': len(regex_names),  # FIX: 统计 regex 索引数，而非 wanted
             'satisfied_local': satisfied_local,     # 可选：便于调试
         }
+    
+    gh = _github_parse_url_inline(src_url)
     def _try_fetch_one(name: str) -> tuple[str, str, bool, bool, bool, str]:
         """返回 (name, source, ok, invalid, repo_missing, reason_tag)。"""
         nonlocal tried
@@ -2912,6 +2920,12 @@ def _blender_list_and_export_images(fbx_file: Path, out_dir: Path) -> tuple[list
     Returns (referenced_names, exported_names)."""
     import shutil as _shutil, subprocess, json
     blender = _shutil.which('blender') or _shutil.which('blender.exe')
+    blender = (
+        os.environ.get("BLENDER_BIN")
+        or _shutil.which("blender")
+        or _shutil.which("blender.exe")
+        or "/home/hpc/v100dd/v100dd26/blender-4.5.3-linux-x64/blender"
+    )
     if not blender:
         return [], []
     helper = _write_blender_helper_script()

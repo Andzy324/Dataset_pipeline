@@ -714,7 +714,7 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
     - 通过sha256作为key进行关联筛选
     """
     try:
-        from dataset_toolkits.trellis.datasets import ObjaverseXL as OXL
+        from download_toolkits.trellis.datasets import ObjaverseXL as OXL
     except Exception as e:
         raise ImportError(f"Failed to import trellis.datasets.ObjaverseXL: {e}")
 
@@ -791,7 +791,15 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
     
     # 4. 构建metadata DataFrame（直接使用筛选后的数据）
     meta = filtered_df.copy()
-    
+    source_lookup: Dict[str, str] = {}
+    sha_status: Dict[str, Dict[str, str]] = {}
+    for _, row in meta.iterrows():
+        sha_val = str(row.get('sha256'))
+        if not sha_val or sha_val.lower() == 'nan':
+            continue
+        source_lookup[sha_val] = row.get('source_url', '')
+        sha_status[sha_val] = {'status': 'pending', 'reason': '', 'mesh_path': ''}
+
     # 确保必要的列存在
     required_columns = ['sha256', 'source_url', 'local_path']
     for col in required_columns:
@@ -822,10 +830,20 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
     with github_auth_env(args):
         df = OXL.download(meta, str(stage_dir))
     
-    if df is None or len(df) == 0:
+    # if df is None or len(df) == 0:
+    #     print(f"[OXL-PER-CAT] No objects downloaded for category '{category}'")
+    #     return
+    if df is None:
+        df = _pd.DataFrame(columns=meta.columns)
+    if len(df) == 0:
         print(f"[OXL-PER-CAT] No objects downloaded for category '{category}'")
-        return
-    
+    downloaded_shas = set(df['sha256'].astype(str)) if not df.empty else set()
+    for sha_key in list(sha_status.keys()):
+        if sha_key not in downloaded_shas:
+            sha_status[sha_key]['status'] = 'not_downloaded'
+            sha_status[sha_key]['reason'] = 'download_skipped'
+            sha_status[sha_key]['mesh_path'] = ''
+
     # 7. 处理下载的文件：解压、提取mesh、补全资产
     label_dir = ensure_dir(cat_dir / category)
     processed_count = 0
@@ -833,6 +851,10 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
     
     for _, rec in df.iterrows():
         sha = rec.get('sha256')
+        sha_key = str(sha)
+        if not sha_key or sha_key.lower() == 'nan':
+            continue
+        sha_status.setdefault(sha_key, {'status': 'pending', 'reason': '', 'mesh_path': ''})
         rel = rec.get('local_path', '')
         report_entry: Dict[str, Any] = {
             'sha': sha,
@@ -885,6 +907,9 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
             if 'stats' in locals():
                 stats.setdefault('stage_missing', 0)
                 stats['stage_missing'] += 1
+            sha_status[sha_key]['status'] = 'stage_missing'
+            sha_status[sha_key]['reason'] = f'stage_missing:{rel}'
+            sha_status[sha_key]['mesh_path'] = ''    
             continue
         
         # 解压到mesh目录
@@ -926,6 +951,9 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
             if 'stats' in locals(): stats["extract_failed"] += 1
             report_entry['status'] = 'no_mesh'
             oxl_reports.append(report_entry)
+            sha_status[sha_key]['status'] = 'no_mesh'
+            sha_status[sha_key]['reason'] = ''
+            sha_status[sha_key]['mesh_path'] = ''
             continue
         
         # 先补全资产（在原始位置）
@@ -1021,12 +1049,21 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
                 'repo_missing': ";".join(repo_missing),
                 'repo_failed': ";".join(repo_failed),
             })
+            reason_text = ";".join(f"{k}:{v}" for k,v in missing_reason_map.items())
+            if not reason_text and miss:
+                reason_text = ";".join(miss)
+            sha_status[sha_key]['status'] = status_val
+            sha_status[sha_key]['reason'] = reason_text or status_val
+            sha_status[sha_key]['mesh_path'] = str(final_mesh_path) if final_mesh_path else ''
         except Exception as e:
             print(f"[OXL-PER-CAT] ensure assets failed: {e}")
             if 'stats' in locals(): stats["extract_failed"] += 1
             report_entry['status'] = 'ensure_failed'
             report_entry['missing_reason'] = str(e)
             oxl_reports.append(report_entry)
+            sha_status[sha_key]['status'] = 'ensure_failed'
+            sha_status[sha_key]['reason'] = str(e)
+            sha_status[sha_key]['mesh_path'] = ''
             continue
 
         # # 补全完成后，将mesh文件移动到raw目录
@@ -1043,7 +1080,27 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
         if report_entry['status'] == 'pending':
             report_entry['status'] = 'fetched' if not miss else report_entry['status']
         oxl_reports.append(report_entry)
-    
+
+    for info in sha_status.values():
+        if info['status'] == 'pending':
+            info['status'] = 'processed'
+            if not info['reason']:
+               info['reason'] = ''
+
+    logged_shas = {entry.get('sha') for entry in oxl_reports}
+    for sha_key, info in sha_status.items():
+        if info['status'] == 'not_downloaded' and sha_key not in logged_shas:
+            oxl_reports.append({
+                'sha': sha_key,
+                'kind': '',
+                'status': 'not_downloaded',
+                'missing_textures': '',
+                'missing_reason': info.get('reason', ''),
+                'repo_missing': '',
+                'repo_failed': '',
+                'source_url': source_lookup.get(sha_key, ''),
+            })
+
     if oxl_reports:
         total = len(oxl_reports)
         status_counts: Dict[str, int] = {}
@@ -1070,36 +1127,57 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
                 wr_det.writerow(row)
         print(f"[OXL-PER-CAT] Wrote detailed report: {detail_csv}")
 
-    print(f"[OXL-PER-CAT] Processed {processed_count}/{len(df)} objects for category '{category}'")
+    print(f"[OXL-PER-CAT] Processed {processed_count}/{len(df)} downloaded objects (targets={len(meta)}) for category '{category}'")
+
     
     # 8. 生成metadata.csv
     meta_csv = label_dir / f"metadata_{category}.csv"
     import csv
-    fieldnames = ["sha256","local_path","category","shape_key","source_url","rendered"]
+    fieldnames = ["sha256","local_path","category","shape_key","source_url","rendered","status","reason"]
     
     with meta_csv.open('w', newline='', encoding='utf-8') as f:
         wr = csv.DictWriter(f, fieldnames=fieldnames, delimiter=",", quoting=csv.QUOTE_MINIMAL, lineterminator="\n")
         wr.writeheader()
-        for _, rec in df.iterrows():
+        # for _, rec in df.iterrows():
+        for _, rec in meta.iterrows():
             sha = rec.get('sha256')
             # 查找最终的mesh文件位置
             raw_dir = label_dir / sha / 'raw'
             actual_mesh = _pick_mesh_file(raw_dir) if raw_dir.exists() else None
+            sha_key = str(sha)
+            status_info = sha_status.get(sha_key, {'status': 'unknown', 'reason': '', 'mesh_path': ''})
+            local_path_val = ''
+            mesh_hint = status_info.get('mesh_path') or ''
+            if mesh_hint:
+                mp = Path(mesh_hint)
+                if mp.exists():
+                    local_path_val = str(mp.resolve())
+            if not local_path_val:
+                raw_dir = label_dir / sha_key / 'raw'
+                actual_mesh = _pick_mesh_file(raw_dir) if raw_dir.exists() else None
+                if actual_mesh:
+                    local_path_val = str(actual_mesh.resolve())
             wr.writerow({
                 'sha256': sha,
-                'local_path': str(actual_mesh.resolve()) if actual_mesh else '',
+                # 'local_path': str(actual_mesh.resolve()) if actual_mesh else '',
+                'local_path': local_path_val,
                 'category': category,
                 'shape_key': sha,
                 'source_url': rec.get('source_url', ''),
                 'rendered': 'False',
+                'status': status_info.get('status', ''),
+                'reason': status_info.get('reason', ''),
             })
     
-    print(f"[OXL-PER-CAT] Wrote metadata: {meta_csv} ({processed_count} rows)")
+    # print(f"[OXL-PER-CAT] Wrote metadata: {meta_csv} ({processed_count} rows)")
+    print(f"[OXL-PER-CAT] Wrote metadata: {meta_csv} ({len(meta)} rows)")
     import csv as _csv
     import json as _json
     if 'stats' not in locals():
         stats = {"total_in_meta": len(meta), "downloaded_rows": int(processed_count),
                 "ensure_counts": {}, "skipped_existing": 0, "extract_failed": 0}
+    not_downloaded = sum(1 for info in sha_status.values() if info['status'] == 'not_downloaded')
+    not_processed = sum(1 for info in sha_status.values() if info['status'] in {'not_downloaded','stage_missing','extract_failed','no_mesh','ensure_failed'})
 
     report_json = {
         "label": category,
@@ -1107,6 +1185,8 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
         "processed_rows": int(processed_count),
         "extract_failed": int(stats.get("extract_failed", 0)),
         "downloaded_rows": int(stats.get("downloaded_rows", 0)),
+        "not_downloaded_rows": int(not_downloaded),
+        "not_processed_rows": int(not_processed),
         "ensure_counts": stats.get("ensure_counts", {}),
         "stage_dir": str(stage_dir),
         "label_dir": str(label_dir),
@@ -1120,9 +1200,13 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
     rep_csv = label_dir / "report.csv"
     with rep_csv.open("w", newline="", encoding="utf-8") as f:
         wr = _csv.writer(f)
-        wr.writerow(["label","total_in_meta","processed_rows","downloaded_rows","extract_failed","metadata_csv"])
+        # wr.writerow(["label","total_in_meta","processed_rows","downloaded_rows","extract_failed","metadata_csv"])
+        wr.writerow(["label","total_in_meta","processed_rows","downloaded_rows","extract_failed","not_downloaded_rows","not_processed_rows","metadata_csv"])
         wr.writerow([category, report_json["total_in_meta"], report_json["processed_rows"],
-                    report_json["downloaded_rows"], report_json["extract_failed"], report_json["metadata_csv"]])
+                    report_json["downloaded_rows"], report_json["extract_failed"],
+                    report_json["downloaded_rows"], report_json["extract_failed"],
+                    report_json["not_downloaded_rows"], report_json["not_processed_rows"],
+                    report_json["metadata_csv"]])
         # 展开 ensure_counts
         wr.writerow([])
         wr.writerow(["kind","ensure_downloaded","ensure_missing"])

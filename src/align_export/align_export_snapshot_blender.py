@@ -1348,12 +1348,12 @@ def place_camera_fit(minv, maxv, out_path, res=1600, fov_deg=75.0, base_bias=10.
         cam.data.type = 'ORTHO'
         # 画幅大小：覆盖 XY 跨度再留点边（1.15~1.3）
         if N>=10.0 and N<20.0:
-            cam.data.ortho_scale = xy_span * (N+5) if xy_span > 0 else 1.0
+            cam.data.ortho_scale = xy_span * (N+6) if xy_span > 0 else 1.0
         elif N<10.0: 
             cam.data.ortho_scale = xy_span * 13.0 if xy_span > 0 else 1.0
         else: 
             cam.data.ortho_scale = xy_span * 2* N if xy_span > 0 else 1.0
-        z_height = max(1.0, z_span) * 12.5 + N * 0.3    
+        z_height = max(1.0, z_span) * 13.0 + N * 0.3    
         # 相机位置：在中心正上方，抬到足够高；高度与可见范围无关（正交），
         # 但要避开 clip_start；设置 clip_end 足够大
         
