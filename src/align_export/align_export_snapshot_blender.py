@@ -1350,7 +1350,7 @@ def place_camera_fit(minv, maxv, out_path, res=1600, fov_deg=75.0, base_bias=10.
         if N>=10.0 and N<20.0:
             cam.data.ortho_scale = xy_span * (N+6) if xy_span > 0 else 1.0
         elif N<10.0: 
-            cam.data.ortho_scale = xy_span * 13.0 if xy_span > 0 else 1.0
+            cam.data.ortho_scale = xy_span * 13.5 if xy_span > 0 else 1.0
         else: 
             cam.data.ortho_scale = xy_span * 2* N if xy_span > 0 else 1.0
         z_height = max(1.0, z_span) * 13.0 + N * 0.3    
