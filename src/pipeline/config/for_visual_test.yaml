@@ -149,5 +149,5 @@ overwrite_render: true                     # 覆盖已有渲染结果
 ######################################################################
 # github env setting
 ######################################################################
-github_token: "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" 
+github_token: 
 git_no_prompt: true
