@@ -87,7 +87,7 @@ grid_n:                                    # 网格 nxn 采样点（可空), adj
 prefer_gpu: false                          # Blender 使用 GPU（若可用）
 topdown: true                              # 视点/导出辅助标志, snapshot from top
 clean_aligned_dir: true                    # 导出前清理旧 GLB/OBJ
-limit: 10                                    # Blender 步骤仅处理前 N 个
+limit: 5                                     # 每类最多处理前 N 个实例（下载/对齐/渲染）
 require_hollow_for:                        # 需要空腔检测的类别列表（如 ["mug"]），可空, not used
 overwrite_align: true                      # 重新对齐覆盖
 export_format: obj                         # 导出格式：glb / obj
@@ -109,6 +109,13 @@ top_ring_start_azim_deg:                   # 顶部环起始方位角；默认�
 yaw_offset_deg: 0.0                        # 全局方位偏移（度）
 axis_correction: none                      # 坐标修正：none / y_up_to_z_up / z_up_to_y_up
 seed: 123                                  # 渲染随机种子（确定性）
+
+# —— 相机模式 / 球面采样 ——
+cam_mode: random                            # rings / random
+rand_cams: 120                             # random 模式下的相机数量
+sphere_dist: 1.4                           # random 模式基准球半径（对齐后单位尺度模型）
+pos_tangent_jitter: 0.02                  # random 模式切向扰动比例 0.02
+depth_jitter: 0.02                         # random 模式半径扰动比例
 
 # —— 材质/贴图/背面剔除 ——
 use_uv_textures: true
@@ -144,7 +151,7 @@ nocs_check_stride: 8                       # 采样步长
 nocs_check_voxel: 0.02                     # 体素量化步长（0~1）
 nocs_check_topk: 8                         # 打印误差 Top-K
 make_video: false                           # 导出 RGB 视频
-video_fps: 24                              # 视频帧率
+video_fps: 8                              # 视频帧率
 overwrite_render: true                     # 覆盖已有渲染结果
 ######################################################################
 # github env setting

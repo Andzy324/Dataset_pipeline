@@ -1028,6 +1028,88 @@ def concat_cameras(Rs: List[torch.Tensor], Ts: List[torch.Tensor], device: torch
     cameras = FoVPerspectiveCameras(device=device, R=R, T=T, fov=float(fov_deg),znear=0.05, zfar=50.0)
     return cameras
 
+# def sample_random_sphere_cameras(
+#     num: int,
+#     dist_min: float,
+#     dist_max: float,
+#     device: torch.device,
+#     center: torch.Tensor,
+#     *,
+#     pos_jitter_ratio: float = 0.02,
+#     lookat_jitter_ratio: float = 0.01,
+#     depth_jitter_ratio: float = 0.02
+# ):
+#     """
+#     在单位球面均匀采样方向 u（高斯→归一化），距离 d~U[min,max]，eye = center + d*u。
+#     然后对 eye/at/d 分别加入小噪声（相对尺度），最后用 look_at_view_transform 生成 R,T。
+#     """
+#     import torch
+#     assert dist_max > dist_min > 0
+#     # 1) 均匀球面方向（正态→归一化）
+#     u = torch.randn(num, 3, device=device)
+#     u = torch.nn.functional.normalize(u, dim=-1, eps=1e-8)  # (N,3)
+#     # 2) 距离
+#     d = torch.empty(num, device=device).uniform_(float(dist_min), float(dist_max))  # (N,)
+#     # 3) 位置噪声（与 d 成比例）
+#     pos_jit = (pos_jitter_ratio * d).view(-1, 1) * torch.randn(num, 3, device=device)
+#     # 4) eye（带位置扰动）
+#     eye = center.view(1,3) + u * d.view(-1,1) + pos_jit
+#     # 5) look-at 目标点扰动（相对物体尺度）
+#     #   用 bbox 尺寸估尺度：这里复用 center 的邻域尺度（取 0.5*(bmax-bmin).norm()）
+#     #   → 我们在调用处预先把 half_extent_norm 算好传进来也可以，这里简单给个标量 1.0 占位
+#     #   实际在 render_single 里会用真实尺度替换
+#     at = center.view(1,3).expand(num, -1)  # 基础 at
+#     # 返回 eye/at/d，把 look_at 放到调用处，那里知道物体尺度
+#     return eye, at, d
+def sample_fixed_sphere_cameras(
+    num: int,
+    dist: float,                    # 基础半径（相机到中心的距离）
+    center: torch.Tensor,           # [3], 物体中心（世界坐标）
+    device: torch.device,
+    *,
+    pos_tangent_jitter: float = 0.02,  # 切向抖动（相对 dist 的比例）
+    depth_jitter: float = 0.02         # 径向抖动（相对 dist 的比例）
+):
+    """
+    1) 在单位球面上均匀采方向 u；
+    2) 基础相机 eye0 = center + dist * u；
+    3) 在 u 的切向平面内加小抖动（幅度≈pos_tangent_jitter * dist）；
+    4) 半径做小的相对扰动（幅度≈depth_jitter * dist）；
+    5) at 恒为 center（不做 look-at 噪声）。
+    """
+    # 均匀球面方向（高斯归一化）
+    u = torch.randn(num, 3, device=device)
+    u = torch.nn.functional.normalize(u, dim=-1, eps=1e-8)  # (N,3)
+
+    # 构造每个 u 的切向正交基 (t1, t2)
+    # 选一个与 u 不共线的向量做交叉
+    ref = torch.tensor([0.0, 0.0, 1.0], device=device).expand_as(u)
+    colinear = (u.abs().matmul(ref[0].new_tensor([[0],[0],[1]]).squeeze()) > 0.999).squeeze(-1)
+    # ref[colinear] = torch.tensor([0.0, 1.0, 0.0], device=device)  # 避免与 u 近平行
+    ref = torch.tensor([0.0, 0.0, 1.0], device=device).repeat(u.shape[0], 1)
+    t1 = torch.nn.functional.normalize(torch.cross(u, ref, dim=-1), dim=-1, eps=1e-8)
+    t2 = torch.cross(u, t1, dim=-1)  # 已经正交
+
+    # 切向抖动：在 (t1,t2) 平面做 2D 高斯
+    tang_amp = (pos_tangent_jitter * dist)
+    eps1 = torch.randn(num, 1, device=device)
+    eps2 = torch.randn(num, 1, device=device)
+    tang = tang_amp * (eps1 * t1 + eps2 * t2)  # (N,3)
+
+    # 径向（深度）抖动
+    dr = (depth_jitter * dist) * torch.randn(num, 1, device=device)
+
+    # 眼睛位置
+    eye = center.view(1,3) + (dist + dr) * u + tang
+    at  = center.view(1,3).expand_as(eye)      # 恒看中心
+    return eye, at
+
+def build_lookat_from_eye_at(
+    eye: torch.Tensor, at: torch.Tensor, device: torch.device, up=(0.0, 0.0, 1.0)
+):
+    R, T = look_at_view_transform(eye=eye, at=at, up=(up,), device=device)
+    return R, T
+
 # ===== NOCS consistency checker =====
 class NOCSConsistencyChecker:
     def __init__(self, voxel=0.02, stride=8, topk=5):
@@ -1763,12 +1845,17 @@ def save_h5_per_camera(
         with h5py.File(h5_path, 'w') as f:
             # RGB，保留 N 维（N=1）
             f.create_dataset('RGBs', data=rgb_u8[i:i+1], compression="gzip", compression_opts=4)
+            # depth
+            # f.create_dataset('Depths', data=depth[i:i+1].numpy().astype(np.float32),
+            #          compression="gzip", compression_opts=4)
             # NOCS
             grp = f.create_group('NOCs')
             if nocs_norm_u8 is not None:
                 grp.create_dataset('norm', data=nocs_norm_u8[i:i+1], compression="gzip", compression_opts=4)
             if nocs_plus_u8 is not None:
                 grp.create_dataset('plus', data=nocs_plus_u8[i:i+1], compression="gzip", compression_opts=4)
+            # 标签
+            f.attrs['label'] = np.string_(label)
             # Mask（bool）
             grpM = f.create_dataset('Masks', data=mask_bool[i:i+1], compression="gzip", compression_opts=4)
             grpM.attrs['from'] = np.string_('depth>0')
@@ -1778,18 +1865,117 @@ def save_h5_per_camera(
             # 可选：把相机中心也写进去（世界坐标）
             C = (-Ri.T @ Ti).reshape(3)   # cam center in world
             f.create_dataset('cam_center_world', data=C.astype(np.float32))
-            # 标签
-            f.attrs['label'] = np.string_(label)
+            
         # 可选打印
         # print(f"[H5] wrote {h5_path}")
+def save_h5_all(
+    out_path: Path,
+    rgb: torch.Tensor,        # [N,H,W,3] float[0,1] (CPU)
+    depth: torch.Tensor,      # [N,H,W]   float (CPU)
+    mask: torch.Tensor,       # [N,H,W]   bool  (CPU)
+    nocs: dict | torch.Tensor | None,  # 同你现状：{'norm':..., 'plus':...} 或 Tensor
+    cameras: FoVPerspectiveCameras,
+    image_size: int,
+    fov_deg: float,
+    label: str,
+    *,
+    compress: str = 'gzip',
+    gzip_level: int = 6,
+    shuffle: bool = False,
+    mask_bitpack: bool = False,
+    nocs_store: str = 'both',
+    nocs_auto_tol: float = 1/255.0
+):
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    N, H, W, _ = rgb.shape
+    # 量化到 uint8（仅 RGB/NOCS；depth 保留 float32；mask 保留 bool/bit）
+    rgb_u8 = (rgb.clamp(0,1).numpy() * 255.0).astype(np.uint8)
 
+    # NOCS 选择策略
+    n_norm = None; n_plus = None
+    def _to_u8(x): return (x.clamp(0,1).numpy() * 255.0).astype(np.uint8)
+    if isinstance(nocs, dict):
+        has_norm = isinstance(nocs.get('norm'), torch.Tensor) and (nocs['norm'] is not None)
+        has_plus = isinstance(nocs.get('plus'), torch.Tensor) and (nocs['plus'] is not None)
+        if nocs_store == 'both' or (nocs_store == 'auto' and not (has_norm and has_plus)):
+            n_norm = _to_u8(nocs['norm']) if has_norm else None
+            n_plus = _to_u8(nocs['plus']) if has_plus else None
+        elif nocs_store == 'norm':
+            n_norm = _to_u8(nocs['norm']) if has_norm else None
+        elif nocs_store == 'plus':
+            n_plus = _to_u8(nocs['plus']) if has_plus else None
+        # elif nocs_store == 'auto' and has_norm and has_plus:
+        #     # 判等（uint8 域）
+        #     diff_max = int(np.abs(_to_u8(nocs['norm']) - _to_u8(nocs['plus'])).max())
+        #     if diff_max <= int(round(nocs_auto_tol*255)):
+        #         n_norm = _to_u8(nocs['norm'])
+        #     else:
+        #         n_norm = _to_u8(nocs['norm']); n_plus = _to_u8(nocs['plus'])
+    elif isinstance(nocs, torch.Tensor):
+        n_norm = _to_u8(nocs)  # 单 Tensor 当作规范化版本
+    # depth / mask
+    depth_np = depth.numpy().astype(np.float32)
+    mask_bool = mask.numpy().astype(bool)
+
+    # 相机矩阵批量
+    R = cameras.R.detach().cpu().numpy().astype(np.float32)  # [N,3,3]
+    T = cameras.T.detach().cpu().numpy().astype(np.float32)  # [N,3]
+    ext = np.repeat(np.eye(4, dtype=np.float32)[None, ...], N, axis=0)  # [N,4,4]
+    ext[:, :3, :3] = R
+    ext[:, :3, 3]  = T
+    # cam center（world）
+    C = (-np.transpose(R, (0,2,1)) @ T[..., None]).reshape(N,3).astype(np.float32)
+    # 内参（统一）
+    K = _intrinsic_from_fov(image_size, fov_deg).astype(np.float32)
+
+    # —— 写 H5（单文件）——
+    with h5py.File(str(out_path), 'w') as f:
+        
+        # 过滤器参数
+        comp = None if compress=='none' else compress
+        kwargs = {}
+        if comp == 'gzip':
+            kwargs.update(dict(compression='gzip', compression_opts=int(gzip_level), shuffle=bool(shuffle)))
+        elif comp == 'lzf':
+            kwargs.update(dict(compression='lzf', shuffle=bool(shuffle)))
+        # RGB / NOCS / Mask 
+        f.create_dataset('RGBs', data=rgb_u8, **kwargs)            # [N,H,W,3] uint8
+        if n_norm is not None:
+            f.create_dataset('NOCs/norm', data=n_norm, **kwargs)   # [N,H,W,3] uint8
+        if n_plus is not None:
+            f.create_dataset('NOCs/plus', data=n_plus, **kwargs)   # [N,H,W,3] uint8
+        # label
+        f.attrs['label'] = np.string_(label)
+
+        if mask_bitpack:
+            # 打包成 bit：shape=[N,ceil(HW/8)]，并记录 H,W
+            HW = H*W
+            Mbits = []
+            for i in range(N):
+                Mbits.append(np.packbits(mask_bool[i].reshape(-1).astype(np.uint8), bitorder='big'))
+            Mbits = np.stack(Mbits, axis=0)
+            ds = f.create_dataset('MasksPacked', data=Mbits, **kwargs)
+            ds.attrs['shape'] = np.array([N,H,W], dtype=np.int32)
+            ds.attrs['bitorder'] = np.string_('big')
+        else:
+            f.create_dataset('Masks', data=mask_bool, **kwargs)    # [N,H,W] bool
+
+        # / Depth
+        f.create_dataset('Depths', data=depth_np, **kwargs)        # [N,H,W] float32
+
+        # 相机矩阵
+        f.create_dataset('extrinsic_world2cam', data=ext)          # [N,4,4] float32
+        f.create_dataset('intrinsic', data=K)                      # [3,3]   float32
+        f.create_dataset('cam_center_world', data=C)               # [N,3]   float32
 # ------------------------------ Driver ------------------------------
 
 def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser(description="Orbit RGBD renderer (PyTorch3D) with multiple camera rings")
     # I/O & base camera
-    p.add_argument('--obj', type=str, required=True, help='Path to .glb/.gltf/.obj/.ply')
+    p.add_argument('--obj', type=str, required=False, help='Path to .glb/.gltf/.obj/.ply (omit when using --manifest)')
     p.add_argument('--out', type=str, required=True)
+    p.add_argument('--manifest', type=Path, default=None,
+                   help='JSON manifest with entries [{"model": "/path/to/model", "output": "/path/to/out"}]')
     p.add_argument('--image_size', type=int, default=512)
     p.add_argument('--fov_deg', type=float, default=60.0)
     p.add_argument('--seed', type=int, default=123)
@@ -1871,7 +2057,17 @@ def parse_args() -> argparse.Namespace:
                    help='类别标签写入 h5；为空则尝试从路径名推断')
     p.add_argument('--save_h5', action='store_true',
                    help='为每个相机视角写一个 .h5，包含 RGB/NOCS/Mask/外参/内参/label')
-                
+    # --- 相机模式：rings(默认) / random ---
+    p.add_argument('--cam_mode', type=str, default='rings', choices=['rings','random'],
+                help='相机生成模式：rings=等间隔轨道；random=球面随机采样')
+    # random 采样参数
+    p.add_argument('--rand_cams', type=int, default=80, help='random 模式下相机数量')
+    p.add_argument('--sphere_dist', type=float, default=-1.0,
+               help='球面半径（相机到物体中心的基础距离）；<=0 则自动根据FoV/AABB估计')
+    p.add_argument('--pos_tangent_jitter', type=float, default=0.02,
+                help='切向位置扰动系数（相对距离的比例），例如 0.02=2%·dist')
+    p.add_argument('--depth_jitter', type=float, default=0.02,
+                help='径向（深度）扰动系数（相对距离的比例），例如 0.02=2%·dist')      
     return p.parse_args()
 
 def prepare_out_dir(out_dir: str, overwrite: bool) -> Path:
@@ -1931,44 +2127,74 @@ def render_single(a, device, src_path: Path, out_dir: Path):
     top_start = a.top_ring_start_azim_deg if (a.top_ring_start_azim_deg is not None) else (start0 if start0 is not None else float(a.yaw_offset_deg))
     # 纬向环固定方位：在用户给定基础上加偏航
     lat_azim = float(a.lat_ring_azim_deg) + float(a.yaw_offset_deg)
+
     Vs = torch.cat(mesh.verts_list(), dim=0)
-    center = 0.5 * (Vs.min(0).values + Vs.max(0).values)   # [3]
-    Rs, Ts, meta = [], [], []
-    R0, T0, az0, el0, d0 = ring_equatorial(
-        num=a.num_cams, elev_deg=a.elev_deg, dist=base_dist, device=device,
-        start_azim_deg=start0,
-        seed=(None if a.no_random_start else a.seed), center=center
-    )
-    Rs.append(R0); Ts.append(T0)
-    meta.append({"name":"equatorial","num":a.num_cams,
-                 "azims":az0.tolist(),"elevs":el0.tolist(),"dist":float(base_dist)})
+    bmin = Vs.min(0).values; bmax = Vs.max(0).values
+    center = 0.5*(bmin + bmax)
+    bbox_extent = (bmax - bmin)
+    obj_scale = float(bbox_extent.norm().item())  # 一个代表性全局尺度
 
-    if a.top_ring_num > 0:
-        top_dist = float(base_dist) * float(a.top_ring_dist_scale)
-        R1, T1, az1, el1, d1 = ring_top(
-            num=a.top_ring_num, top_elev_deg=a.top_ring_elev_deg,
-            dist=top_dist, device=device, start_azim_deg=top_start, center=center,
-        )  
-        Rs.append(R1); Ts.append(T1)
-        meta.append({"name":"top","num":a.top_ring_num,
-                     "azims":az1.tolist(),"elevs":el1.tolist(),"dist":float(top_dist)})
+    if a.cam_mode == 'random':
+        # 基础半径：优先用户指定，否则自动估计
+        base_dist = float(a.sphere_dist)
+        if base_dist <= 0:
+            base_dist = compute_fit_distance(mesh, fov_deg=a.fov_deg, margin=1.6)  # 比 rings 稍紧凑一点
 
-    if a.lat_ring_num > 0:
-        lat_dist = float(base_dist) * float(a.lat_ring_dist_scale)
-        R2, T2, az2, el2, d2 = ring_latitudinal(
-            num=a.lat_ring_num, azim_deg=lat_azim, dist=lat_dist, device=device,
-            min_elev_deg=a.lat_ring_min_elev_deg, max_elev_deg=a.lat_ring_max_elev_deg,
+        # 采样固定球面 + 小扰动（无 look-at 抖动）
+        eye, at = sample_fixed_sphere_cameras(
+            num=a.rand_cams,
+            dist=base_dist,
             center=center,
+            device=device,
+            pos_tangent_jitter=float(a.pos_tangent_jitter),
+            depth_jitter=float(a.depth_jitter),
         )
-        Rs.append(R2); Ts.append(T2)
-        meta.append({"name":"latitudinal","num":a.lat_ring_num,
-                     "azims":az2.tolist(),"elevs":el2.tolist(),"dist":float(lat_dist)})
-    # # pytorch 3d convention is y up, z forward (set up camera using look_at_view_transform), so to preserve the obj orientation, we need to swap y and z axis
-    # # === 将相机外参从 Y-up 基底重写为 Z-up 基底（只改 R，T 保持不变）===
-    # # 依赖你脚本里已有的 axis_correction_matrix
-    # Q = axis_correction_matrix("y_up_to_z_up", device=Rs[0].device)  # [3,3]，绕 +X 轴 +90°
-    # Rs = [R @ Q for R in Rs]  # 右乘基变换：R_zup = R_yup @ Q
-    cameras = concat_cameras(Rs, Ts, device=device, fov_deg=a.fov_deg)
+
+        # 构建 R,T（Z-up；始终看 center）
+        R, T = build_lookat_from_eye_at(eye, at, device=device, up=(0.0, 0.0, 1.0))
+        cameras = FoVPerspectiveCameras(device=device, R=R, T=T, fov=float(a.fov_deg), znear=0.05, zfar=50.0)
+
+        # 记录 meta（便于复现/审计）
+        meta = [{
+            "name": "random_fixed_sphere", "num": int(a.rand_cams), "azims": None, "elevs": None, "dist": float(base_dist),
+            }]
+    else:
+        Rs, Ts, meta = [], [], []
+        R0, T0, az0, el0, d0 = ring_equatorial(
+            num=a.num_cams, elev_deg=a.elev_deg, dist=base_dist, device=device,
+            start_azim_deg=start0,
+            seed=(None if a.no_random_start else a.seed), center=center
+        )
+        Rs.append(R0); Ts.append(T0)
+        meta.append({"name":"equatorial","num":a.num_cams,
+                    "azims":az0.tolist(),"elevs":el0.tolist(),"dist":float(base_dist)})
+
+        if a.top_ring_num > 0:
+            top_dist = float(base_dist) * float(a.top_ring_dist_scale)
+            R1, T1, az1, el1, d1 = ring_top(
+                num=a.top_ring_num, top_elev_deg=a.top_ring_elev_deg,
+                dist=top_dist, device=device, start_azim_deg=top_start, center=center,
+            )  
+            Rs.append(R1); Ts.append(T1)
+            meta.append({"name":"top","num":a.top_ring_num,
+                        "azims":az1.tolist(),"elevs":el1.tolist(),"dist":float(top_dist)})
+
+        if a.lat_ring_num > 0:
+            lat_dist = float(base_dist) * float(a.lat_ring_dist_scale)
+            R2, T2, az2, el2, d2 = ring_latitudinal(
+                num=a.lat_ring_num, azim_deg=lat_azim, dist=lat_dist, device=device,
+                min_elev_deg=a.lat_ring_min_elev_deg, max_elev_deg=a.lat_ring_max_elev_deg,
+                center=center,
+            )
+            Rs.append(R2); Ts.append(T2)
+            meta.append({"name":"latitudinal","num":a.lat_ring_num,
+                        "azims":az2.tolist(),"elevs":el2.tolist(),"dist":float(lat_dist)})
+        # # pytorch 3d convention is y up, z forward (set up camera using look_at_view_transform), so to preserve the obj orientation, we need to swap y and z axis
+        # # === 将相机外参从 Y-up 基底重写为 Z-up 基底（只改 R，T 保持不变）===
+        # # 依赖你脚本里已有的 axis_correction_matrix
+        # Q = axis_correction_matrix("y_up_to_z_up", device=Rs[0].device)  # [3,3]，绕 +X 轴 +90°
+        # Rs = [R @ Q for R in Rs]  # 右乘基变换：R_zup = R_yup @ Q
+        cameras = concat_cameras(Rs, Ts, device=device, fov_deg=a.fov_deg)
 
     # --- render & save (unchanged) ---
     rgb, depth, nocs, mask = render_rgbd_batched(
@@ -1978,7 +2204,7 @@ def render_single(a, device, src_path: Path, out_dir: Path):
         bin_size=(None if a.bin_size is None else int(a.bin_size)),
         max_faces_per_bin=(None if a.max_faces_per_bin is None else int(a.max_faces_per_bin)),
         # NOCS
-        return_nocs = (a.save_nocs or a.save_nocs_png8 or a.make_nocs_video),
+        return_nocs = (a.save_nocs or a.save_nocs_png8 or a.make_nocs_video or a.save_h5),
         nocs_mode = a.nocs_norm,
         nocs_equal_axis = a.nocs_equal_axis,
         # NOCS checker
@@ -2005,21 +2231,16 @@ def render_single(a, device, src_path: Path, out_dir: Path):
     if a.make_nocs_video and (nocs is not None):
         make_nocs_video(out_dir / 'orbit_nocs.mp4', nocs, fps=a.video_fps)
     if a.save_h5:
-        # label 缺省时尽量猜一个：用 out_dir 的父目录名的前缀（可按你的数据组织调整）
-        label = a.label.strip()
-        if not label:
-            try:
-                label = out_dir.name.split('_')[0]
-            except Exception:
-                label = ""
-
         # 注意：我们前面把 rgb/depth 已经转到 CPU；nocs 也是 CPU
-        save_h5_per_camera(
-            out_dir=out_dir,
-            rgb=rgb, depth=depth, nocs=nocs, mask = mask,
-            cameras=cameras, image_size=a.image_size, fov_deg=a.fov_deg,
-            label=label,
-            write_plus=True, write_norm=True
+        label = (a.label.strip() or out_dir.name.split('_')[0])
+        out_h5 = out_dir / "all_cameras.h5"
+        save_h5_all(
+            out_path=out_h5,
+            rgb=rgb, depth=depth, mask=mask, nocs=nocs,
+            cameras=cameras, image_size=a.image_size, fov_deg=a.fov_deg, label=label,
+            # compress=a.h5_compress, gzip_level=a.h5_gzip_level, shuffle=a.h5_shuffle,
+            # mask_bitpack=a.mask_bitpack,  nocs_auto_tol=a.nocs_auto_tol,
+            # nocs_store=a.nocs_store,
         )
     if a.save_mask_png:
         # 如果 render_rgbd_batched 已经返回了 mask 张量（见下一节），直接用：
@@ -2033,6 +2254,48 @@ def main():
     set_seed(a.seed)
 
     debug_print_p3d_capability_once()
+
+    # --- manifest-driven batch mode -------------------------------------------------
+    tasks: List[Tuple[Path, Path]] = []
+    if a.manifest is not None:
+        manifest_path = Path(a.manifest)
+        if not manifest_path.exists():
+            raise FileNotFoundError(f"Manifest not found: {manifest_path}")
+        try:
+            manifest_data = json.loads(manifest_path.read_text(encoding="utf-8"))
+        except Exception as e:
+            raise ValueError(f"Failed to read manifest JSON: {e}") from e
+        if not isinstance(manifest_data, list):
+            raise ValueError("Manifest must be a list of {\"model\":..., \"output\":...}")
+        for idx, entry in enumerate(manifest_data):
+            if not isinstance(entry, dict):
+                raise ValueError(f"Manifest entry #{idx} is not an object")
+            if "model" not in entry or "output" not in entry:
+                raise ValueError(f"Manifest entry #{idx} missing 'model' or 'output'")
+            tasks.append((Path(entry["model"]), Path(entry["output"])))
+        if not tasks:
+            print("[warn] Manifest is empty; nothing to render.")
+            return
+
+        for mesh_path, out_dir_path in tasks:
+            if not mesh_path.exists():
+                print(f"[ERROR] Manifest model does not exist: {mesh_path}")
+                continue
+            out_dir = prepare_out_dir(str(out_dir_path), a.overwrite)
+            try:
+                start = time.time()
+                print(f"\n===== Rendering: {mesh_path} → {out_dir} =====")
+                render_single(a, device, mesh_path, out_dir)
+                end = time.time()
+                duration = end - start
+                print(f"time: {duration:.2f} seconds")
+            except Exception as e:
+                print(f"[ERROR] Failed: {mesh_path} :: {e}")
+        return
+
+    if not a.obj:
+        raise ValueError("--obj is required when --manifest is not provided")
+
     src = Path(a.obj)
 
     # --- directory mode: enumerate & batch render by input_format ---

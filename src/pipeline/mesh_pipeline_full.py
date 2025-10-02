@@ -714,7 +714,7 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
     - 通过sha256作为key进行关联筛选
     """
     try:
-        from download_toolkits.trellis.datasets import ObjaverseXL as OXL
+        from dataset_toolkits.trellis.datasets import ObjaverseXL as OXL
     except Exception as e:
         raise ImportError(f"Failed to import trellis.datasets.ObjaverseXL: {e}")
 
@@ -782,13 +782,26 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
     
     # 筛选出当前类别需要的sha256
     filtered_df = sha_index_df[sha_index_df['sha256'].isin(category_shas)]
-    
-    print(f"[OXL-PER-CAT] {len(filtered_df)} entries to download")
-    
+
+    # --- apply per-category limit if requested ---
+    limit_val = getattr(args, 'limit', None)
+    limit_int: Optional[int] = None
+    if limit_val is not None:
+        try:
+            limit_int = int(limit_val)
+        except Exception:
+            limit_int = None
+    if limit_int is not None and limit_int > 0:
+        if len(filtered_df) > limit_int:
+            filtered_df = filtered_df.head(limit_int)
+        print(f"[OXL-PER-CAT] Applying limit={limit_int} → {len(filtered_df)} entries")
+    else:
+        print(f"[OXL-PER-CAT] {len(filtered_df)} entries to download")
+
     if len(filtered_df) == 0:
         print(f"[OXL-PER-CAT] No entries to download for category '{category}', skipping...")
         return
-    
+
     # 4. 构建metadata DataFrame（直接使用筛选后的数据）
     meta = filtered_df.copy()
     source_lookup: Dict[str, str] = {}
@@ -835,6 +848,8 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
     #     return
     if df is None:
         df = _pd.DataFrame(columns=meta.columns)
+    if limit_int is not None and limit_int > 0 and len(df) > limit_int:
+        df = df.head(limit_int)
     if len(df) == 0:
         print(f"[OXL-PER-CAT] No objects downloaded for category '{category}'")
     downloaded_shas = set(df['sha256'].astype(str)) if not df.empty else set()
@@ -850,6 +865,8 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
     oxl_reports: List[Dict[str, Any]] = []
     
     for _, rec in df.iterrows():
+        if limit_int is not None and limit_int > 0 and processed_count >= limit_int:
+            break
         sha = rec.get('sha256')
         sha_key = str(sha)
         if not sha_key or sha_key.lower() == 'nan':
@@ -958,7 +975,7 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
         
         # 先补全资产（在原始位置）
         try:
-            from download_toolkits.build_metadata import ensure_complete_asset_anyformat
+            from dataset_toolkits.build_metadata import ensure_complete_asset_anyformat
             
             # 使用原始mesh目录作为local_roots，保持目录结构
             # _local_roots = [p for p in [mesh_dir, inst_root] if p and p.exists()]
@@ -1767,9 +1784,25 @@ def step_render(args, P: PipelinePaths, models: Iterable[Path], category: str) -
 
     # ========== 批量模式：一次调用渲染脚本，输入指向对齐目录 ==========
     if getattr(args, "render_batch_mode", "single") == "batch":
-        aligned_dir = Path(models_list[0]).parent
+        aligned_dir = Path(models_list[0]).parent.parent
         out_root = (P.renders / category)
         out_root.mkdir(parents=True, exist_ok=True)
+
+        manifest_entries = []
+        for model_path in models_list:
+            mp = Path(model_path)
+            out_dir = render_out_dir_for_any(
+                mp,
+                P.renders,
+                args.render_scheme,
+                dl_backend=getattr(args, "dl_backend", "custom"),
+                oxl_out_cat=OXL_OUT_CAT,
+            )
+            manifest_entries.append({"model": str(mp), "output": str(out_dir)})
+
+        if not manifest_entries:
+            print("[render/batch] manifest empty; nothing to do")
+            return
 
         print(f"[render/batch] cat={category}  dir={aligned_dir}  out={out_root}  total={total}")
         t0 = time.perf_counter()
@@ -1819,6 +1852,16 @@ def step_render(args, P: PipelinePaths, models: Iterable[Path], category: str) -
         if getattr(args, "check_nocs", False): cmd += ["--check_nocs"]
         if getattr(args, "make_video", False):
             cmd += ["--make_video", "--video_fps", str(int(args.video_fps))]
+        if getattr(args, "cam_mode", None):
+            cmd += ["--cam_mode", str(args.cam_mode)]
+        if getattr(args, "rand_cams", None):
+            cmd += ["--rand_cams", str(int(args.rand_cams))]
+        if getattr(args, "sphere_dist", None) is not None:
+            cmd += ["--sphere_dist", str(float(args.sphere_dist))]
+        if getattr(args, "pos_tangent_jitter", None) is not None:
+            cmd += ["--pos_tangent_jitter", str(float(args.pos_tangent_jitter))]
+        if getattr(args, "depth_jitter", None) is not None:
+            cmd += ["--depth_jitter", str(float(args.depth_jitter))]
         if getattr(args, "input_format", None):
             cmd += ["--input_format", str(args.input_format)]
         if getattr(args, "use_uv_textures", False):
@@ -1835,7 +1878,19 @@ def step_render(args, P: PipelinePaths, models: Iterable[Path], category: str) -
             cmd += ["--overwrite"]
 
         # 关键：安静执行（避免刷屏）——保留错误输出与本进程的关键信息
-        rc = sh(cmd, dry=getattr(args, "dry_run", False), quiet=getattr(args, "quiet_child", False))
+        manifest_path = None
+        try:
+            with tempfile.NamedTemporaryFile('w', suffix='_render_manifest.json', delete=False) as tf:
+                json.dump(manifest_entries, tf, indent=2)
+                manifest_path = Path(tf.name)
+            cmd += ["--manifest", str(manifest_path)]
+            rc = sh(cmd, dry=getattr(args, "dry_run", False))
+        finally:
+            if manifest_path and manifest_path.exists():
+                try:
+                    manifest_path.unlink()
+                except Exception:
+                    pass
         dt = time.perf_counter() - t0
         print(f"[render/batch] done rc={rc}  total={total}  time={dt:.2f}s  avg={dt/max(total,1):.2f}s/obj")
         return
@@ -1865,7 +1920,7 @@ def step_render(args, P: PipelinePaths, models: Iterable[Path], category: str) -
                "--top_ring_elev_deg", str(float(args.top_ring_elev_deg)),
                "--top_ring_dist_scale", str(float(args.top_ring_dist_scale)),
                ]
-      
+
         if args.axis_correction:
             cmd += ["--axis_correction", str(args.axis_correction)]
         if args.yaw_offset_deg:
@@ -1904,6 +1959,16 @@ def step_render(args, P: PipelinePaths, models: Iterable[Path], category: str) -
             cmd += ["--check_nocs"]
         if args.make_video:
             cmd += ["--make_video", "--video_fps", str(int(args.video_fps))]
+        if args.cam_mode:
+            cmd += ["--cam_mode", str(args.cam_mode)]
+        if args.rand_cams is not None:
+            cmd += ["--rand_cams", str(int(args.rand_cams))]
+        if args.sphere_dist is not None:
+            cmd += ["--sphere_dist", str(float(args.sphere_dist))]
+        if args.pos_tangent_jitter is not None:
+            cmd += ["--pos_tangent_jitter", str(float(args.pos_tangent_jitter))]
+        if args.depth_jitter is not None:
+            cmd += ["--depth_jitter", str(float(args.depth_jitter))]
         if args.no_cull_backfaces:
             cmd += ["--no_cull_backfaces"]
         if args.input_format:
@@ -2336,6 +2401,16 @@ def build_argparser() -> argparse.ArgumentParser:
     p.add_argument('--depth_video_max_meters', type=float, default=0.0, help='深度视频上限米数；<=0 则用 99th 百分位自动设定')
     p.add_argument("--make_video", action=argparse.BooleanOptionalAction, default=False)
     p.add_argument("--video_fps", type=int, default=24)
+    p.add_argument('--cam_mode', type=str, choices=['rings','random'], default='rings',
+                 help="rings：等间隔环拍；random：固定球面随机采样")
+    p.add_argument('--rand_cams', type=int, default=120,
+                 help='cam_mode=random 时采样的相机数量')
+    p.add_argument('--sphere_dist', type=float, default=-1.0,
+                 help='cam_mode=random 时的球半径；<=0 自动估计')
+    p.add_argument('--pos_tangent_jitter', type=float, default=0.02,
+                 help='cam_mode=random 下沿球面切向方向的扰动比例')
+    p.add_argument('--depth_jitter', type=float, default=0.02,
+                 help='cam_mode=random 下半径扰动比例')
     p.add_argument('--yaw_offset_deg', type=float, default=0.0,
                 help='全局偏航（度）。对所有方位角统一加偏移，用于补偿坐标/导出轴向变化（例：180）。')
     p.add_argument('--top_ring_start_azim_deg', type=float, default=None,
