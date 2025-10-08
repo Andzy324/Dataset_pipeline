@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "/home/hpc/v100dd/v100dd26/project/Dataset_pipeline/src/pipeline/mesh_pipeline_full.py", line 717, in step_download_assets_oxl_per_category
+    from dataset_toolkits.trellis.datasets import ObjaverseXL as OXL
+ModuleNotFoundError: No module named 'dataset_toolkits'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hpc/v100dd/v100dd26/project/Dataset_pipeline/src/pipeline/mesh_pipeline_full.py", line 2684, in <module>
+    main()
+  File "/home/hpc/v100dd/v100dd26/project/Dataset_pipeline/src/pipeline/mesh_pipeline_full.py", line 2545, in main
+    step_download_assets_oxl_per_category(args, P, cat)
+  File "/home/hpc/v100dd/v100dd26/project/Dataset_pipeline/src/pipeline/mesh_pipeline_full.py", line 719, in step_download_assets_oxl_per_category
+    raise ImportError(f"Failed to import trellis.datasets.ObjaverseXL: {e}")
+ImportError: Failed to import trellis.datasets.ObjaverseXL: No module named 'dataset_toolkits'

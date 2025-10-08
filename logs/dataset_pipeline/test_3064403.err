@@ -1,0 +1,333 @@
+2025-10-02 18:50:31.580 | INFO     | objaverse.xl.github:download_objects:602 - Provided 8 repoIds with 8 objects to process.
+2025-10-02 18:50:31.581 | INFO     | objaverse.xl.github:download_objects:614 - Found 8 repoIds not yet downloaded. Downloading now...
+Grouping objects by repository:   0%|          | 0/8 [00:00<?, ?it/s]Grouping objects by repository: 100%|██████████| 8/8 [00:00<00:00, 21317.94it/s]
+Downloading repositories:   0%|          | 0/8 [00:00<?, ?it/s]Handling 3D object files:   0%|          | 0/36 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 36/36 [00:00<00:00, 12754.03it/s]
+2025-10-02 18:50:34.993 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving TerenceHQZ/GDP_Project as zip
+Handling 3D object files:   0%|          | 0/16 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 16/16 [00:00<00:00, 3267.07it/s]
+2025-10-02 18:50:35.315 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving minosse99/StanzaCG as zip
+Downloading repositories:  12%|█▎        | 1/8 [00:01<00:08,  1.21s/it]Downloading repositories:  25%|██▌       | 2/8 [00:01<00:05,  1.15it/s]Handling 3D object files:   0%|          | 0/20 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 20/20 [00:00<00:00, 624.92it/s]
+2025-10-02 18:50:36.567 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving DrunkDutch/COMP371-Project as zip
+Handling 3D object files:   0%|          | 0/259 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 259/259 [00:00<00:00, 6773.95it/s]
+2025-10-02 18:50:37.137 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving ShatLeon/SemProject4 as zip
+Handling 3D object files:   0%|          | 0/43 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 43/43 [00:00<00:00, 9154.62it/s]
+2025-10-02 18:50:38.042 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving mrKarton/LabyBox as zip
+Downloading repositories:  38%|███▊      | 3/8 [00:06<00:13,  2.80s/it]Downloading repositories:  50%|█████     | 4/8 [00:07<00:08,  2.00s/it]Handling 3D object files:   0%|          | 0/26 [00:00<?, ?it/s]Handling 3D object files:  38%|███▊      | 10/26 [00:00<00:00, 94.70it/s]Handling 3D object files:  96%|█████████▌| 25/26 [00:00<00:00, 124.32it/s]Handling 3D object files: 100%|██████████| 26/26 [00:00<00:00, 124.41it/s]
+2025-10-02 18:50:42.127 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving Thuaanf/SE04-Group8.1 as zip
+Downloading repositories:  62%|██████▎   | 5/8 [00:08<00:04,  1.41s/it]Handling 3D object files:   0%|          | 0/483 [00:00<?, ?it/s]Handling 3D object files:   7%|▋         | 33/483 [00:00<00:01, 329.80it/s]Handling 3D object files: 100%|██████████| 483/483 [00:00<00:00, 2621.47it/s]
+2025-10-02 18:50:42.681 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving youhyeoneee/zepeto-feature-sample as zip
+Handling 3D object files:   0%|          | 0/256 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 256/256 [00:00<00:00, 6875.56it/s]
+Downloading repositories:  75%|███████▌  | 6/8 [00:20<00:10,  5.11s/it]2025-10-02 18:50:54.524 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving tuanva1995/Impostor_1 as zip
+Downloading repositories:  88%|████████▊ | 7/8 [00:24<00:04,  4.78s/it]Downloading repositories: 100%|██████████| 8/8 [01:00<00:00, 14.66s/it]Downloading repositories: 100%|██████████| 8/8 [01:00<00:00,  7.53s/it]
+Failed to open dir (No such file or directory): textures/
+Failed to open dir (No such file or directory): textures/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/chair_014275813c3553fd310ead130259efc2db3fc91282cf143f1d215c2029f84789_obj/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/014275813c3553fd310ead130259efc2db3fc91282cf143f1d215c2029f84789/raw/textures/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset 4visual/ObjaverseXL github/chair/014275813c3553fd310ead130259efc2db3fc91282cf143f1d215c2029f84789/raw/textures/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/chair_091af025f5b43c34133c578df7bcfbaa4aba707709ed9005d660d6c58f7c4c1b_obj/home/vault/Max작업물/Camping_ground_0809_0910/
+Failed to open dir (No such file or directory): /home/vault/Max작업물/Camping_ground_0809_0910/
+Failed to open dir (No such file or directory): /home/vault/Max작업물/Camping ground 0809 0910/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/chair_09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a_obj/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset 4visual/ObjaverseXL github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/chair_09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a_obj/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset 4visual/ObjaverseXL github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/chair_09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a_obj/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset 4visual/ObjaverseXL github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/chair_09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a_obj/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset 4visual/ObjaverseXL github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/chair_09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a_obj/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset 4visual/ObjaverseXL github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/chair_09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a_obj/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset 4visual/ObjaverseXL github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/chair_09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a_obj/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset 4visual/ObjaverseXL github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/chair_09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a_obj/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset 4visual/ObjaverseXL github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/
+2025-10-02 18:56:18.239 | INFO     | objaverse.xl.github:download_objects:602 - Provided 8 repoIds with 8 objects to process.
+2025-10-02 18:56:18.239 | INFO     | objaverse.xl.github:download_objects:614 - Found 8 repoIds not yet downloaded. Downloading now...
+Grouping objects by repository:   0%|          | 0/8 [00:00<?, ?it/s]Grouping objects by repository: 100%|██████████| 8/8 [00:00<00:00, 1866.31it/s]
+Downloading repositories:   0%|          | 0/8 [00:00<?, ?it/s]Handling 3D object files:   0%|          | 0/57 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 57/57 [00:00<00:00, 9780.13it/s]
+Handling 3D object files:   0%|          | 0/37 [00:00<?, ?it/s]2025-10-02 18:56:24.222 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving Magneseus/twin-salt-shooter as zip
+Handling 3D object files: 100%|██████████| 37/37 [00:00<00:00, 25006.32it/s]
+2025-10-02 18:56:24.235 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving TheBoje/AEIF-GJ-2020-7_Days_to_Cure as zip
+Handling 3D object files:   0%|          | 0/12 [00:00<?, ?it/s]Handling 3D object files:  92%|█████████▏| 11/12 [00:00<00:00, 109.05it/s]Handling 3D object files: 100%|██████████| 12/12 [00:00<00:00, 72.01it/s] 
+2025-10-02 18:56:25.848 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving AndyWeng33252/FetchDesign-Copy as zip
+Downloading repositories:  12%|█▎        | 1/8 [00:04<00:33,  4.78s/it]Downloading repositories:  25%|██▌       | 2/8 [00:06<00:17,  2.92s/it]Handling 3D object files:   0%|          | 0/226 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 226/226 [00:00<00:00, 3928.96it/s]
+2025-10-02 18:56:28.250 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving ZelenyukDaniil/ITprogrammerGame as zip
+Handling 3D object files:   0%|          | 0/74 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 74/74 [00:00<00:00, 8796.08it/s]
+2025-10-02 18:56:31.002 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving JoelStokes/Voxel-Horror as zip
+Handling 3D object files:   0%|          | 0/133 [00:00<?, ?it/s]Handling 3D object files:  82%|████████▏ | 109/133 [00:00<00:00, 1020.80it/s]Handling 3D object files: 100%|██████████| 133/133 [00:00<00:00, 943.03it/s] 
+2025-10-02 18:56:32.009 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving hanteng1/Furniture as zip
+Handling 3D object files:   0%|          | 0/34 [00:00<?, ?it/s]Handling 3D object files:  97%|█████████▋| 33/34 [00:00<00:00, 317.41it/s]Handling 3D object files: 100%|██████████| 34/34 [00:00<00:00, 325.36it/s]
+2025-10-02 18:56:32.294 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving KatWeis/3D-unity-haunted-house as zip
+Downloading repositories:  38%|███▊      | 3/8 [00:14<00:25,  5.11s/it]Downloading repositories:  50%|█████     | 4/8 [00:15<00:14,  3.75s/it]Downloading repositories:  62%|██████▎   | 5/8 [00:17<00:08,  2.98s/it]Handling 3D object files:   0%|          | 0/72 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 72/72 [00:00<00:00, 711.92it/s]Handling 3D object files: 100%|██████████| 72/72 [00:00<00:00, 710.56it/s]
+2025-10-02 18:56:48.919 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving filperon97-1/ArachNOphobia as zip
+Downloading repositories:  75%|███████▌  | 6/8 [00:28<00:11,  5.75s/it]Downloading repositories:  88%|████████▊ | 7/8 [00:30<00:04,  4.66s/it]Downloading repositories: 100%|██████████| 8/8 [01:00<00:00, 12.68s/it]Downloading repositories: 100%|██████████| 8/8 [01:00<00:00,  7.60s/it]
+Failed to open dir (No such file or directory): textures/
+Failed to open dir (No such file or directory): textures/
+Failed to open dir (No such file or directory): textures/
+Failed to open dir (No such file or directory): textures/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/armchair/armchair_017ce307d14a34e0ec05374f97e47c72e446588e1f865f99e88a71f6be78f4b5_obj/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/armchair/017ce307d14a34e0ec05374f97e47c72e446588e1f865f99e88a71f6be78f4b5/raw/textures/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset 4visual/ObjaverseXL github/armchair/017ce307d14a34e0ec05374f97e47c72e446588e1f865f99e88a71f6be78f4b5/raw/textures/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/armchair/armchair_017ce307d14a34e0ec05374f97e47c72e446588e1f865f99e88a71f6be78f4b5_obj/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/armchair/017ce307d14a34e0ec05374f97e47c72e446588e1f865f99e88a71f6be78f4b5/raw/textures/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset 4visual/ObjaverseXL github/armchair/017ce307d14a34e0ec05374f97e47c72e446588e1f865f99e88a71f6be78f4b5/raw/textures/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/armchair/armchair_04f1e4468212b3b8fda73ad16c76c1dc34c4dc1fe019899af85df0d75c935606_obj/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/armchair/04f1e4468212b3b8fda73ad16c76c1dc34c4dc1fe019899af85df0d75c935606/renderData/mentalray/lightMap/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/armchair/04f1e4468212b3b8fda73ad16c76c1dc34c4dc1fe019899af85df0d75c935606/renderData/mentalray/lightMap/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset 4visual/ObjaverseXL github/armchair/04f1e4468212b3b8fda73ad16c76c1dc34c4dc1fe019899af85df0d75c935606/renderData/mentalray/lightMap/
+2025-10-02 19:02:49.508 | INFO     | objaverse.xl.github:download_objects:602 - Provided 8 repoIds with 8 objects to process.
+2025-10-02 19:02:49.509 | INFO     | objaverse.xl.github:download_objects:614 - Found 8 repoIds not yet downloaded. Downloading now...
+Grouping objects by repository:   0%|          | 0/8 [00:00<?, ?it/s]Grouping objects by repository: 100%|██████████| 8/8 [00:00<00:00, 2270.41it/s]
+Downloading repositories:   0%|          | 0/8 [00:00<?, ?it/s]Handling 3D object files:   0%|          | 0/5 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 5/5 [00:00<00:00, 7989.15it/s]
+2025-10-02 19:02:53.626 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving Reality-Fest-LegoLand-Team/Lego-Land-Project as zip
+Downloading repositories:  12%|█▎        | 1/8 [00:00<00:03,  1.92it/s]Handling 3D object files:   0%|          | 0/3 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 3/3 [00:00<00:00, 205.02it/s]
+2025-10-02 19:02:54.018 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving heysaadad/threejs-ar as zip
+Downloading repositories:  25%|██▌       | 2/8 [00:01<00:04,  1.42it/s]Handling 3D object files:   0%|          | 0/8480 [00:00<?, ?it/s]Handling 3D object files:  36%|███▌      | 3041/8480 [00:00<00:00, 30407.85it/s]Handling 3D object files:  72%|███████▏  | 6082/8480 [00:00<00:00, 26216.81it/s]Handling 3D object files: 100%|██████████| 8480/8480 [00:00<00:00, 26104.29it/s]
+2025-10-02 19:02:56.722 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving vickylance/Bounce3d as zip
+Handling 3D object files:   0%|          | 0/1496 [00:00<?, ?it/s]Handling 3D object files:  20%|█▉        | 299/1496 [00:00<00:00, 2932.56it/s]Handling 3D object files:  40%|███▉      | 593/1496 [00:00<00:00, 2223.17it/s]Handling 3D object files:  55%|█████▌    | 826/1496 [00:00<00:00, 2245.77it/s]Handling 3D object files:  86%|████████▋ | 1292/1496 [00:00<00:00, 3092.28it/s]Handling 3D object files: 100%|██████████| 1496/1496 [00:00<00:00, 2744.74it/s]
+2025-10-02 19:03:04.181 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving nathanjshaffer/Vesta as zip
+Downloading repositories:  38%|███▊      | 3/8 [00:11<00:24,  4.88s/it]Handling 3D object files:   0%|          | 0/32 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 32/32 [00:00<00:00, 1263.01it/s]
+2025-10-02 19:03:04.438 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving Christianfitz22/game3400team2v3 as zip
+Handling 3D object files:   0%|          | 0/297 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 297/297 [00:00<00:00, 4462.81it/s]
+2025-10-02 19:03:09.534 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving Amirkhan98/BottleRun as zip
+Downloading repositories:  50%|█████     | 4/8 [00:32<00:45, 11.42s/it]Downloading repositories:  62%|██████▎   | 5/8 [00:41<00:31, 10.50s/it]Downloading repositories:  75%|███████▌  | 6/8 [00:48<00:18,  9.33s/it]Handling 3D object files:   0%|          | 0/41 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 41/41 [00:00<00:00, 912.74it/s]
+2025-10-02 19:03:42.840 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving INotJose/Vivero_Tita_GP as zip
+Handling 3D object files:   0%|          | 0/121 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 121/121 [00:00<00:00, 5777.48it/s]
+2025-10-02 19:04:32.939 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving ItsTemz/MetrovaniaGameJam as zip
+Downloading repositories:  88%|████████▊ | 7/8 [02:39<00:42, 42.63s/it]Downloading repositories: 100%|██████████| 8/8 [02:47<00:00, 31.55s/it]Downloading repositories: 100%|██████████| 8/8 [02:47<00:00, 20.95s/it]
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/stool/stool_11ae274413dd52f0da66f5a12b4005a230d30958fe1041042824e7fe7c337d67_obj/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/stool/11ae274413dd52f0da66f5a12b4005a230d30958fe1041042824e7fe7c337d67/raw/textures/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/stool/11ae274413dd52f0da66f5a12b4005a230d30958fe1041042824e7fe7c337d67/raw/textures/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset 4visual/ObjaverseXL github/stool/11ae274413dd52f0da66f5a12b4005a230d30958fe1041042824e7fe7c337d67/raw/textures/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/stool/stool_0ee4d795771f0cf08e4d4f2c3b1fd2732492b85de5c74fc3c032c57d396856b1_obj/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/stool/0ee4d795771f0cf08e4d4f2c3b1fd2732492b85de5c74fc3c032c57d396856b1/raw/C:/Users/Thomas Paul/AppData/Roaming/Blender Foundation/Blender/3.2/scripts/addons/TexTools-Blender-master/resources/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/stool/0ee4d795771f0cf08e4d4f2c3b1fd2732492b85de5c74fc3c032c57d396856b1/raw/C:/Users/Thomas Paul/AppData/Roaming/Blender Foundation/Blender/3.2/scripts/addons/TexTools-Blender-master/resources/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset 4visual/ObjaverseXL github/stool/0ee4d795771f0cf08e4d4f2c3b1fd2732492b85de5c74fc3c032c57d396856b1/raw/C:/Users/Thomas Paul/AppData/Roaming/Blender Foundation/Blender/3.2/scripts/addons/TexTools-Blender-master/resources/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/stool/stool_058689c00b0aaf4d498434fb44fcfc2814e0712556b1ea6cc6b006585230f31c_obj/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/stool/058689c00b0aaf4d498434fb44fcfc2814e0712556b1ea6cc6b006585230f31c/raw/textures/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/stool/058689c00b0aaf4d498434fb44fcfc2814e0712556b1ea6cc6b006585230f31c/raw/textures/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset 4visual/ObjaverseXL github/stool/058689c00b0aaf4d498434fb44fcfc2814e0712556b1ea6cc6b006585230f31c/raw/textures/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/stool/stool_058689c00b0aaf4d498434fb44fcfc2814e0712556b1ea6cc6b006585230f31c_obj/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/stool/058689c00b0aaf4d498434fb44fcfc2814e0712556b1ea6cc6b006585230f31c/raw/textures/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/stool/058689c00b0aaf4d498434fb44fcfc2814e0712556b1ea6cc6b006585230f31c/raw/textures/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset 4visual/ObjaverseXL github/stool/058689c00b0aaf4d498434fb44fcfc2814e0712556b1ea6cc6b006585230f31c/raw/textures/
+2025-10-02 19:13:22.170 | INFO     | objaverse.xl.github:download_objects:602 - Provided 7 repoIds with 8 objects to process.
+2025-10-02 19:13:22.171 | INFO     | objaverse.xl.github:download_objects:614 - Found 7 repoIds not yet downloaded. Downloading now...
+Grouping objects by repository:   0%|          | 0/7 [00:00<?, ?it/s]Grouping objects by repository: 100%|██████████| 7/7 [00:00<00:00, 1984.46it/s]
+Downloading repositories:   0%|          | 0/7 [00:00<?, ?it/s]Handling 3D object files:   0%|          | 0/28 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 28/28 [00:00<00:00, 3721.30it/s]
+2025-10-02 19:13:26.917 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving liiceduarte/Trabalho-de-IA as zip
+Downloading repositories:  14%|█▍        | 1/7 [00:01<00:07,  1.21s/it]Handling 3D object files:   0%|          | 0/57 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 57/57 [00:00<00:00, 670.09it/s]
+2025-10-02 19:13:27.493 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving rashi151999/Houzie as zip
+Handling 3D object files:   0%|          | 0/16 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 16/16 [00:00<00:00, 390.47it/s]
+2025-10-02 19:13:29.992 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving EhabHelaly/VR_Toolkit as zip
+Downloading repositories:  29%|██▊       | 2/7 [00:04<00:13,  2.60s/it]Handling 3D object files:   0%|          | 0/286 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 286/286 [00:00<00:00, 3223.54it/s]
+2025-10-02 19:13:34.785 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving mikecarey134/GameCore as zip
+Handling 3D object files:   0%|          | 0/290 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 290/290 [00:00<00:00, 27128.83it/s]
+2025-10-02 19:13:35.093 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving ggarredondo/SENTENCE as zip
+Handling 3D object files:   0%|          | 0/15 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 15/15 [00:00<00:00, 164.15it/s]
+2025-10-02 19:13:35.803 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving ZiadSafwat/bb.github.io as zip
+Downloading repositories:  43%|████▎     | 3/7 [00:10<00:15,  3.80s/it]Downloading repositories:  57%|█████▋    | 4/7 [00:13<00:10,  3.54s/it]Downloading repositories:  71%|███████▏  | 5/7 [00:16<00:06,  3.30s/it]Handling 3D object files:   0%|          | 0/2030 [00:00<?, ?it/s]Handling 3D object files:  22%|██▏       | 439/2030 [00:00<00:00, 4330.48it/s]Handling 3D object files:  43%|████▎     | 873/2030 [00:00<00:01, 880.57it/s] Handling 3D object files: 100%|█████████▉| 2029/2030 [00:01<00:00, 2332.23it/s]Handling 3D object files: 100%|██████████| 2030/2030 [00:01<00:00, 2025.56it/s]
+2025-10-02 19:13:46.919 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving Karyouchiku/LostMemories2.5D as zip
+Downloading repositories:  86%|████████▌ | 6/7 [00:28<00:06,  6.46s/it]Downloading repositories: 100%|██████████| 7/7 [01:09<00:00, 17.72s/it]Downloading repositories: 100%|██████████| 7/7 [01:09<00:00,  9.93s/it]
+Failed to open dir (No such file or directory): 
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/sofa/sofa_297f4f4cb0aaebc37737302e16e0a73ef3f6ff490be00f62bb41358a6e701a1d_obj/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/sofa/297f4f4cb0aaebc37737302e16e0a73ef3f6ff490be00f62bb41358a6e701a1d/raw/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset 4visual/ObjaverseXL github/sofa/297f4f4cb0aaebc37737302e16e0a73ef3f6ff490be00f62bb41358a6e701a1d/raw/
+2025-10-02 19:19:25.900 | INFO     | objaverse.xl.github:download_objects:602 - Provided 8 repoIds with 8 objects to process.
+2025-10-02 19:19:25.900 | INFO     | objaverse.xl.github:download_objects:614 - Found 8 repoIds not yet downloaded. Downloading now...
+Grouping objects by repository:   0%|          | 0/8 [00:00<?, ?it/s]Grouping objects by repository: 100%|██████████| 8/8 [00:00<00:00, 1611.26it/s]
+Downloading repositories:   0%|          | 0/8 [00:00<?, ?it/s]Handling 3D object files:   0%|          | 0/8 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 8/8 [00:00<00:00, 1096.98it/s]
+2025-10-02 19:19:30.809 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving pineomedia/pineomedia.github.io as zip
+Downloading repositories:  12%|█▎        | 1/8 [00:02<00:17,  2.46s/it]Handling 3D object files:   0%|          | 0/16 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 16/16 [00:00<00:00, 643.75it/s]
+2025-10-02 19:19:33.814 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving tobyy22/generating-textures-with-a-gan as zip
+Handling 3D object files:   0%|          | 0/21 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 21/21 [00:00<00:00, 2617.62it/s]
+2025-10-02 19:19:36.047 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving KalebSchmenk/UndeadPandaStudioGauntletClone as zip
+Downloading repositories:  25%|██▌       | 2/8 [00:06<00:20,  3.45s/it]Downloading repositories:  38%|███▊      | 3/8 [00:11<00:19,  3.99s/it]Handling 3D object files:   0%|          | 0/79 [00:00<?, ?it/s]Handling 3D object files:   0%|          | 0/301 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 79/79 [00:00<00:00, 3171.12it/s]
+Handling 3D object files: 100%|██████████| 301/301 [00:00<00:00, 8921.72it/s]
+2025-10-02 19:19:49.585 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving Pikachuzzz/CallOfCandy as zip
+2025-10-02 19:19:49.633 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving JerzyDlugosz/Virtual-Designer as zip
+Handling 3D object files:   0%|          | 0/1736 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 1736/1736 [00:00<00:00, 19898.21it/s]
+2025-10-02 19:19:53.345 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving hdneo/mxoassets as zip
+Handling 3D object files:   0%|          | 0/25 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 25/25 [00:00<00:00, 1185.51it/s]
+2025-10-02 19:19:54.343 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving LeonidTraberLotsman/GreenVillage as zip
+Downloading repositories:  50%|█████     | 4/8 [00:34<00:45, 11.50s/it]Handling 3D object files:   0%|          | 0/264 [00:00<?, ?it/s]Handling 3D object files:  22%|██▏       | 57/264 [00:00<00:00, 566.35it/s]Handling 3D object files:  57%|█████▋    | 150/264 [00:00<00:00, 776.77it/s]Handling 3D object files:  86%|████████▋ | 228/264 [00:00<00:00, 324.87it/s]Handling 3D object files: 100%|██████████| 264/264 [00:00<00:00, 421.95it/s]
+2025-10-02 19:20:05.528 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving lihaoyang411/Ankhor as zip
+Downloading repositories:  62%|██████▎   | 5/8 [00:45<00:34, 11.39s/it]Downloading repositories:  75%|███████▌  | 6/8 [01:13<00:34, 17.17s/it]Downloading repositories:  88%|████████▊ | 7/8 [01:16<00:12, 12.34s/it]Downloading repositories: 100%|██████████| 8/8 [02:01<00:00, 22.74s/it]Downloading repositories: 100%|██████████| 8/8 [02:01<00:00, 15.15s/it]
+Couldn't save picture.
+/home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/bed/bed_00aa0a73e34dd21b11b8a6820f236ffe6d9b105a4396b57315ef47ea4c23bb13_obj/textures/Diffuse_Texture.png: Success
+Couldn't save picture.
+/home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/bed/bed_00aa0a73e34dd21b11b8a6820f236ffe6d9b105a4396b57315ef47ea4c23bb13_obj/textures/Diffuse_Texture.png: Success
+Couldn't save picture.
+/home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/bed/bed_00aa0a73e34dd21b11b8a6820f236ffe6d9b105a4396b57315ef47ea4c23bb13_obj/textures/Diffuse_Texture.png: Success
+Couldn't save picture.
+/home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/bed/bed_00aa0a73e34dd21b11b8a6820f236ffe6d9b105a4396b57315ef47ea4c23bb13_obj/textures/Diffuse_Texture.png: Success
+Failed to open dir (No such file or directory): 
+Failed to open dir (No such file or directory): 
+2025-10-02 19:33:37.836 | INFO     | objaverse.xl.github:download_objects:602 - Provided 8 repoIds with 8 objects to process.
+2025-10-02 19:33:37.836 | INFO     | objaverse.xl.github:download_objects:614 - Found 8 repoIds not yet downloaded. Downloading now...
+Grouping objects by repository:   0%|          | 0/8 [00:00<?, ?it/s]Grouping objects by repository: 100%|██████████| 8/8 [00:00<00:00, 2142.14it/s]
+Downloading repositories:   0%|          | 0/8 [00:00<?, ?it/s]Handling 3D object files:   0%|          | 0/51 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 51/51 [00:00<00:00, 12634.19it/s]
+2025-10-02 19:33:43.884 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving TTobias/SheepOut as zip
+Handling 3D object files:   0%|          | 0/6 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 6/6 [00:00<00:00, 12582.91it/s]
+2025-10-02 19:33:43.950 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving sidequestlegend/shanes-editor as zip
+Downloading repositories:  12%|█▎        | 1/8 [00:02<00:18,  2.60s/it]Handling 3D object files:   0%|          | 0/12 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 12/12 [00:00<00:00, 119.94it/s]Handling 3D object files: 100%|██████████| 12/12 [00:00<00:00, 119.77it/s]
+2025-10-02 19:33:44.869 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving vidheypaluru94/AugmentedReality as zip
+Downloading repositories:  25%|██▌       | 2/8 [00:03<00:08,  1.49s/it]Handling 3D object files:   0%|          | 0/193 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 193/193 [00:00<00:00, 11803.40it/s]
+2025-10-02 19:33:47.195 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving Faulo/BackToTheChicken as zip
+Downloading repositories:  38%|███▊      | 3/8 [00:07<00:13,  2.75s/it]Downloading repositories:  50%|█████     | 4/8 [00:10<00:11,  2.82s/it]Handling 3D object files:   0%|          | 0/1496 [00:00<?, ?it/s]Handling 3D object files:  20%|█▉        | 293/1496 [00:00<00:00, 2929.54it/s]Handling 3D object files:  39%|███▉      | 586/1496 [00:00<00:00, 2191.88it/s]Handling 3D object files:  55%|█████▍    | 817/1496 [00:00<00:00, 2198.87it/s]Handling 3D object files:  86%|████████▌ | 1287/1496 [00:00<00:00, 3068.42it/s]Handling 3D object files: 100%|██████████| 1496/1496 [00:00<00:00, 2725.97it/s]
+2025-10-02 19:33:53.676 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving nathanjshaffer/Vesta as zip
+Handling 3D object files:   0%|          | 0/1736 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 1736/1736 [00:00<00:00, 20089.76it/s]
+2025-10-02 19:34:05.404 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving hdneo/mxoassets as zip
+Downloading repositories:  62%|██████▎   | 5/8 [00:49<00:47, 15.76s/it]Handling 3D object files:   0%|          | 0/99 [00:00<?, ?it/s]Handling 3D object files:  27%|██▋       | 27/99 [00:00<00:00, 222.64it/s]Handling 3D object files:  51%|█████     | 50/99 [00:00<00:00, 129.22it/s]Handling 3D object files: 100%|██████████| 99/99 [00:00<00:00, 250.12it/s]
+2025-10-02 19:34:33.923 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving Raideraik/Wizardis as zip
+Downloading repositories:  75%|███████▌  | 6/8 [01:13<00:37, 18.72s/it]Handling 3D object files:   0%|          | 0/899 [00:00<?, ?it/s]Handling 3D object files:  24%|██▍       | 218/899 [00:00<00:00, 2175.30it/s]Handling 3D object files:  55%|█████▍    | 492/899 [00:00<00:00, 2479.12it/s]Handling 3D object files:  82%|████████▏ | 740/899 [00:00<00:00, 995.05it/s] Handling 3D object files: 100%|██████████| 899/899 [00:00<00:00, 971.23it/s]
+2025-10-02 19:35:44.691 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving LBALab/lba2remake as zip
+Downloading repositories:  88%|████████▊ | 7/8 [02:11<00:31, 31.60s/it]Downloading repositories: 100%|██████████| 8/8 [02:33<00:00, 28.40s/it]Downloading repositories: 100%|██████████| 8/8 [02:33<00:00, 19.17s/it]
+Couldn't save picture.
+/home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/bunk_bed/bunk_bed_146fc5ef0fe0b20bee4cbc9b39b9b7186ce2166947334e4a0bafec3ccbf83f52_obj/textures/Diffuse_Texture.png: Success
+Couldn't save picture.
+/home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/bunk_bed/bunk_bed_146fc5ef0fe0b20bee4cbc9b39b9b7186ce2166947334e4a0bafec3ccbf83f52_obj/textures/Diffuse_Texture.png: Success
+Couldn't save picture.
+/home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/bunk_bed/bunk_bed_146fc5ef0fe0b20bee4cbc9b39b9b7186ce2166947334e4a0bafec3ccbf83f52_obj/textures/Diffuse_Texture.png: Success
+Couldn't save picture.
+/home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/bunk_bed/bunk_bed_146fc5ef0fe0b20bee4cbc9b39b9b7186ce2166947334e4a0bafec3ccbf83f52_obj/textures/Diffuse_Texture.png: Success
+Failed to open dir (No such file or directory): 
+Failed to open dir (No such file or directory): 
+2025-10-02 19:41:35.259 | INFO     | objaverse.xl.github:download_objects:602 - Provided 8 repoIds with 8 objects to process.
+2025-10-02 19:41:35.260 | INFO     | objaverse.xl.github:download_objects:614 - Found 8 repoIds not yet downloaded. Downloading now...
+Grouping objects by repository:   0%|          | 0/8 [00:00<?, ?it/s]Grouping objects by repository: 100%|██████████| 8/8 [00:00<00:00, 2126.79it/s]
+Downloading repositories:   0%|          | 0/8 [00:00<?, ?it/s]Handling 3D object files:   0%|          | 0/11 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 11/11 [00:00<00:00, 10860.96it/s]
+2025-10-02 19:41:40.277 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving Jake-Mason476839/Ghoul-Panic-Jake-Mason as zip
+Handling 3D object files:   0%|          | 0/2 [00:00<?, ?it/s]Handling 3D object files:   0%|          | 0/2 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 2/2 [00:00<00:00, 544.40it/s]
+2025-10-02 19:41:40.344 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving argreality/example142.github.io as zip
+Handling 3D object files: 100%|██████████| 2/2 [00:00<00:00, 631.29it/s]
+2025-10-02 19:41:40.346 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving argreality/example36.github.io as zip
+Downloading repositories:  12%|█▎        | 1/8 [00:00<00:05,  1.27it/s]Handling 3D object files:   0%|          | 0/13 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 13/13 [00:00<00:00, 893.09it/s]
+2025-10-02 19:41:44.311 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving Miziziziz/ScreamHorrorGame as zip
+Handling 3D object files:   0%|          | 0/141 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 141/141 [00:00<00:00, 2900.92it/s]
+2025-10-02 19:41:45.674 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving MirelEstraDaniel/MirelesEstradaDaniel_ProyectoFinal_GPO9 as zip
+Handling 3D object files:   0%|          | 0/200 [00:00<?, ?it/s]Handling 3D object files:  78%|███████▊  | 155/200 [00:00<00:00, 1518.81it/s]Handling 3D object files: 100%|██████████| 200/200 [00:00<00:00, 797.99it/s] 
+2025-10-02 19:41:47.745 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving Editorism/Salakapakka as zip
+Downloading repositories:  50%|█████     | 4/8 [00:08<00:08,  2.22s/it]Handling 3D object files:   0%|          | 0/190 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 190/190 [00:00<00:00, 5231.38it/s]
+2025-10-02 19:41:51.350 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving bserbest34/bowling-club as zip
+Downloading repositories:  62%|██████▎   | 5/8 [00:16<00:11,  3.79s/it]Downloading repositories:  75%|███████▌  | 6/8 [00:21<00:08,  4.27s/it]Downloading repositories:  88%|████████▊ | 7/8 [00:31<00:05,  5.82s/it]Handling 3D object files:   0%|          | 0/113 [00:00<?, ?it/s]Handling 3D object files:  57%|█████▋    | 64/113 [00:00<00:00, 461.69it/s]Handling 3D object files: 100%|██████████| 113/113 [00:00<00:00, 777.32it/s]
+2025-10-02 19:42:15.424 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving jean-michelsd5fsd65fsd5/steamscape as zip
+Downloading repositories: 100%|██████████| 8/8 [01:46<00:00, 26.02s/it]Downloading repositories: 100%|██████████| 8/8 [01:46<00:00, 13.30s/it]
+Failed to open dir (No such file or directory): 
+Failed to open dir (No such file or directory): 
+Failed to open dir (No such file or directory): 
+Failed to open dir (No such file or directory): 
+Failed to open dir (No such file or directory): 
+Failed to open dir (No such file or directory): 
+2025-10-02 19:48:50.981 | INFO     | objaverse.xl.github:download_objects:602 - Provided 7 repoIds with 8 objects to process.
+2025-10-02 19:48:50.981 | INFO     | objaverse.xl.github:download_objects:614 - Found 7 repoIds not yet downloaded. Downloading now...
+Grouping objects by repository:   0%|          | 0/7 [00:00<?, ?it/s]Grouping objects by repository: 100%|██████████| 7/7 [00:00<00:00, 1757.14it/s]
+Downloading repositories:   0%|          | 0/7 [00:00<?, ?it/s]Handling 3D object files:   0%|          | 0/48 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 48/48 [00:00<00:00, 2322.45it/s]
+2025-10-02 19:48:57.369 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving Maitrey185/DoorStep as zip
+Handling 3D object files:   0%|          | 0/1582 [00:00<?, ?it/s]Handling 3D object files:  29%|██▉       | 460/1582 [00:00<00:00, 4595.25it/s]Handling 3D object files:  58%|█████▊    | 920/1582 [00:00<00:00, 4486.72it/s]Handling 3D object files:  87%|████████▋ | 1369/1582 [00:00<00:00, 4309.02it/s]Handling 3D object files: 100%|██████████| 1582/1582 [00:00<00:00, 4333.79it/s]
+2025-10-02 19:48:59.265 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving againxx/OASC-Benchmark as zip
+Downloading repositories:  14%|█▍        | 1/7 [00:04<00:27,  4.53s/it]Handling 3D object files:   0%|          | 0/472 [00:00<?, ?it/s]Handling 3D object files:  50%|█████     | 238/472 [00:00<00:00, 2339.17it/s]Handling 3D object files: 100%|██████████| 472/472 [00:00<00:00, 2271.70it/s]Handling 3D object files: 100%|██████████| 472/472 [00:00<00:00, 2280.19it/s]
+2025-10-02 19:49:02.171 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving Badenhoop/chair_manipulation as zip
+Handling 3D object files:   0%|          | 0/218 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 218/218 [00:00<00:00, 3091.62it/s]
+2025-10-02 19:49:11.977 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving mirokshi/aard-jam as zip
+Downloading repositories:  29%|██▊       | 2/7 [00:20<00:55, 11.01s/it]Handling 3D object files:   0%|          | 0/1736 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 1736/1736 [00:00<00:00, 20114.84it/s]
+2025-10-02 19:49:17.018 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving hdneo/mxoassets as zip
+Handling 3D object files:   0%|          | 0/306 [00:00<?, ?it/s]Handling 3D object files:  39%|███▉      | 120/306 [00:00<00:00, 1198.67it/s]Handling 3D object files:  84%|████████▎ | 256/306 [00:00<00:00, 1288.43it/s]Handling 3D object files: 100%|██████████| 306/306 [00:00<00:00, 1171.58it/s]
+2025-10-02 19:49:17.918 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving FullHouseFinal/DIYFinal as zip
+Downloading repositories:  43%|████▎     | 3/7 [00:30<00:42, 10.53s/it]Handling 3D object files:   0%|          | 0/12 [00:00<?, ?it/s]Handling 3D object files:  92%|█████████▏| 11/12 [00:00<00:00, 78.58it/s]Handling 3D object files: 100%|██████████| 12/12 [00:00<00:00, 85.44it/s]
+2025-10-02 19:49:26.082 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving andjixi/rgProjekat as zip
+Downloading repositories:  57%|█████▋    | 4/7 [00:30<00:19,  6.62s/it]Downloading repositories:  71%|███████▏  | 5/7 [00:52<00:24, 12.01s/it]Downloading repositories:  86%|████████▌ | 6/7 [00:57<00:09,  9.89s/it]Downloading repositories: 100%|██████████| 7/7 [01:12<00:00, 11.24s/it]Downloading repositories: 100%|██████████| 7/7 [01:12<00:00, 10.29s/it]
+Couldn't save picture.
+/home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/dining_table/dining_table_33577118197ded541d5ab7df11227f107d441e4068721a8611f02a4bec484a48_obj/textures/Diffuse_Texture.png: Success
+Couldn't save picture.
+/home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/dining_table/dining_table_33577118197ded541d5ab7df11227f107d441e4068721a8611f02a4bec484a48_obj/textures/Diffuse_Texture.png: Success
+Couldn't save picture.
+/home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/dining_table/dining_table_33577118197ded541d5ab7df11227f107d441e4068721a8611f02a4bec484a48_obj/textures/Diffuse_Texture.png: Success
+Couldn't save picture.
+/home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/dining_table/dining_table_33577118197ded541d5ab7df11227f107d441e4068721a8611f02a4bec484a48_obj/textures/Diffuse_Texture.png: Success
+Couldn't save picture.
+/home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/dining_table/dining_table_33577118197ded541d5ab7df11227f107d441e4068721a8611f02a4bec484a48_obj/textures/Diffuse_Texture.png: Success
+Couldn't save picture.
+/home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/dining_table/dining_table_33577118197ded541d5ab7df11227f107d441e4068721a8611f02a4bec484a48_obj/textures/Diffuse_Texture.png: Success
+Couldn't save picture.
+/home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/dining_table/dining_table_33577118197ded541d5ab7df11227f107d441e4068721a8611f02a4bec484a48_obj/textures/Diffuse_Texture.png: Success
+Couldn't save picture.
+/home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/dining_table/dining_table_33577118197ded541d5ab7df11227f107d441e4068721a8611f02a4bec484a48_obj/textures/Diffuse_Texture.png: Success
+Couldn't save picture.
+/home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/dining_table/dining_table_76e8576f0303fc2760fcc38682bc2182e66d3a148911225c2a5e4844b812f157_obj/textures/Diffuse_Texture.png: Success
+Couldn't save picture.
+/home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/dining_table/dining_table_76e8576f0303fc2760fcc38682bc2182e66d3a148911225c2a5e4844b812f157_obj/textures/Diffuse_Texture.png: Success
+Couldn't save picture.
+/home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/dining_table/dining_table_76e8576f0303fc2760fcc38682bc2182e66d3a148911225c2a5e4844b812f157_obj/textures/Diffuse_Texture.png: Success
+Couldn't save picture.
+/home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/dining_table/dining_table_76e8576f0303fc2760fcc38682bc2182e66d3a148911225c2a5e4844b812f157_obj/textures/Diffuse_Texture.png: Success
+Couldn't save picture.
+/home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/dining_table/dining_table_76e8576f0303fc2760fcc38682bc2182e66d3a148911225c2a5e4844b812f157_obj/textures/Diffuse_Texture.png: Success
+Couldn't save picture.
+/home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/dining_table/dining_table_76e8576f0303fc2760fcc38682bc2182e66d3a148911225c2a5e4844b812f157_obj/textures/Diffuse_Texture.png: Success
+Couldn't save picture.
+/home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/dining_table/dining_table_76e8576f0303fc2760fcc38682bc2182e66d3a148911225c2a5e4844b812f157_obj/textures/Diffuse_Texture.png: Success
+Couldn't save picture.
+/home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/dining_table/dining_table_76e8576f0303fc2760fcc38682bc2182e66d3a148911225c2a5e4844b812f157_obj/textures/Diffuse_Texture.png: Success
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/dining_table/dining_table_9cbf405253c8389b2c870a4583a357adc123c45fac114259d2d1880d2558ad6b_obj/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/dining_table/9cbf405253c8389b2c870a4583a357adc123c45fac114259d2d1880d2558ad6b/raw/C:/francisco.arleo/Pictures/Blend/Kitchen/Wood_011a_SD-20190125T205643Z-001/Wood_011a_SD/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/dining_table/9cbf405253c8389b2c870a4583a357adc123c45fac114259d2d1880d2558ad6b/raw/C:/francisco.arleo/Pictures/Blend/Kitchen/Wood_011a_SD-20190125T205643Z-001/Wood_011a_SD/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset 4visual/ObjaverseXL github/dining table/9cbf405253c8389b2c870a4583a357adc123c45fac114259d2d1880d2558ad6b/raw/C:/francisco.arleo/Pictures/Blend/Kitchen/Wood 011a SD-20190125T205643Z-001/Wood 011a SD/
+Failed to open dir (No such file or directory): 
+Failed to open dir (No such file or directory): 
+Failed to open dir (No such file or directory): 
+Failed to open dir (No such file or directory): 
+2025-10-02 19:56:28.981 | INFO     | objaverse.xl.github:download_objects:602 - Provided 8 repoIds with 8 objects to process.
+2025-10-02 19:56:28.981 | INFO     | objaverse.xl.github:download_objects:614 - Found 8 repoIds not yet downloaded. Downloading now...
+Grouping objects by repository:   0%|          | 0/8 [00:00<?, ?it/s]Grouping objects by repository: 100%|██████████| 8/8 [00:00<00:00, 2071.90it/s]
+Downloading repositories:   0%|          | 0/8 [00:00<?, ?it/s]Handling 3D object files:   0%|          | 0/7 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 7/7 [00:00<00:00, 160.60it/s]
+2025-10-02 19:56:35.213 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving anvorguesa/ALIBABA2022II_RV as zip
+Downloading repositories:  12%|█▎        | 1/8 [00:02<00:20,  2.95s/it]Handling 3D object files:   0%|          | 0/1582 [00:00<?, ?it/s]Handling 3D object files:  29%|██▉       | 458/1582 [00:00<00:00, 4579.46it/s]Handling 3D object files:  58%|█████▊    | 916/1582 [00:00<00:00, 4461.64it/s]Handling 3D object files:  86%|████████▌ | 1363/1582 [00:00<00:00, 4260.12it/s]Handling 3D object files: 100%|██████████| 1582/1582 [00:00<00:00, 4312.10it/s]
+2025-10-02 19:56:37.590 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving againxx/OASC-Benchmark as zip
+Handling 3D object files:   0%|          | 0/85 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 85/85 [00:00<00:00, 4891.55it/s]
+2025-10-02 19:56:51.825 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving barbosayyy/ThermoJump as zip
+Downloading repositories:  25%|██▌       | 2/8 [00:20<01:07, 11.27s/it]Handling 3D object files:   0%|          | 0/23 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 23/23 [00:00<00:00, 1304.11it/s]
+2025-10-02 19:56:59.975 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving kogito0325/JumpCompany as zip
+Handling 3D object files:   0%|          | 0/176 [00:00<?, ?it/s]Handling 3D object files:  13%|█▎        | 23/176 [00:00<00:00, 187.94it/s]Handling 3D object files:  44%|████▍     | 78/176 [00:00<00:00, 380.44it/s]Handling 3D object files: 100%|██████████| 176/176 [00:00<00:00, 586.28it/s]
+2025-10-02 19:57:24.248 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving swittig1026/Host-Art-Asset-Network as zip
+Downloading repositories:  38%|███▊      | 3/8 [00:53<01:46, 21.28s/it]Downloading repositories:  50%|█████     | 4/8 [01:10<01:19, 19.75s/it]Handling 3D object files:   0%|          | 0/315 [00:00<?, ?it/s]Handling 3D object files:   3%|▎         | 8/315 [00:00<00:03, 79.80it/s]Handling 3D object files: 100%|██████████| 315/315 [00:00<00:00, 1846.69it/s]
+2025-10-02 19:57:48.550 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving 2227500/Team-Chem-Training-VR-App as zip
+Handling 3D object files:   0%|          | 0/83 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 83/83 [00:00<00:00, 2265.57it/s]
+2025-10-02 19:58:13.832 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving Trafal-guy/DarkMoon as zip
+Downloading repositories:  62%|██████▎   | 5/8 [01:47<01:17, 25.85s/it]Handling 3D object files:   0%|          | 0/648 [00:00<?, ?it/s]Handling 3D object files:  78%|███████▊  | 507/648 [00:00<00:00, 5061.73it/s]Handling 3D object files: 100%|██████████| 648/648 [00:00<00:00, 5255.75it/s]
+2025-10-02 19:59:40.752 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving DueSette/Overtime as zip
+Downloading repositories:  75%|███████▌  | 6/8 [03:14<01:33, 46.59s/it]Downloading repositories:  88%|████████▊ | 7/8 [04:29<00:55, 55.98s/it]Downloading repositories: 100%|██████████| 8/8 [07:18<00:00, 92.13s/it]Downloading repositories: 100%|██████████| 8/8 [07:18<00:00, 54.87s/it]
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/cabinet/cabinet_08e87cbec2e54c2c03ebc3c334c3237a791c25dbbab96bf6e594459e4a0ae2c9_obj/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/cabinet/08e87cbec2e54c2c03ebc3c334c3237a791c25dbbab96bf6e594459e4a0ae2c9/raw/JumpCompany/JumpCompany/Objects/서랍/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/cabinet/08e87cbec2e54c2c03ebc3c334c3237a791c25dbbab96bf6e594459e4a0ae2c9/raw/JumpCompany/JumpCompany/Objects/서랍/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset 4visual/ObjaverseXL github/cabinet/08e87cbec2e54c2c03ebc3c334c3237a791c25dbbab96bf6e594459e4a0ae2c9/raw/JumpCompany/JumpCompany/Objects/서랍/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/cabinet/cabinet_045abc178bc6cadcd3321eaac6ac5256da27a4ab6df950eec40ba98c9f2d2c1e_obj/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/cabinet/045abc178bc6cadcd3321eaac6ac5256da27a4ab6df950eec40ba98c9f2d2c1e/raw/New folder/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/cabinet/045abc178bc6cadcd3321eaac6ac5256da27a4ab6df950eec40ba98c9f2d2c1e/raw/New folder/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset 4visual/ObjaverseXL github/cabinet/045abc178bc6cadcd3321eaac6ac5256da27a4ab6df950eec40ba98c9f2d2c1e/raw/New folder/
+2025-10-02 20:11:58.004 | INFO     | objaverse.xl.github:download_objects:602 - Provided 8 repoIds with 8 objects to process.
+2025-10-02 20:11:58.004 | INFO     | objaverse.xl.github:download_objects:614 - Found 8 repoIds not yet downloaded. Downloading now...
+Grouping objects by repository:   0%|          | 0/8 [00:00<?, ?it/s]Grouping objects by repository: 100%|██████████| 8/8 [00:00<00:00, 2131.93it/s]
+Downloading repositories:   0%|          | 0/8 [00:00<?, ?it/s]Handling 3D object files:   0%|          | 0/2 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 2/2 [00:00<00:00, 1239.27it/s]
+2025-10-02 20:12:03.589 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving argreality/example39.github.io as zip
+Downloading repositories:  12%|█▎        | 1/8 [00:00<00:04,  1.70it/s]Handling 3D object files:   0%|          | 0/2 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 2/2 [00:00<00:00, 1544.29it/s]
+2025-10-02 20:12:03.830 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving argentumreality/example63.github.io as zip
+Handling 3D object files:   0%|          | 0/2 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 2/2 [00:00<00:00, 1058.23it/s]
+2025-10-02 20:12:03.840 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving argreality/example5.github.io as zip
+Downloading repositories:  25%|██▌       | 2/8 [00:00<00:02,  2.65it/s]Handling 3D object files:   0%|          | 0/2 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 2/2 [00:00<00:00, 219.86it/s]
+2025-10-02 20:12:03.986 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving argreality/example152.github.io as zip
+Handling 3D object files:   0%|          | 0/2 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 2/2 [00:00<00:00, 221.48it/s]
+2025-10-02 20:12:04.233 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving argreality/example64.github.io as zip
+Downloading repositories:  50%|█████     | 4/8 [00:01<00:01,  3.62it/s]Downloading repositories:  62%|██████▎   | 5/8 [00:01<00:00,  3.49it/s]Handling 3D object files:   0%|          | 0/1582 [00:00<?, ?it/s]Handling 3D object files:  28%|██▊       | 443/1582 [00:00<00:00, 4426.88it/s]Handling 3D object files:  56%|█████▌    | 886/1582 [00:00<00:00, 4413.60it/s]Handling 3D object files:  84%|████████▍ | 1328/1582 [00:00<00:00, 4250.12it/s]Handling 3D object files: 100%|██████████| 1582/1582 [00:00<00:00, 4272.25it/s]
+2025-10-02 20:12:06.805 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving againxx/OASC-Benchmark as zip
+Handling 3D object files:   0%|          | 0/14 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 14/14 [00:00<00:00, 179.75it/s]
+2025-10-02 20:12:07.449 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving PavleMatijasevic/rg as zip
+Downloading repositories:  75%|███████▌  | 6/8 [00:13<00:07,  3.94s/it]Downloading repositories:  88%|████████▊ | 7/8 [00:20<00:04,  4.65s/it]Handling 3D object files:   0%|          | 0/2134 [00:00<?, ?it/s]Handling 3D object files:  47%|████▋     | 995/2134 [00:00<00:00, 9799.66it/s]Handling 3D object files:  93%|█████████▎| 1975/2134 [00:00<00:00, 4002.42it/s]Handling 3D object files: 100%|██████████| 2134/2134 [00:00<00:00, 3534.30it/s]
+2025-10-02 20:17:24.245 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving Lauphorn/BringBackTheHorizon as zip
+Downloading repositories: 100%|██████████| 8/8 [19:10<00:00, 345.84s/it]Downloading repositories: 100%|██████████| 8/8 [19:10<00:00, 143.78s/it]
+Failed to open dir (No such file or directory): 
+Failed to open dir (No such file or directory): 
+Failed to open dir (No such file or directory): 
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/dresser/dresser_b81e30aa5b5101930730416cfeeee8707ba1dd5ec856809c6138beba2b82b3a6_obj/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/dresser/b81e30aa5b5101930730416cfeeee8707ba1dd5ec856809c6138beba2b82b3a6/Bake/Bedroom_furniture1/Unity/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/dresser/b81e30aa5b5101930730416cfeeee8707ba1dd5ec856809c6138beba2b82b3a6/Bake/Bedroom_furniture1/Unity/
+Failed to open dir (No such file or directory): /home/vault/v100dd/v100dd26/Dataset 4visual/ObjaverseXL github/dresser/b81e30aa5b5101930730416cfeeee8707ba1dd5ec856809c6138beba2b82b3a6/Bake/Bedroom furniture1/Unity/
+Failed to open dir (No such file or directory): 
+Failed to open dir (No such file or directory): 
+Failed to open dir (No such file or directory): 
+Traceback (most recent call last):
+  File "/home/hpc/v100dd/v100dd26/project/Dataset_pipeline/src/pipeline/mesh_pipeline_full.py", line 2684, in <module>
+    main()
+  File "/home/hpc/v100dd/v100dd26/project/Dataset_pipeline/src/pipeline/mesh_pipeline_full.py", line 2545, in main
+    step_download_assets_oxl_per_category(args, P, cat)
+  File "/home/hpc/v100dd/v100dd26/project/Dataset_pipeline/src/pipeline/mesh_pipeline_full.py", line 739, in step_download_assets_oxl_per_category
+    raise FileNotFoundError(f"Label json not found for category '{category}': {label_json_path}")
+FileNotFoundError: Label json not found for category 'drawer': /home/vault/v100dd/v100dd26/Dataset/core_data/labeled_rotations/drawer/final_shape_rotations.json

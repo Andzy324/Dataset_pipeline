@@ -251,6 +251,20 @@ def parse_obj_dirname(dir_name: str) -> Tuple[str, str, str]:
     subA = parts[-2]
     return cat, subA, subB
 
+_FS_LABEL_SANITIZE_PATTERN = re.compile(r"[()]+")
+_FS_LABEL_WS_PATTERN = re.compile(r"\s+")
+def _sanitize_label_for_fs(label: str) -> str:
+    """
+    Remove problematic characters (currently () and whitespace) so labels can be safely
+    used as directory names. Falls back to 'unknown' if nothing remains.
+    """
+    if not label:
+        return "unknown"
+    s = _FS_LABEL_SANITIZE_PATTERN.sub("", label)
+    s = _FS_LABEL_WS_PATTERN.sub("_", s)
+    s = re.sub(r"_+", "_", s).strip("_")
+    return s or "unknown"
+
 def render_out_dir_for_any(model_path: Path, renders_root: Path, scheme: str,
                            dl_backend: str = "custom",
                            oxl_out_cat: Optional[str] = None) -> Path:
@@ -268,10 +282,13 @@ def render_out_dir_for_any(model_path: Path, renders_root: Path, scheme: str,
         toks = _infer_label_sha_from_path(p, oxl_out_cat=oxl_out_cat)
         if toks:
             label, sha = toks
+            label_fs = _sanitize_label_for_fs(label) # remove the '()' from the name
             if scheme == "flat":
-                return renders_root / label /f"{label}_{sha}"
+                # return renders_root / label /f"{label}_{sha}"
+                return renders_root / label_fs / f"{label_fs}_{sha}"
             elif scheme == "hier":
-                return renders_root / label / sha
+                # return renders_root / label / sha
+                return renders_root / label_fs / sha 
             else:
                 raise ValueError("render_scheme must be 'flat' or 'hier'")
 
@@ -714,7 +731,7 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
     - 通过sha256作为key进行关联筛选
     """
     try:
-        from dataset_toolkits.trellis.datasets import ObjaverseXL as OXL
+        from download_toolkits.trellis.datasets import ObjaverseXL as OXL
     except Exception as e:
         raise ImportError(f"Failed to import trellis.datasets.ObjaverseXL: {e}")
 
@@ -975,7 +992,7 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
         
         # 先补全资产（在原始位置）
         try:
-            from dataset_toolkits.build_metadata import ensure_complete_asset_anyformat
+            from download_toolkits.build_metadata import ensure_complete_asset_anyformat
             
             # 使用原始mesh目录作为local_roots，保持目录结构
             # _local_roots = [p for p in [mesh_dir, inst_root] if p and p.exists()]
@@ -1811,6 +1828,7 @@ def step_render(args, P: PipelinePaths, models: Iterable[Path], category: str) -
                "--obj", str(aligned_dir),
                "--out", str(out_root),
                "--num_cams", str(int(args.num_cams)),
+               "--label", str(category),
                "--elev_deg", str(float(args.elev_deg)),
                "--fov_deg", str(float(args.fov_deg)),
                "--image_size", str(int(args.image_size)),
@@ -1819,6 +1837,19 @@ def step_render(args, P: PipelinePaths, models: Iterable[Path], category: str) -
                "--top_ring_dist_scale", str(float(args.top_ring_dist_scale))]
 
         # ==== 可选参数与性能相关参数（按需追加） ====
+        if args.use_uv_textures or ext == ".obj":
+            cmd += ["--use_uv_textures"]
+        if getattr(args, "viz_poses", None):
+            cmd += ["--viz_poses"]
+        if getattr(args, "viz_backend", None):
+            cmd += ["--viz_backend", str(args.viz_backend)]
+        if getattr(args, "viz_show", None):
+            cmd += ["--viz_show"]
+        if getattr(args, "viz_frustum", None):
+            cmd += ["--viz_frustum"]
+        if getattr(args, "viz_max_frustums", None):
+            cmd += ["--viz_max_frustums", str(args.viz_max_frustums)]
+
         if getattr(args, "axis_correction", None):
             cmd += ["--axis_correction", str(args.axis_correction)]
         if getattr(args, "yaw_offset_deg", None):
@@ -1912,6 +1943,7 @@ def step_render(args, P: PipelinePaths, models: Iterable[Path], category: str) -
         cmd = [sys.executable, str(render_script),
                "--obj", str(model),
                "--out", str(out_dir),
+               "--label", str(category),
                "--num_cams", str(int(args.num_cams)),
                "--elev_deg", str(float(args.elev_deg)),
                "--fov_deg", str(float(args.fov_deg)),
@@ -1976,7 +2008,18 @@ def step_render(args, P: PipelinePaths, models: Iterable[Path], category: str) -
         # 贴图：GLB 可不需要，OBJ 强烈建议开启（即使用户未传）
         if args.use_uv_textures or ext == ".obj":
             cmd += ["--use_uv_textures"]
-
+        if args.use_uv_textures or ext == ".obj":
+            cmd += ["--use_uv_textures"]
+        if getattr(args, "viz_poses", None):
+            cmd += ["--viz_poses"]
+        if getattr(args, "viz_backend", None):
+            cmd += ["--viz_backend", str(args.viz_backend)]
+        if getattr(args, "viz_show", None):
+            cmd += ["--viz_show"]
+        if getattr(args, "viz_frustum", None):
+            cmd += ["--viz_frustum"]
+        if getattr(args, "viz_max_frustums", None):
+            cmd += ["--viz_max_frustums", str(args.viz_max_frustums)]
         # OBJ 加载器参数（你在 render_orbit_* 中已实现）
         if args.obj_loader:
             cmd += ["--obj_loader", str(args.obj_loader)]
@@ -2381,6 +2424,18 @@ def build_argparser() -> argparse.ArgumentParser:
     p.add_argument("--force_remerge", action=argparse.BooleanOptionalAction, default=False, help="即便已存在 rot_filename 也强制重新根据 cluster 文件合并一份。")
    
     # Render step opts
+    # --- Camera visualization options ---
+    p.add_argument('--viz_poses', action='store_true',
+                help='Visualize camera poses before rendering')
+    p.add_argument('--viz_backend', choices=['mpl', 'open3d'], default='mpl',
+                help='Use Matplotlib (default) or Open3D for camera viz')
+    p.add_argument('--viz_show', action='store_true',
+                help='Show interactive window (Open3D); otherwise save image')
+    # (optional) frustum drawing
+    p.add_argument('--viz_frustum', action='store_true',
+                help='Draw a small frustum pyramid for each camera (Matplotlib backend)')
+    p.add_argument('--viz_max_frustums', type=int, default=50,
+               help='Max number of frustums to draw for speed')
     p.add_argument("--num_cams", type=int, default=80)
     p.add_argument("--elev_deg", type=float, default=20.0)
     p.add_argument("--fov_deg", type=float, default=60.0)

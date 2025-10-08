@@ -7,9 +7,9 @@
 ############################
 # [核心路径 / 脚本入口]
 ############################
-root: /home/vault/v100dd/v100dd26/Dataset    # Pipeline 根目录（会派生 downloads/aligned_glb/renders 等, oxl: ）
-png_root: /home/vault/v100dd/v100dd26/Dataset      # build_metadata.py 用来推断类别/shape_keys 的 PNG 根, custom mode
-download_root: /home/vault/v100dd/v100dd26/Dataset   # oxl mode; custom，默认在 root 下派生,  
+root: /home/vault/v100dd/v100dd26/Dataset_4visual    # Pipeline 根目录（会派生 downloads/aligned_glb/renders 等, oxl: ）
+png_root: /home/vault/v100dd/v100dd26/Dataset_4visual       # build_metadata.py 用来推断类别/shape_keys 的 PNG 根, custom mode
+download_root: /home/vault/v100dd/v100dd26/Dataset_4visual    # oxl mode; custom，默认在 root 下派生,  
 blender: /home/hpc/v100dd/v100dd26/blender-4.5.3-linux-x64/blender           # Blender 可执行路径
 build_script: /home/hpc/v100dd/v100dd26/project/Dataset_pipeline/src/download_toolkits/build_metadata.py # 用于 custom mode 下生成 metadata and download
 align_script: /home/hpc/v100dd/v100dd26/project/Dataset_pipeline/src/align_export/align_export_snapshot_blender.py
@@ -18,7 +18,7 @@ render_script: /home/hpc/v100dd/v100dd26/project/Dataset_pipeline/src/video_rend
 ############################
 # [流程控制]
 ############################
-steps: [download, align]                     # 运行阶段：download / align / render 的任意子集或任意顺序
+steps: [download, align, render]                     # 运行阶段：download / align / render 的任意子集或任意顺序
 per_category_flow: true               # 按类别流水线：download→align→render 逐类执行
 render_after_each_category: false     # （可选）当 steps 含 align+render 时，在每个类内交错执行
 render_scheme: flat                   # 渲染输出布局：flat/hier
@@ -27,7 +27,8 @@ dry_run: false                        # 仅打印命令不执行
 ############################
 # [选择范围 / 数据筛选] oxl mode labels need to be set as well
 ############################
-categories: [cat, chicken_(animal), monkey]       # 显式指定类别；否则依 rot_dir 或 png_root 自动推断
+categories: [monitor_(computer_equipment) computer_monitor,
+  car_(automobile), pickup_truck, truck, van, bus_(vehicle), motorcycle, bicycle]           # 显式指定类别；否则依 rot_dir 或 png_root 自动推断
 ids_json:                                  # 仅处理该 JSON 中列出的 shape id（可空）, for custom mode
 ids_txt:                                   # 仅处理该 TXT（每行一个 shape_key）（可空）
 debug_limit:                               # 整体 debug 限制数量（整数，可空）
@@ -60,11 +61,12 @@ dl_backend: oxl                            # 下载后端：custom / oxl（Objav
 overwrite_download: true                   # 强制覆盖已下载资源（custom 分支）
 # —— OXL 专属选项 —— /<download_root>/<oxl_out_category>/<label>/<sha>/mesh and raw, raw is the selected out 3d assets; mesh is extracted zip
 oxl_source: github                         # OXL 数据源：sketchfab / github
-label_json: /home/vault/v100dd/v100dd26/Dataset/core_data/all_sha256_to_rotation.json  # 用于按 label 预筛
-labels: [cat, chicken_(animal), monkey]                              # OXL 预筛标签（逗号分隔字符串也可）
+label_json: [monitor_(computer_equipment) computer_monitor,
+  car_(automobile), pickup_truck, truck, van, bus_(vehicle), motorcycle, bicycle]   # according to label                              # OXL 预筛标签（逗号分隔字符串也可）
 label_match_mode: any                      # any/all：与 labels 的匹配逻辑
 oxl_out_category: ObjaverseXL_github       # OXL 下载存放的大类名；空串则保持你现在的用法 
-oxl_labels: [cat, chicken_(animal), monkey]                         # OXL 下游渲染/对齐所用的 label 子目录白名单 oxl_labels == labels
+oxl_labels: [monitor_(computer_equipment) computer_monitor,
+  car_(automobile), pickup_truck, truck, van, bus_(vehicle), motorcycle, bicycle]                            # OXL 下游渲染/对齐所用的 label 子目录白名单 oxl_labels == labels
 oxl_stage_dir:                             # 暂存目录（zip/原始）默认 <download_root>/<oxl_out_category>/_stage
 oxl_keep_stage: false                       # consolidate 后是否保留 _stage
 oxl_keep_pool: false                       # consolidate 后是否保留 _pool, _pool stores the expressed repos and used to pick the meshes and textures out, but disabled in per_category_flow mode
@@ -87,7 +89,7 @@ grid_n:                                    # 网格 nxn 采样点（可空), adj
 prefer_gpu: false                          # Blender 使用 GPU（若可用）
 topdown: true                              # 视点/导出辅助标志, snapshot from top
 clean_aligned_dir: true                    # 导出前清理旧 GLB/OBJ
-limit: 10                                    # Blender 步骤仅处理前 N 个
+limit: 8                                   # Blender 步骤仅处理前 N 个
 require_hollow_for:                        # 需要空腔检测的类别列表（如 ["mug"]），可空, not used
 overwrite_align: true                      # 重新对齐覆盖
 export_format: obj                         # 导出格式：glb / obj
@@ -102,13 +104,20 @@ fov_deg: 60.0
 image_size: 768
 
 # —— 顶环相机参数（环拍） ——
-top_ring_num: 40
+top_ring_num: 0
 top_ring_elev_deg: 78
 top_ring_dist_scale: 0.85
 top_ring_start_azim_deg:                   # 顶部环起始方位角；默认与赤道环一致（加 yaw_offset）
 yaw_offset_deg: 0.0                        # 全局方位偏移（度）
 axis_correction: none                      # 坐标修正：none / y_up_to_z_up / z_up_to_y_up
 seed: 123                                  # 渲染随机种子（确定性）
+
+# —— 相机模式 / 球面采样 ——
+cam_mode: rings                            # rings / random
+rand_cams: 120                             # random 模式下的相机数量
+sphere_dist: 1.4                           # random 模式基准球半径（对齐后单位尺度模型）
+pos_tangent_jitter: 0.02                  # random 模式切向扰动比例 0.02
+depth_jitter: 0.02                         # random 模式半径扰动比例
 
 # —— 材质/贴图/背面剔除 ——
 use_uv_textures: true
@@ -136,18 +145,18 @@ make_depth_video: false
 depth_video_max_meters: 0.0                # <=0 则自动取 99 分位
 save_nocs: False                           # 保存 float32 NOCS .npy
 save_nocs_png8: false                       # 保存 NOCS PNG8 可视化
-make_nocs_video: false                      # 导出 NOCS 视频
+make_nocs_video: true                      # 导出 NOCS 视频
 nocs_norm: bbox                            # bbox / center_scale
 nocs_equal_axis: false                     # center_scale 下用最长边统一尺度
 check_nocs: false                          # 渲染中做跨帧一致性检查
 nocs_check_stride: 8                       # 采样步长
 nocs_check_voxel: 0.02                     # 体素量化步长（0~1）
 nocs_check_topk: 8                         # 打印误差 Top-K
-make_video: false                           # 导出 RGB 视频
-video_fps: 24                              # 视频帧率
+make_video: true                          # 导出 RGB 视频
+video_fps: 12                              # 视频帧率
 overwrite_render: true                     # 覆盖已有渲染结果
 ######################################################################
 # github env setting
 ######################################################################
-github_token: 
+github_token: "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" 
 git_no_prompt: true

@@ -1,0 +1,71 @@
+2025-10-07 15:10:54.661 | INFO     | objaverse.xl.github:download_objects:602 - Provided 32 repoIds with 55 objects to process.
+2025-10-07 15:10:54.662 | INFO     | objaverse.xl.github:download_objects:614 - Found 32 repoIds not yet downloaded. Downloading now...
+Grouping objects by repository:   0%|          | 0/32 [00:00<?, ?it/s]Grouping objects by repository: 100%|██████████| 32/32 [00:00<00:00, 52593.15it/s]
+Downloading repositories:   0%|          | 0/32 [00:00<?, ?it/s]2025-10-07 15:10:57.847 | ERROR    | objaverse.xl.github:_run_command_with_check:172 - Error:
+2025-10-07 15:10:57.847 | ERROR    | objaverse.xl.github:_run_command_with_check:173 - None
+2025-10-07 15:10:57.847 | ERROR    | objaverse.xl.github:_run_command_with_check:174 - None
+2025-10-07 15:10:57.847 | ERROR    | objaverse.xl.github:_process_repo:217 - Could not clone Johnnydev001/r3f-car-shop
+Downloading repositories:   3%|▎         | 1/32 [00:00<00:11,  2.79it/s]Handling 3D object files:   0%|          | 0/6 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 6/6 [00:00<00:00, 2946.13it/s]
+2025-10-07 15:10:58.421 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving AdamJou/Car-Steering-ThreeJS as zip
+Handling 3D object files:   0%|          | 0/8 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 8/8 [00:00<00:00, 460.10it/s]
+2025-10-07 15:10:58.667 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving sarthakchittawar/CG-Assignment-2 as zip
+Handling 3D object files:   0%|          | 0/6 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 6/6 [00:00<00:00, 1635.31it/s]
+Downloading repositories:   6%|▋         | 2/32 [00:01<00:21,  1.42it/s]2025-10-07 15:10:58.792 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving xmadera/models as zip
+Handling 3D object files:   0%|          | 0/1 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 1/1 [00:00<00:00, 2113.00it/s]
+2025-10-07 15:10:58.950 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving teratron/template-godot as zip
+Handling 3D object files:   0%|          | 0/2 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 2/2 [00:00<00:00, 918.80it/s]
+2025-10-07 15:10:58.971 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving neolay/diverse as zip
+Downloading repositories:   9%|▉         | 3/32 [00:01<00:13,  2.09it/s]Handling 3D object files:   0%|          | 0/4 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 4/4 [00:00<00:00, 177.44it/s]
+2025-10-07 15:10:59.192 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving lksj51790q/gg-speed as zip
+Handling 3D object files:   0%|          | 0/21 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 21/21 [00:00<00:00, 943.99it/s]
+2025-10-07 15:10:59.286 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving CiberSword/Lab_CGeIHC_2023-1_ProyectoFinal_CampoComida as zip
+Downloading repositories:  16%|█▌        | 5/32 [00:01<00:07,  3.47it/s]Handling 3D object files:   0%|          | 0/4 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 4/4 [00:00<00:00, 108.28it/s]
+Handling 3D object files:   0%|          | 0/10 [00:00<?, ?it/s]2025-10-07 15:10:59.506 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving TamerSali/3D-Showroom as zip
+Handling 3D object files: 100%|██████████| 10/10 [00:00<00:00, 282.04it/s]
+2025-10-07 15:10:59.552 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving tamesjam/cs324-computer-graphics as zip
+Downloading repositories:  19%|█▉        | 6/32 [00:02<00:09,  2.82it/s]Handling 3D object files:   0%|          | 0/72 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 72/72 [00:00<00:00, 1712.24it/s]
+2025-10-07 15:10:59.903 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving jonri/StuntPlaygroundGodot as zip
+Handling 3D object files:   0%|          | 0/8 [00:00<?, ?it/s]Downloading repositories:  22%|██▏       | 7/32 [00:03<00:17,  1.43it/s]Handling 3D object files:  50%|█████     | 4/8 [00:00<00:00, 19.93it/s]Handling 3D object files: 100%|██████████| 8/8 [00:00<00:00, 31.62it/s]
+2025-10-07 15:11:01.595 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving hasanbasbous/vr-car-showroom as zip
+Handling 3D object files:   0%|          | 0/32 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 32/32 [00:00<00:00, 2020.29it/s]
+2025-10-07 15:11:01.886 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving DARKozDARKA/GameJamNTO as zip
+Downloading repositories:  25%|██▌       | 8/32 [00:04<00:18,  1.27it/s]Downloading repositories:  28%|██▊       | 9/32 [00:05<00:13,  1.67it/s]Handling 3D object files:   0%|          | 0/85 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 85/85 [00:00<00:00, 866.12it/s]
+2025-10-07 15:11:02.701 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving Cardavs/PFCompu as zip
+Downloading repositories:  31%|███▏      | 10/32 [00:05<00:11,  1.90it/s]Handling 3D object files:   0%|          | 0/31 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 31/31 [00:00<00:00, 342.48it/s]
+2025-10-07 15:11:03.059 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving Luistorch/hampo-vr as zip
+Handling 3D object files:   0%|          | 0/169 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 169/169 [00:00<00:00, 4084.04it/s]
+2025-10-07 15:11:03.321 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving leogenot/IMACRUN as zip
+Handling 3D object files:   0%|          | 0/82 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 82/82 [00:00<00:00, 2159.05it/s]
+2025-10-07 15:11:03.690 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving MeisterOfPizza/Gymnasiearbete as zip
+Handling 3D object files:   0%|          | 0/7 [00:00<?, ?it/s]Handling 3D object files:  57%|█████▋    | 4/7 [00:00<00:00, 34.87it/s]Handling 3D object files: 100%|██████████| 7/7 [00:00<00:00, 53.18it/s]
+2025-10-07 15:11:04.320 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving YXYOMI/OpenGL-3D-game as zip
+Handling 3D object files:   0%|          | 0/76 [00:00<?, ?it/s]Handling 3D object files:  49%|████▊     | 37/76 [00:00<00:00, 368.73it/s]Handling 3D object files:  97%|█████████▋| 74/76 [00:00<00:00, 145.29it/s]Handling 3D object files: 100%|██████████| 76/76 [00:00<00:00, 161.65it/s]
+2025-10-07 15:11:05.337 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving bulgat/raceCar3D_js as zip
+Downloading repositories:  34%|███▍      | 11/32 [00:07<00:23,  1.11s/it]Handling 3D object files:   0%|          | 0/76 [00:00<?, ?it/s]Handling 3D object files:  76%|███████▋  | 58/76 [00:00<00:00, 561.38it/s]Handling 3D object files: 100%|██████████| 76/76 [00:00<00:00, 307.67it/s]
+2025-10-07 15:11:05.665 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving GilesPenfold/Traffic-Simulator-2017 as zip
+Handling 3D object files:   0%|          | 0/29 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 29/29 [00:00<00:00, 662.24it/s]
+2025-10-07 15:11:07.673 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving xeeshanqaswar/Dream-Rally as zip
+Downloading repositories:  38%|███▊      | 12/32 [00:12<00:41,  2.05s/it]Downloading repositories:  41%|████      | 13/32 [00:12<00:30,  1.58s/it]Handling 3D object files:   0%|          | 0/30 [00:00<?, ?it/s]Handling 3D object files:  63%|██████▎   | 19/30 [00:00<00:00, 148.08it/s]Handling 3D object files: 100%|██████████| 30/30 [00:00<00:00, 231.64it/s]
+2025-10-07 15:11:11.580 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving RBrooks76/MetaCar-Unity-NFT as zip
+Downloading repositories:  47%|████▋     | 15/32 [00:14<00:22,  1.33s/it]Handling 3D object files:   0%|          | 0/2400 [00:00<?, ?it/s]Downloading repositories:  53%|█████▎    | 17/32 [00:15<00:13,  1.08it/s]Handling 3D object files:  20%|█▉        | 478/2400 [00:00<00:00, 4779.13it/s]Handling 3D object files:  94%|█████████▍| 2264/2400 [00:00<00:00, 12469.53it/s]Handling 3D object files: 100%|██████████| 2400/2400 [00:00<00:00, 11615.50it/s]
+2025-10-07 15:11:13.051 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving 58egor/Fly-dig-drive as zip
+Handling 3D object files:   0%|          | 0/41 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 41/41 [00:00<00:00, 3431.03it/s]
+Downloading repositories:  56%|█████▋    | 18/32 [00:16<00:13,  1.02it/s]2025-10-07 15:11:14.051 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving AbelUcsp/LP-FINAL as zip
+Handling 3D object files:   0%|          | 0/17 [00:00<?, ?it/s]Handling 3D object files:  29%|██▉       | 5/17 [00:00<00:00, 32.66it/s]Handling 3D object files:  71%|███████   | 12/17 [00:00<00:00, 48.58it/s]Handling 3D object files: 100%|██████████| 17/17 [00:00<00:00, 60.46it/s]
+2025-10-07 15:11:17.574 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving DIT113-V22/group-01 as zip
+Downloading repositories:  59%|█████▉    | 19/32 [00:22<00:28,  2.23s/it]Downloading repositories:  62%|██████▎   | 20/32 [00:23<00:21,  1.83s/it]Handling 3D object files:   0%|          | 0/413 [00:00<?, ?it/s]Handling 3D object files:  71%|███████   | 293/413 [00:00<00:00, 2919.42it/s]Handling 3D object files: 100%|██████████| 413/413 [00:00<00:00, 1107.44it/s]
+2025-10-07 15:11:24.689 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving Ardaa891/RaceItV2 as zip
+Handling 3D object files:   0%|          | 0/115 [00:00<?, ?it/s]Handling 3D object files: 100%|██████████| 115/115 [00:00<00:00, 7610.01it/s]
+Downloading repositories:  66%|██████▌   | 21/32 [00:28<00:29,  2.66s/it]2025-10-07 15:11:25.811 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving adrianmoo2/Car-Racing-Multiplayer as zip
+Handling 3D object files:   0%|          | 0/94 [00:00<?, ?it/s]Handling 3D object files:  19%|█▉        | 18/94 [00:00<00:00, 129.65it/s]Handling 3D object files:  49%|████▉     | 46/94 [00:00<00:00, 203.96it/s]Handling 3D object files:  72%|███████▏  | 68/94 [00:00<00:00, 145.60it/s]Handling 3D object files:   0%|          | 0/2153 [00:00<?, ?it/s]Handling 3D object files:  16%|█▋        | 353/2153 [00:00<00:00, 3529.00it/s]Handling 3D object files:  62%|██████▏   | 1342/2153 [00:00<00:00, 7268.72it/s]Handling 3D object files:  90%|█████████ | 85/94 [00:00<00:00, 77.91it/s] Handling 3D object files: 100%|██████████| 2153/2153 [00:00<00:00, 7819.78it/s]
+2025-10-07 15:11:28.740 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving okumus28/ImLegend as zip
+Handling 3D object files: 100%|██████████| 94/94 [00:01<00:00, 89.30it/s]
+2025-10-07 15:11:28.932 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving Lee-hoseong/Lee-hoseong.github.io as zip
+Downloading repositories:  69%|██████▉   | 22/32 [00:34<00:35,  3.58s/it]Downloading repositories:  72%|███████▏  | 23/32 [00:35<00:25,  2.85s/it]Handling 3D object files:   0%|          | 0/2264 [00:00<?, ?it/s]Handling 3D object files:   4%|▍         | 88/2264 [00:00<00:02, 870.67it/s]Handling 3D object files:   8%|▊         | 176/2264 [00:00<00:02, 776.08it/s]Handling 3D object files:  11%|█▏        | 255/2264 [00:00<00:03, 642.38it/s]Handling 3D object files:  14%|█▍        | 322/2264 [00:00<00:03, 611.62it/s]Handling 3D object files:  17%|█▋        | 385/2264 [00:00<00:03, 616.93it/s]Handling 3D object files:  20%|█▉        | 448/2264 [00:00<00:03, 586.01it/s]Handling 3D object files:  23%|██▎       | 512/2264 [00:00<00:02, 600.39it/s]Handling 3D object files:  40%|████      | 911/2264 [00:00<00:00, 1593.91it/s]Handling 3D object files:  48%|████▊     | 1079/2264 [00:01<00:00, 1418.75it/s]Handling 3D object files:  61%|██████    | 1374/2264 [00:01<00:00, 1825.34it/s]Handling 3D object files:  84%|████████▍ | 1908/2264 [00:01<00:00, 2799.74it/s]Handling 3D object files: 100%|██████████| 2264/2264 [00:01<00:00, 1659.61it/s]
+2025-10-07 15:11:36.336 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving 13Stewartc/vehicle_archive as zip
+Downloading repositories:  75%|███████▌  | 24/32 [00:39<00:27,  3.39s/it]Downloading repositories:  78%|███████▊  | 25/32 [00:51<00:39,  5.67s/it]Handling 3D object files:   0%|          | 0/133 [00:00<?, ?it/s]Handling 3D object files:  48%|████▊     | 64/133 [00:00<00:00, 628.80it/s]Handling 3D object files:  95%|█████████▌| 127/133 [00:00<00:00, 403.02it/s]Handling 3D object files: 100%|██████████| 133/133 [00:00<00:00, 426.72it/s]
+2025-10-07 15:11:53.758 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving ajweeks/FlexEngine as zip
+Handling 3D object files:   0%|          | 0/90 [00:00<?, ?it/s]Handling 3D object files:   9%|▉         | 8/90 [00:00<00:01, 71.47it/s]Handling 3D object files:  18%|█▊        | 16/90 [00:00<00:01, 70.73it/s]Handling 3D object files:  27%|██▋       | 24/90 [00:00<00:00, 72.66it/s]Handling 3D object files:  36%|███▌      | 32/90 [00:00<00:00, 71.26it/s]Handling 3D object files:  44%|████▍     | 40/90 [00:00<00:00, 71.16it/s]Handling 3D object files:  53%|█████▎    | 48/90 [00:00<00:00, 72.87it/s]Handling 3D object files:  62%|██████▏   | 56/90 [00:00<00:00, 69.42it/s]Handling 3D object files:  71%|███████   | 64/90 [00:00<00:00, 71.80it/s]Handling 3D object files:  82%|████████▏ | 74/90 [00:01<00:00, 78.32it/s]Handling 3D object files:  94%|█████████▍| 85/90 [00:01<00:00, 84.70it/s]Handling 3D object files: 100%|██████████| 90/90 [00:01<00:00, 78.28it/s]
+2025-10-07 15:12:02.511 | DEBUG    | objaverse.xl.github:_process_repo:328 - Saving corwinzz/cyperto-car as zip
+Downloading repositories:  81%|████████▏ | 26/32 [01:07<00:53,  8.94s/it]Downloading repositories:  84%|████████▍ | 27/32 [01:08<00:32,  6.48s/it]Downloading repositories:  88%|████████▊ | 28/32 [01:17<00:29,  7.26s/it]Downloading repositories:  91%|█████████ | 29/32 [01:27<00:24,  8.06s/it]Downloading repositories:  94%|█████████▍| 30/32 [01:52<00:25, 13.00s/it]Downloading repositories:  97%|█████████▋| 31/32 [01:54<00:09,  9.74s/it]Downloading repositories: 100%|██████████| 32/32 [02:05<00:00, 10.15s/it]Downloading repositories: 100%|██████████| 32/32 [02:05<00:00,  3.92s/it]
+slurmstepd: error: *** JOB 3076045 ON a0703 CANCELLED AT 2025-10-07T15:23:43 ***

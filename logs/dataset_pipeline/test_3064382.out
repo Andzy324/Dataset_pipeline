@@ -1,0 +1,711 @@
+### Starting TaskPrologue of job 3064382 on a0805 at Do 2. Okt 18:28:57 CEST 2025
+Running on cores 32-47 with governor ondemand
+Thu Oct  2 18:28:57 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.82.07              Driver Version: 580.82.07      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-40GB          On  |   00000000:49:00.0 Off |                    0 |
+| N/A   34C    P0             53W /  400W |       0MiB /  40960MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+Job started at Do 2. Okt 18:28:57 CEST 2025
+Python 3.10.18
+Thu Oct  2 18:29:05 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.82.07              Driver Version: 580.82.07      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-40GB          On  |   00000000:49:00.0 Off |                    0 |
+| N/A   34C    P0             53W /  400W |       0MiB /  40960MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+/home/vault/v100dd/v100dd26/miniconda3/envs/shapecanon/bin/git-lfs
+warning: current user is not root/admin, system install is likely to fail.
+warning: error running /usr/libexec/git-core/git 'config' '--includes' '--system' '--replace-all' 'filter.lfs.clean' 'git-lfs clean -- %f': 'error: could not lock config file /etc/gitconfig: Permission denied' 'exit status 255'
+Run `git lfs install --force` to reset Git configuration.
+Running: python src/pipeline/mesh_pipeline_full.py --config src/pipeline/config/for_visual_test.yaml
+=== Per-category flow over categories: ['chair', 'armchair', 'stool', 'sofa', 'bed', 'bunk_bed', 'table', 'dining_table', 'cabinet', 'dresser', 'drawer', 'shelf/bookcase', 'lamp', 'table_lamp', 'chandelier', 'door', 'computer_monitor', 'car_(automobile)', 'pickup_truck', 'truck', 'van', 'bus_(vehicle)', 'motorcycle', 'bicycle'] ===
+===== CATEGORY: chair =====
+[OXL-PER-CAT] Processing category: chair
+[OXL-PER-CAT] Label json: /home/vault/v100dd/v100dd26/Dataset/core_data/labeled_rotations/chair/final_shape_rotations.json
+[OXL-PER-CAT] SHA index CSV: /home/vault/v100dd/v100dd26/Dataset/core_data/metadata.csv
+[OXL-PER-CAT] Found 119 SHAs for category 'chair'
+[OXL-PER-CAT] Applying limit=8 → 8 entries
+[OXL-PER-CAT] Downloading 8 objects to staging...
+[OXL-PER-CAT] [00f7bb91ad048661fe5eac06edde20819ad39666e0e7ed2cfe135dd3d53a3224] ensure(fbx): downloaded=0 missing=0 repo_missing=0 repo_failed=0
+    ▶ OBJ(local): mtl_copied=2 tex_copied=2 skipped=0 failed=0 (roots=/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/014275813c3553fd310ead130259efc2db3fc91282cf143f1d215c2029f84789/mesh, /home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/014275813c3553fd310ead130259efc2db3fc91282cf143f1d215c2029f84789, /home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/014275813c3553fd310ead130259efc2db3fc91282cf143f1d215c2029f84789/mesh/project/models)
+      · expected=1 present=1 placed_now=2 missing=0
+[OXL-PER-CAT] [014275813c3553fd310ead130259efc2db3fc91282cf143f1d215c2029f84789] ensure(obj): downloaded=2 missing=0 repo_missing=0 repo_failed=0
+    ▶ OBJ(local): mtl_copied=0 tex_copied=0 skipped=0 failed=0 (roots=/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/0c48ed54339a899c6c913fd7dcece148b6f6c0c9035a18a28f1f8c22b7c7cef4/mesh, /home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/0c48ed54339a899c6c913fd7dcece148b6f6c0c9035a18a28f1f8c22b7c7cef4, /home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/0c48ed54339a899c6c913fd7dcece148b6f6c0c9035a18a28f1f8c22b7c7cef4/mesh/Assets/Asset/Prop Models/Chairs/Chair - generic kitchen chair pack (Portal and TF2 mod)/Chair - olive green padding)
+      · expected=0 present=0 placed_now=0 missing=0
+[OXL-PER-CAT] [0c48ed54339a899c6c913fd7dcece148b6f6c0c9035a18a28f1f8c22b7c7cef4] ensure(obj): downloaded=0 missing=0 repo_missing=0 repo_failed=0
+[OXL-PER-CAT] [01fef48b18189d78410f1f85d3e8ac113bff9151fa42239e90d87bc34e12938f] ensure(fbx): downloaded=0 missing=0 repo_missing=0 repo_failed=0
+    ▶ OBJ(local): mtl_copied=2 tex_copied=2 skipped=0 failed=0 (roots=/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/06ff2e7997daf23a96ed88857c603cc03d8563408528a938401633cbbf7a5e2c/mesh, /home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/06ff2e7997daf23a96ed88857c603cc03d8563408528a938401633cbbf7a5e2c, /home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/06ff2e7997daf23a96ed88857c603cc03d8563408528a938401633cbbf7a5e2c/mesh/models/Project/chair2b)
+      · expected=1 present=1 placed_now=2 missing=0
+[OXL-PER-CAT] [06ff2e7997daf23a96ed88857c603cc03d8563408528a938401633cbbf7a5e2c] ensure(obj): downloaded=2 missing=0 repo_missing=0 repo_failed=0
+[OXL-PER-CAT] [09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a] ensure(fbx): downloaded=0 missing=8 repo_missing=0 repo_failed=0
+[OXL-PER-CAT] [091af025f5b43c34133c578df7bcfbaa4aba707709ed9005d660d6c58f7c4c1b] ensure(fbx): downloaded=0 missing=1 repo_missing=0 repo_failed=0
+[OXL-PER-CAT] [0c57eb8744627d51121145f29e58d1b58bf0b862be9a754ac6c88f933dd0b45b] ensure(fbx): downloaded=0 missing=0 repo_missing=0 repo_failed=0
+[OXL-PER-CAT] ensure summary:
+  · total items: 8
+  · fetched: 6
+  · missing: 2
+[OXL-PER-CAT] Wrote detailed report: /home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/oxl_detailed_report.csv
+[OXL-PER-CAT] Processed 8/8 downloaded objects (targets=8) for category 'chair'
+[OXL-PER-CAT] Wrote metadata: /home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/metadata_chair.csv (8 rows)
+[OXL-PER-CAT] Wrote report: /home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/report.json
+[OXL-PER-CAT] Wrote report CSV: /home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/report.csv
+[OXL-PER-CAT] Cleaned staging directory: /home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/chair_stage
+--- [cat] Step 2: Align & export GLBs ---
+[OXL] downloads under: /home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair
+$ /home/hpc/v100dd/v100dd26/blender-4.5.3-linux-x64/blender -b -P /home/hpc/v100dd/v100dd26/project/Dataset_pipeline/src/align_export/align_export_snapshot_blender.py -- --json /home/vault/v100dd/v100dd26/Dataset/core_data/labeled_rotations/chair/final_shape_rotations.json --data_root /home/vault/v100dd/v100dd26/Dataset_4visual --category chair --out_dir /home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair --snapshot snapshot.png --normalize_unit --target_size 1.0 --topdown --clean_out_dir --overwrite --limit 8 --export_format obj --oxl_layout --oxl_out_category ObjaverseXL_github --oxl_filter_by_label
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/014275813c3553fd310ead130259efc2db3fc91282cf143f1d215c2029f84789/raw/textures/imgChair_IvarTexture.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: 'textures/imgChair_IvarTexture.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: 'textures/imgChair IvarTexture.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/014275813c3553fd310ead130259efc2db3fc91282cf143f1d215c2029f84789/raw/imgChair_IvarTexture.png'
+Blender 4.5.3 LTS (hash 67807e1800cc built 2025-09-09 01:38:15)
+OBJ import of 'sediaBx_fixed.obj' took 20.61 ms
+Error: Image 'imgChair_IvarTexture.png' does not have any image data
+Writing to /home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/chair_014275813c3553fd310ead130259efc2db3fc91282cf143f1d215c2029f84789_obj/model.obj
+OBJ export of 'model.obj' took 26.79 ms
+Error: Image 'imgChair_IvarTexture.png' does not have any image data
+Writing to /home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/chair_0c57eb8744627d51121145f29e58d1b58bf0b862be9a754ac6c88f933dd0b45b_obj/model.obj
+OBJ export of 'model.obj' took 7.68 ms
+OBJ import of 'chair2b_fixed.obj' took 8.96 ms
+Writing to /home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/chair_06ff2e7997daf23a96ed88857c603cc03d8563408528a938401633cbbf7a5e2c_obj/model.obj
+OBJ export of 'model.obj' took 8.17 ms
+Writing to /home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/chair_01fef48b18189d78410f1f85d3e8ac113bff9151fa42239e90d87bc34e12938f_obj/model.obj
+OBJ export of 'model.obj' took 9.81 ms
+Error: Image 'Map #440' does not have any image data
+Writing to /home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/chair_091af025f5b43c34133c578df7bcfbaa4aba707709ed9005d660d6c58f7c4c1b_obj/model.obj
+OBJ export of 'model.obj' took 9.45 ms
+Error: Image 'Map #440' does not have any image data
+Error: Image 'file4' does not have any image data
+Error: Image 'file2' does not have any image data
+Error: Image 'file3' does not have any image data
+Error: Image 'file1' does not have any image data
+Error: Image 'file5' does not have any image data
+Error: Image 'file8' does not have any image data
+Error: Image 'file6' does not have any image data
+Error: Image 'file7' does not have any image data
+Writing to /home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/chair_09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a_obj/model.obj
+OBJ export of 'model.obj' took 53.15 ms
+Error: Image 'file4' does not have any image data
+Error: Image 'file2' does not have any image data
+Error: Image 'file3' does not have any image data
+Error: Image 'file1' does not have any image data
+Error: Image 'file5' does not have any image data
+Error: Image 'file8' does not have any image data
+Error: Image 'file6' does not have any image data
+Error: Image 'file7' does not have any image data
+ERROR (io.obj): source/blender/io/wavefront_obj/importer/obj_import_file_reader.cc:861 parse_and_store: OBJ import: cannot read from MTL file: '/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/0c48ed54339a899c6c913fd7dcece148b6f6c0c9035a18a28f1f8c22b7c7cef4/raw/D:\XNALara XPS\data\! Medical and scientific research\! Furniture\Furniture - chair pack (Portal mod)\Chair - olive green padding\chair.mtl'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/chair_014275813c3553fd310ead130259efc2db3fc91282cf143f1d215c2029f84789_obj//home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/014275813c3553fd310ead130259efc2db3fc91282cf143f1d215c2029f84789/raw/textures/imgChair_IvarTexture.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/014275813c3553fd310ead130259efc2db3fc91282cf143f1d215c2029f84789/raw/textures/imgChair_IvarTexture.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset 4visual/ObjaverseXL github/chair/014275813c3553fd310ead130259efc2db3fc91282cf143f1d215c2029f84789/raw/textures/imgChair IvarTexture.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/chair_014275813c3553fd310ead130259efc2db3fc91282cf143f1d215c2029f84789_obj/imgChair_IvarTexture.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/chair_091af025f5b43c34133c578df7bcfbaa4aba707709ed9005d660d6c58f7c4c1b_obj//home/vault/Max작업물/Camping_ground_0809_0910/Campfire_chair.psd'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/Max작업물/Camping_ground_0809_0910/Campfire_chair.psd'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/Max작업물/Camping ground 0809 0910/Campfire chair.psd'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/chair_091af025f5b43c34133c578df7bcfbaa4aba707709ed9005d660d6c58f7c4c1b_obj/Campfire_chair.psd'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/chair_09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a_obj//home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/4_BaseColor.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/4_BaseColor.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset 4visual/ObjaverseXL github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/4 BaseColor.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/chair_09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a_obj/4_BaseColor.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/chair_09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a_obj//home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/2_BaseColor.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/2_BaseColor.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset 4visual/ObjaverseXL github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/2 BaseColor.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/chair_09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a_obj/2_BaseColor.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/chair_09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a_obj//home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/3_BaseColor.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/3_BaseColor.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset 4visual/ObjaverseXL github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/3 BaseColor.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/chair_09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a_obj/3_BaseColor.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/chair_09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a_obj//home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/1_BaseColor.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/1_BaseColor.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset 4visual/ObjaverseXL github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/1 BaseColor.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/chair_09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a_obj/1_BaseColor.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/chair_09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a_obj//home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/5_BaseColor.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/5_BaseColor.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset 4visual/ObjaverseXL github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/5 BaseColor.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/chair_09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a_obj/5_BaseColor.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/chair_09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a_obj//home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/8_BaseColor.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/8_BaseColor.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset 4visual/ObjaverseXL github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/8 BaseColor.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/chair_09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a_obj/8_BaseColor.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/chair_09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a_obj//home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/6_BaseColor.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/6_BaseColor.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset 4visual/ObjaverseXL github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/6 BaseColor.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/chair_09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a_obj/6_BaseColor.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/chair_09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a_obj//home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/7_BaseColor.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/7_BaseColor.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset 4visual/ObjaverseXL github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/7 BaseColor.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/chair_09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a_obj/7_BaseColor.png'
+OBJ import of 'chair.obj' took 1.90 ms
+Writing to /home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/chair_0c48ed54339a899c6c913fd7dcece148b6f6c0c9035a18a28f1f8c22b7c7cef4_obj/model.obj
+OBJ export of 'model.obj' took 7.90 ms
+Writing to /home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/chair_00f7bb91ad048661fe5eac06edde20819ad39666e0e7ed2cfe135dd3d53a3224_obj/model.obj
+OBJ export of 'model.obj' took 6.98 ms
+OBJ import of 'model.obj' took 17.97 ms
+OBJ import of 'model.obj' took 3.54 ms
+OBJ import of 'model.obj' took 3.81 ms
+OBJ import of 'model.obj' took 5.17 ms
+OBJ import of 'model.obj' took 2.88 ms
+OBJ import of 'model.obj' took 40.74 ms
+OBJ import of 'model.obj' took 1.78 ms
+OBJ import of 'model.obj' took 2.13 ms
+Fra:1 Mem:14.77M (Peak 14.77M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Sun
+Fra:1 Mem:14.77M (Peak 14.77M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Area
+Fra:1 Mem:14.77M (Peak 14.77M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | sedia_02_Ivar_Pinea_Plane.001
+Fra:1 Mem:14.77M (Peak 14.77M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | stickjoint.001
+Fra:1 Mem:15.79M (Peak 15.79M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | pCube1
+Fra:1 Mem:16.80M (Peak 16.80M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | chair
+Fra:1 Mem:16.84M (Peak 16.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Chair1
+Fra:1 Mem:23.86M (Peak 23.87M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Initializing
+Fra:1 Mem:22.67M (Peak 23.87M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Waiting for render to start
+Fra:1 Mem:22.67M (Peak 23.87M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Scene
+Fra:1 Mem:22.67M (Peak 23.87M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Shaders
+Fra:1 Mem:22.67M (Peak 23.87M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Loading render kernels (may take a few minutes the first time)
+Fra:1 Mem:22.77M (Peak 23.87M) | Time:00:00.01 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Procedurals
+Fra:1 Mem:22.77M (Peak 23.87M) | Time:00:00.01 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Background
+Fra:1 Mem:22.77M (Peak 23.87M) | Time:00:00.01 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Camera
+Fra:1 Mem:22.77M (Peak 23.87M) | Time:00:00.01 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Meshes Flags
+Fra:1 Mem:22.77M (Peak 23.87M) | Time:00:00.01 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Objects
+Fra:1 Mem:22.77M (Peak 23.87M) | Time:00:00.01 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Objects | Copying Transformations to device
+Fra:1 Mem:22.77M (Peak 23.87M) | Time:00:00.01 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Particle Systems
+Fra:1 Mem:22.77M (Peak 23.87M) | Time:00:00.01 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Particle Systems | Copying Particles to device
+Fra:1 Mem:22.77M (Peak 23.87M) | Time:00:00.01 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Meshes
+Fra:1 Mem:22.77M (Peak 23.87M) | Time:00:00.01 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Objects | Applying Static Transformations
+Fra:1 Mem:22.77M (Peak 23.87M) | Time:00:00.01 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Mesh | Computing attributes
+Fra:1 Mem:24.56M (Peak 24.56M) | Time:00:00.01 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Mesh | Copying Attributes to device
+Fra:1 Mem:24.56M (Peak 24.56M) | Time:00:00.01 | Mem:1.81M, Peak:1.81M | Scene, ViewLayer | Updating Scene BVH | Building
+Fra:1 Mem:24.56M (Peak 24.56M) | Time:00:00.02 | Mem:1.81M, Peak:1.81M | Scene, ViewLayer | Updating Scene BVH | Building BVH
+Fra:1 Mem:24.56M (Peak 24.56M) | Time:00:00.02 | Mem:3.71M, Peak:3.71M | Scene, ViewLayer | Updating Scene BVH | Building BVH 0%
+Fra:1 Mem:24.56M (Peak 24.56M) | Time:00:00.02 | Mem:5.78M, Peak:7.68M | Scene, ViewLayer | Updating Scene BVH | Copying BVH to device
+Fra:1 Mem:24.56M (Peak 24.56M) | Time:00:00.02 | Mem:5.78M, Peak:7.68M | Scene, ViewLayer | Updating Mesh | Computing normals
+Fra:1 Mem:26.28M (Peak 26.28M) | Time:00:00.02 | Mem:5.78M, Peak:7.68M | Scene, ViewLayer | Updating Mesh | Copying Mesh to device
+Fra:1 Mem:26.28M (Peak 26.28M) | Time:00:00.02 | Mem:7.49M, Peak:7.68M | Scene, ViewLayer | Updating Objects Flags
+Fra:1 Mem:26.28M (Peak 26.28M) | Time:00:00.02 | Mem:7.49M, Peak:7.68M | Scene, ViewLayer | Updating Primitive Offsets
+Fra:1 Mem:26.28M (Peak 26.28M) | Time:00:00.02 | Mem:7.49M, Peak:7.68M | Scene, ViewLayer | Updating Images
+Fra:1 Mem:26.28M (Peak 26.28M) | Time:00:00.02 | Mem:7.49M, Peak:7.68M | Scene, ViewLayer | Updating Images | Loading 4_BaseColor.png
+Fra:1 Mem:26.28M (Peak 26.28M) | Time:00:00.02 | Mem:7.49M, Peak:7.68M | Scene, ViewLayer | Updating Images | Loading 8_BaseColor.png
+Fra:1 Mem:26.29M (Peak 26.29M) | Time:00:00.02 | Mem:7.49M, Peak:7.68M | Scene, ViewLayer | Updating Images | Loading 6_BaseColor.png
+Fra:1 Mem:34.54M (Peak 34.54M) | Time:00:00.03 | Mem:15.74M, Peak:15.74M | Scene, ViewLayer | Updating Camera Volume
+Fra:1 Mem:34.54M (Peak 34.54M) | Time:00:00.03 | Mem:15.74M, Peak:15.74M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:34.54M (Peak 34.54M) | Time:00:00.03 | Mem:15.83M, Peak:15.83M | Scene, ViewLayer | Updating Lights
+Fra:1 Mem:34.54M (Peak 34.54M) | Time:00:00.03 | Mem:15.83M, Peak:15.83M | Scene, ViewLayer | Updating Lights | Computing tree
+Fra:1 Mem:34.54M (Peak 34.54M) | Time:00:00.03 | Mem:15.83M, Peak:15.83M | Scene, ViewLayer | Updating Integrator
+Fra:1 Mem:34.54M (Peak 34.54M) | Time:00:00.03 | Mem:15.83M, Peak:15.83M | Scene, ViewLayer | Updating Film
+Fra:1 Mem:34.54M (Peak 34.54M) | Time:00:00.03 | Mem:15.75M, Peak:15.83M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:34.54M (Peak 34.54M) | Time:00:00.03 | Mem:15.83M, Peak:15.83M | Scene, ViewLayer | Updating Baking
+Fra:1 Mem:34.54M (Peak 34.54M) | Time:00:00.03 | Mem:15.83M, Peak:15.83M | Scene, ViewLayer | Updating Device | Writing constant memory
+Fra:1 Mem:34.55M (Peak 34.55M) | Time:00:00.03 | Mem:15.83M, Peak:15.83M | Scene, ViewLayer | Loading denoising kernels (may take a few minutes the first time)
+Fra:1 Mem:34.55M (Peak 34.55M) | Time:00:00.03 | Mem:15.83M, Peak:15.83M | Scene, ViewLayer | Sample 0/64
+Fra:1 Mem:173.87M (Peak 173.87M) | Time:00:00.08 | Remaining:00:02.96 | Mem:155.00M, Peak:155.00M | Scene, ViewLayer | Sample 1/64
+Fra:1 Mem:232.46M (Peak 320.36M) | Time:00:05.57 | Mem:155.00M, Peak:155.00M | Scene, ViewLayer | Sample 64/64
+Fra:1 Mem:232.46M (Peak 320.36M) | Time:00:05.57 | Mem:155.00M, Peak:155.00M | Scene, ViewLayer | Finished
+Saved: '/home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/snapshot_obj.png'
+Time: 00:05.76 (Saving: 00:00.19)
+
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+[align] relink: fixed=0, missing=1
+Info: Saved "_import_tmp.blend"
+Info: Total files 1 | Changed 1 | Failed 0
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/014275813c3553fd310ead130259efc2db3fc91282cf143f1d215c2029f84789/raw/textures/imgChair_IvarTexture.png' not found
+Info: Packed 1 file(s)
+Object: sedia_02_Ivar_Pinea_Plane.001, material slots = 1
+  Slot 0: Material = chair_untitled.001
+    Image: //textures/imgChair_IvarTexture.png size=<bpy_int[2], Image.size>
+Info: File exported successfully
+[warn] MTL map refers to missing file: /home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/014275813c3553fd310ead130259efc2db3fc91282cf143f1d215c2029f84789/raw/textures/imgChair_IvarTexture.png
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+FBX version: 7400
+Info: Saved "chair.temp.blend"
+Info: Total files 1 | Changed 0 | Failed 0
+Info: Saved "chair.temp.blend"
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/0c57eb8744627d51121145f29e58d1b58bf0b862be9a754ac6c88f933dd0b45b/raw/chair.fbm/36.item_chair .png' not found
+Info: Packed 1 file(s)
+[align] relink: fixed=1, missing=0
+Info: Saved "_import_tmp.blend"
+Info: Total files 1 | Changed 1 | Failed 0
+Info: Packed 1 file(s)
+Object: Cube, material slots = 1
+  Slot 0: Material = chair
+    Image: //chair.fbm/36.item_chair .png size=<bpy_int[2], Image.size>
+Info: File exported successfully
+[warn] MTL map refers to missing file: .png
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+[align] relink: fixed=0, missing=0
+Info: Saved "_import_tmp.blend"
+Info: Total files 1 | Changed 1 | Failed 0
+Info: Packed 1 file(s)
+Object: chair2b_fixed, material slots = 1
+  Slot 0: Material = chair
+    Image: //textures/chair.jpg size=<bpy_int[2], Image.size>
+Info: File exported successfully
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+FBX version: 7500
+Info: Saved "chair.temp.blend"
+Info: Total files 1 | Changed 0 | Failed 0
+Info: Saved "chair.temp.blend"
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/01fef48b18189d78410f1f85d3e8ac113bff9151fa42239e90d87bc34e12938f/raw/chair.fbm/Firewatch_T_diffuse.jpg' not found
+Info: Packed 1 file(s)
+[align] relink: fixed=1, missing=0
+Info: Saved "_import_tmp.blend"
+Info: Total files 1 | Changed 1 | Failed 0
+Info: Packed 1 file(s)
+Object: stickjoint.001, material slots = 2
+  Slot 0: Material = lambert3
+    Image: //chair.fbm/Firewatch_T_diffuse.jpg size=<bpy_int[2], Image.size>
+  Slot 1: Material = lambert2
+    Image: //chair.fbm/Firewatch_T_diffuse.jpg size=<bpy_int[2], Image.size>
+Info: File exported successfully
+[warn] MTL map refers to missing file: Firewatch_T_diffuse.jpg
+[warn] MTL map refers to missing file: Firewatch_T_diffuse.jpg
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+FBX version: 7400
+WARNING: material link b'3dsMax|Parameters|base_color_map' ignored
+Warning: Could not find 'Campfire_chair.psd' in '/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/091af025f5b43c34133c578df7bcfbaa4aba707709ed9005d660d6c58f7c4c1b/raw'
+Info: Saved "CP_Chair_A.temp.blend"
+Info: Total files 1 | Changed 1 | Failed 0
+Info: Saved "CP_Chair_A.temp.blend"
+Error: Unable to pack file, source path '/home/vault/Max작업물/Camping_ground_0809_0910/Campfire_chair.psd' not found
+Info: Packed 1 file(s)
+[align] relink: fixed=0, missing=1
+Info: Saved "_import_tmp.blend"
+Info: Total files 1 | Changed 0 | Failed 0
+Error: Unable to pack file, source path '/home/vault/Max작업물/Camping_ground_0809_0910/Campfire_chair.psd' not found
+Info: Packed 1 file(s)
+Object: CP_Chair_A, material slots = 1
+  Slot 0: Material = campfire
+    Image: //../../../../../../../Max작업물/Camping_ground_0809_0910/Campfire_chair.psd size=<bpy_int[2], Image.size>
+Info: File exported successfully
+[warn] MTL map refers to missing file: /home/vault/Max작업물/Camping_ground_0809_0910/Campfire_chair.psd
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+FBX version: 7400
+Warning: Could not find '1_BaseColor.png' in '/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw'
+Warning: Could not find '2_BaseColor.png' in '/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw'
+Warning: Could not find '3_BaseColor.png' in '/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw'
+Warning: Could not find '4_BaseColor.png' in '/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw'
+Warning: Could not find '5_BaseColor.png' in '/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw'
+Warning: Could not find '6_BaseColor.png' in '/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw'
+Warning: Could not find '7_BaseColor.png' in '/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw'
+Warning: Could not find '8_BaseColor.png' in '/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw'
+Info: Saved "chair3.temp.blend"
+Info: Total files 8 | Changed 8 | Failed 0
+Info: Saved "chair3.temp.blend"
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/1_BaseColor.png' not found
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/2_BaseColor.png' not found
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/3_BaseColor.png' not found
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/4_BaseColor.png' not found
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/5_BaseColor.png' not found
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/6_BaseColor.png' not found
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/7_BaseColor.png' not found
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/8_BaseColor.png' not found
+Info: Packed 8 file(s)
+[align] relink: fixed=0, missing=8
+Info: Saved "_import_tmp.blend"
+Info: Total files 8 | Changed 0 | Failed 0
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/1_BaseColor.png' not found
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/2_BaseColor.png' not found
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/3_BaseColor.png' not found
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/4_BaseColor.png' not found
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/5_BaseColor.png' not found
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/6_BaseColor.png' not found
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/7_BaseColor.png' not found
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/8_BaseColor.png' not found
+Info: Packed 8 file(s)
+Object: pCube1, material slots = 8
+  Slot 0: Material = phong4
+    Image: //4_BaseColor.png size=<bpy_int[2], Image.size>
+  Slot 1: Material = phong2
+    Image: //2_BaseColor.png size=<bpy_int[2], Image.size>
+  Slot 2: Material = phong3
+    Image: //3_BaseColor.png size=<bpy_int[2], Image.size>
+  Slot 3: Material = phong1
+    Image: //1_BaseColor.png size=<bpy_int[2], Image.size>
+  Slot 4: Material = phong5
+    Image: //5_BaseColor.png size=<bpy_int[2], Image.size>
+  Slot 5: Material = phong8
+    Image: //8_BaseColor.png size=<bpy_int[2], Image.size>
+  Slot 6: Material = phong6
+    Image: //6_BaseColor.png size=<bpy_int[2], Image.size>
+  Slot 7: Material = phong7
+    Image: //7_BaseColor.png size=<bpy_int[2], Image.size>
+Info: File exported successfully
+[warn] MTL map refers to missing file: /home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/1_BaseColor.png
+[warn] MTL map refers to missing file: /home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/2_BaseColor.png
+[warn] MTL map refers to missing file: /home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/3_BaseColor.png
+[warn] MTL map refers to missing file: /home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/4_BaseColor.png
+[warn] MTL map refers to missing file: /home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/5_BaseColor.png
+[warn] MTL map refers to missing file: /home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/6_BaseColor.png
+[warn] MTL map refers to missing file: /home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/7_BaseColor.png
+[warn] MTL map refers to missing file: /home/vault/v100dd/v100dd26/Dataset_4visual/ObjaverseXL_github/chair/09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/raw/8_BaseColor.png
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+[align] relink: fixed=0, missing=0
+Info: Saved "_import_tmp.blend"
+Info: Total files 0 | Changed 0 | Failed 0
+Info: No new files have been packed
+Object: chair, material slots = 2
+  Slot 0: Material = Model001_Material001
+    [!] No Image Texture node found
+  Slot 1: Material = Model001_Material002
+    [!] No Image Texture node found
+Info: File exported successfully
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+FBX version: 7700
+Info: Saved "Default Chair.temp.blend"
+Info: Total files 0 | Changed 0 | Failed 0
+Info: Saved "Default Chair.temp.blend"
+Info: No new files have been packed
+[align] relink: fixed=0, missing=0
+Info: Saved "_import_tmp.blend"
+Info: Total files 0 | Changed 0 | Failed 0
+Info: No new files have been packed
+Object: Chair1, material slots = 1
+  Slot 0: Material = brown
+    [!] No Image Texture node found
+Info: File exported successfully
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+[SUMMARY] imported=8  valid=8  invalid=111
+[OK] report: /home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/align_report_obj.tsv
+Info: No orphaned data-blocks to purge
+[OK] snapshot saved: /home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/snapshot_obj.png
+[OK] exported: 8 → /home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair
+
+Blender quit
+[done] rc=0  time=17.58s
+--- [cat] Step 3: Render orbit RGBD & videos ---
+[INFO] chair: to render → 8 item(s) (OBJ) → flat storage
+[render/batch] cat=chair  dir=/home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair  out=/home/vault/v100dd/v100dd26/Dataset_4visual/renders_xl/chair  total=8
+$ /home/vault/v100dd/v100dd26/miniconda3/envs/shapecanon/bin/python /home/hpc/v100dd/v100dd26/project/Dataset_pipeline/src/video_render/render_orbit_full.py --obj /home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair --out /home/vault/v100dd/v100dd26/Dataset_4visual/renders_xl/chair --num_cams 40 --elev_deg 20.0 --fov_deg 60.0 --image_size 768 --top_ring_num 0 --top_ring_elev_deg 78.0 --top_ring_dist_scale 0.85 --axis_correction none --seed 123 --batch_chunk 8 --bin_size 64 --max_faces_per_bin 200000 --no_cull_backfaces --save_h5 --make_nocs_video --nocs_norm bbox --make_video --video_fps 12 --cam_mode rings --rand_cams 120 --sphere_dist 1.4 --pos_tangent_jitter 0.02 --depth_jitter 0.02 --input_format obj --use_uv_textures --obj_loader trimesh --atlas_size 512 --atlas_mem_limit_gb 2.0 --overwrite --manifest /tmp/3064382.alex/tmpab4sw1sp_render_manifest.json
+[info] GPU rendering on: NVIDIA A100-SXM4-40GB
+[p3d] torch=2.1.2 cuda=11.8; pytorch3d=0.7.4 HAVE_P3D=True HAVE_LOAD_OBJS_AS_MESHES=True HAVE_LOAD_OBJ=True
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/chair_00f7bb91ad048661fe5eac06edde20819ad39666e0e7ed2cfe135dd3d53a3224_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset_4visual/renders_xl/chair/chair_00f7bb91ad048661fe5eac06edde20819ad39666e0e7ed2cfe135dd3d53a3224 =====
+[NOCS-VIDEO] wrote 40 frames → /home/vault/v100dd/v100dd26/Dataset_4visual/renders_xl/chair/chair_00f7bb91ad048661fe5eac06edde20819ad39666e0e7ed2cfe135dd3d53a3224/orbit_nocs_norm.mp4
+[NOCS-VIDEO] wrote 40 frames → /home/vault/v100dd/v100dd26/Dataset_4visual/renders_xl/chair/chair_00f7bb91ad048661fe5eac06edde20819ad39666e0e7ed2cfe135dd3d53a3224/orbit_nocs_plus.mp4
+time: 15.58 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/chair_014275813c3553fd310ead130259efc2db3fc91282cf143f1d215c2029f84789_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset_4visual/renders_xl/chair/chair_014275813c3553fd310ead130259efc2db3fc91282cf143f1d215c2029f84789 =====
+[NOCS-VIDEO] wrote 40 frames → /home/vault/v100dd/v100dd26/Dataset_4visual/renders_xl/chair/chair_014275813c3553fd310ead130259efc2db3fc91282cf143f1d215c2029f84789/orbit_nocs_norm.mp4
+[NOCS-VIDEO] wrote 40 frames → /home/vault/v100dd/v100dd26/Dataset_4visual/renders_xl/chair/chair_014275813c3553fd310ead130259efc2db3fc91282cf143f1d215c2029f84789/orbit_nocs_plus.mp4
+time: 12.08 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/chair_01fef48b18189d78410f1f85d3e8ac113bff9151fa42239e90d87bc34e12938f_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset_4visual/renders_xl/chair/chair_01fef48b18189d78410f1f85d3e8ac113bff9151fa42239e90d87bc34e12938f =====
+[NOCS-VIDEO] wrote 40 frames → /home/vault/v100dd/v100dd26/Dataset_4visual/renders_xl/chair/chair_01fef48b18189d78410f1f85d3e8ac113bff9151fa42239e90d87bc34e12938f/orbit_nocs_norm.mp4
+[NOCS-VIDEO] wrote 40 frames → /home/vault/v100dd/v100dd26/Dataset_4visual/renders_xl/chair/chair_01fef48b18189d78410f1f85d3e8ac113bff9151fa42239e90d87bc34e12938f/orbit_nocs_plus.mp4
+time: 12.85 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/chair_06ff2e7997daf23a96ed88857c603cc03d8563408528a938401633cbbf7a5e2c_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset_4visual/renders_xl/chair/chair_06ff2e7997daf23a96ed88857c603cc03d8563408528a938401633cbbf7a5e2c =====
+[NOCS-VIDEO] wrote 40 frames → /home/vault/v100dd/v100dd26/Dataset_4visual/renders_xl/chair/chair_06ff2e7997daf23a96ed88857c603cc03d8563408528a938401633cbbf7a5e2c/orbit_nocs_norm.mp4
+[NOCS-VIDEO] wrote 40 frames → /home/vault/v100dd/v100dd26/Dataset_4visual/renders_xl/chair/chair_06ff2e7997daf23a96ed88857c603cc03d8563408528a938401633cbbf7a5e2c/orbit_nocs_plus.mp4
+time: 12.29 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/chair_091af025f5b43c34133c578df7bcfbaa4aba707709ed9005d660d6c58f7c4c1b_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset_4visual/renders_xl/chair/chair_091af025f5b43c34133c578df7bcfbaa4aba707709ed9005d660d6c58f7c4c1b =====
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0368%
+[NOCS-VIDEO] wrote 40 frames → /home/vault/v100dd/v100dd26/Dataset_4visual/renders_xl/chair/chair_091af025f5b43c34133c578df7bcfbaa4aba707709ed9005d660d6c58f7c4c1b/orbit_nocs_norm.mp4
+[NOCS-VIDEO] wrote 40 frames → /home/vault/v100dd/v100dd26/Dataset_4visual/renders_xl/chair/chair_091af025f5b43c34133c578df7bcfbaa4aba707709ed9005d660d6c58f7c4c1b/orbit_nocs_plus.mp4
+time: 12.82 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/chair_09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset_4visual/renders_xl/chair/chair_09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a =====
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0157%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0139%
+[NOCS-VIDEO] wrote 40 frames → /home/vault/v100dd/v100dd26/Dataset_4visual/renders_xl/chair/chair_09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/orbit_nocs_norm.mp4
+[NOCS-VIDEO] wrote 40 frames → /home/vault/v100dd/v100dd26/Dataset_4visual/renders_xl/chair/chair_09835ab0f39dda26cac8497b4e5e755dfa7828ee1e5ea37321b439fc0c7d0d9a/orbit_nocs_plus.mp4
+time: 12.63 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/chair_0c48ed54339a899c6c913fd7dcece148b6f6c0c9035a18a28f1f8c22b7c7cef4_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset_4visual/renders_xl/chair/chair_0c48ed54339a899c6c913fd7dcece148b6f6c0c9035a18a28f1f8c22b7c7cef4 =====
+[NOCS-VIDEO] wrote 40 frames → /home/vault/v100dd/v100dd26/Dataset_4visual/renders_xl/chair/chair_0c48ed54339a899c6c913fd7dcece148b6f6c0c9035a18a28f1f8c22b7c7cef4/orbit_nocs_norm.mp4
+[NOCS-VIDEO] wrote 40 frames → /home/vault/v100dd/v100dd26/Dataset_4visual/renders_xl/chair/chair_0c48ed54339a899c6c913fd7dcece148b6f6c0c9035a18a28f1f8c22b7c7cef4/orbit_nocs_plus.mp4
+time: 12.08 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset_4visual/aligned_xl/chair/chair_0c57eb8744627d51121145f29e58d1b58bf0b862be9a754ac6c88f933dd0b45b_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset_4visual/renders_xl/chair/chair_0c57eb8744627d51121145f29e58d1b58bf0b862be9a754ac6c88f933dd0b45b =====
+[NOCS-VIDEO] wrote 40 frames → /home/vault/v100dd/v100dd26/Dataset_4visual/renders_xl/chair/chair_0c57eb8744627d51121145f29e58d1b58bf0b862be9a754ac6c88f933dd0b45b/orbit_nocs_norm.mp4
+[NOCS-VIDEO] wrote 40 frames → /home/vault/v100dd/v100dd26/Dataset_4visual/renders_xl/chair/chair_0c57eb8744627d51121145f29e58d1b58bf0b862be9a754ac6c88f933dd0b45b/orbit_nocs_plus.mp4
+time: 12.48 seconds
+[done] rc=0  time=117.26s
+[render/batch] done rc=0  total=8  time=117.26s  avg=14.66s/obj
+===== CATEGORY: armchair =====
+[OXL-PER-CAT] Processing category: armchair
+[OXL-PER-CAT] Label json: /home/vault/v100dd/v100dd26/Dataset/core_data/labeled_rotations/armchair/final_shape_rotations.json
+[OXL-PER-CAT] SHA index CSV: /home/vault/v100dd/v100dd26/Dataset/core_data/metadata.csv
+[OXL-PER-CAT] Found 383 SHAs for category 'armchair'
+[OXL-PER-CAT] Applying limit=8 → 8 entries
+[OXL-PER-CAT] Downloading 8 objects to staging...
+=== JOB_STATISTICS ===
+=== current date     : Thu Oct  2 18:37:36 CEST 2025
+= Job-ID             : 3064382 on alex
+= Job-Name           : dataset-pipeline-for-visualization
+= Job-Command        : /home/hpc/v100dd/v100dd26/scripts/dataset/dataset_pipe_visualization.sh
+= Initial workdir    : /home/hpc/v100dd/v100dd26/project/Dataset_pipeline
+= Queue/Partition    : a100
+= Slurm account      : v100dd with QOS=normal
+= Features           : a100_40
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 00:09:01
+= Total RAM usage    : 13.1 GiB of assigned  GiB (%)
+= Node list          : a0805
+= Subm/Elig/Start/End: 2025-10-02T18:27:24 / 2025-10-02T18:27:24 / 2025-10-02T18:28:32 / 2025-10-02T18:37:33
+======================
+=== Quota infos ======
+    Path              Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc           37.3G   104.9G   209.7G        N/A  37,203      500K   1,000K        N/A    
+    /home/vault         67.8G  1048.6G  2097.2G        N/A     194K     200K     400K        N/A    
+    atuin.rrze.uni-erlangen.de:/srv/home     0.0K     0.0K     0.0K        N/A       1                           N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+NVIDIA A100-SXM4-40GB, 00000000:49:00.0, 2119758, 59 %, 0 %, 4150 MiB, 103996 ms

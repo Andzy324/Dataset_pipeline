@@ -1280,9 +1280,10 @@ def ensure_complete_obj_asset_strict(obj_file: Path, src_url: str, raw_dir: Path
     for rel in sorted(tex_refs, key=lambda p: p.as_posix().lower()):
         ...
     """
-    def _sanitize_tex_basename(name: str) -> str:
-        name = os.path.basename(str(name)).replace("\\", "/")
-        return Path(name).name
+    def _sanitize_tex_basename(name: str | Path) -> str:
+        raw = str(name).replace("\\", "/")
+        base = os.path.basename(raw)
+        return Path(base).name
 
     textures_dir = raw_dir / "textures"
     textures_dir.mkdir(parents=True, exist_ok=True)
@@ -1291,21 +1292,26 @@ def ensure_complete_obj_asset_strict(obj_file: Path, src_url: str, raw_dir: Path
     for rel in sorted(tex_refs, key=lambda p: p.as_posix().lower()):
         rel_str = rel.as_posix() if hasattr(rel, "as_posix") else str(rel)
         rel_norm = Path(_normalize_relpath(rel_str))
-        bn = _sanitize_tex_basename(rel_norm.name) 
-        bn = Path(rel_norm.name)
-        bn_key = bn.name.casefold()
+        safe_name = _sanitize_tex_basename(rel_norm) 
+        # bn = Path(rel_norm.name)
+        bn_key = safe_name.casefold()
         # dest_rel = Path("textures") / bn
         # dst = textures_dir / bn
-        dest_rel = Path("textures") / bn.name
-        dst = textures_dir / bn.name
-        
+        dest_rel = Path("textures") / safe_name
+        dst = textures_dir / safe_name
+        canon_original = str(rel_norm).replace("\\", "/").casefold()
+
         if dst.exists() and not overwrite:
-            skipped += 1
             placement_map[bn_key] = dest_rel.as_posix()
+            placement_map[canon_original] = dest_rel.as_posix()
             names.append(dest_rel.as_posix())
+            skipped += 1
             continue
 
-        src = _local_find_one(rel_norm, local_roots) or _local_find_one(Path(rel_norm.name), local_roots)
+        src = (_local_find_one(rel_norm, local_roots)
+           or _local_find_one(Path(rel_norm.name), local_roots)
+           or _local_find_one(Path(safe_name), local_roots))
+
         if src:
             try:
                 dst.parent.mkdir(parents=True, exist_ok=True)
@@ -1314,7 +1320,9 @@ def ensure_complete_obj_asset_strict(obj_file: Path, src_url: str, raw_dir: Path
                 except Exception:
                     shutil.copy2(src, dst)
                 ok += 1
+                # placement_map[bn_key] = dest_rel.as_posix()
                 placement_map[bn_key] = dest_rel.as_posix()
+                placement_map[canon_original] = dest_rel.as_posix()
                 names.append(dest_rel.as_posix())
             except Exception:
                 fail += 1
@@ -1400,13 +1408,14 @@ def ensure_complete_obj_asset_strict(obj_file: Path, src_url: str, raw_dir: Path
 
         def _split_options_and_path(rest: str) -> tuple[list[str], str, list[str]] | None:
             rest = rest.strip()
-            if not rest:
+            rest_norm = rest.replace("\\", "/")
+            if not rest_norm:
                 return None
 
             try:
-                tokens = shlex.split(rest, posix=True)
+                tokens = shlex.split(rest_norm, posix=True)
             except ValueError:
-                tokens = rest.split()
+                tokens = rest_norm.split()
 
             if not tokens:
                 return None

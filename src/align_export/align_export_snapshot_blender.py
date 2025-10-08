@@ -1142,7 +1142,7 @@ def normalize_unit_pipeline(main_obj, target_size: float):
     bpy.context.view_layer.update()
 
     # === D) 归一化后再测一次 AABB，最大边 ≤ 1 ===
-    scale_error = 1e-2 # not effect the later nocs calculation
+    scale_error = 1e-3 # not effect the later nocs calculation
     min_v2, max_v2 = _world_aabb(main_obj, mute_constraints=False)
     L = max((max_v2 - min_v2).x, (max_v2 - min_v2).y, (max_v2 - min_v2).z)
     if L > 1.0 + 1e-5:

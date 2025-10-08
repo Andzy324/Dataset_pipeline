@@ -1,0 +1,81 @@
+### Starting TaskPrologue of job 3076045 on a0703 at Di 7. Okt 15:10:08 CEST 2025
+Running on cores 96-111 with governor ondemand
+Tue Oct  7 15:10:08 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.82.07              Driver Version: 580.82.07      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-40GB          On  |   00000000:CC:00.0 Off |                    0 |
+| N/A   34C    P0             55W /  400W |       0MiB /  40960MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+Job started at Di 7. Okt 15:10:09 CEST 2025
+Python 3.10.18
+Tue Oct  7 15:10:21 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.82.07              Driver Version: 580.82.07      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-40GB          On  |   00000000:CC:00.0 Off |                    0 |
+| N/A   34C    P0             55W /  400W |       0MiB /  40960MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+/home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/bin/git-lfs
+Updated Git hooks.
+Git LFS initialized.
+Running: python src/pipeline/mesh_pipeline_full.py --config src/pipeline/config/pipeline_full.yaml
+=== Per-category flow over categories: ['race_car'] ===
+===== CATEGORY: race_car =====
+[OXL-PER-CAT] Processing category: race_car
+[OXL-PER-CAT] Label json: /home/vault/v100dd/v100dd26/Dataset/core_data/labeled_rotations/race_car/final_shape_rotations.json
+[OXL-PER-CAT] SHA index CSV: /home/vault/v100dd/v100dd26/Dataset/core_data/metadata.csv
+[OXL-PER-CAT] Found 55 SHAs for category 'race_car'
+[OXL-PER-CAT] 55 entries to download
+[OXL-PER-CAT] Downloading 55 objects to staging...
+=== JOB_STATISTICS ===
+=== current date     : Tue Oct  7 15:23:46 CEST 2025
+= Job-ID             : 3076045 on alex
+= Job-Name           : dataset-pipeline
+= Job-Command        : /home/hpc/v100dd/v100dd26/scripts/dataset/dataset_pipeline_full.sh
+= Initial workdir    : /home/hpc/v100dd/v100dd26/project/Dataset_pipeline
+= Queue/Partition    : a100
+= Slurm account      : v100dd with QOS=normal
+= Features           : a100_40
+= Requested resources:  for 12:00:00
+= Elapsed runtime    : 00:13:42
+= Total RAM usage    : 22.4 GiB of assigned  GiB (%)
+= Node list          : a0703
+= Subm/Elig/Start/End: 2025-10-07T15:09:57 / 2025-10-07T15:09:57 / 2025-10-07T15:10:01 / 2025-10-07T15:23:43
+======================
+=== Quota infos ======
+    Path              Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc           61.7G   104.9G   209.7G        N/A     128K     500K   1,000K        N/A    
+    /home/vault        115.5G  1048.6G  2097.2G        N/A   9,574      200K     400K        N/A    
+    atuin.rrze.uni-erlangen.de:/srv/home     0.0K     0.0K     0.0K        N/A       1                           N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]

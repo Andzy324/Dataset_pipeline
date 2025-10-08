@@ -1,0 +1,231 @@
+### Starting TaskPrologue of job 3077308 on a0903 at Mi 8. Okt 15:57:25 CEST 2025
+Running on cores 112-127 with governor ondemand
+Wed Oct  8 15:57:25 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.82.07              Driver Version: 580.82.07      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-40GB          On  |   00000000:D1:00.0 Off |                    0 |
+| N/A   38C    P0             52W /  400W |       0MiB /  40960MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+Job started at Mi 8. Okt 15:57:25 CEST 2025
+Python 3.10.18
+Wed Oct  8 15:57:29 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.82.07              Driver Version: 580.82.07      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-40GB          On  |   00000000:D1:00.0 Off |                    0 |
+| N/A   38C    P0             52W /  400W |       0MiB /  40960MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+/home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/bin/git-lfs
+Updated Git hooks.
+Git LFS initialized.
+Running: python src/pipeline/mesh_pipeline_full.py --config src/pipeline/config/pipeline_full.yaml
+=== Per-category flow over categories: ['chicken_(animal)'] ===
+===== CATEGORY: chicken_(animal) =====
+[SKIP] [cat] download
+[SKIP] [cat] align & export
+--- [cat] Step 3: Render orbit RGBD & videos ---
+[INFO] chicken_(animal): to render → 24 item(s) (OBJ) → flat storage
+[render/batch] cat=chicken_(animal)  dir=/home/vault/v100dd/v100dd26/Dataset/aligned_xl/chicken_(animal)  out=/home/vault/v100dd/v100dd26/Dataset/renders_xl/chicken_(animal)  total=24
+$ /home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/bin/python /home/hpc/v100dd/v100dd26/project/Dataset_pipeline/src/video_render/render_orbit_full.py --obj /home/vault/v100dd/v100dd26/Dataset/aligned_xl/chicken_(animal) --out /home/vault/v100dd/v100dd26/Dataset/renders_xl/chicken_(animal) --num_cams 40 --label chicken_(animal) --elev_deg 20.0 --fov_deg 60.0 --image_size 768 --top_ring_num 40 --top_ring_elev_deg 78.0 --top_ring_dist_scale 0.85 --use_uv_textures --viz_backend mpl --viz_max_frustums 150 --axis_correction none --seed 123 --batch_chunk 8 --bin_size 64 --max_faces_per_bin 400000 --no_cull_backfaces --save_h5 --nocs_norm bbox --cam_mode random --rand_cams 150 --sphere_dist 1.5 --pos_tangent_jitter 0.02 --depth_jitter 0.02 --input_format obj --use_uv_textures --obj_loader trimesh --atlas_size 512 --atlas_mem_limit_gb 2.0 --overwrite --manifest /tmp/3077308.alex/tmpihbyvp2x_render_manifest.json
+[info] GPU rendering on: NVIDIA A100-SXM4-40GB
+[p3d] torch=2.1.2 cuda=11.8; pytorch3d=0.7.4 HAVE_P3D=True HAVE_LOAD_OBJS_AS_MESHES=True HAVE_LOAD_OBJ=True
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/chicken_(animal)/chicken_(animal)_0a74dcd3974235b9b1ded030d72afbfd69db88e1118bb6eb8ea329c0031afac1_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/chicken_animal/chicken_animal_0a74dcd3974235b9b1ded030d72afbfd69db88e1118bb6eb8ea329c0031afac1 =====
+time: 72.65 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/chicken_(animal)/chicken_(animal)_0f48f2ff78f46d20e07687f23d956366b015b2e0b6831de367b33bc24b658313_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/chicken_animal/chicken_animal_0f48f2ff78f46d20e07687f23d956366b015b2e0b6831de367b33bc24b658313 =====
+time: 72.02 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/chicken_(animal)/chicken_(animal)_1027b096cc51e47790a37792f6b55c79f42be30ea8a410e12b84e7b46c0583d5_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/chicken_animal/chicken_animal_1027b096cc51e47790a37792f6b55c79f42be30ea8a410e12b84e7b46c0583d5 =====
+time: 72.17 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/chicken_(animal)/chicken_(animal)_1ed6d8882261d1f9f25bea460af87d623a348ef75fba690830427b3419b8ea2d_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/chicken_animal/chicken_animal_1ed6d8882261d1f9f25bea460af87d623a348ef75fba690830427b3419b8ea2d =====
+time: 72.29 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/chicken_(animal)/chicken_(animal)_28b5dd48c25415453dd8463ebddf53d9ca87b715e517db16708930951e61274f_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/chicken_animal/chicken_animal_28b5dd48c25415453dd8463ebddf53d9ca87b715e517db16708930951e61274f =====
+time: 72.30 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/chicken_(animal)/chicken_(animal)_35ab0dbc6eae0f46674997c68eb34b0fa62e5bc32760c6e76a7e984731defb95_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/chicken_animal/chicken_animal_35ab0dbc6eae0f46674997c68eb34b0fa62e5bc32760c6e76a7e984731defb95 =====
+time: 71.88 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/chicken_(animal)/chicken_(animal)_58ef1b390d4310d989c4ae011209cd211da6f49d7a7319f793ffd392fee06837_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/chicken_animal/chicken_animal_58ef1b390d4310d989c4ae011209cd211da6f49d7a7319f793ffd392fee06837 =====
+time: 72.86 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/chicken_(animal)/chicken_(animal)_6ac92859e9d069b1c2f783f08404da1e5cb34b2a650e2632fdc44f02aa44f225_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/chicken_animal/chicken_animal_6ac92859e9d069b1c2f783f08404da1e5cb34b2a650e2632fdc44f02aa44f225 =====
+[NOCS] out-of-range ratio (pre-clamp): plus=0.1628%, norm=0.0016%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.1911%, norm=0.0102%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.1646%, norm=0.0187%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.1752%, norm=0.0128%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.1643%, norm=0.0033%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.1484%, norm=0.0159%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.1669%, norm=0.0132%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0924%, norm=0.0262%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.1532%, norm=0.0105%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.1441%, norm=0.0153%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.2015%, norm=0.0222%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.1627%, norm=0.0275%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.1109%, norm=0.0172%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.1845%, norm=0.0095%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.1633%, norm=0.0226%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0730%, norm=0.0180%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0886%, norm=0.0142%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0803%, norm=0.0114%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.1710%, norm=0.0092%
+time: 72.72 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/chicken_(animal)/chicken_(animal)_72ae8ef9c0e57c5ff08f1b739506ee402c12bbab33c80c09581d9d1f447b2736_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/chicken_animal/chicken_animal_72ae8ef9c0e57c5ff08f1b739506ee402c12bbab33c80c09581d9d1f447b2736 =====
+time: 71.88 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/chicken_(animal)/chicken_(animal)_7d6bbb1c4ef38c52dfd0807864d8c8c9522092c11ce41b704fbaa75dc657202e_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/chicken_animal/chicken_animal_7d6bbb1c4ef38c52dfd0807864d8c8c9522092c11ce41b704fbaa75dc657202e =====
+time: 71.77 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/chicken_(animal)/chicken_(animal)_8c2bd675f60b36ba1bf115f379e591e20cf57c0c9176d39e745612c827329270_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/chicken_animal/chicken_animal_8c2bd675f60b36ba1bf115f379e591e20cf57c0c9176d39e745612c827329270 =====
+time: 72.71 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/chicken_(animal)/chicken_(animal)_9141bcf08c7507c57606b692ac5f084db2b23b7d8978631e74c3a7d9271c541f_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/chicken_animal/chicken_animal_9141bcf08c7507c57606b692ac5f084db2b23b7d8978631e74c3a7d9271c541f =====
+time: 72.14 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/chicken_(animal)/chicken_(animal)_9bd7cac2cdcc503ed9f683b5394c7c76d3309ee05069bcb2b5398591c1f21e2f_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/chicken_animal/chicken_animal_9bd7cac2cdcc503ed9f683b5394c7c76d3309ee05069bcb2b5398591c1f21e2f =====
+time: 71.74 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/chicken_(animal)/chicken_(animal)_9eed5e0b636224ae7e070cc5104497e850b6df8ddbbbbc8bdbb7c9478056cdfd_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/chicken_animal/chicken_animal_9eed5e0b636224ae7e070cc5104497e850b6df8ddbbbbc8bdbb7c9478056cdfd =====
+time: 71.83 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/chicken_(animal)/chicken_(animal)_9f4eddc0e7549ce6c9ce2b2b2d284a4da4ca05b84f0aaa03678bab2312bf78f0_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/chicken_animal/chicken_animal_9f4eddc0e7549ce6c9ce2b2b2d284a4da4ca05b84f0aaa03678bab2312bf78f0 =====
+time: 72.72 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/chicken_(animal)/chicken_(animal)_ac09ef4087f37a46601ca25f78e0129bf96a1a153acc583a9ea3ee694debdb2e_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/chicken_animal/chicken_animal_ac09ef4087f37a46601ca25f78e0129bf96a1a153acc583a9ea3ee694debdb2e =====
+time: 72.04 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/chicken_(animal)/chicken_(animal)_cac2a52580f4a2a47053dbbc990325a2efa09579af5527056814ebb41783bc1a_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/chicken_animal/chicken_animal_cac2a52580f4a2a47053dbbc990325a2efa09579af5527056814ebb41783bc1a =====
+time: 71.90 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/chicken_(animal)/chicken_(animal)_d1715f48df39c3f7a67cd4eb6b267fd13c80f7ed76a6dd7219bed3c4fa4e2d97_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/chicken_animal/chicken_animal_d1715f48df39c3f7a67cd4eb6b267fd13c80f7ed76a6dd7219bed3c4fa4e2d97 =====
+time: 70.92 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/chicken_(animal)/chicken_(animal)_d4c64d4ec487b128b9a6790c1dd8f08169de7ea6c053a77e8a9d826cc17ba50f_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/chicken_animal/chicken_animal_d4c64d4ec487b128b9a6790c1dd8f08169de7ea6c053a77e8a9d826cc17ba50f =====
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0697%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0277%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0517%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0897%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0316%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0522%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0351%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0637%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0386%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0932%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0365%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0317%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0437%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0427%
+time: 74.26 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/chicken_(animal)/chicken_(animal)_d52bd0273019ce950ba5a30ff12cdfb7d1cf1b49e42efcd3d861b0168252a1bc_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/chicken_animal/chicken_animal_d52bd0273019ce950ba5a30ff12cdfb7d1cf1b49e42efcd3d861b0168252a1bc =====
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0727%, norm=0.0000%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0896%, norm=0.0000%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0901%, norm=0.0000%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.1223%, norm=0.0000%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.1135%, norm=0.0000%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0847%, norm=0.0000%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0963%, norm=0.0000%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0755%, norm=0.0000%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0667%, norm=0.0000%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.1294%, norm=0.0000%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0818%, norm=0.0000%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0806%, norm=0.0000%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0598%, norm=0.0000%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.1129%, norm=0.0000%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0770%, norm=0.0000%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.1131%, norm=0.0000%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.1188%, norm=0.0000%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0526%, norm=0.0000%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.1378%, norm=0.0000%
+time: 72.50 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/chicken_(animal)/chicken_(animal)_e2d524952df0a9827f08885547ef77861ae1a070f3bccd618af6d7f9edf9ad5b_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/chicken_animal/chicken_animal_e2d524952df0a9827f08885547ef77861ae1a070f3bccd618af6d7f9edf9ad5b =====
+time: 71.71 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/chicken_(animal)/chicken_(animal)_f31d628a81e0514eb48a9a5dcdb87c8a681c95d0c1f8984d6fca1bbb834da05e_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/chicken_animal/chicken_animal_f31d628a81e0514eb48a9a5dcdb87c8a681c95d0c1f8984d6fca1bbb834da05e =====
+time: 73.12 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/chicken_(animal)/chicken_(animal)_f510ae2811b21cd70b93ece2990e5973317b735111846c933859dee63f4296b1_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/chicken_animal/chicken_animal_f510ae2811b21cd70b93ece2990e5973317b735111846c933859dee63f4296b1 =====
+time: 72.96 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/chicken_(animal)/chicken_(animal)_fcec6ed44be780e8c87419d8a7ad53c42c7611c91ccfc7413b3ed8a79dc1c420_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/chicken_animal/chicken_animal_fcec6ed44be780e8c87419d8a7ad53c42c7611c91ccfc7413b3ed8a79dc1c420 =====
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0213%, norm=0.0013%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0946%, norm=0.0069%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0886%, norm=0.0057%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.1172%, norm=0.0080%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0582%, norm=0.0037%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.1432%, norm=0.0085%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0237%, norm=0.0015%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0109%, norm=0.0008%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0406%, norm=0.0027%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0886%, norm=0.0059%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0502%, norm=0.0030%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0500%, norm=0.0036%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0627%, norm=0.0044%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.1041%, norm=0.0071%
+time: 72.10 seconds
+[done] rc=0  time=1760.54s
+[render/batch] done rc=0  total=24  time=1760.54s  avg=73.36s/obj
+[ALL DONE] Per-category flow outputs:
+- Downloads: /home/vault/v100dd/v100dd26/Dataset
+- Aligned GLBs: /home/vault/v100dd/v100dd26/Dataset/aligned_xl
+- Renders: /home/vault/v100dd/v100dd26/Dataset/renders_xl
+Pipeline runtime: 1761 seconds
+Job finished at Mi 8. Okt 16:26:50 CEST 2025
+Total job runtime: 1765 seconds
+=== JOB_STATISTICS ===
+=== current date     : Wed Oct  8 16:26:51 CEST 2025
+= Job-ID             : 3077308 on alex
+= Job-Name           : dataset-pipeline
+= Job-Command        : /home/hpc/v100dd/v100dd26/scripts/dataset/dataset_pipeline_full.sh
+= Initial workdir    : /home/hpc/v100dd/v100dd26/project/Dataset_pipeline
+= Queue/Partition    : a100
+= Slurm account      : v100dd with QOS=normal
+= Features           : a100_40
+= Requested resources:  for 12:00:00
+= Elapsed runtime    : 00:29:34
+= Total RAM usage    : 9.7 GiB of assigned  GiB (%)
+= Node list          : a0903
+= Subm/Elig/Start/End: 2025-10-08T15:51:30 / 2025-10-08T15:51:30 / 2025-10-08T15:57:16 / 2025-10-08T16:26:50
+======================
+=== Quota infos ======
+    Path              Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc           61.6G   104.9G   209.7G        N/A     128K     500K   1,000K        N/A    
+    /home/vault        117.6G  1048.6G  2097.2G        N/A  11,958      200K     400K        N/A    
+    atuin.rrze.uni-erlangen.de:/srv/home     0.0K     0.0K     0.0K        N/A       1                           N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+NVIDIA A100-SXM4-40GB, 00000000:D1:00.0, 3107905, 78 %, 0 %, 6992 MiB, 1752479 ms

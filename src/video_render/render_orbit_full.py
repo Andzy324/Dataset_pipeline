@@ -61,6 +61,23 @@ import imageio
 import numpy as np
 import torch
 import h5py
+
+import matplotlib
+matplotlib.use("Agg")  # headless 环境安全
+import matplotlib.pyplot as plt
+import re
+from cam_viz import visualize_cameras 
+
+_FS_LABEL_SANITIZE_PATTERN = re.compile(r"[()]+")
+_FS_LABEL_WS_PATTERN = re.compile(r"\s+")
+
+def _sanitize_name_for_fs(name: str) -> str:
+    if not name:
+        return "item"
+    s = _FS_LABEL_SANITIZE_PATTERN.sub("", name)
+    s = _FS_LABEL_WS_PATTERN.sub("_", s)
+    s = re.sub(r"_+", "_", s).strip("_")
+    return s or "item"
 # --- PyTorch3D imports (with version fallbacks) ---
 from pytorch3d.renderer import (
     FoVPerspectiveCameras,
@@ -502,16 +519,23 @@ def enumerate_targets(root: Path, input_format: str) -> List[Tuple[Path, str]]:
         _collect_objs()
 
     # Dedup names (rare but safe): append _1, _2, ...
-    seen = {}
+    # seen = {}
+    seen: Dict[str, int] = {}
     deduped: List[Tuple[Path, str]] = []
-    for p, name in targets:
-        n = name
-        if n in seen:
-            seen[n] += 1
-            n = f"{n}_{seen[name]}"
-        else:
-            seen[n] = 0
-        deduped.append((p, n))
+    # for p, name in targets:
+    #     n = name
+    #     if n in seen:
+    #         seen[n] += 1
+    #         n = f"{n}_{seen[name]}"
+    #     else:
+    #         seen[n] = 0
+    #     deduped.append((p, n))
+    for p, raw_name in targets:
+        base = _sanitize_name_for_fs(raw_name)
+        count = seen.get(base, 0)
+        name = f"{base}_{count}" if count > 0 else base
+        seen[base] = count + 1
+        deduped.append((p, name))
     return deduped
 
 def mtl_has_maps(obj_path: Path) -> bool:
@@ -1365,7 +1389,10 @@ def render_rgbd_batched(
         # 避免除零
         eps = torch.tensor(1e-8, device=device, dtype=torch.float32)
         span = torch.clamp(bmax - bmin, min=1e-8)
-    
+        eps  = 1e-6 * float(span.max().item())
+        bmin_eps = bmin - eps
+        bmax_eps = bmax + eps
+        
         # extent = bmax - bmin                               
         # tol_center = 1e-4
         # tol_box    = 1e-4
@@ -1536,7 +1563,8 @@ def render_rgbd_batched(
                 Xn_plus_unclamped = pw + 0.5
 
                 if nocs_mode == "bbox":
-                    Xn_norm_unclamped = (pw - bmin.view(1,1,1,3)) / span.view(1,1,1,3)
+                    # Xn_norm_unclamped = (pw - bmin.view(1,1,1,3)) / span.view(1,1,1,3)
+                    Xn_norm_unclamped = (pw - bmin_eps.view(1,1,1,3)) / (bmax_eps - bmin_eps).view(1,1,1,3)
                 else:
                     if nocs_equal_axis:
                         s = torch.clamp(scale_max, min=1e-8)
@@ -1860,11 +1888,11 @@ def save_h5_per_camera(
             grpM = f.create_dataset('Masks', data=mask_bool[i:i+1], compression="gzip", compression_opts=4)
             grpM.attrs['from'] = np.string_('depth>0')
             # 外参/内参
-            f.create_dataset('extrinsic_world2cam', data=ext44)  # [4,4] float32
+            f.create_dataset('extrinsic', data=ext44)  # [4,4] float32
             f.create_dataset('intrinsic', data=K)                # [3,3] float32
             # 可选：把相机中心也写进去（世界坐标）
             C = (-Ri.T @ Ti).reshape(3)   # cam center in world
-            f.create_dataset('cam_center_world', data=C.astype(np.float32))
+            # f.create_dataset('cam_center_world', data=C.astype(np.float32))
             
         # 可选打印
         # print(f"[H5] wrote {h5_path}")
@@ -1878,6 +1906,8 @@ def save_h5_all(
     image_size: int,
     fov_deg: float,
     label: str,
+    bbox: None,
+    depth_unit: str = 'meter',
     *,
     compress: str = 'gzip',
     gzip_level: int = 6,
@@ -1961,12 +1991,31 @@ def save_h5_all(
             f.create_dataset('Masks', data=mask_bool, **kwargs)    # [N,H,W] bool
 
         # / Depth
-        f.create_dataset('Depths', data=depth_np, **kwargs)        # [N,H,W] float32
+        dsD = f.create_dataset('Depths', data=depth_np, **kwargs)   # [N,H,W] float32
+        dsD.attrs['unit'] = np.string_(depth_unit)                  # "meter"
 
         # 相机矩阵
-        f.create_dataset('extrinsic_world2cam', data=ext)          # [N,4,4] float32
+        f.create_dataset('extrinsic', data=ext)          # [N,4,4] float32
         f.create_dataset('intrinsic', data=K)                      # [3,3]   float32
-        f.create_dataset('cam_center_world', data=C)               # [N,3]   float32
+        # f.create_dataset('cam_center_world', data=C)               # [N,3]   float32
+        if bbox is not None:
+            def _to_np(x):
+                if isinstance(x, torch.Tensor):
+                    return x.detach().cpu().numpy().astype(np.float32)
+                return np.asarray(x, dtype=np.float32)
+
+            bmin, bmax, center, scale_max = bbox   # torch 或 np 都行，转 np.float32
+            grpB = f.create_group('BBox')
+            bmin_np = _to_np(bmin)
+            bmax_np = _to_np(bmax)
+            center_np = _to_np(center)
+            grpB.create_dataset('bmin',   data=bmin_np)   # [3]
+            grpB.create_dataset('bmax',   data=bmax_np)   # [3]
+            grpB.create_dataset('center', data=center_np) # [3]
+            ext = bmax_np - bmin_np
+            grpB.create_dataset('extent', data=ext)                                    # [3]
+            grpB.create_dataset('scale_max', data=np.asarray(scale_max, dtype=np.float32))  # [1]
+            grpB.attrs['coord_system'] = np.string_('object/world (Z-up)')
 # ------------------------------ Driver ------------------------------
 
 def parse_args() -> argparse.Namespace:
@@ -2067,7 +2116,19 @@ def parse_args() -> argparse.Namespace:
     p.add_argument('--pos_tangent_jitter', type=float, default=0.02,
                 help='切向位置扰动系数（相对距离的比例），例如 0.02=2%·dist')
     p.add_argument('--depth_jitter', type=float, default=0.02,
-                help='径向（深度）扰动系数（相对距离的比例），例如 0.02=2%·dist')      
+                help='径向（深度）扰动系数（相对距离的比例），例如 0.02=2%·dist')
+    # --- Camera visualization options ---
+    p.add_argument('--viz_poses', action='store_true',
+                help='Visualize camera poses before rendering')
+    p.add_argument('--viz_backend', choices=['mpl', 'open3d'], default='mpl',
+                help='Use Matplotlib (default) or Open3D for camera viz')
+    p.add_argument('--viz_show', action='store_true',
+                help='Show interactive window (Open3D); otherwise save image')
+    # (optional) frustum drawing
+    p.add_argument('--viz_frustum', action='store_true',
+                help='Draw a small frustum pyramid for each camera (Matplotlib backend)')
+    p.add_argument('--viz_max_frustums', type=int, default=50,
+               help='Max number of frustums to draw for speed')      
     return p.parse_args()
 
 def prepare_out_dir(out_dir: str, overwrite: bool) -> Path:
@@ -2196,6 +2257,21 @@ def render_single(a, device, src_path: Path, out_dir: Path):
         # Rs = [R @ Q for R in Rs]  # 右乘基变换：R_zup = R_yup @ Q
         cameras = concat_cameras(Rs, Ts, device=device, fov_deg=a.fov_deg)
 
+    # === Camera visualization (optional) ===
+    if a.viz_poses:
+        try:
+            visualize_cameras(
+                cameras=cameras,
+                center=center, bmin=bmin, bmax=bmax,
+                out_dir=(out_dir / "cam_viz"),
+                meta=(meta if a.cam_mode=='rings' else None),
+                backend=a.viz_backend,
+                draw_frustum=a.viz_frustum,
+                max_frustums=a.viz_max_frustums,
+                show=a.viz_show,
+            )
+        except Exception as e:
+            print(f"[warn] camera viz failed: {type(e).__name__}: {e}")
     # --- render & save (unchanged) ---
     rgb, depth, nocs, mask = render_rgbd_batched(
         mesh=mesh, cameras=cameras, image_size=a.image_size, device=device,
@@ -2221,8 +2297,8 @@ def render_single(a, device, src_path: Path, out_dir: Path):
                           save_rgb_png=a.save_rgb_png,
                           save_metric_depth=a.save_metric_depth,
                           save_depth_png16=a.save_depth_png16)
-    save_poses_json(out_dir, cameras, meta)
-    save_intrinsics_json(out_dir, a.image_size, a.fov_deg)
+    # save_poses_json(out_dir, cameras, meta)
+    # save_intrinsics_json(out_dir, a.image_size, a.fov_deg)
     if a.make_video:
         make_video_from_rgbs(out_dir / 'orbit_rgb.mp4', rgb, fps=a.video_fps)
     if a.make_depth_video:
@@ -2238,6 +2314,7 @@ def render_single(a, device, src_path: Path, out_dir: Path):
             out_path=out_h5,
             rgb=rgb, depth=depth, mask=mask, nocs=nocs,
             cameras=cameras, image_size=a.image_size, fov_deg=a.fov_deg, label=label,
+            bbox=(bmin, bmax, center, obj_scale),
             # compress=a.h5_compress, gzip_level=a.h5_gzip_level, shuffle=a.h5_shuffle,
             # mask_bitpack=a.mask_bitpack,  nocs_auto_tol=a.nocs_auto_tol,
             # nocs_store=a.nocs_store,
