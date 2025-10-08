@@ -48,3 +48,11 @@ Wed Oct  8 20:27:43 2025
 Updated Git hooks.
 Git LFS initialized.
 Running: python src/pipeline/mesh_pipeline_full.py --config src/pipeline/config/pipeline_full.yaml
+=== Per-category flow over categories: ['dog', 'bear'] ===
+===== CATEGORY: dog =====
+[OXL-PER-CAT] Processing category: dog
+[OXL-PER-CAT] Label json: /home/vault/v100dd/v100dd26/Dataset/core_data/labeled_rotations/dog/final_shape_rotations.json
+[OXL-PER-CAT] SHA index CSV: /home/vault/v100dd/v100dd26/Dataset/core_data/metadata.csv
+[OXL-PER-CAT] Found 162 SHAs for category 'dog'
+[OXL-PER-CAT] 162 entries to download
+[OXL-PER-CAT] Downloading 162 objects to staging...
