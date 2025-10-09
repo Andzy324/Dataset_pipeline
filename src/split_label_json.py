@@ -20,6 +20,7 @@ import json
 import argparse
 from pathlib import Path
 from typing import Dict, Any, Iterable
+import copy 
 
 def _load_rotations_dict(src: Path) -> Dict[str, Dict[str, Any]]:
     """Return a dict of {sha: info} from either schema."""
@@ -36,7 +37,17 @@ def _labels_of(info: Dict[str, Any]) -> Iterable[str]:
         labs = [labs]
     return [str(x) for x in labs if x]
 
-def split_collect(label_json: Path, out_dir: Path, labels_whitelist=None, min_items=1) -> Dict[str, Path]:
+# --- replace split_collect with the normalized version ---
+def split_collect(label_json: Path, out_dir: Path, labels_whitelist=None, min_items=1,
+                  label_field_mode: str = "single", audit_multilabel: bool = False) -> Dict[str, Path]:
+    """
+    label_field_mode:
+      - 'single'  : force label to exactly [<lab>] for each per-label file
+      - 'primary' : keep all labels but ensure <lab> is first
+      - 'keep'    : keep original labels unchanged (legacy behavior)
+    audit_multilabel:
+      - If True and an entry has >1 labels originally, store them in '__labels_all'
+    """
     out_dir.mkdir(parents=True, exist_ok=True)
     R = _load_rotations_dict(label_json)
 
@@ -50,15 +61,36 @@ def split_collect(label_json: Path, out_dir: Path, labels_whitelist=None, min_it
 
     out_map = {}
     for lab in labels_whitelist:
-        bucket = {sha: info for sha, info in R.items() if lab in _labels_of(info)}
+        bucket = {}
+        for sha, info in R.items():
+            labs = list(_labels_of(info))
+            if lab not in labs:
+                continue
+            new_info = copy.deepcopy(info)
+
+            if label_field_mode == "single":
+                new_info["label"] = [lab]
+            elif label_field_mode == "primary":
+                # put the target label first; keep the rest (dedup, stable-ish)
+                rest = [x for x in labs if x != lab]
+                new_info["label"] = [lab] + rest
+            else:  # 'keep'
+                pass
+
+            if audit_multilabel and len(labs) > 1:
+                new_info["__labels_all"] = labs
+
+            bucket[sha] = new_info
+
         if len(bucket) < min_items:
             continue
         dst_dir = out_dir / lab
         dst_dir.mkdir(parents=True, exist_ok=True)
         dst = dst_dir / "final_shape_rotations.json"
-        dst.write_text(json.dumps(bucket, ensure_ascii=False, indent=2), encoding="utf-8")
+        # stable key order for reproducibility
+        dst.write_text(json.dumps(bucket, ensure_ascii=False, indent=2, sort_keys=True), encoding="utf-8")
         out_map[lab] = dst
-
+        
     return out_map
 
 def main():
@@ -67,6 +99,11 @@ def main():
     ap.add_argument("--out_dir",    required=True, type=Path, help="Output root directory.")
     ap.add_argument("--labels",     nargs="*", default=None, help="Optional label whitelist (space-separated).")
     ap.add_argument("--min_items",  type=int, default=1, help="Skip writing labels with fewer than N items.")
+    ap.add_argument("--label_field_mode", choices=["single", "primary", "keep"], default="single",
+                help="How to write 'label' into each per-label file.")
+    ap.add_argument("--audit_multilabel", action="store_true",
+                help="If set, save original multiple labels to '__labels_all'.")
+    
     args = ap.parse_args()
 
     out_map = split_collect(args.label_json, args.out_dir, args.labels, args.min_items)

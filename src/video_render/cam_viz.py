@@ -100,8 +100,8 @@ def _print_stats(C, center, meta=None):
             print(msg); off+=n
 
 def viz_mpl(cameras, center, bmin, bmax, out_dir: Union[str,Path],
-            meta=None, connect_by_ring=True, draw_frustum=False, max_frustums=50,
-            view_elev=25.0, view_azim=-60.0):
+            meta=None, connect_by_ring=False, draw_frustum=False, max_frustums=50,
+            view_elev=35.0, view_azim=-75.0): # avoid chaos connected lines for ring
     C = camera_centers_from_p3d(cameras)
     center=_to_numpy(center).reshape(3); bmin=_to_numpy(bmin).reshape(3); bmax=_to_numpy(bmax).reshape(3)
     out_dir=Path(out_dir); out_dir.mkdir(parents=True, exist_ok=True)

@@ -53,9 +53,12 @@ import json
 import math
 import os
 import random
+import re
+import tarfile
 from pathlib import Path
 from typing import Dict, List, Tuple
 import shutil
+from zipfile import ZipFile, ZIP_DEFLATED
 
 import imageio
 import numpy as np
@@ -65,7 +68,6 @@ import h5py
 import matplotlib
 matplotlib.use("Agg")  # headless 环境安全
 import matplotlib.pyplot as plt
-import re
 from cam_viz import visualize_cameras 
 
 _FS_LABEL_SANITIZE_PATTERN = re.compile(r"[()]+")
@@ -78,6 +80,43 @@ def _sanitize_name_for_fs(name: str) -> str:
     s = _FS_LABEL_WS_PATTERN.sub("_", s)
     s = re.sub(r"_+", "_", s).strip("_")
     return s or "item"
+
+def _archive_path_from_dir(out_dir: Path, fmt: str) -> Path:
+    out_dir = Path(out_dir)
+    if fmt == "tar.gz":
+        return out_dir.parent / f"{out_dir.name}.tar.gz"
+    if fmt == "zip":
+        return out_dir.parent / f"{out_dir.name}.zip"
+    raise ValueError(f"Unsupported archive format: {fmt}")
+
+def archive_output_dir(out_dir: Path, fmt: str = "tar.gz", keep_original: bool = False) -> Path:
+    """
+    Pack the rendered directory into an archive (tar.gz or zip). Optionally delete the original folder.
+    """
+    out_dir = Path(out_dir).resolve()
+    if not out_dir.exists():
+        raise FileNotFoundError(f"Output directory not found for archiving: {out_dir}")
+
+    archive_path = _archive_path_from_dir(out_dir, fmt)
+    if archive_path.exists():
+        archive_path.unlink()
+
+    if fmt == "tar.gz":
+        with tarfile.open(archive_path, "w:gz") as tar:
+            tar.add(out_dir, arcname=out_dir.name)
+    elif fmt == "zip":
+        with ZipFile(archive_path, "w", compression=ZIP_DEFLATED) as zf:
+            for path in sorted(out_dir.rglob("*")):
+                if path.is_file():
+                    zf.write(path, arcname=path.relative_to(out_dir))
+    else:
+        raise ValueError(f"Unsupported archive format: {fmt}")
+
+    if not keep_original:
+        shutil.rmtree(out_dir)
+    print(f"[archive] wrote {archive_path} (keep_original={keep_original})")
+    return archive_path
+
 # --- PyTorch3D imports (with version fallbacks) ---
 from pytorch3d.renderer import (
     FoVPerspectiveCameras,
@@ -519,17 +558,8 @@ def enumerate_targets(root: Path, input_format: str) -> List[Tuple[Path, str]]:
         _collect_objs()
 
     # Dedup names (rare but safe): append _1, _2, ...
-    # seen = {}
     seen: Dict[str, int] = {}
     deduped: List[Tuple[Path, str]] = []
-    # for p, name in targets:
-    #     n = name
-    #     if n in seen:
-    #         seen[n] += 1
-    #         n = f"{n}_{seen[name]}"
-    #     else:
-    #         seen[n] = 0
-    #     deduped.append((p, n))
     for p, raw_name in targets:
         base = _sanitize_name_for_fs(raw_name)
         count = seen.get(base, 0)
@@ -570,8 +600,8 @@ def _extend_meshes(meshes: Meshes, k: int) -> Meshes:
         return join_meshes_as_batch([meshes for _ in range(k)])
     # 最后兜底：退回单 mesh（会在后面被逻辑拦住）
     return meshes
-# ------------------------------ Loading ------------------------------
 
+# ------------------------------ Loading ------------------------------
 def load_obj_with_textures_p3d(
     obj_path: str | Path,
     device: torch.device,
@@ -606,15 +636,22 @@ def load_obj_with_textures_p3d(
 
     # ---- 1) 先试 UV 贴图模式 ----
     def _load(uv_mode: bool):
-        return _io.load_objs_as_meshes(
-            [str(obj_path)],
-            device=device,
-            load_textures=True,
-            create_texture_atlas=not uv_mode,
-            texture_atlas_size=int(atlas_size),
-            texture_wrap="repeat",
-            path_manager=None,  # 相对路径按 obj 所在目录解析
-        )
+        """Load with CWD temporarily switched to OBJ directory so relative textures resolve."""
+        cwd = os.getcwd()
+        try:
+            os.chdir(obj_path.parent)
+            target = obj_path.name
+            return _io.load_objs_as_meshes(
+                [str(target)],
+                device=device,
+                load_textures=True,
+                create_texture_atlas=not uv_mode,
+                texture_atlas_size=int(atlas_size),
+                texture_wrap="repeat",
+                path_manager=None,
+            )
+        finally:
+            os.chdir(cwd)
 
     def _has_valid_textures(mesh: Meshes) -> bool:
         # TexturesUV 或 TexturesAtlas 都可以，关键是非空
@@ -623,15 +660,24 @@ def load_obj_with_textures_p3d(
             return False
         # TexturesUV: maps() 非空；TexturesAtlas: atlas_packed() 非空
         try:
-            if hasattr(tex, "maps") and len(tex.maps_list()) > 0:
-                m = tex.maps_list()[0]
-                return (m is not None) and (m.numel() > 0)
+            if hasattr(tex, "maps_padded"):
+                mp = tex.maps_padded()
+                if mp is not None and mp.numel() > 0:
+                    return True
         except Exception:
             pass
         try:
-            if hasattr(tex, "atlas_packed") and tex.atlas_packed() is not None:
-                a = tex.atlas_packed()
-                return (a is not None) and (a.numel() > 0)
+            if hasattr(tex, "maps_list"):
+                ml = tex.maps_list()
+                if ml and ml[0] is not None and ml[0].numel() > 0:
+                    return True
+        except Exception:
+            pass
+        try:
+            if hasattr(tex, "atlas_packed"):
+                atlas = tex.atlas_packed()
+                if atlas is not None and atlas.numel() > 0:
+                    return True
         except Exception:
             pass
         return False
@@ -640,35 +686,15 @@ def load_obj_with_textures_p3d(
     mesh = _load(uv_mode=True)
     if not _has_valid_textures(mesh):
         print("[warn] UV texture load failed or empty; ", end="")
-        if create_atlas and mtl_has_maps(obj_path):
+        has_map = mtl_has_maps(obj_path)
+        if create_atlas and has_map:
             print(f"retry with atlas (tile={atlas_size})...")
             mesh = _load(uv_mode=False)
         else:
-            print("skip atlas (no map_* or mem-limit); falling back to trimesh loader.")
-            # try:
-            #     # 用 trimesh 读取，不做繁重处理
-            #     tri_or_scene = trimesh.load(str(obj_path), force="mesh", process=False)
-            #     if isinstance(tri_or_scene, trimesh.Scene):
-            #         # 合并到一个 Trimesh（与 load_mesh_any 的 concat 逻辑一致）
-            #         geoms = [g.as_trimesh() if hasattr(g, "as_trimesh") else g
-            #                  for g in tri_or_scene.geometry.values()
-            #                  if isinstance(g, (trimesh.Trimesh,))]
-            #         tri = concat_trimesh_list([g.copy() for g in geoms if isinstance(g, trimesh.Trimesh)])
-            #     else:
-            #         tri = tri_or_scene
-            #     mesh = _tm_to_p3d_with_colors(tri, device, albedo_rgb=(0.7, 0.7, 0.7))
-            #     # 轴系修正（与下方一致）
-            #     Rfix = axis_correction_matrix(axis_correction, device)
-            #     if not torch.allclose(Rfix, torch.eye(3, device=device)):
-            #         Vs = [V @ Rfix.T for V in mesh.verts_list()]
-            #         Fs = mesh.faces_list()
-            #         mesh = Meshes(verts=Vs, faces=Fs, textures=mesh.textures)
-            #     print("[keep-colors] OBJ has no usable UV; using vertex/face colors → TexturesVertex")
-            #     return mesh
-            # except Exception as _e_keep:
-            #     print(f"[warn] keep-colors path failed ({_e_keep}); will raise UV-missing error.")
-            #     raise RuntimeError("UV textures missing; atlas disabled")
+            print("no map_* to retry or atlas disabled; falling back to trimesh loader.")
             raise RuntimeError("UV textures missing; atlas disabled")
+        if not _has_valid_textures(mesh):
+            raise RuntimeError("PyTorch3D textures still empty after retries")
 
             # if not _has_valid_textures(mesh):
             #     # 到这还不行，给出明确诊断，方便你定位 MTL/路径问题
@@ -704,7 +730,7 @@ def load_mesh_any(
     *,
     albedo: float = 0.7,
     use_uv_textures: bool = False,
-    flip_v: bool = False,
+    flip_v: bool = True,
     apply_scene_xform: bool = True,
     axis_correction: str = "none",
 ) -> Meshes:
@@ -715,7 +741,7 @@ def load_mesh_any(
     - Uses UV baseColor texture when available and --use_uv_textures is set; otherwise falls back to vertex colors or a flat albedo.
     """
     path = str(path)
-    obj = trimesh.load(path, force="scene", process=False, maintain_order=True)
+    obj = trimesh.load(path, force="mesh", process=False, maintain_order=True)
     if isinstance(obj, trimesh.Trimesh):
         scene_or_mesh = trimesh.Scene(geometry=[obj])  # 包一层，复用同一逻辑
     else:
@@ -1105,12 +1131,12 @@ def sample_fixed_sphere_cameras(
     u = torch.randn(num, 3, device=device)
     u = torch.nn.functional.normalize(u, dim=-1, eps=1e-8)  # (N,3)
 
-    # 构造每个 u 的切向正交基 (t1, t2)
-    # 选一个与 u 不共线的向量做交叉
-    ref = torch.tensor([0.0, 0.0, 1.0], device=device).expand_as(u)
-    colinear = (u.abs().matmul(ref[0].new_tensor([[0],[0],[1]]).squeeze()) > 0.999).squeeze(-1)
-    # ref[colinear] = torch.tensor([0.0, 1.0, 0.0], device=device)  # 避免与 u 近平行
-    ref = torch.tensor([0.0, 0.0, 1.0], device=device).repeat(u.shape[0], 1)
+    # 构造每个 u 的切向正交基 (t1, t2)，当 u 接近 Z 轴时换一个参考向量避免退化
+    base_ref = torch.tensor([0.0, 0.0, 1.0], device=device)
+    ref = base_ref.expand_as(u).clone()
+    colinear = (u.abs() @ base_ref.abs()) > 0.999
+    if colinear.any():
+        ref[colinear] = torch.tensor([0.0, 1.0, 0.0], device=device)
     t1 = torch.nn.functional.normalize(torch.cross(u, ref, dim=-1), dim=-1, eps=1e-8)
     t2 = torch.cross(u, t1, dim=-1)  # 已经正交
 
@@ -1389,10 +1415,7 @@ def render_rgbd_batched(
         # 避免除零
         eps = torch.tensor(1e-8, device=device, dtype=torch.float32)
         span = torch.clamp(bmax - bmin, min=1e-8)
-        eps  = 1e-6 * float(span.max().item())
-        bmin_eps = bmin - eps
-        bmax_eps = bmax + eps
-        
+    
         # extent = bmax - bmin                               
         # tol_center = 1e-4
         # tol_box    = 1e-4
@@ -1563,8 +1586,7 @@ def render_rgbd_batched(
                 Xn_plus_unclamped = pw + 0.5
 
                 if nocs_mode == "bbox":
-                    # Xn_norm_unclamped = (pw - bmin.view(1,1,1,3)) / span.view(1,1,1,3)
-                    Xn_norm_unclamped = (pw - bmin_eps.view(1,1,1,3)) / (bmax_eps - bmin_eps).view(1,1,1,3)
+                    Xn_norm_unclamped = (pw - bmin.view(1,1,1,3)) / span.view(1,1,1,3)
                 else:
                     if nocs_equal_axis:
                         s = torch.clamp(scale_max, min=1e-8)
@@ -1630,7 +1652,10 @@ def save_mask_series(out_dir: Path, mask: torch.Tensor):
     """
     out_dir.mkdir(parents=True, exist_ok=True)
     import imageio, numpy as np
-    m = (mask.to('cpu').numpy().astype(np.uint8) * 255)  # True→255
+    mask_cpu = mask.to('cpu')
+    if mask_cpu.dtype != torch.bool:
+        mask_cpu = mask_cpu != 0
+    m = (mask_cpu.numpy().astype(np.uint8) * 255)  # True→255
     N = m.shape[0]
     for i in range(N):
         imageio.imwrite(out_dir / f"mask_{i:04d}.png", m[i])
@@ -1638,18 +1663,28 @@ def save_mask_series(out_dir: Path, mask: torch.Tensor):
 def save_rgb_depth_series(out_dir: Path, rgb: torch.Tensor, depth: torch.Tensor, *, 
         save_rgb_png: bool, save_metric_depth: bool, save_depth_png16: bool):
     out_dir.mkdir(parents=True, exist_ok=True)
+    rgb_dir = out_dir / "rgb_png"
+    depth_npy_dir = out_dir / "depth_npy"
+    depth_png16_dir = out_dir / "depth_png16"
     N, H, W, _ = rgb.shape
     rgb_np = (rgb.clamp(0, 1).cpu().numpy() * 255).astype(np.uint8)
     depth_np = depth.cpu().numpy().astype(np.float32)
 
+    if save_rgb_png:
+        rgb_dir.mkdir(parents=True, exist_ok=True)
+    if save_metric_depth:
+        depth_npy_dir.mkdir(parents=True, exist_ok=True)
+    if save_depth_png16:
+        depth_png16_dir.mkdir(parents=True, exist_ok=True)
+
     for i in range(N):
         if save_rgb_png:
-            imageio.imwrite(out_dir / f"rgb_{i:04d}.png", rgb_np[i])
+            imageio.imwrite(rgb_dir / f"rgb_{i:04d}.png", rgb_np[i])
         if save_metric_depth:
-            np.save(out_dir / f"depth_{i:04d}.npy", depth_np[i])
+            np.save(depth_npy_dir / f"depth_{i:04d}.npy", depth_np[i])
         if save_depth_png16:
             mm = np.clip(depth_np[i] * 1000.0, 0, 65535).astype(np.uint16)
-            imageio.imwrite(out_dir / f"depth_{i:04d}.png", mm)
+            imageio.imwrite(depth_png16_dir / f"depth_{i:04d}.png", mm)
 
 
 def make_video_from_rgbs(out_path: Path, rgb: torch.Tensor, fps: int = 24):
@@ -1741,6 +1776,9 @@ def save_nocs_series(out_dir: Path, nocs, save_npy=False, save_png8=True, save_p
     out_dir.mkdir(parents=True, exist_ok=True)
 
     def _save_one(tag: str, arr: torch.Tensor):
+        tag = tag or "nocs"
+        tag_dir = out_dir / tag
+        tag_dir.mkdir(parents=True, exist_ok=True)
         N = arr.shape[0]
         LOG_TOL = 1e-4
         with torch.no_grad():
@@ -1758,11 +1796,11 @@ def save_nocs_series(out_dir: Path, nocs, save_npy=False, save_png8=True, save_p
 
         for i in range(N):
             if save_npy:
-                np.save(out_dir / f"nocs_{tag}_{i:04d}.npy", nocs_np[i])
+                np.save(tag_dir / f"{tag}_{i:04d}.npy", nocs_np[i])
             if save_png8:
-                imageio.imwrite(out_dir / f"nocs_{tag}_{i:04d}.png", nocs_png8[i])
+                imageio.imwrite(tag_dir / f"{tag}_{i:04d}.png", nocs_png8[i])
             if save_png16:
-                imageio.imwrite(out_dir / f"nocs16_{tag}_{i:04d}.png", nocs_png16[i])
+                imageio.imwrite(tag_dir / f"{tag}_16_{i:04d}.png", nocs_png16[i])
 
     # 支持 dict 或 Tensor
     if isinstance(nocs, dict):
@@ -1914,7 +1952,7 @@ def save_h5_all(
     shuffle: bool = False,
     mask_bitpack: bool = False,
     nocs_store: str = 'both',
-    nocs_auto_tol: float = 1/255.0
+    nocs_auto_tol: float = 1/255.0,  
 ):
     out_path.parent.mkdir(parents=True, exist_ok=True)
     N, H, W, _ = rgb.shape
@@ -1975,7 +2013,13 @@ def save_h5_all(
         if n_plus is not None:
             f.create_dataset('NOCs/plus', data=n_plus, **kwargs)   # [N,H,W,3] uint8
         # label
-        f.attrs['label'] = np.string_(label)
+        # f.attrs['label'] = np.string_(label)
+        # f.create_dataset('label', data=np.string_(label), **kwargs)
+        dt = h5py.string_dtype(encoding="utf-8")
+        if "label" in f:
+            del f["label"]               # optional: keep things in sync
+        f.create_dataset("label", data=np.array(label, dtype=dt))
+        f.attrs["label"] = label
 
         if mask_bitpack:
             # 打包成 bit：shape=[N,ceil(HW/8)]，并记录 H,W
@@ -1990,7 +2034,7 @@ def save_h5_all(
         else:
             f.create_dataset('Masks', data=mask_bool, **kwargs)    # [N,H,W] bool
 
-        # / Depth
+        # # / Depth
         dsD = f.create_dataset('Depths', data=depth_np, **kwargs)   # [N,H,W] float32
         dsD.attrs['unit'] = np.string_(depth_unit)                  # "meter"
 
@@ -1998,6 +2042,7 @@ def save_h5_all(
         f.create_dataset('extrinsic', data=ext)          # [N,4,4] float32
         f.create_dataset('intrinsic', data=K)                      # [3,3]   float32
         # f.create_dataset('cam_center_world', data=C)               # [N,3]   float32
+
         if bbox is not None:
             def _to_np(x):
                 if isinstance(x, torch.Tensor):
@@ -2090,6 +2135,12 @@ def parse_args() -> argparse.Namespace:
                 help='保存 NOCS 的 8-bit PNG 可视化（RGB=xyz∈[0,255]）')
     p.add_argument('--make_nocs_video', action='store_true',
                 help='把 NOCS 序列导出为 mp4（RGB=xyz∈[0,255]）')
+    p.add_argument('--archive_output', action='store_true',
+                help='渲染完成后将整个输出目录打包压缩')
+    p.add_argument('--archive_format', choices=['tar.gz', 'zip'], default='tar.gz',
+                help='输出打包格式（默认 tar.gz）')
+    p.add_argument('--keep_unarchived_output', action='store_true',
+                help='压缩后保留原始目录（默认删除）')
     p.add_argument('--nocs_norm', choices=['bbox','center_scale'], default='bbox',
                 help='NOCS 归一化方式：bbox 线性到 [0,1]^3；或 center_scale 等比缩放到 [-0.5,0.5]^3 再平移到 [0,1]^3')
     p.add_argument('--nocs_equal_axis', action='store_true',
@@ -2116,7 +2167,7 @@ def parse_args() -> argparse.Namespace:
     p.add_argument('--pos_tangent_jitter', type=float, default=0.02,
                 help='切向位置扰动系数（相对距离的比例），例如 0.02=2%·dist')
     p.add_argument('--depth_jitter', type=float, default=0.02,
-                help='径向（深度）扰动系数（相对距离的比例），例如 0.02=2%·dist')
+                help='径向（深度）扰动系数（相对距离的比例），例如 0.02=2%·dist') 
     # --- Camera visualization options ---
     p.add_argument('--viz_poses', action='store_true',
                 help='Visualize camera poses before rendering')
@@ -2128,11 +2179,22 @@ def parse_args() -> argparse.Namespace:
     p.add_argument('--viz_frustum', action='store_true',
                 help='Draw a small frustum pyramid for each camera (Matplotlib backend)')
     p.add_argument('--viz_max_frustums', type=int, default=50,
-               help='Max number of frustums to draw for speed')      
+               help='Max number of frustums to draw for speed')
+     
     return p.parse_args()
 
 def prepare_out_dir(out_dir: str, overwrite: bool) -> Path:
     p = Path(out_dir).resolve()
+    archive_candidates = [
+        p.parent / f"{p.name}.tar.gz",
+        p.parent / f"{p.name}.zip",
+    ]
+    for arc in archive_candidates:
+        if arc.exists():
+            if overwrite:
+                arc.unlink()
+            else:
+                raise FileExistsError(f"{arc} already exists. Use --overwrite to replace.")
     if p.exists():
         if overwrite:
             # 安全保护：避免误删根目录等
@@ -2189,9 +2251,9 @@ def render_single(a, device, src_path: Path, out_dir: Path):
     # 纬向环固定方位：在用户给定基础上加偏航
     lat_azim = float(a.lat_ring_azim_deg) + float(a.yaw_offset_deg)
 
-    Vs = torch.cat(mesh.verts_list(), dim=0)
+    Vs = torch.cat(mesh.verts_list(), dim=0).detach()
     bmin = Vs.min(0).values; bmax = Vs.max(0).values
-    center = 0.5*(bmin + bmax)
+    center = 0.5 * (bmin + bmax)
     bbox_extent = (bmax - bmin)
     obj_scale = float(bbox_extent.norm().item())  # 一个代表性全局尺度
 
@@ -2256,7 +2318,6 @@ def render_single(a, device, src_path: Path, out_dir: Path):
         # Q = axis_correction_matrix("y_up_to_z_up", device=Rs[0].device)  # [3,3]，绕 +X 轴 +90°
         # Rs = [R @ Q for R in Rs]  # 右乘基变换：R_zup = R_yup @ Q
         cameras = concat_cameras(Rs, Ts, device=device, fov_deg=a.fov_deg)
-
     # === Camera visualization (optional) ===
     if a.viz_poses:
         try:
@@ -2290,15 +2351,19 @@ def render_single(a, device, src_path: Path, out_dir: Path):
         nocs_check_topk=a.nocs_check_topk,
     )
     # --- NEW: 保存 NOCS 帧序列 ---
+    if isinstance(nocs, dict) and "plus" in nocs:
+        nocs_to_save = {"plus": nocs["plus"]} # 只保存 NOCS-plus
+    else:
+        nocs_to_save = nocs 
     if (a.save_nocs or a.save_nocs_png8) and (nocs is not None):
-        save_nocs_series(out_dir, nocs, save_npy=a.save_nocs, save_png8=a.save_nocs_png8)
+        save_nocs_series(out_dir / "nocs_png", nocs_to_save, save_npy=a.save_nocs, save_png8=a.save_nocs_png8)
 
     save_rgb_depth_series(out_dir, rgb, depth,
                           save_rgb_png=a.save_rgb_png,
                           save_metric_depth=a.save_metric_depth,
                           save_depth_png16=a.save_depth_png16)
-    # save_poses_json(out_dir, cameras, meta)
-    # save_intrinsics_json(out_dir, a.image_size, a.fov_deg)
+    save_poses_json(out_dir, cameras, meta)
+    save_intrinsics_json(out_dir, a.image_size, a.fov_deg)
     if a.make_video:
         make_video_from_rgbs(out_dir / 'orbit_rgb.mp4', rgb, fps=a.video_fps)
     if a.make_depth_video:
@@ -2306,6 +2371,8 @@ def render_single(a, device, src_path: Path, out_dir: Path):
     # --- NEW: NOCS 视频 ---
     if a.make_nocs_video and (nocs is not None):
         make_nocs_video(out_dir / 'orbit_nocs.mp4', nocs, fps=a.video_fps)
+    if a.save_mask_png:
+        save_mask_series(out_dir / "mask_png", mask)
     if a.save_h5:
         # 注意：我们前面把 rgb/depth 已经转到 CPU；nocs 也是 CPU
         label = (a.label.strip() or out_dir.name.split('_')[0])
@@ -2314,14 +2381,15 @@ def render_single(a, device, src_path: Path, out_dir: Path):
             out_path=out_h5,
             rgb=rgb, depth=depth, mask=mask, nocs=nocs,
             cameras=cameras, image_size=a.image_size, fov_deg=a.fov_deg, label=label,
-            bbox=(bmin, bmax, center, obj_scale),
+            bbox=(bmin, bmax, center, obj_scale), # ext could be computed later
             # compress=a.h5_compress, gzip_level=a.h5_gzip_level, shuffle=a.h5_shuffle,
             # mask_bitpack=a.mask_bitpack,  nocs_auto_tol=a.nocs_auto_tol,
             # nocs_store=a.nocs_store,
         )
-    if a.save_mask_png:
-        # 如果 render_rgbd_batched 已经返回了 mask 张量（见下一节），直接用：
-        save_mask_series(out_dir / "mask_png", mask)
+    if getattr(a, "archive_output", False):
+        archive_output_dir(out_dir,
+                           fmt=getattr(a, "archive_format", "tar.gz"),
+                           keep_original=getattr(a, "keep_unarchived_output", False))
 import time         
 def main():
     a = parse_args()

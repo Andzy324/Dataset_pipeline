@@ -251,20 +251,6 @@ def parse_obj_dirname(dir_name: str) -> Tuple[str, str, str]:
     subA = parts[-2]
     return cat, subA, subB
 
-_FS_LABEL_SANITIZE_PATTERN = re.compile(r"[()]+")
-_FS_LABEL_WS_PATTERN = re.compile(r"\s+")
-def _sanitize_label_for_fs(label: str) -> str:
-    """
-    Remove problematic characters (currently () and whitespace) so labels can be safely
-    used as directory names. Falls back to 'unknown' if nothing remains.
-    """
-    if not label:
-        return "unknown"
-    s = _FS_LABEL_SANITIZE_PATTERN.sub("", label)
-    s = _FS_LABEL_WS_PATTERN.sub("_", s)
-    s = re.sub(r"_+", "_", s).strip("_")
-    return s or "unknown"
-
 def render_out_dir_for_any(model_path: Path, renders_root: Path, scheme: str,
                            dl_backend: str = "custom",
                            oxl_out_cat: Optional[str] = None) -> Path:
@@ -282,13 +268,11 @@ def render_out_dir_for_any(model_path: Path, renders_root: Path, scheme: str,
         toks = _infer_label_sha_from_path(p, oxl_out_cat=oxl_out_cat)
         if toks:
             label, sha = toks
-            label_fs = _sanitize_label_for_fs(label) # remove the '()' from the name
+            label_fs = _sanitize_label_for_fs(label)
             if scheme == "flat":
-                # return renders_root / label /f"{label}_{sha}"
                 return renders_root / label_fs / f"{label_fs}_{sha}"
             elif scheme == "hier":
-                # return renders_root / label / sha
-                return renders_root / label_fs / sha 
+                return renders_root / label_fs / sha
             else:
                 raise ValueError("render_scheme must be 'flat' or 'hier'")
 
@@ -350,6 +334,29 @@ def _infer_label_sha_from_path(p: Path, oxl_out_cat: Optional[str] = None) -> Op
         pass
 
     return None
+
+_FS_LABEL_SANITIZE_PATTERN = re.compile(r"[()]+")
+_FS_LABEL_WS_PATTERN = re.compile(r"\s+")
+
+def _sanitize_label_for_fs(label: str) -> str:
+    """
+    Remove problematic characters (currently () and whitespace) so labels can be safely
+    used as directory names. Falls back to 'unknown' if nothing remains.
+    """
+    if not label:
+        return "unknown"
+    s = _FS_LABEL_SANITIZE_PATTERN.sub("", label)
+    s = _FS_LABEL_WS_PATTERN.sub("_", s)
+    s = re.sub(r"_+", "_", s).strip("_")
+    return s or "unknown"
+
+def _archive_path_for_out_dir(out_dir: Path, fmt: str) -> Path:
+    out_dir = Path(out_dir)
+    if fmt == "tar.gz":
+        return out_dir.parent / f"{out_dir.name}.tar.gz"
+    if fmt == "zip":
+        return out_dir.parent / f"{out_dir.name}.zip"
+    raise ValueError(f"Unsupported archive format: {fmt}")
 
 # ---------- Pipeline Steps ----------
 
@@ -731,7 +738,7 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
     - 通过sha256作为key进行关联筛选
     """
     try:
-        from download_toolkits.trellis.datasets import ObjaverseXL as OXL
+        from dataset_toolkits.trellis.datasets import ObjaverseXL as OXL
     except Exception as e:
         raise ImportError(f"Failed to import trellis.datasets.ObjaverseXL: {e}")
 
@@ -992,7 +999,7 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
         
         # 先补全资产（在原始位置）
         try:
-            from download_toolkits.build_metadata import ensure_complete_asset_anyformat
+            from dataset_toolkits.build_metadata import ensure_complete_asset_anyformat
             
             # 使用原始mesh目录作为local_roots，保持目录结构
             # _local_roots = [p for p in [mesh_dir, inst_root] if p and p.exists()]
@@ -1799,10 +1806,12 @@ def step_render(args, P: PipelinePaths, models: Iterable[Path], category: str) -
         print("[render] no models to render")
         return
 
+    category_fs = _sanitize_label_for_fs(category) if category else None
+
     # ========== 批量模式：一次调用渲染脚本，输入指向对齐目录 ==========
     if getattr(args, "render_batch_mode", "single") == "batch":
         aligned_dir = Path(models_list[0]).parent.parent
-        out_root = (P.renders / category)
+        out_root = (P.renders / (category_fs or category or "unknown"))
         out_root.mkdir(parents=True, exist_ok=True)
 
         manifest_entries = []
@@ -1815,6 +1824,20 @@ def step_render(args, P: PipelinePaths, models: Iterable[Path], category: str) -
                 dl_backend=getattr(args, "dl_backend", "custom"),
                 oxl_out_cat=OXL_OUT_CAT,
             )
+            if not args.overwrite_render:
+                if getattr(args, "archive_output", False):
+                    archive_paths = [
+                        _archive_path_for_out_dir(out_dir, args.archive_format),
+                        _archive_path_for_out_dir(out_dir, "zip" if args.archive_format == "tar.gz" else "tar.gz"),
+                    ]
+                    existing = next((arc for arc in archive_paths if arc.exists()), None)
+                    if existing is not None:
+                        print(f"[SKIP] {mp.name} → archive exists: {existing}")
+                        continue
+                target_video = out_dir / "orbit_rgb.mp4"
+                if target_video.exists():
+                    print(f"[SKIP] {mp.name} → video exists: {target_video}")
+                    continue
             manifest_entries.append({"model": str(mp), "output": str(out_dir)})
 
         if not manifest_entries:
@@ -1827,8 +1850,8 @@ def step_render(args, P: PipelinePaths, models: Iterable[Path], category: str) -
         cmd = [sys.executable, str(render_script),
                "--obj", str(aligned_dir),
                "--out", str(out_root),
-               "--num_cams", str(int(args.num_cams)),
                "--label", str(category),
+               "--num_cams", str(int(args.num_cams)),
                "--elev_deg", str(float(args.elev_deg)),
                "--fov_deg", str(float(args.fov_deg)),
                "--image_size", str(int(args.image_size)),
@@ -1837,19 +1860,6 @@ def step_render(args, P: PipelinePaths, models: Iterable[Path], category: str) -
                "--top_ring_dist_scale", str(float(args.top_ring_dist_scale))]
 
         # ==== 可选参数与性能相关参数（按需追加） ====
-        if args.use_uv_textures or ext == ".obj":
-            cmd += ["--use_uv_textures"]
-        if getattr(args, "viz_poses", None):
-            cmd += ["--viz_poses"]
-        if getattr(args, "viz_backend", None):
-            cmd += ["--viz_backend", str(args.viz_backend)]
-        if getattr(args, "viz_show", None):
-            cmd += ["--viz_show"]
-        if getattr(args, "viz_frustum", None):
-            cmd += ["--viz_frustum"]
-        if getattr(args, "viz_max_frustums", None):
-            cmd += ["--viz_max_frustums", str(args.viz_max_frustums)]
-
         if getattr(args, "axis_correction", None):
             cmd += ["--axis_correction", str(args.axis_correction)]
         if getattr(args, "yaw_offset_deg", None):
@@ -1907,7 +1917,23 @@ def step_render(args, P: PipelinePaths, models: Iterable[Path], category: str) -
             cmd += ["--atlas_mem_limit_gb", str(float(args.atlas_mem_limit_gb))]
         if getattr(args, "overwrite_render", False):
             cmd += ["--overwrite"]
+        if getattr(args, "viz_poses", None):
+            cmd += ["--viz_poses"]
+        if getattr(args, "viz_backend", None):
+            cmd += ["--viz_backend", str(args.viz_backend)]
+        if getattr(args, "viz_show", None):
+            cmd += ["--viz_show"]
+        if getattr(args, "viz_frustum", None):
+            cmd += ["--viz_frustum"]
+        if getattr(args, "viz_max_frustums", None):
+            cmd += ["--viz_max_frustums", str(args.viz_max_frustums)]
 
+        if getattr(args, "verbose", False):
+            cmd += ["--verbose"]
+        if getattr(args, "archive_output", False):
+            cmd += ["--archive_output", "--archive_format", str(args.archive_format)]
+            if getattr(args, "keep_unarchived_output", False):
+                cmd += ["--keep_unarchived_output"]
         # 关键：安静执行（避免刷屏）——保留错误输出与本进程的关键信息
         manifest_path = None
         try:
@@ -1935,15 +1961,9 @@ def step_render(args, P: PipelinePaths, models: Iterable[Path], category: str) -
             oxl_out_cat=OXL_OUT_CAT
         )
 
-        target_video = out_dir / "orbit_rgb.mp4" if args.make_video else None
-        if (not args.overwrite_render) and target_video and target_video.exists():
-            print(f"[SKIP] {model.name} → video exists: {target_video}")
-            continue
-
         cmd = [sys.executable, str(render_script),
                "--obj", str(model),
                "--out", str(out_dir),
-               "--label", str(category),
                "--num_cams", str(int(args.num_cams)),
                "--elev_deg", str(float(args.elev_deg)),
                "--fov_deg", str(float(args.fov_deg)),
@@ -1952,6 +1972,21 @@ def step_render(args, P: PipelinePaths, models: Iterable[Path], category: str) -
                "--top_ring_elev_deg", str(float(args.top_ring_elev_deg)),
                "--top_ring_dist_scale", str(float(args.top_ring_dist_scale)),
                ]
+
+        if not args.overwrite_render:
+            if args.archive_output:
+                archive_paths = [
+                    _archive_path_for_out_dir(out_dir, args.archive_format),
+                    _archive_path_for_out_dir(out_dir, "zip" if args.archive_format == "tar.gz" else "tar.gz"),
+                ]
+                if any(arc.exists() for arc in archive_paths):
+                    arc = next(arc for arc in archive_paths if arc.exists())
+                    print(f"[SKIP] {model.name} → archive exists: {arc}")
+                    continue
+            target_video = out_dir / "orbit_rgb.mp4" if args.make_video else None
+            if target_video and target_video.exists():
+                print(f"[SKIP] {model.name} → video exists: {target_video}")
+                continue
 
         if args.axis_correction:
             cmd += ["--axis_correction", str(args.axis_correction)]
@@ -1983,6 +2018,10 @@ def step_render(args, P: PipelinePaths, models: Iterable[Path], category: str) -
             cmd += ["--save_nocs_png8"]
         if args.make_nocs_video:
             cmd += ["--make_nocs_video"]
+        if args.archive_output:
+            cmd += ["--archive_output", "--archive_format", str(args.archive_format)]
+            if args.keep_unarchived_output:
+                cmd += ["--keep_unarchived_output"]
         if args.nocs_norm:
             cmd += ["--nocs_norm", str(args.nocs_norm)]
         if args.nocs_equal_axis:
@@ -2006,8 +2045,7 @@ def step_render(args, P: PipelinePaths, models: Iterable[Path], category: str) -
         if args.input_format:
             cmd += ["--input_format", str(args.export_format)]
         # 贴图：GLB 可不需要，OBJ 强烈建议开启（即使用户未传）
-        if args.use_uv_textures or ext == ".obj":
-            cmd += ["--use_uv_textures"]
+
         if args.use_uv_textures or ext == ".obj":
             cmd += ["--use_uv_textures"]
         if getattr(args, "viz_poses", None):
@@ -2020,6 +2058,7 @@ def step_render(args, P: PipelinePaths, models: Iterable[Path], category: str) -
             cmd += ["--viz_frustum"]
         if getattr(args, "viz_max_frustums", None):
             cmd += ["--viz_max_frustums", str(args.viz_max_frustums)]
+
         # OBJ 加载器参数（你在 render_orbit_* 中已实现）
         if args.obj_loader:
             cmd += ["--obj_loader", str(args.obj_loader)]
@@ -2031,7 +2070,7 @@ def step_render(args, P: PipelinePaths, models: Iterable[Path], category: str) -
             cmd += ["--atlas_mem_limit_gb", str(float(args.atlas_mem_limit_gb))]    
         if args.overwrite_render:
             cmd += ["--overwrite"]
-
+        
         rc = sh(cmd, dry=args.dry_run)
         if rc != 0:
             print(f"[WARN] Rendering failed for {model}")
@@ -2456,6 +2495,12 @@ def build_argparser() -> argparse.ArgumentParser:
     p.add_argument('--depth_video_max_meters', type=float, default=0.0, help='深度视频上限米数；<=0 则用 99th 百分位自动设定')
     p.add_argument("--make_video", action=argparse.BooleanOptionalAction, default=False)
     p.add_argument("--video_fps", type=int, default=24)
+    p.add_argument("--archive_output", action=argparse.BooleanOptionalAction, default=False,
+                   help="渲染完成后压缩输出目录")
+    p.add_argument("--archive_format", choices=["tar.gz", "zip"], default="tar.gz",
+                   help="压缩格式（默认 tar.gz）")
+    p.add_argument("--keep_unarchived_output", action=argparse.BooleanOptionalAction, default=False,
+                   help="压缩后保留未压缩目录（默认删除）")
     p.add_argument('--cam_mode', type=str, choices=['rings','random'], default='rings',
                  help="rings：等间隔环拍；random：固定球面随机采样")
     p.add_argument('--rand_cams', type=int, default=120,

@@ -24,6 +24,20 @@ from typing import Dict, Any, Tuple, List
 
 SHA256_RE = re.compile(r"^[0-9a-f]{64}$", re.I)
 
+def _labels_of(info: Dict[str, Any]):
+    labs = info.get("label", []) or []
+    if isinstance(labs, str):
+        labs = [labs]
+    return [str(x) for x in labs if x]
+
+def _label_matches_mode(labels: list[str], folder_label: str, mode: str) -> bool:
+    if mode == "single":
+        return len(labels) == 1 and labels[0] == folder_label
+    if mode == "primary":
+        return len(labels) >= 1 and labels[0] == folder_label
+    # 'any'
+    return folder_label in labels
+
 def load_map(json_path: Path) -> Dict[str, Dict[str, Any]]:
     """Return a mapping {sha: info} from either new or old schema."""
     try:
@@ -86,18 +100,31 @@ def summarize(rot_dir: Path, filename: str = "final_shape_rotations.json") -> Tu
         rows.append((label, total, bad_sha, missing_R))
     return rows, sha2labels
 
-def print_table(rows: List[Tuple[str,int,int,int]]):
-    rows_sorted = sorted(rows, key=lambda r: (-r[1], r[0].lower()))
+# --- update print_table to show the new column when有意义 ---
+def print_table(rows):
+    # rows: (label, count, invalid_sha, missing_R, mismatches)
+    rows_sorted = sorted(rows, key=lambda r: (-r[1], r[0].lower())) if rows else []
     w_label = max(5, *(len(r[0]) for r in rows_sorted)) if rows_sorted else 5
+    show_mismatch = any(r[4] != 0 for r in rows_sorted) or any(len(r) >= 5 for r in rows_sorted)
     header = f"{'label'.ljust(w_label)} | {'count':>6} | {'invalid_sha':>11} | {'missing_R':>10}"
+    if show_mismatch:
+        header += " | " + f"{'label_mismatch':>14}"
     print(header)
     print("-" * len(header))
     total = 0
-    for lab, cnt, bad, miss in rows_sorted:
+    for r in rows_sorted:
+        lab, cnt, bad, miss = r[0], r[1], r[2], r[3]
         total += cnt
-        print(f"{lab.ljust(w_label)} | {cnt:6d} | {bad:11d} | {miss:10d}")
+        line = f"{lab.ljust(w_label)} | {cnt:6d} | {bad:11d} | {miss:10d}"
+        if show_mismatch:
+            mm = r[4] if len(r) >= 5 else 0
+            line += " | " + f"{mm:14d}"
+        print(line)
     print("-" * len(header))
-    print(f"{'TOTAL'.ljust(w_label)} | {total:6d} | {'':>11} | {'':>10}")
+    footer = f"{'TOTAL'.ljust(w_label)} | {total:6d} | {'':>11} | {'':>10}"
+    if show_mismatch:
+        footer += " | " + f"{'':>14}"
+    print(footer)
 
 def write_csv(rows: List[Tuple[str,int,int,int]], out_csv: Path):
     out_csv.parent.mkdir(parents=True, exist_ok=True)
@@ -113,9 +140,11 @@ def main():
     ap.add_argument("--filename", default="final_shape_rotations.json", help="JSON filename in each label dir (default: final_shape_rotations.json).")
     ap.add_argument("--output", type=Path, default=None, help="Optional CSV path to write summary.")
     ap.add_argument("--show_dups", action="store_true", help="Show duplicated sha that appear in multiple labels.")
+    ap.add_argument("--expect_mode", choices=["any","primary","single"], default="any",
+                help="Validate that each entry's label matches the folder label under the given rule.")
     args = ap.parse_args()
 
-    rows, sha2labels = summarize(args.rot_dir, args.filename)
+    rows, sha2labels = summarize(args.rot_dir, args.filename, args.expect_mode)
     print_table(rows)
 
     if args.output:
