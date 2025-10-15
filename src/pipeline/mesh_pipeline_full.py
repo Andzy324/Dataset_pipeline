@@ -780,7 +780,7 @@ def step_download_assets(args, P: PipelinePaths, cat: Optional[List[str]] = None
     if args.overwrite_download:
         cmd += ["--overwrite"]
 
-    rc = sh(cmd, dry=args.dry_run)
+    rc = sh(cmd, dry=args.dry_run, quiet=getattr(args, "quiet", False))
     if rc != 0:
         sys.exit(rc)
 
@@ -1978,7 +1978,7 @@ def step_align_export_one_category(args, P: PipelinePaths, category: str) -> Pat
     # 新：是否让 align 在脚本内按 label 过滤
     if getattr(args, "dl_backend", "custom") == "oxl" and getattr(args, "labels", None):
         bl_cmd += ["--oxl_filter_by_label"]
-    rc = sh(bl_cmd, dry=args.dry_run)
+    rc = sh(bl_cmd, dry=args.dry_run, quiet=getattr(args, "quiet", False))
     if rc != 0:
         sys.exit(rc)
 

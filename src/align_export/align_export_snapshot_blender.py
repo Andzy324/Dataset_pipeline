@@ -28,6 +28,16 @@ def _log(msg: str, *, force: bool = False):
     if force or not QUIET:
         print(msg)
 
+CATEGORY_ALIAS_MAP = {
+    "monitor_(computer_equipment) computer_monitor": "computer_monitor",
+}
+
+
+def _alias_label(label: str | None) -> str:
+    if not label:
+        return label or ""
+    return CATEGORY_ALIAS_MAP.get(label, label)
+
 def _as_iter(objs):
     """把输入规范化为 list；若是单个 Object 就包成 [obj]。"""
     if objs is None:
@@ -2623,6 +2633,8 @@ def main():
 
     global QUIET
     QUIET = bool(args.quiet and not args.verbose)
+    display_category = _alias_label(args.category)
+    args.display_category = display_category
 
     data_root = Path(args.data_root)
     out_dir   = Path(args.out_dir); out_dir.mkdir(parents=True, exist_ok=True)
@@ -2730,7 +2742,7 @@ def main():
                     lab = l0 or (args.category or "")
                     sha = parts[0]
                 inst_dir = data_root / args.oxl_out_category / lab / sha
-                export_stem = f"{lab}_{sha}"  
+                export_stem = f"{_alias_label(lab)}_{sha}"  
             else:  
                 try:
                     subA, subB = shape_key.split("/")
@@ -2738,7 +2750,7 @@ def main():
                     report_lines.append(f"{shape_key}\tbad_shape_key\t{e}")
                     continue
                 inst_dir = data_root / args.category / subA / subB
-                export_stem = f"{args.category}_{subA}_{subB}"        
+                export_stem = f"{args.display_category}_{subA}_{subB}"        
             # inst_dir = data_root / args.category / subA / subB
             mesh_path = find_mesh_file(inst_dir)
             if not mesh_path:
@@ -2865,7 +2877,7 @@ def main():
                 export_only_selected_glb(main_obj, out_glb)
                 # 仅当导出成功才计入
                 if out_glb.exists() and out_glb.stat().st_size > 0:
-                    exported.append({'kind':'glb', 'path': str(out_glb), 'dim': float(max(main_obj.dimensions[:]))})
+                    exported.append({'kind':'glb', 'path': str(out_glb), 'dim': float(max(main_obj.dimensions[:])), 'label': args.display_category})
                     report_lines.append(f"{shape_key}\tvalid\tok\t{src}\n")
                     valid_cnt += 1
                 else:
@@ -2883,7 +2895,7 @@ def main():
                     export_selected_as_obj_with_textures(main_obj, out_obj_dir, name="model") #name = src_base
                     model_obj = out_obj_dir / "model.obj"
                     if model_obj.exists():
-                        exported.append({'kind':'obj', 'path': str(out_obj_dir), 'dim': float(max(main_obj.dimensions[:]))})
+                        exported.append({'kind':'obj', 'path': str(out_obj_dir), 'dim': float(max(main_obj.dimensions[:])), 'label': args.display_category})
                         report_lines.append(f"{shape_key}\tobj_ok\t{model_obj}\n")
                         valid_cnt += 1
                     else:
