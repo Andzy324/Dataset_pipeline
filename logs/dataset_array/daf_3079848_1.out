@@ -1,0 +1,2065 @@
+### Starting TaskPrologue of job 3079853 on a0704 at Fr 10. Okt 06:25:56 CEST 2025
+Running on cores 16-31 with governor ondemand
+Fri Oct 10 06:25:56 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.82.07              Driver Version: 580.82.07      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-40GB          On  |   00000000:13:00.0 Off |                    0 |
+| N/A   35C    P0             56W /  400W |       0MiB /  40960MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+[2025-10-10 06:25:58] Array job started
+Python 3.10.18
+Fri Oct 10 06:26:01 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.82.07              Driver Version: 580.82.07      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-40GB          On  |   00000000:13:00.0 Off |                    0 |
+| N/A   35C    P0             56W /  400W |       0MiB /  40960MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+/home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/bin/git-lfs
+Updated Git hooks.
+Git LFS initialized.
+[2025-10-10 06:26:02] Array index 1 -> categories: bunk_bed dining_table
+[2025-10-10 06:26:02] Total categories: 8 | group size: 2 | total groups: 4
+[2025-10-10 06:26:02] Running: python src/pipeline/mesh_pipeline_full.py --config src/pipeline/config/pipeline_full.yaml --allow_cli_override --categories bunk_bed dining_table --oxl_labels bunk_bed dining_table --labels bunk_bed,dining_table
+=== Per-category flow over categories: ['bunk_bed', 'dining_table'] ===
+===== CATEGORY: bunk_bed =====
+[OXL-PER-CAT] Processing category: bunk_bed
+[OXL-PER-CAT] Label json: /home/vault/v100dd/v100dd26/Dataset/core_data/labeled_rotations/bunk_bed/final_shape_rotations.json
+[OXL-PER-CAT] SHA index CSV: /home/vault/v100dd/v100dd26/Dataset/core_data/metadata.csv
+[OXL-PER-CAT] Found 23 SHAs for category 'bunk_bed'
+[OXL-PER-CAT] 23 entries to download
+[OXL-PER-CAT] Downloading 23 objects to staging...
+    ▶ GLB externals summary: refs=0 (all embedded); nothing to fetch.
+[OXL-PER-CAT] [5c846e3559bfbb57902d9a66bef35a5c659ba99aafe121fb102264d329afe782] ensure(glb): downloaded=0 missing=0 repo_missing=0 repo_failed=0
+[OXL-PER-CAT] [303bad8dde727ae583ee125cd2c1403710bb6320b1832c8fe5b7d00dd1d2b9c3] ensure(fbx): downloaded=0 missing=0 repo_missing=0 repo_failed=0
+    ▶ OBJ(local): mtl_copied=1 tex_copied=1 skipped=0 failed=0 (roots=/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/431e40324558db34840e13076cc86c8c01773c22b765116e903494387244caf7/mesh, /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/431e40324558db34840e13076cc86c8c01773c22b765116e903494387244caf7, /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/431e40324558db34840e13076cc86c8c01773c22b765116e903494387244caf7/mesh/dist/models/prefabs/kenney_furniturepack/Models)
+      · expected=0 present=0 placed_now=1 missing=0
+[OXL-PER-CAT] [431e40324558db34840e13076cc86c8c01773c22b765116e903494387244caf7] ensure(obj): downloaded=1 missing=0 repo_missing=0 repo_failed=0
+[OXL-PER-CAT] [91b82697b438b22df35918a3022cbb32e8056d3f14bd89d82ba61171bae2a819] ensure(fbx): downloaded=0 missing=0 repo_missing=0 repo_failed=0
+[OXL-PER-CAT] [2581ed3c1255b25fee7e0d555837d37082db9cc45d103fd8f78a0414201d261b] ensure(fbx): downloaded=0 missing=0 repo_missing=0 repo_failed=0
+    ▶ OBJ(local): mtl_copied=1 tex_copied=1 skipped=0 failed=0 (roots=/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/123bbc15b35450676c95d99387415c9ed4bc98c8245f25763266327a5343a24f/mesh, /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/123bbc15b35450676c95d99387415c9ed4bc98c8245f25763266327a5343a24f, /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/123bbc15b35450676c95d99387415c9ed4bc98c8245f25763266327a5343a24f/mesh/html/bed)
+      · expected=0 present=0 placed_now=1 missing=0
+[OXL-PER-CAT] [123bbc15b35450676c95d99387415c9ed4bc98c8245f25763266327a5343a24f] ensure(obj): downloaded=1 missing=0 repo_missing=0 repo_failed=0
+    ▶ OBJ(local): mtl_copied=2 tex_copied=2 skipped=0 failed=0 (roots=/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/9a29025ce4be29800c30316c9be6bfb8afd89145bcd9f6f0695110e85ad2b063/mesh, /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/9a29025ce4be29800c30316c9be6bfb8afd89145bcd9f6f0695110e85ad2b063, /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/9a29025ce4be29800c30316c9be6bfb8afd89145bcd9f6f0695110e85ad2b063/mesh/3D GAME DEVELOPMENT ASSIGNMENT/Sly Spy/game/models/bed)
+      · expected=1 present=1 placed_now=2 missing=0
+[OXL-PER-CAT] [9a29025ce4be29800c30316c9be6bfb8afd89145bcd9f6f0695110e85ad2b063] ensure(obj): downloaded=2 missing=0 repo_missing=0 repo_failed=0
+    ▶ GLB externals summary: refs=0 (all embedded); nothing to fetch.
+[OXL-PER-CAT] [b58c4c1950763ca1726f9746cd048d417513a9becf66d196e9827a9d4e180989] ensure(glb): downloaded=0 missing=0 repo_missing=0 repo_failed=0
+    ▶ OBJ(local): mtl_copied=2 tex_copied=2 skipped=0 failed=0 (roots=/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/69349a3fefd037bbeb1178583fb394110dba1f2a83b02caff353fe516ab6e335/mesh, /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/69349a3fefd037bbeb1178583fb394110dba1f2a83b02caff353fe516ab6e335, /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/69349a3fefd037bbeb1178583fb394110dba1f2a83b02caff353fe516ab6e335/mesh/Assets/Models)
+      · expected=1 present=1 placed_now=2 missing=0
+[OXL-PER-CAT] [69349a3fefd037bbeb1178583fb394110dba1f2a83b02caff353fe516ab6e335] ensure(obj): downloaded=2 missing=0 repo_missing=0 repo_failed=0
+[OXL-PER-CAT] [aa0cd9918b0dd483f074df951efaa7b3c979abb5a08b2c3e3169c7927ae26a22] ensure(fbx): downloaded=0 missing=3 repo_missing=0 repo_failed=0
+[OXL-PER-CAT] [ac9cb34919c696ed1fac6be8c30bac8a10fb1e3349bf6cebf47162b81e437010] ensure(fbx): downloaded=0 missing=0 repo_missing=0 repo_failed=0
+    ▶ OBJ(local): mtl_copied=1 tex_copied=1 skipped=0 failed=0 (roots=/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/1de2552763ebf177da66ce6ba9df06ec9e1e11e7ecaf997b85b9ebaa72000b68/mesh, /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/1de2552763ebf177da66ce6ba9df06ec9e1e11e7ecaf997b85b9ebaa72000b68, /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/1de2552763ebf177da66ce6ba9df06ec9e1e11e7ecaf997b85b9ebaa72000b68/mesh/code/3DModels/scopia/scopia/mezzanine-bed)
+      · expected=0 present=0 placed_now=1 missing=0
+[OXL-PER-CAT] [1de2552763ebf177da66ce6ba9df06ec9e1e11e7ecaf997b85b9ebaa72000b68] ensure(obj): downloaded=1 missing=0 repo_missing=0 repo_failed=0
+[OXL-PER-CAT] [b7462813cafc016260007c1187aae0015468b7f60e1243c94a96ab1e67a176d4] ensure(fbx): downloaded=0 missing=0 repo_missing=0 repo_failed=0
+[OXL-PER-CAT] [f45b71b83dbfa1e9a67191d7ed2b97d4dd3fcffa9432749b94596a0341de71e7] ensure(fbx): downloaded=0 missing=0 repo_missing=0 repo_failed=0
+[OXL-PER-CAT] [d75cc485fc189396870a34caae8a0f81f7ddade57b5839c0ad9c2f78af018bd3] ensure(fbx): downloaded=0 missing=1 repo_missing=0 repo_failed=0
+[OXL-PER-CAT] [146fc5ef0fe0b20bee4cbc9b39b9b7186ce2166947334e4a0bafec3ccbf83f52] ensure(fbx): downloaded=0 missing=0 repo_missing=0 repo_failed=0
+[OXL-PER-CAT] [877854c8bc2301e6491270c27a06bef180e339f402c6ba10489d8e89db656c1c] ensure(fbx): downloaded=0 missing=0 repo_missing=0 repo_failed=0
+    ▶ OBJ(local): mtl_copied=1 tex_copied=1 skipped=0 failed=0 (roots=/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/d1bf1e06e6b44697ed3b1a54c83099e647a9f70cc8335941d5da221fe0b8aa91/mesh, /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/d1bf1e06e6b44697ed3b1a54c83099e647a9f70cc8335941d5da221fe0b8aa91, /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/d1bf1e06e6b44697ed3b1a54c83099e647a9f70cc8335941d5da221fe0b8aa91/mesh/final/Assets/model3d2d/moduleHouse/Bedroom)
+      · expected=0 present=0 placed_now=1 missing=0
+[OXL-PER-CAT] [d1bf1e06e6b44697ed3b1a54c83099e647a9f70cc8335941d5da221fe0b8aa91] ensure(obj): downloaded=1 missing=0 repo_missing=0 repo_failed=0
+    ▶ OBJ(local): mtl_copied=2 tex_copied=2 skipped=0 failed=0 (roots=/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/63f73ad214b9940dc661951acafaeaa5da10326b0b37280d2af817f06d613b08/mesh, /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/63f73ad214b9940dc661951acafaeaa5da10326b0b37280d2af817f06d613b08, /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/63f73ad214b9940dc661951acafaeaa5da10326b0b37280d2af817f06d613b08/mesh/Projekt/Bin/Data/Types/Items/BunkBed)
+      · expected=1 present=1 placed_now=2 missing=0
+[OXL-PER-CAT] [63f73ad214b9940dc661951acafaeaa5da10326b0b37280d2af817f06d613b08] ensure(obj): downloaded=2 missing=0 repo_missing=0 repo_failed=0
+[OXL-PER-CAT] [23dd1e18eabb878fbfa09337fd376603e4f4dc949ba36d56cb71dc11fa6deee5] ensure(fbx): downloaded=0 missing=0 repo_missing=0 repo_failed=0
+    ▶ GLB externals summary: refs=0 (all embedded); nothing to fetch.
+[OXL-PER-CAT] [59456a48a8c3b7f8947cdb4c242800cddae27fc664f545ed8f867841c37c8080] ensure(glb): downloaded=0 missing=0 repo_missing=0 repo_failed=0
+    ▶ OBJ(local): mtl_copied=2 tex_copied=2 skipped=0 failed=0 (roots=/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/e0e17e838d3e14b7ffd5bb67d1c9ad2745b797691b642060634e4639efb71408/mesh, /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/e0e17e838d3e14b7ffd5bb67d1c9ad2745b797691b642060634e4639efb71408, /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/e0e17e838d3e14b7ffd5bb67d1c9ad2745b797691b642060634e4639efb71408/mesh/KPU - The Mountain/Assets/Imported Assets/_Models/Voxel Wooden Furnitures)
+      · expected=1 present=1 placed_now=2 missing=0
+[OXL-PER-CAT] [e0e17e838d3e14b7ffd5bb67d1c9ad2745b797691b642060634e4639efb71408] ensure(obj): downloaded=2 missing=0 repo_missing=0 repo_failed=0
+[OXL-PER-CAT] [7b33d701516b9baae71f43c1e4f1fc56eb4f3b98e8f05399b68b4d31dc03efc1] ensure(fbx): downloaded=0 missing=0 repo_missing=0 repo_failed=0
+[OXL-PER-CAT] ensure summary:
+  · total items: 23
+  · fetched: 21
+  · missing: 2
+[OXL-PER-CAT] Wrote detailed report: /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/oxl_detailed_report.csv
+[OXL-PER-CAT] Processed 23/23 downloaded objects (targets=23) for category 'bunk_bed'
+[OXL-PER-CAT] Wrote metadata: /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/metadata_bunk_bed.csv (23 rows)
+[OXL-PER-CAT] Wrote report: /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/report.json
+[OXL-PER-CAT] Wrote report CSV: /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/report.csv
+[OXL-PER-CAT] Cleaned staging directory: /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/bunk_bed_stage
+--- [cat] Step 2: Align & export GLBs ---
+[OXL] downloads under: /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed
+$ /home/hpc/v100dd/v100dd26/blender-4.5.3-linux-x64/blender -b -P /home/hpc/v100dd/v100dd26/project/Dataset_pipeline/src/align_export/align_export_snapshot_blender.py -- --json /home/vault/v100dd/v100dd26/Dataset/core_data/labeled_rotations/bunk_bed/final_shape_rotations.json --data_root /home/vault/v100dd/v100dd26/Dataset --category bunk_bed --out_dir /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed --snapshot snapshot.png --normalize_unit --target_size 1.0 --topdown --clean_out_dir --overwrite --export_format obj --oxl_layout --oxl_out_category ObjaverseXL_github --oxl_filter_by_label
+WARN (bpy.rna): source/blender/python/intern/bpy_rna.cc:1354 pyrna_enum_to_py: current value '29' matches no enum in 'Image', 'Diffuse Texture', 'file_format'
+Blender 4.5.3 LTS (hash 67807e1800cc built 2025-09-09 01:38:15)
+OBJ import of 'model.obj' took 10.49 ms
+Writing to /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_123bbc15b35450676c95d99387415c9ed4bc98c8245f25763266327a5343a24f_obj/model.obj
+OBJ export of 'model.obj' took 10.15 ms
+Error: Could not write image: internal error, see console
+Error: Image 'Diffuse Texture' could not be saved to '/home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_146fc5ef0fe0b20bee4cbc9b39b9b7186ce2166947334e4a0bafec3ccbf83f52_obj/textures/Diffuse_Texture.png'
+WARN (bpy.rna): source/blender/python/intern/bpy_rna.cc:1354 pyrna_enum_to_py: current value '29' matches no enum in 'Image', 'Diffuse Texture.001', 'file_format'
+Error: Could not write image: internal error, see console
+Error: Image 'Diffuse Texture.001' could not be saved to '/home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_146fc5ef0fe0b20bee4cbc9b39b9b7186ce2166947334e4a0bafec3ccbf83f52_obj/textures/Diffuse_Texture.png'
+WARN (bpy.rna): source/blender/python/intern/bpy_rna.cc:1354 pyrna_enum_to_py: current value '29' matches no enum in 'Image', 'Diffuse Texture', 'file_format'
+Writing to /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_146fc5ef0fe0b20bee4cbc9b39b9b7186ce2166947334e4a0bafec3ccbf83f52_obj/model.obj
+OBJ export of 'model.obj' took 5.65 ms
+Error: Could not write image: internal error, see console
+Error: Image 'Diffuse Texture' could not be saved to '/home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_146fc5ef0fe0b20bee4cbc9b39b9b7186ce2166947334e4a0bafec3ccbf83f52_obj/textures/Diffuse_Texture.png'
+WARN (bpy.rna): source/blender/python/intern/bpy_rna.cc:1354 pyrna_enum_to_py: current value '29' matches no enum in 'Image', 'Diffuse Texture.001', 'file_format'
+Error: Could not write image: internal error, see console
+Error: Image 'Diffuse Texture.001' could not be saved to '/home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_146fc5ef0fe0b20bee4cbc9b39b9b7186ce2166947334e4a0bafec3ccbf83f52_obj/textures/Diffuse_Texture.png'
+Info: No orphaned data-blocks to purge
+[align] relink: fixed=0, missing=0
+Info: Saved "_import_tmp.blend"
+Info: Total files 0 | Changed 0 | Failed 0
+Info: No new files have been packed
+Object: group1014773566, material slots = 6
+  Slot 0: Material = mat6
+    [!] No Image Texture node found
+  Slot 1: Material = mat18
+    [!] No Image Texture node found
+  Slot 2: Material = mat4
+    [!] No Image Texture node found
+  Slot 3: Material = mat21
+    [!] No Image Texture node found
+  Slot 4: Material = mat5
+    [!] No Image Texture node found
+  Slot 5: Material = mat23
+    [!] No Image Texture node found
+Info: File exported successfully
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+FBX version: 7200
+Info: Saved "bunkbedwood2.temp.blend"
+Info: Total files 2 | Changed 0 | Failed 0
+Info: Saved "bunkbedwood2.temp.blend"
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/146fc5ef0fe0b20bee4cbc9b39b9b7186ce2166947334e4a0bafec3ccbf83f52/raw/bunkbedwood2.fbm/bunkbedwood2.dds' not found
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/146fc5ef0fe0b20bee4cbc9b39b9b7186ce2166947334e4a0bafec3ccbf83f52/raw/bunkbedwood2.fbm/bunkbedwood2.dds' not found
+Info: Packed 2 file(s)
+[align] relink: fixed=2, missing=0
+Info: Saved "_import_tmp.blend"
+Info: Total files 2 | Changed 2 | Failed 0
+Info: Packed 2 file(s)
+Object: mesh_0, material slots = 1
+  Slot 0: Material = 9C007E11
+    Image: //bunkbedwood2.fbm/bunkbedwood2.dds size=<bpy_int[2], Image.size>
+    Image: //bunkbedwood2.fbm/bunkbedwood2.dds size=<bpy_int[2], Image.size>
+Info: File exported successfully
+[warn] MTL map refers to missing file: Diffuse_Texture.png
+[warn] MTL map refers to missing file: Diffuse_Texture.png
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+[align] relink: fixed=0, missing=0
+Info: Saved "_import_tmp.blend"
+Info: Total files 0 | Changed 0 | Failed 0
+Info: No new files have been packed
+Object: base_Cube.011, material slots = 10
+  Slot 0: Material = whiteWood
+    [!] No Image Texture node found
+  Slot 1: Material = whiteWoodBoxDrawers
+    [!] No Image Texture node found
+  Slot 2: Material = blueWoodBaseDrawers
+    [!] No Image Texture node found
+  Slot 3: Material = whiteWoodDesk
+    [!] No Image Texture node found
+  Slot 4: Material = blueWoodDesk
+    [!] No Image Texture node found
+  Slot 5: Material = blueWoodStairsDrawers
+    [!] No Image Texture node found
+  Slot 6: Material = blueWood
+    [!] No Image Texture node found
+  Slot 7: Material = mattress
+    [!] No Image Texture node found
+  Slot 8: Material = bluePillow
+    [!] No Image Texture node found
+  Slot 9: Material = whiteWoodStairsDrawers
+    [!] No Image Texture node found
+Info: File exported successfully
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+FBX version: 7700
+Info: Saved "Кровать.temp.blend"
+Info: Total files 1 | Changed 0 | Failed 0
+Info: Saved "Кровать.temp.blend"
+Info: No new files have been packed
+[align] relink: fixed=1, missing=0
+Info: Saved "_import_tmp.blend"
+Info: Total files 1 | Changed 1 | Failed 0
+Info: No new files have been packed
+Object: Подушка, material slots = 1
+  Slot 0: Material = Mat
+    Image: //Кровать.fbm/Кровать_DefaultMaterial_Albedo.png size=<bpy_int[2], Image.size>
+Info: File exported successfully
+[warn] MTL map refers to missing file: Кровать_DefaultMaterial_Albedo.png
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+FBX version: 7400
+Info: Saved "Prop_Bedroom_Bed_Bunk.temp.blend"
+Info: Total files 0 | Changed 0 | Failed 0
+Info: Saved "Prop_Bedroom_Bed_Bunk.temp.blend"
+Info: No new files have been packed
+[align] relink: fixed=0, missing=0
+Info: Saved "_import_tmp.blend"
+Info: Total files 0 | Changed 0 | Failed 0
+Info: No new files have been packed
+Object: object1.006, material slots = 5
+  Slot 0: Material = Fabric_6
+    [!] No Image Texture node found
+  Slot 1: Material = Fabric_5
+    [!] No Image Texture node found
+  Slot 2: Material = Fabric_3.001
+    [!] No Image Texture node found
+  Slot 3: Material = Medium_Wood
+    [!] No Image Texture node found
+  Slot 4: Material = Dark_Wood
+    [!] No Image Texture node found
+Info: File exported successfully
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+FBX version: 7400
+Info: Saved "doublebed.temp.blend"
+Info: Total files 0 | Changed 0 | Failed 0
+Info: Saved "doublebed.temp.blend"
+Info: No new files have been packed
+[align] relink: fixed=0, missing=0
+Info: Saved "_import_tmp.blend"
+Info: Total files 0 | Changed 0 | Failed 0
+Info: No new files have been packed
+Object: Cube.009, material slots = 3
+  Slot 0: Material = bedbody
+    [!] No Image Texture node found
+  Slot 1: Material = wool
+    [!] No Image Texture node found
+  Slot 2: Material = bedsheet
+    [!] No Image Texture node found
+Info: File exported successfully
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+[align] relink: fixed=0, missing=0
+Info: Saved "_import_tmp.blend"
+Info: Total files 0 | Changed 0 | Failed 0
+Info: No new files have been packed
+Object: bedBunk, material slots = 3
+  Slot 0: Material = wood
+    [!] No Image Texture node found
+  Slot 1: Material = carpetWhite
+    [!] No Image Texture node found
+  Slot 2: Material = carpet
+    [!] No Image Texture node found
+Info: File exported successfully
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+06:46:21 | INFO: Data are loaded, start creating Blender stuff
+06:46:21 | INFO: Blender create Mesh node Plane.001
+06:46:21 | INFO: Blender create Mesh node Plane.002
+06:46:21 | INFO: Blender create Mesh node Plane.003
+06:46:21 | INFO: Blender create Mesh node Circle.014
+06:46:21 | INFO: Blender create Mesh node Plane.004
+06:46:21 | INFO: Blender create Mesh node Plane.006
+06:46:21 | INFO: Blender create Mesh node Circle.001
+06:46:21 | INFO: Blender create Mesh node Plane.007
+06:46:21 | INFO: Blender create Mesh node Plane.009
+06:46:21 | INFO: glTF import finished in 0.01s
+[align] relink: fixed=0, missing=0
+Info: Saved "_import_tmp.blend"
+Info: Total files 0 | Changed 0 | Failed 0
+Info: No new files have been packed
+Object: support_structure_bottom, material slots = 3
+  Slot 0: Material = 4,3
+    [!] No Image Texture node found
+  Slot 1: Material = 5,3
+    [!] No Image Texture node found
+  Slot 2: Material = 10,9
+    [!] No Image Texture node found
+Info: File exported successfully
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+06:46:21 | INFO: Data are loaded, start creating Blender stuff
+06:46:21 | INFO: Blender create Mesh node 0
+06:46:21 | INFO: Blender create Mesh node 1
+06:46:21 | INFO: Blender create Mesh node 2
+06:46:21 | INFO: Blender create Mesh node 3
+06:46:21 | INFO: Blender create Mesh node 4
+06:46:21 | INFO: Blender create Mesh node 5
+06:46:21 | INFO: Blender create Mesh node 6
+06:46:21 | INFO: Blender create Mesh node 7
+06:46:21 | INFO: Blender create Mesh node 8
+06:46:21 | INFO: Blender create Mesh node 9
+06:46:21 | INFO: Blender create Mesh node 10
+06:46:21 | INFO: Blender create Mesh node 11
+06:46:21 | INFO: glTF import finished in 0.16s
+WARN (bpy.rna): source/blender/python/intern/bpy_rna.cc:1354 pyrna_enum_to_py: current value '29' matches no enum in 'Image', 'bunk_bed_D.dds', 'file_format'
+OBJ import of 'mezzanine-bed.obj' took 17.95 ms
+Writing to /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_1de2552763ebf177da66ce6ba9df06ec9e1e11e7ecaf997b85b9ebaa72000b68_obj/model.obj
+OBJ export of 'model.obj' took 7.66 ms
+Writing to /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_23dd1e18eabb878fbfa09337fd376603e4f4dc949ba36d56cb71dc11fa6deee5_obj/model.obj
+OBJ export of 'model.obj' took 82.61 ms
+Writing to /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_2581ed3c1255b25fee7e0d555837d37082db9cc45d103fd8f78a0414201d261b_obj/model.obj
+OBJ export of 'model.obj' took 14.76 ms
+Writing to /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_303bad8dde727ae583ee125cd2c1403710bb6320b1832c8fe5b7d00dd1d2b9c3_obj/model.obj
+OBJ export of 'model.obj' took 4.47 ms
+OBJ import of 'bedBunk.obj' took 2.63 ms
+Writing to /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_431e40324558db34840e13076cc86c8c01773c22b765116e903494387244caf7_obj/model.obj
+OBJ export of 'model.obj' took 6.06 ms
+Writing to /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_59456a48a8c3b7f8947cdb4c242800cddae27fc664f545ed8f867841c37c8080_obj/model.obj
+OBJ export of 'model.obj' took 7.14 ms
+ERROR: Image "" not available. Keeping packed image
+ERROR: Image "" not available. Keeping packed image
+ERROR: Image "" not available. Keeping packed image
+ERROR: Image "" not available. Keeping packed image
+Writing to /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_5c846e3559bfbb57902d9a66bef35a5c659ba99aafe121fb102264d329afe782_obj/model.obj
+OBJ export of 'model.obj' took 104.83 ms
+ERROR: Image "" not available. Keeping packed image
+ERROR: Image "" not available. Keeping packed image
+OBJ import of 'bunk_bed_fixed.obj' took 31.35 ms
+Error: Could not write image: internal error, see console
+Error: Image 'bunk_bed_D.dds' could not be saved to '/home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_63f73ad214b9940dc661951acafaeaa5da10326b0b37280d2af817f06d613b08_obj/textures/bunk_bed_D.png'
+WARN (bpy.rna): source/blender/python/intern/bpy_rna.cc:1354 pyrna_enum_to_py: current value '29' matches no enum in 'Image', 'bunk_bed_D.dds', 'file_format'
+Writing to /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_63f73ad214b9940dc661951acafaeaa5da10326b0b37280d2af817f06d613b08_obj/model.obj
+OBJ export of 'model.obj' took 6.02 ms
+Error: Could not write image: internal error, see console
+Error: Image 'bunk_bed_D.dds' could not be saved to '/home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_63f73ad214b9940dc661951acafaeaa5da10326b0b37280d2af817f06d613b08_obj/textures/bunk_bed_D.png'
+WARN (bpy.rna): source/blender/python/intern/bpy_rna.cc:1354 pyrna_enum_to_py: current value '29' matches no enum in 'Image', 'Diffuse Texture', 'file_format'
+OBJ import of 'bed_fixed.obj' took 3.18 ms
+Writing to /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_69349a3fefd037bbeb1178583fb394110dba1f2a83b02caff353fe516ab6e335_obj/model.obj
+OBJ export of 'model.obj' took 6.12 ms
+Writing to /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_7b33d701516b9baae71f43c1e4f1fc56eb4f3b98e8f05399b68b4d31dc03efc1_obj/model.obj
+OBJ export of 'model.obj' took 42.39 ms
+Error: Could not write image: internal error, see console
+Error: Image 'Diffuse Texture' could not be saved to '/home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_877854c8bc2301e6491270c27a06bef180e339f402c6ba10489d8e89db656c1c_obj/textures/Diffuse_Texture.png'
+WARN (bpy.rna): source/blender/python/intern/bpy_rna.cc:1354 pyrna_enum_to_py: current value '29' matches no enum in 'Image', 'Diffuse Texture.001', 'file_format'
+Error: Could not write image: internal error, see console
+Error: Image 'Diffuse Texture.001' could not be saved to '/home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_877854c8bc2301e6491270c27a06bef180e339f402c6ba10489d8e89db656c1c_obj/textures/Diffuse_Texture.png'
+WARN (bpy.rna): source/blender/python/intern/bpy_rna.cc:1354 pyrna_enum_to_py: current value '29' matches no enum in 'Image', 'Diffuse Texture', 'file_format'
+Writing to /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_877854c8bc2301e6491270c27a06bef180e339f402c6ba10489d8e89db656c1c_obj/model.obj
+OBJ export of 'model.obj' took 6.35 ms
+Error: Could not write image: internal error, see console
+Error: Image 'Diffuse Texture' could not be saved to '/home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_877854c8bc2301e6491270c27a06bef180e339f402c6ba10489d8e89db656c1c_obj/textures/Diffuse_Texture.png'
+WARN (bpy.rna): source/blender/python/intern/bpy_rna.cc:1354 pyrna_enum_to_py: current value '29' matches no enum in 'Image', 'Diffuse Texture.001', 'file_format'
+Error: Could not write image: internal error, see console
+Error: Image 'Diffuse Texture.001' could not be saved to '/home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_877854c8bc2301e6491270c27a06bef180e339f402c6ba10489d8e89db656c1c_obj/textures/Diffuse_Texture.png'
+Writing to /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_91b82697b438b22df35918a3022cbb32e8056d3f14bd89d82ba61171bae2a819_obj/model.obj
+OBJ export of 'model.obj' took 225.50 ms
+OBJ import of 'bed_fixed.obj' took 42.22 ms
+Writing to /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_9a29025ce4be29800c30316c9be6bfb8afd89145bcd9f6f0695110e85ad2b063_obj/model.obj
+OBJ export of 'model.obj' took 4.74 ms
+Error: Image '621ddc50e570d2c4d4778a08be90a5edККК.jpg' does not have any image data
+Error: Image '621ddc50e570d2c4d4778a08be90a5edККК.jpg' does not have any image data
+Error: Image '621ddc50e570d2c4d4778a08be90a5ed.jpg' does not have any image data
+Error: Image '621ddc50e570d2c4d4778a08be90a5edККК.jpg' does not have any image data
+Error: Image '621ddc50e570d2c4d4778a08be90a5edККК.jpg' does not have any image data
+Error: Image '621ddc50e570d2c4d4778a08be90a5edККК.jpg' does not have any image data
+Error: Image '621ddc50e570d2c4d4778a08be90a5edККК.jpg' does not have any image data
+Error: Image '621ddc50e570d2c4d4778a08be90a5edККК.jpg' does not have any image data
+Error: Image '621ddc50e570d2c4d4778a08be90a5edККК.jpg' does not have any image data
+Error: Image '621ddc50e570d2c4d4778a08be90a5edККК.jpg' does not have any image data
+Error: Image '621ddc50e570d2c4d4778a08be90a5edККК.jpg' does not have any image data
+Error: Image '621ddc50e570d2c4d4778a08be90a5edККК.jpg' does not have any image data
+Error: Image '621ddc50e570d2c4d4778a08be90a5edККК.jpg' does not have any image data
+Error: Image '621ddc50e570d2c4d4778a08be90a5edККК.jpg' does not have any image data
+Error: Image '621ddc50e570d2c4d4778a08be90a5edККК.jpg' does not have any image data
+Error: Image '621ddc50e570d2c4d4778a08be90a5edККК.jpg' does not have any image data
+Error: Image '621ddc50e570d2c4d4778a08be90a5edККК.jpg' does not have any image data
+Error: Image '621ddc50e570d2c4d4778a08be90a5edККК.jpg' does not have any image data
+Error: Image '621ddc50e570d2c4d4778a08be90a5edККК.jpg' does not have any image data
+Error: Image '621ddc50e570d2c4d4778a08be90a5edККК.jpg' does not have any image data
+Error: Image '621ddc50e570d2c4d4778a08be90a5edККК.jpg' does not have any image data
+Error: Image 'белизна-сморщила-текстуру-ткани-п' does not have any image data
+Error: Image 'белизна-сморщила-текстуру-ткани-п' does not have any image data
+Writing to /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_aa0cd9918b0dd483f074df951efaa7b3c979abb5a08b2c3e3169c7927ae26a22_obj/model.obj
+OBJ export of 'model.obj' took 18.51 ms
+Error: Image '621ddc50e570d2c4d4778a08be90a5edККК.jpg' does not have any image data
+Error: Image '621ddc50e570d2c4d4778a08be90a5edККК.jpg' does not have any image data
+Error: Image '621ddc50e570d2c4d4778a08be90a5ed.jpg' does not have any image data
+Error: Image '621ddc50e570d2c4d4778a08be90a5edККК.jpg' does not have any image data
+Error: Image '621ddc50e570d2c4d4778a08be90a5edККК.jpg' does not have any image data
+Error: Image '621ddc50e570d2c4d4778a08be90a5edККК.jpg' does not have any image data
+Error: Image '621ddc50e570d2c4d4778a08be90a5edККК.jpg' does not have any image data
+Error: Image '621ddc50e570d2c4d4778a08be90a5edККК.jpg' does not have any image data
+Error: Image '621ddc50e570d2c4d4778a08be90a5edККК.jpg' does not have any image data
+Error: Image '621ddc50e570d2c4d4778a08be90a5edККК.jpg' does not have any image data
+Error: Image '621ddc50e570d2c4d4778a08be90a5edККК.jpg' does not have any image data
+Error: Image '621ddc50e570d2c4d4778a08be90a5edККК.jpg' does not have any image data
+Error: Image '621ddc50e570d2c4d4778a08be90a5edККК.jpg' does not have any image data
+Error: Image '621ddc50e570d2c4d4778a08be90a5edККК.jpg' does not have any image data
+Error: Image '621ddc50e570d2c4d4778a08be90a5edККК.jpg' does not have any image data
+Error: Image '621ddc50e570d2c4d4778a08be90a5edККК.jpg' does not have any image data
+Error: Image '621ddc50e570d2c4d4778a08be90a5edККК.jpg' does not have any image data
+Error: Image '621ddc50e570d2c4d4778a08be90a5edККК.jpg' does not have any image data
+Error: Image '621ddc50e570d2c4d4778a08be90a5edККК.jpg' does not have any image data
+Error: Image '621ddc50e570d2c4d4778a08be90a5edККК.jpg' does not have any image data
+Error: Image '621ddc50e570d2c4d4778a08be90a5edККК.jpg' does not have any image data
+Error: Image 'белизна-сморщила-текстуру-ткани-п' does not have any image data
+Error: Image 'белизна-сморщила-текстуру-ткани-п' does not have any image data
+[align] relink: fixed=0, missing=0
+Info: Saved "_import_tmp.blend"
+Info: Total files 0 | Changed 0 | Failed 0
+Info: No new files have been packed
+Object: Buffer Layer 2, material slots = 9
+  Slot 0: Material = Material #2
+    [!] No Image Texture node found
+  Slot 1: Material = Material #4
+    Image:  size=<bpy_int[2], Image.size>
+  Slot 2: Material = Material
+    [!] No Image Texture node found
+  Slot 3: Material = Material 2
+    [!] No Image Texture node found
+  Slot 4: Material = White_wood
+    [!] No Image Texture node found
+  Slot 5: Material = Wood_white
+    [!] No Image Texture node found
+  Slot 6: Material = Material #26
+    [!] No Image Texture node found
+  Slot 7: Material = Material #27
+    [!] No Image Texture node found
+  Slot 8: Material = Material 1
+    Image:  size=<bpy_int[2], Image.size>
+Info: File exported successfully
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+[align] relink: fixed=0, missing=0
+Info: Saved "_import_tmp.blend"
+Info: Total files 1 | Changed 1 | Failed 0
+Info: Packed 1 file(s)
+Object: bunk_bed_fixed, material slots = 1
+  Slot 0: Material = bunk_bed
+    Image: //textures/bunk_bed_D.dds size=<bpy_int[2], Image.size>
+Info: File exported successfully
+[warn] MTL map refers to missing file: bunk_bed_D.png
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+[align] relink: fixed=0, missing=0
+Info: Saved "_import_tmp.blend"
+Info: Total files 1 | Changed 1 | Failed 0
+Info: Packed 1 file(s)
+Object: Untitled, material slots = 1
+  Slot 0: Material = palette
+    Image: //textures/bed.png size=<bpy_int[2], Image.size>
+Info: File exported successfully
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+FBX version: 7300
+Info: Saved "bunk_bed.temp.blend"
+Info: Total files 3 | Changed 0 | Failed 0
+Info: Saved "bunk_bed.temp.blend"
+Info: No new files have been packed
+[align] relink: fixed=3, missing=0
+Info: Saved "_import_tmp.blend"
+Info: Total files 3 | Changed 3 | Failed 0
+Info: No new files have been packed
+Object: bunk_bed_ladder, material slots = 3
+  Slot 0: Material = bed_wood
+    Image: //bunk_bed.fbm/bunk_bed_wood.jpg size=<bpy_int[2], Image.size>
+  Slot 1: Material = bed_mattress
+    Image: //bunk_bed.fbm/bunk_bed_mattress.jpg size=<bpy_int[2], Image.size>
+  Slot 2: Material = bed_pillow
+    Image: //bunk_bed.fbm/bunk_bed_pillow.jpg size=<bpy_int[2], Image.size>
+Info: File exported successfully
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+FBX version: 7200
+Info: Saved "bunkbedmetl.temp.blend"
+Info: Total files 2 | Changed 0 | Failed 0
+Info: Saved "bunkbedmetl.temp.blend"
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/877854c8bc2301e6491270c27a06bef180e339f402c6ba10489d8e89db656c1c/raw/bunkbedmetl.fbm/bunkbedmetl.dds' not found
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/877854c8bc2301e6491270c27a06bef180e339f402c6ba10489d8e89db656c1c/raw/bunkbedmetl.fbm/bunkbedmetl.dds' not found
+Info: Packed 2 file(s)
+[align] relink: fixed=2, missing=0
+Info: Saved "_import_tmp.blend"
+Info: Total files 2 | Changed 2 | Failed 0
+Info: Packed 2 file(s)
+Object: mesh_0, material slots = 1
+  Slot 0: Material = 9C007E0F
+    Image: //bunkbedmetl.fbm/bunkbedmetl.dds size=<bpy_int[2], Image.size>
+    Image: //bunkbedmetl.fbm/bunkbedmetl.dds size=<bpy_int[2], Image.size>
+Info: File exported successfully
+[warn] MTL map refers to missing file: Diffuse_Texture.png
+[warn] MTL map refers to missing file: Diffuse_Texture.png
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+FBX version: 7400
+Info: Saved "kasur.temp.blend"
+Info: Total files 0 | Changed 0 | Failed 0
+Info: Saved "kasur.temp.blend"
+Info: No new files have been packed
+[align] relink: fixed=0, missing=0
+Info: Saved "_import_tmp.blend"
+Info: Total files 0 | Changed 0 | Failed 0
+Info: No new files have been packed
+Object: Cube.003, material slots = 20
+  Slot 0: Material = Material.003
+    [!] No Image Texture node found
+  Slot 1: Material = Material.018
+    [!] No Image Texture node found
+  Slot 2: Material = Material.021
+    [!] No Image Texture node found
+  Slot 3: Material = Material.012
+    [!] No Image Texture node found
+  Slot 4: Material = Material.024
+    [!] No Image Texture node found
+  Slot 5: Material = Material.025
+    [!] No Image Texture node found
+  Slot 6: Material = Material.027
+    [!] No Image Texture node found
+  Slot 7: Material = Material.008
+    [!] No Image Texture node found
+  Slot 8: Material = Material.009
+    [!] No Image Texture node found
+  Slot 9: Material = Material.004
+    [!] No Image Texture node found
+  Slot 10: Material = Material.006
+    [!] No Image Texture node found
+  Slot 11: Material = Material.007
+    [!] No Image Texture node found
+  Slot 12: Material = Material.010
+    [!] No Image Texture node found
+  Slot 13: Material = Material.011
+    [!] No Image Texture node found
+  Slot 14: Material = Material.014
+    [!] No Image Texture node found
+  Slot 15: Material = Material.020
+    [!] No Image Texture node found
+  Slot 16: Material = Material.013
+    [!] No Image Texture node found
+  Slot 17: [!] No material
+  Slot 18: Material = Material.017
+    [!] No Image Texture node found
+  Slot 19: Material = Material.016
+    [!] No Image Texture node found
+Info: File exported successfully
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+[align] relink: fixed=0, missing=0
+Info: Saved "_import_tmp.blend"
+Info: Total files 1 | Changed 1 | Failed 0
+Info: Packed 1 file(s)
+Object: Plane, material slots = 1
+  Slot 0: Material = skin
+    Image: //textures/bed.jpg size=<bpy_int[2], Image.size>
+Info: File exported successfully
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+FBX version: 7400
+Warning: Could not find '621ddc50e570d2c4d4778a08be90a5ed.jpg' in '/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/aa0cd9918b0dd483f074df951efaa7b3c979abb5a08b2c3e3169c7927ae26a22/raw'
+Warning: Could not find '621ddc50e570d2c4d4778a08be90a5edККК.jpg' in '/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/aa0cd9918b0dd483f074df951efaa7b3c979abb5a08b2c3e3169c7927ae26a22/raw'
+Warning: Could not find 'белизна-сморщила-текстуру-ткани-простыню-конца-вверх-отменянную-в-126094238.jpg' in '/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/aa0cd9918b0dd483f074df951efaa7b3c979abb5a08b2c3e3169c7927ae26a22/raw'
+Info: Saved "bunkbed.temp.blend"
+Info: Total files 3 | Changed 3 | Failed 0
+Info: Saved "bunkbed.temp.blend"
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/aa0cd9918b0dd483f074df951efaa7b3c979abb5a08b2c3e3169c7927ae26a22/raw/C:/Users/User/OneDrive/Рабочий стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5ed.jpg' not found
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/aa0cd9918b0dd483f074df951efaa7b3c979abb5a08b2c3e3169c7927ae26a22/raw/C:/Users/User/OneDrive/Рабочий стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5edККК.jpg' not found
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/aa0cd9918b0dd483f074df951efaa7b3c979abb5a08b2c3e3169c7927ae26a22/raw/C:/Users/User/OneDrive/Рабочий стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/белизна-сморщила-текстуру-ткани-простыню-конца-вверх-отменянную-в-126094238.jpg' not found
+Info: Packed 3 file(s)
+[align] relink: fixed=0, missing=3
+Info: Saved "_import_tmp.blend"
+Info: Total files 3 | Changed 0 | Failed 0
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/aa0cd9918b0dd483f074df951efaa7b3c979abb5a08b2c3e3169c7927ae26a22/raw/C:/Users/User/OneDrive/Рабочий стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5ed.jpg' not found
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/aa0cd9918b0dd483f074df951efaa7b3c979abb5a08b2c3e3169c7927ae26a22/raw/C:/Users/User/OneDrive/Рабочий стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5edККК.jpg' not found
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/aa0cd9918b0dd483f074df951efaa7b3c979abb5a08b2c3e3169c7927ae26a22/raw/C:/Users/User/OneDrive/Рабочий стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/белизна-сморщила-текстуру-ткани-простыню-конца-вверх-отменянную-в-126094238.jpg' not found
+Info: Packed 3 file(s)
+Object: Cube, material slots = 29
+  Slot 0: Material = Material.017
+    Image: //C:/Users/User/OneDrive/Рабочий стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5edККК.jpg size=<bpy_int[2], Image.size>
+  Slot 1: Material = Material.001
+    [!] No Image Texture node found
+  Slot 2: Material = Material.005
+    [!] No Image Texture node found
+  Slot 3: Material = Material.002
+    [!] No Image Texture node found
+  Slot 4: Material = Material.007
+    Image: //C:/Users/User/OneDrive/Рабочий стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5edККК.jpg size=<bpy_int[2], Image.size>
+  Slot 5: Material = Material.006
+    [!] No Image Texture node found
+  Slot 6: Material = Material.018
+    Image: //C:/Users/User/OneDrive/Рабочий стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5ed.jpg size=<bpy_int[2], Image.size>
+  Slot 7: Material = Material.011
+    Image: //C:/Users/User/OneDrive/Рабочий стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5edККК.jpg size=<bpy_int[2], Image.size>
+  Slot 8: Material = Material.012
+    Image: //C:/Users/User/OneDrive/Рабочий стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5edККК.jpg size=<bpy_int[2], Image.size>
+  Slot 9: Material = Material.014
+    Image: //C:/Users/User/OneDrive/Рабочий стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5edККК.jpg size=<bpy_int[2], Image.size>
+  Slot 10: Material = Material.009
+    Image: //C:/Users/User/OneDrive/Рабочий стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5edККК.jpg size=<bpy_int[2], Image.size>
+  Slot 11: Material = Material.013
+    Image: //C:/Users/User/OneDrive/Рабочий стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5edККК.jpg size=<bpy_int[2], Image.size>
+  Slot 12: Material = Material.025
+    Image: //C:/Users/User/OneDrive/Рабочий стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5edККК.jpg size=<bpy_int[2], Image.size>
+  Slot 13: Material = Material.022
+    Image: //C:/Users/User/OneDrive/Рабочий стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5edККК.jpg size=<bpy_int[2], Image.size>
+  Slot 14: Material = Material.021
+    Image: //C:/Users/User/OneDrive/Рабочий стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5edККК.jpg size=<bpy_int[2], Image.size>
+  Slot 15: Material = Material.019
+    Image: //C:/Users/User/OneDrive/Рабочий стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5edККК.jpg size=<bpy_int[2], Image.size>
+  Slot 16: Material = Material.020
+    Image: //C:/Users/User/OneDrive/Рабочий стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5edККК.jpg size=<bpy_int[2], Image.size>
+  Slot 17: Material = Material.027
+    Image: //C:/Users/User/OneDrive/Рабочий стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5edККК.jpg size=<bpy_int[2], Image.size>
+  Slot 18: Material = Material.026
+    Image: //C:/Users/User/OneDrive/Рабочий стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5edККК.jpg size=<bpy_int[2], Image.size>
+  Slot 19: Material = Material.024
+    Image: //C:/Users/User/OneDrive/Рабочий стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5edККК.jpg size=<bpy_int[2], Image.size>
+  Slot 20: Material = Material.023
+    Image: //C:/Users/User/OneDrive/Рабочий стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5edККК.jpg size=<bpy_int[2], Image.size>
+  Slot 21: Material = Material.015
+    Image: //C:/Users/User/OneDrive/Рабочий стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5edККК.jpg size=<bpy_int[2], Image.size>
+  Slot 22: Material = Material.016
+    Image: //C:/Users/User/OneDrive/Рабочий стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5edККК.jpg size=<bpy_int[2], Image.size>
+  Slot 23: Material = Material.010
+    Image: //C:/Users/User/OneDrive/Рабочий стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5edККК.jpg size=<bpy_int[2], Image.size>
+  Slot 24: Material = Material.008
+    Image: //C:/Users/User/OneDrive/Рабочий стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5edККК.jpg size=<bpy_int[2], Image.size>
+  Slot 25: Material = Material.029
+    Image: //C:/Users/User/OneDrive/Рабочий стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/белизна-сморщила-текстуру-ткани-простыню-конца-вверх-отменянную-в-126094238.jpg size=<bpy_int[2], Image.size>
+  Slot 26: Material = Material.028
+    Image: //C:/Users/User/OneDrive/Рабочий стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/белизна-сморщила-текстуру-ткани-простыню-конца-вверх-отменянную-в-126094238.jpg size=<bpy_int[2], Image.size>
+  Slot 27: Material = Material.030
+    [!] No Image Texture node found
+  Slot 28: Material = Material.031
+    [!] No Image Texture node found
+Info: File exported successfully
+[warn] MTL map refers to missing file: стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5edККК.jpg
+[warn] MTL map refers to missing file: стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5edККК.jpg
+[warn] MTL map refers to missing file: стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5edККК.jpg
+[warn] MTL map refers to missing file: стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5edККК.jpg
+[warn] MTL map refers to missing file: стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5edККК.jpg
+[warn] MTL map refers to missing file: стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5edККК.jpg
+[warn] MTL map refers to missing file: стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5edККК.jpg
+[warn] MTL map refers to missing file: стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5edККК.jpg
+[warn] MTL map refers to missing file: стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5edККК.jpg
+[warn] MTL map refers to missing file: стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5edККК.jpg
+[warn] MTL map refers to missing file: стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5edККК.jpg
+[warn] MTL map refers to missing file: стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5ed.jpg
+[warn] MTL map refers to missing file: стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5edККК.jpg
+[warn] MTL map refers to missing file: стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5edККК.jpg
+[warn] MTL map refers to missing file: стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5edККК.jpg
+[warn] MTL map refers to missing file: стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5edККК.jpg
+[warn] MTL map refers to missing file: стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5edККК.jpg
+[warn] MTL map refers to missing file: стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5edККК.jpg
+[warn] MTL map refers to missing file: стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5edККК.jpg
+[warn] MTL map refers to missing file: стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5edККК.jpg
+[warn] MTL map refers to missing file: стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5edККК.jpg
+[warn] MTL map refers to missing file: стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/белизна-сморщила-текстуру-ткани-простыню-конца-вверх-отменянную-в-126094238.jpg
+[warn] MTL map refers to missing file: стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/белизна-сморщила-текстуру-ткани-простыню-конца-вверх-отменянную-в-126094238.jpg
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+FBX version: 7300
+Info: Saved "bedBunk.temp.blend"
+Info: Total files 0 | Changed 0 | Failed 0
+Info: Saved "bedBunk.temp.blend"
+Info: No new files have been packed
+[align] relink: fixed=0, missing=0
+Info: Saved "_import_tmp.blend"
+Info: Total files 0 | Changed 0 | Failed 0
+Info: No new files have been packed
+Object: coverBottom, material slots = 3
+  Slot 0: Material = carpet
+    [!] No Image Texture node found
+  Slot 1: Material = carpetWhite
+    [!] No Image Texture node found
+  Slot 2: Material = wood
+    [!] No Image Texture node found
+Info: File exported successfully
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+06:46:25 | INFO: Data are loaded, start creating Blender stuff
+06:46:25 | INFO: Blender create Mesh node Mesh bedBunk
+06:46:25 | INFO: Blender create Mesh node Mesh cover
+06:46:25 | INFO: Blender create Mesh node Mesh pillowLeft
+06:46:25 | INFO: glTF import finished in 0.01s
+Writing to /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_ac9cb34919c696ed1fac6be8c30bac8a10fb1e3349bf6cebf47162b81e437010_obj/model.obj
+OBJ export of 'model.obj' took 6.36 ms
+Writing to /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_b58c4c1950763ca1726f9746cd048d417513a9becf66d196e9827a9d4e180989_obj/model.obj
+OBJ export of 'model.obj' took 6.35 ms
+Writing to /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_b7462813cafc016260007c1187aae0015468b7f60e1243c94a96ab1e67a176d4_obj/model.obj
+OBJ export of 'model.obj' took 5.55 ms
+OBJ import of 'Prop_Bedroom_Bed_Bunk.obj' took 38.87 ms
+Writing to /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_d1bf1e06e6b44697ed3b1a54c83099e647a9f70cc8335941d5da221fe0b8aa91_obj/model.obj
+OBJ export of 'model.obj' took 11.56 ms
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/d75cc485fc189396870a34caae8a0f81f7ddade57b5839c0ad9c2f78af018bd3/raw/tex/bed_1.psd' not found
+ERROR: Image "/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/d75cc485fc189396870a34caae8a0f81f7ddade57b5839c0ad9c2f78af018bd3/raw/tex/bed_1.psd" not available. Keeping packed image
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/d75cc485fc189396870a34caae8a0f81f7ddade57b5839c0ad9c2f78af018bd3/raw/tex/bed_1.psd' not found
+ERROR: Image "/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/d75cc485fc189396870a34caae8a0f81f7ddade57b5839c0ad9c2f78af018bd3/raw/tex/bed_1.psd" not available. Keeping packed image
+Writing to /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_d75cc485fc189396870a34caae8a0f81f7ddade57b5839c0ad9c2f78af018bd3_obj/model.obj
+OBJ export of 'model.obj' took 12.03 ms
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/d75cc485fc189396870a34caae8a0f81f7ddade57b5839c0ad9c2f78af018bd3/raw/tex/bed_1.psd' not found
+ERROR: Image "/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/d75cc485fc189396870a34caae8a0f81f7ddade57b5839c0ad9c2f78af018bd3/raw/tex/bed_1.psd" not available. Keeping packed image
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/d75cc485fc189396870a34caae8a0f81f7ddade57b5839c0ad9c2f78af018bd3/raw/tex/bed_1.psd' not found
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_146fc5ef0fe0b20bee4cbc9b39b9b7186ce2166947334e4a0bafec3ccbf83f52_obj/Diffuse_Texture.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: 'Diffuse_Texture.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: 'Diffuse Texture.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_63f73ad214b9940dc661951acafaeaa5da10326b0b37280d2af817f06d613b08_obj/bunk_bed_D.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: 'bunk_bed_D.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: 'bunk bed D.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_877854c8bc2301e6491270c27a06bef180e339f402c6ba10489d8e89db656c1c_obj/Diffuse_Texture.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: 'Diffuse_Texture.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: 'Diffuse Texture.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_aa0cd9918b0dd483f074df951efaa7b3c979abb5a08b2c3e3169c7927ae26a22_obj//home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/aa0cd9918b0dd483f074df951efaa7b3c979abb5a08b2c3e3169c7927ae26a22/raw/C:/Users/User/OneDrive/Рабочий стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5edККК.jpg'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/aa0cd9918b0dd483f074df951efaa7b3c979abb5a08b2c3e3169c7927ae26a22/raw/C:/Users/User/OneDrive/Рабочий стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5edККК.jpg'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL github/bunk bed/aa0cd9918b0dd483f074df951efaa7b3c979abb5a08b2c3e3169c7927ae26a22/raw/C:/Users/User/OneDrive/Рабочий стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5edККК.jpg'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_aa0cd9918b0dd483f074df951efaa7b3c979abb5a08b2c3e3169c7927ae26a22_obj/621ddc50e570d2c4d4778a08be90a5edККК.jpg'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_aa0cd9918b0dd483f074df951efaa7b3c979abb5a08b2c3e3169c7927ae26a22_obj//home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/aa0cd9918b0dd483f074df951efaa7b3c979abb5a08b2c3e3169c7927ae26a22/raw/C:/Users/User/OneDrive/Рабочий стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5ed.jpg'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/aa0cd9918b0dd483f074df951efaa7b3c979abb5a08b2c3e3169c7927ae26a22/raw/C:/Users/User/OneDrive/Рабочий стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5ed.jpg'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL github/bunk bed/aa0cd9918b0dd483f074df951efaa7b3c979abb5a08b2c3e3169c7927ae26a22/raw/C:/Users/User/OneDrive/Рабочий стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5ed.jpg'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_aa0cd9918b0dd483f074df951efaa7b3c979abb5a08b2c3e3169c7927ae26a22_obj/621ddc50e570d2c4d4778a08be90a5ed.jpg'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_aa0cd9918b0dd483f074df951efaa7b3c979abb5a08b2c3e3169c7927ae26a22_obj//home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/aa0cd9918b0dd483f074df951efaa7b3c979abb5a08b2c3e3169c7927ae26a22/raw/C:/Users/User/OneDrive/Рабочий стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/белизна-сморщила-текстуру-ткани-простыню-конца-вверх-отменянную-в-126094238.jpg'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/aa0cd9918b0dd483f074df951efaa7b3c979abb5a08b2c3e3169c7927ae26a22/raw/C:/Users/User/OneDrive/Рабочий стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/белизна-сморщила-текстуру-ткани-простыню-конца-вверх-отменянную-в-126094238.jpg'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL github/bunk bed/aa0cd9918b0dd483f074df951efaa7b3c979abb5a08b2c3e3169c7927ae26a22/raw/C:/Users/User/OneDrive/Рабочий стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/белизна-сморщила-текстуру-ткани-простыню-конца-вверх-отменянную-в-126094238.jpg'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_aa0cd9918b0dd483f074df951efaa7b3c979abb5a08b2c3e3169c7927ae26a22_obj/белизна-сморщила-текстуру-ткани-простыню-конца-вверх-отменянную-в-126094238.jpg'
+ERROR: Image "/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/d75cc485fc189396870a34caae8a0f81f7ddade57b5839c0ad9c2f78af018bd3/raw/tex/bed_1.psd" not available. Keeping packed image
+OBJ import of 'bunkbed_fixed.obj' took 3.20 ms
+Writing to /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_e0e17e838d3e14b7ffd5bb67d1c9ad2745b797691b642060634e4639efb71408_obj/model.obj
+OBJ export of 'model.obj' took 5.49 ms
+Writing to /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_f45b71b83dbfa1e9a67191d7ed2b97d4dd3fcffa9432749b94596a0341de71e7_obj/model.obj
+OBJ export of 'model.obj' took 5.63 ms
+OBJ import of 'model.obj' took 2.77 ms
+OBJ import of 'model.obj' took 2.91 ms
+OBJ import of 'model.obj' took 3.45 ms
+OBJ import of 'model.obj' took 58.39 ms
+OBJ import of 'model.obj' took 7.81 ms
+OBJ import of 'model.obj' took 1.46 ms
+OBJ import of 'model.obj' took 2.00 ms
+OBJ import of 'model.obj' took 3.27 ms
+OBJ import of 'model.obj' took 157.53 ms
+OBJ import of 'model.obj' took 3.23 ms
+OBJ import of 'model.obj' took 3.06 ms
+OBJ import of 'model.obj' took 24.98 ms
+OBJ import of 'model.obj' took 3.31 ms
+OBJ import of 'model.obj' took 529.10 ms
+OBJ import of 'model.obj' took 2.91 ms
+OBJ import of 'model.obj' took 16.28 ms
+OBJ import of 'model.obj' took 2.08 ms
+OBJ import of 'model.obj' took 1.95 ms
+OBJ import of 'model.obj' took 3.34 ms
+OBJ import of 'model.obj' took 7.33 ms
+OBJ import of 'model.obj' took 7.17 ms
+OBJ import of 'model.obj' took 3.18 ms
+OBJ import of 'model.obj' took 7.34 ms
+Fra:1 Mem:80.48M (Peak 80.48M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Sun
+Fra:1 Mem:80.48M (Peak 80.48M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Area
+Fra:1 Mem:80.48M (Peak 80.48M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | mesh_0
+Fra:1 Mem:80.48M (Peak 80.48M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | object1.006
+Fra:1 Mem:80.49M (Peak 82.49M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | support_structure_bottom
+Fra:1 Mem:82.51M (Peak 82.51M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | bunk_bed_fixed
+Fra:1 Mem:82.51M (Peak 82.51M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Cube.003
+Fra:1 Mem:83.43M (Peak 83.43M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | pCube22
+Fra:1 Mem:83.48M (Peak 83.48M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Plane
+Fra:1 Mem:84.98M (Peak 84.98M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Cube
+Fra:1 Mem:86.35M (Peak 86.35M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | bunkbed_fixed
+Fra:1 Mem:87.23M (Peak 87.23M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | coverBottom
+Fra:1 Mem:87.31M (Peak 87.31M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | bedBunk(Clone)
+Fra:1 Mem:87.44M (Peak 87.44M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | SM_Prop_Bed_Bunk_01
+Fra:1 Mem:87.70M (Peak 87.70M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | object1
+Fra:1 Mem:87.82M (Peak 87.82M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | bed
+Fra:1 Mem:145.43M (Peak 198.29M) | Time:00:00.09 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Initializing
+Fra:1 Mem:139.70M (Peak 198.29M) | Time:00:00.09 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Waiting for render to start
+Fra:1 Mem:139.70M (Peak 198.29M) | Time:00:00.09 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Scene
+Fra:1 Mem:139.70M (Peak 198.29M) | Time:00:00.09 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Shaders
+Fra:1 Mem:139.70M (Peak 198.29M) | Time:00:00.09 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Loading render kernels (may take a few minutes the first time)
+Fra:1 Mem:139.86M (Peak 198.29M) | Time:00:00.10 | Mem:0.08M, Peak:0.08M | Scene, ViewLayer | Updating Procedurals
+Fra:1 Mem:139.86M (Peak 198.29M) | Time:00:00.10 | Mem:0.08M, Peak:0.08M | Scene, ViewLayer | Updating Background
+Fra:1 Mem:139.86M (Peak 198.29M) | Time:00:00.10 | Mem:0.08M, Peak:0.08M | Scene, ViewLayer | Updating Camera
+Fra:1 Mem:139.86M (Peak 198.29M) | Time:00:00.10 | Mem:0.08M, Peak:0.08M | Scene, ViewLayer | Updating Meshes Flags
+Fra:1 Mem:139.86M (Peak 198.29M) | Time:00:00.10 | Mem:0.08M, Peak:0.08M | Scene, ViewLayer | Updating Objects
+Fra:1 Mem:139.86M (Peak 198.29M) | Time:00:00.10 | Mem:0.08M, Peak:0.08M | Scene, ViewLayer | Updating Objects | Copying Transformations to device
+Fra:1 Mem:139.87M (Peak 198.29M) | Time:00:00.10 | Mem:0.08M, Peak:0.08M | Scene, ViewLayer | Updating Particle Systems
+Fra:1 Mem:139.87M (Peak 198.29M) | Time:00:00.10 | Mem:0.08M, Peak:0.08M | Scene, ViewLayer | Updating Particle Systems | Copying Particles to device
+Fra:1 Mem:139.87M (Peak 198.29M) | Time:00:00.10 | Mem:0.08M, Peak:0.08M | Scene, ViewLayer | Updating Meshes
+Fra:1 Mem:139.87M (Peak 198.29M) | Time:00:00.10 | Mem:0.08M, Peak:0.08M | Scene, ViewLayer | Updating Objects | Applying Static Transformations
+Fra:1 Mem:139.87M (Peak 198.29M) | Time:00:00.10 | Mem:0.08M, Peak:0.08M | Scene, ViewLayer | Updating Mesh | Computing attributes
+Fra:1 Mem:148.91M (Peak 198.29M) | Time:00:00.11 | Mem:0.08M, Peak:0.08M | Scene, ViewLayer | Updating Mesh | Copying Attributes to device
+Fra:1 Mem:148.90M (Peak 198.29M) | Time:00:00.11 | Mem:9.12M, Peak:9.12M | Scene, ViewLayer | Updating Scene BVH | Building
+Fra:1 Mem:148.90M (Peak 198.29M) | Time:00:00.11 | Mem:9.12M, Peak:9.12M | Scene, ViewLayer | Updating Scene BVH | Building BVH
+Fra:1 Mem:148.90M (Peak 198.29M) | Time:00:00.11 | Mem:37.29M, Peak:37.29M | Scene, ViewLayer | Updating Scene BVH | Building BVH 0%
+Fra:1 Mem:148.90M (Peak 198.29M) | Time:00:00.14 | Mem:69.12M, Peak:97.29M | Scene, ViewLayer | Updating Scene BVH | Copying BVH to device
+Fra:1 Mem:148.90M (Peak 198.29M) | Time:00:00.14 | Mem:69.12M, Peak:97.29M | Scene, ViewLayer | Updating Mesh | Computing normals
+Fra:1 Mem:175.19M (Peak 198.29M) | Time:00:00.15 | Mem:69.12M, Peak:97.29M | Scene, ViewLayer | Updating Mesh | Copying Mesh to device
+Fra:1 Mem:175.19M (Peak 198.29M) | Time:00:00.15 | Mem:95.41M, Peak:97.29M | Scene, ViewLayer | Updating Objects Flags
+Fra:1 Mem:175.19M (Peak 198.29M) | Time:00:00.15 | Mem:95.41M, Peak:97.29M | Scene, ViewLayer | Updating Primitive Offsets
+Fra:1 Mem:175.19M (Peak 198.29M) | Time:00:00.15 | Mem:95.41M, Peak:97.29M | Scene, ViewLayer | Updating Images
+Fra:1 Mem:175.19M (Peak 198.29M) | Time:00:00.15 | Mem:95.41M, Peak:97.29M | Scene, ViewLayer | Updating Images | Loading bunkbed.png
+Fra:1 Mem:175.44M (Peak 198.29M) | Time:00:00.15 | Mem:95.41M, Peak:97.29M | Scene, ViewLayer | Updating Images | Loading file1.png
+Fra:1 Mem:190.70M (Peak 198.29M) | Time:00:00.15 | Mem:95.41M, Peak:97.29M | Scene, ViewLayer | Updating Images | Loading bunk_bed_mattress.png
+Fra:1 Mem:190.70M (Peak 198.29M) | Time:00:00.15 | Mem:95.41M, Peak:97.29M | Scene, ViewLayer | Updating Images | Loading bunk_bed_wood.png
+Fra:1 Mem:287.28M (Peak 287.28M) | Time:00:00.31 | Mem:207.48M, Peak:207.48M | Scene, ViewLayer | Updating Camera Volume
+Fra:1 Mem:287.28M (Peak 287.28M) | Time:00:00.31 | Mem:207.48M, Peak:207.48M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:287.28M (Peak 287.28M) | Time:00:00.31 | Mem:207.57M, Peak:207.57M | Scene, ViewLayer | Updating Lights
+Fra:1 Mem:287.28M (Peak 287.28M) | Time:00:00.31 | Mem:207.57M, Peak:207.57M | Scene, ViewLayer | Updating Lights | Computing tree
+Fra:1 Mem:287.28M (Peak 287.28M) | Time:00:00.31 | Mem:207.57M, Peak:207.57M | Scene, ViewLayer | Updating Integrator
+Fra:1 Mem:287.28M (Peak 287.28M) | Time:00:00.31 | Mem:207.57M, Peak:207.57M | Scene, ViewLayer | Updating Film
+Fra:1 Mem:287.28M (Peak 287.28M) | Time:00:00.31 | Mem:207.49M, Peak:207.57M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:287.28M (Peak 287.28M) | Time:00:00.31 | Mem:207.57M, Peak:207.57M | Scene, ViewLayer | Updating Baking
+Fra:1 Mem:287.28M (Peak 287.28M) | Time:00:00.31 | Mem:207.57M, Peak:207.57M | Scene, ViewLayer | Updating Device | Writing constant memory
+Fra:1 Mem:287.29M (Peak 287.29M) | Time:00:00.31 | Mem:207.57M, Peak:207.57M | Scene, ViewLayer | Loading denoising kernels (may take a few minutes the first time)
+Fra:1 Mem:287.29M (Peak 287.29M) | Time:00:00.31 | Mem:207.57M, Peak:207.57M | Scene, ViewLayer | Sample 0/64
+Fra:1 Mem:426.61M (Peak 426.61M) | Time:00:00.37 | Remaining:00:03.85 | Mem:346.74M, Peak:346.74M | Scene, ViewLayer | Sample 1/64
+Fra:1 Mem:485.21M (Peak 573.10M) | Time:00:06.57 | Mem:346.74M, Peak:346.74M | Scene, ViewLayer | Sample 64/64
+Fra:1 Mem:485.21M (Peak 573.10M) | Time:00:06.57 | Mem:346.74M, Peak:346.74M | Scene, ViewLayer | Finished
+Saved: '/home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/snapshot_obj.png'
+Time: 00:06.76 (Saving: 00:00.18)
+
+[align] relink: fixed=0, missing=0
+Info: Saved "_import_tmp.blend"
+Info: Total files 0 | Changed 0 | Failed 0
+Info: No new files have been packed
+Object: bedBunk(Clone), material slots = 3
+  Slot 0: Material = wood
+    [!] No Image Texture node found
+  Slot 1: Material = carpetWhite
+    [!] No Image Texture node found
+  Slot 2: Material = carpet
+    [!] No Image Texture node found
+Info: File exported successfully
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+FBX version: 7500
+Info: Saved "SM_Prop_Bed_Bunk_01.temp.blend"
+Info: Total files 1 | Changed 0 | Failed 0
+Info: Saved "SM_Prop_Bed_Bunk_01.temp.blend"
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/b7462813cafc016260007c1187aae0015468b7f60e1243c94a96ab1e67a176d4/raw/SM_Prop_Bed_Bunk_01.fbm/PolygonApocalypse_Texture_01_A.png' not found
+Info: Packed 1 file(s)
+[align] relink: fixed=1, missing=0
+Info: Saved "_import_tmp.blend"
+Info: Total files 1 | Changed 1 | Failed 0
+Info: Packed 1 file(s)
+Object: SM_Prop_Bed_Bunk_01, material slots = 1
+  Slot 0: Material = PolygonApocalypse_Mat_01_A
+    Image: //SM_Prop_Bed_Bunk_01.fbm/PolygonApocalypse_Texture_01_A.png size=<bpy_int[2], Image.size>
+Info: File exported successfully
+[warn] MTL map refers to missing file: PolygonApocalypse_Texture_01_A.png
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+[align] relink: fixed=0, missing=0
+Info: Saved "_import_tmp.blend"
+Info: Total files 0 | Changed 0 | Failed 0
+Info: No new files have been packed
+Object: object1, material slots = 5
+  Slot 0: Material = Fabric_6
+    [!] No Image Texture node found
+  Slot 1: Material = Fabric_5
+    [!] No Image Texture node found
+  Slot 2: Material = Fabric_3
+    [!] No Image Texture node found
+  Slot 3: Material = Medium_Wood
+    [!] No Image Texture node found
+  Slot 4: Material = Dark_Wood
+    [!] No Image Texture node found
+Info: File exported successfully
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+FBX version: 7700
+Warning: Could not find 'bed_1.psd' in '/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/d75cc485fc189396870a34caae8a0f81f7ddade57b5839c0ad9c2f78af018bd3/raw'
+Info: Saved "bed.temp.blend"
+Info: Total files 1 | Changed 1 | Failed 0
+Info: Saved "bed.temp.blend"
+Info: No new files have been packed
+[align] relink: fixed=0, missing=1
+Info: Saved "_import_tmp.blend"
+Info: Total files 1 | Changed 0 | Failed 0
+Info: No new files have been packed
+Object: bed, material slots = 1
+  Slot 0: Material = Mat
+    Image: //tex/bed_1.psd size=<bpy_int[2], Image.size>
+Info: File exported successfully
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+[align] relink: fixed=0, missing=0
+Info: Saved "_import_tmp.blend"
+Info: Total files 1 | Changed 1 | Failed 0
+Info: Packed 1 file(s)
+Object: bunkbed_fixed, material slots = 1
+  Slot 0: Material = bunkbed_Material
+    Image: //textures/bunkbed.png size=<bpy_int[2], Image.size>
+Info: File exported successfully
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+FBX version: 7500
+Info: Saved "bunkbed.temp.blend"
+Info: Total files 2 | Changed 0 | Failed 0
+Info: Saved "bunkbed.temp.blend"
+Info: No new files have been packed
+[align] relink: fixed=2, missing=0
+Info: Saved "_import_tmp.blend"
+Info: Total files 2 | Changed 2 | Failed 0
+Info: No new files have been packed
+Object: pCube22, material slots = 1
+  Slot 0: Material = lambert1
+    Image: //bunkbed.fbm/bunkedbedtexture.png size=<bpy_int[2], Image.size>
+    Image: //bunkbed.fbm/bunkedbedtexture.png size=<bpy_int[2], Image.size>
+Info: File exported successfully
+Info: No orphaned data-blocks to purge
+[SUMMARY] imported=23  valid=23  invalid=0
+[OK] report: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/align_report_obj.tsv
+Info: No orphaned data-blocks to purge
+[OK] snapshot saved: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/snapshot_obj.png
+[OK] exported: 23 → /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed
+
+Blender quit
+[done] rc=0  time=19.88s
+--- [cat] Step 3: Render orbit RGBD & videos ---
+[INFO] bunk_bed: to render → 23 item(s) (OBJ) → flat storage
+[render/batch] cat=bunk_bed  dir=/home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed  out=/home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed  total=23
+$ /home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/bin/python /home/hpc/v100dd/v100dd26/project/Dataset_pipeline/src/video_render/render_orbit_full.py --obj /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed --out /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed --label bunk_bed --num_cams 40 --elev_deg 20.0 --fov_deg 60.0 --image_size 768 --top_ring_num 40 --top_ring_elev_deg 78.0 --top_ring_dist_scale 0.85 --axis_correction none --seed 123 --batch_chunk 8 --bin_size 64 --max_faces_per_bin 400000 --no_cull_backfaces --save_rgb_png --save_mask_png --save_nocs_png8 --nocs_norm bbox --cam_mode random --rand_cams 150 --sphere_dist 1.73 --pos_tangent_jitter 0.02 --depth_jitter 0.02 --input_format obj --use_uv_textures --obj_loader p3d --atlas_size 512 --atlas_mem_limit_gb 2.0 --overwrite --viz_backend mpl --viz_max_frustums 150 --archive_output --archive_format tar.gz --manifest /tmp/3079853.alex/tmpku92po9n_render_manifest.json
+[info] GPU rendering on: NVIDIA A100-SXM4-40GB
+[p3d] torch=2.1.2 cuda=11.8; pytorch3d=0.7.4 HAVE_P3D=True HAVE_LOAD_OBJS_AS_MESHES=True HAVE_LOAD_OBJ=True
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_123bbc15b35450676c95d99387415c9ed4bc98c8245f25763266327a5343a24f_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed/bunk_bed_123bbc15b35450676c95d99387415c9ed4bc98c8245f25763266327a5343a24f =====
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0014%, norm=0.0213%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0013%, norm=0.0182%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0026%, norm=0.0241%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0005%, norm=0.0282%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0021%, norm=0.0204%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0020%, norm=0.0148%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0013%, norm=0.0124%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0011%, norm=0.0261%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0029%, norm=0.0272%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0008%, norm=0.0115%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0015%, norm=0.0125%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0012%, norm=0.0113%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0017%, norm=0.0290%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0021%, norm=0.0111%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0003%, norm=0.0189%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0012%, norm=0.0109%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed/bunk_bed_123bbc15b35450676c95d99387415c9ed4bc98c8245f25763266327a5343a24f.tar.gz (keep_original=False)
+time: 76.93 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_146fc5ef0fe0b20bee4cbc9b39b9b7186ce2166947334e4a0bafec3ccbf83f52_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed/bunk_bed_146fc5ef0fe0b20bee4cbc9b39b9b7186ce2166947334e4a0bafec3ccbf83f52 =====
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0575%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0764%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0410%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0956%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0690%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0924%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0354%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0665%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0592%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0548%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0824%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0706%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0768%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0712%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0661%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0605%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0904%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0640%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0616%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed/bunk_bed_146fc5ef0fe0b20bee4cbc9b39b9b7186ce2166947334e4a0bafec3ccbf83f52.tar.gz (keep_original=False)
+time: 75.70 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_1de2552763ebf177da66ce6ba9df06ec9e1e11e7ecaf997b85b9ebaa72000b68_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed/bunk_bed_1de2552763ebf177da66ce6ba9df06ec9e1e11e7ecaf997b85b9ebaa72000b68 =====
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0115%, norm=0.0499%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0012%, norm=0.0253%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0163%, norm=0.0616%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0106%, norm=0.0451%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0100%, norm=0.0522%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0200%, norm=0.0748%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0052%, norm=0.0761%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0169%, norm=0.0444%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0063%, norm=0.0334%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0022%, norm=0.0438%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0166%, norm=0.0465%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0089%, norm=0.0911%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0196%, norm=0.0252%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0066%, norm=0.0691%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0120%, norm=0.0219%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0241%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0257%, norm=0.0344%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0057%, norm=0.0265%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0145%, norm=0.0474%
+[NOCS-SAVE] plus: out-of-range before clamp = 0.0110%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed/bunk_bed_1de2552763ebf177da66ce6ba9df06ec9e1e11e7ecaf997b85b9ebaa72000b68.tar.gz (keep_original=False)
+time: 74.34 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_23dd1e18eabb878fbfa09337fd376603e4f4dc949ba36d56cb71dc11fa6deee5_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed/bunk_bed_23dd1e18eabb878fbfa09337fd376603e4f4dc949ba36d56cb71dc11fa6deee5 =====
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed/bunk_bed_23dd1e18eabb878fbfa09337fd376603e4f4dc949ba36d56cb71dc11fa6deee5.tar.gz (keep_original=False)
+time: 74.08 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_2581ed3c1255b25fee7e0d555837d37082db9cc45d103fd8f78a0414201d261b_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed/bunk_bed_2581ed3c1255b25fee7e0d555837d37082db9cc45d103fd8f78a0414201d261b =====
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0041%, norm=0.0301%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0246%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0027%, norm=0.0220%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0048%, norm=0.0218%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0020%, norm=0.0268%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0078%, norm=0.0239%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0054%, norm=0.0249%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0027%, norm=0.0208%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0023%, norm=0.0152%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0039%, norm=0.0223%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0041%, norm=0.0183%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0028%, norm=0.0292%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0035%, norm=0.0219%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0011%, norm=0.0256%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0029%, norm=0.0349%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0018%, norm=0.0245%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0033%, norm=0.0273%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0029%, norm=0.0282%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed/bunk_bed_2581ed3c1255b25fee7e0d555837d37082db9cc45d103fd8f78a0414201d261b.tar.gz (keep_original=False)
+time: 75.55 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_303bad8dde727ae583ee125cd2c1403710bb6320b1832c8fe5b7d00dd1d2b9c3_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed/bunk_bed_303bad8dde727ae583ee125cd2c1403710bb6320b1832c8fe5b7d00dd1d2b9c3 =====
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0077%, norm=0.0367%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0091%, norm=0.0636%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0032%, norm=0.0708%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0006%, norm=0.0748%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0099%, norm=0.0514%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0097%, norm=0.0202%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0133%, norm=0.0702%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0101%, norm=0.0512%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0026%, norm=0.0682%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0036%, norm=0.0223%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0208%, norm=0.0687%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0110%, norm=0.0745%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0027%, norm=0.0686%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0112%, norm=0.0350%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0194%, norm=0.0748%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0062%, norm=0.0298%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0060%, norm=0.0602%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0096%, norm=0.0453%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0115%, norm=0.0894%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed/bunk_bed_303bad8dde727ae583ee125cd2c1403710bb6320b1832c8fe5b7d00dd1d2b9c3.tar.gz (keep_original=False)
+time: 75.20 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_431e40324558db34840e13076cc86c8c01773c22b765116e903494387244caf7_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed/bunk_bed_431e40324558db34840e13076cc86c8c01773c22b765116e903494387244caf7 =====
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0029%, norm=0.0210%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0155%, norm=0.0343%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0115%, norm=0.0304%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0002%, norm=0.0232%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0192%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0152%, norm=0.0306%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0188%, norm=0.0356%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0055%, norm=0.0299%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0270%, norm=0.0486%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0131%, norm=0.0271%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0092%, norm=0.0280%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0269%, norm=0.0421%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0246%, norm=0.0411%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0423%, norm=0.0596%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0095%, norm=0.0281%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0009%, norm=0.0140%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0144%, norm=0.0361%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0006%, norm=0.0181%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0167%, norm=0.0336%
+[NOCS-SAVE] plus: out-of-range before clamp = 0.0134%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed/bunk_bed_431e40324558db34840e13076cc86c8c01773c22b765116e903494387244caf7.tar.gz (keep_original=False)
+time: 75.93 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_59456a48a8c3b7f8947cdb4c242800cddae27fc664f545ed8f867841c37c8080_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed/bunk_bed_59456a48a8c3b7f8947cdb4c242800cddae27fc664f545ed8f867841c37c8080 =====
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed/bunk_bed_59456a48a8c3b7f8947cdb4c242800cddae27fc664f545ed8f867841c37c8080.tar.gz (keep_original=False)
+time: 75.70 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_5c846e3559bfbb57902d9a66bef35a5c659ba99aafe121fb102264d329afe782_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed/bunk_bed_5c846e3559bfbb57902d9a66bef35a5c659ba99aafe121fb102264d329afe782 =====
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0001%, norm=0.0119%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0002%, norm=0.0101%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0001%, norm=0.0137%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0001%, norm=0.0104%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0005%, norm=0.0115%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed/bunk_bed_5c846e3559bfbb57902d9a66bef35a5c659ba99aafe121fb102264d329afe782.tar.gz (keep_original=False)
+time: 79.53 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_63f73ad214b9940dc661951acafaeaa5da10326b0b37280d2af817f06d613b08_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed/bunk_bed_63f73ad214b9940dc661951acafaeaa5da10326b0b37280d2af817f06d613b08 =====
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed/bunk_bed_63f73ad214b9940dc661951acafaeaa5da10326b0b37280d2af817f06d613b08.tar.gz (keep_original=False)
+time: 74.77 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_69349a3fefd037bbeb1178583fb394110dba1f2a83b02caff353fe516ab6e335_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed/bunk_bed_69349a3fefd037bbeb1178583fb394110dba1f2a83b02caff353fe516ab6e335 =====
+[info] OBJ via PyTorch3D loader: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_69349a3fefd037bbeb1178583fb394110dba1f2a83b02caff353fe516ab6e335_obj/model.obj
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0164%, norm=0.0369%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0137%, norm=0.0356%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0122%, norm=0.0360%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0187%, norm=0.0494%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0129%, norm=0.0335%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0184%, norm=0.0430%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0209%, norm=0.0406%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0105%, norm=0.0388%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0069%, norm=0.0253%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0030%, norm=0.0289%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0215%, norm=0.0503%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0100%, norm=0.0332%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0148%, norm=0.0362%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0057%, norm=0.0358%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0130%, norm=0.0270%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0267%, norm=0.0363%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0040%, norm=0.0180%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0276%, norm=0.0622%
+[NOCS-SAVE] plus: out-of-range before clamp = 0.0134%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed/bunk_bed_69349a3fefd037bbeb1178583fb394110dba1f2a83b02caff353fe516ab6e335.tar.gz (keep_original=False)
+time: 74.62 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_7b33d701516b9baae71f43c1e4f1fc56eb4f3b98e8f05399b68b4d31dc03efc1_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed/bunk_bed_7b33d701516b9baae71f43c1e4f1fc56eb4f3b98e8f05399b68b4d31dc03efc1 =====
+[info] OBJ via PyTorch3D loader: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_7b33d701516b9baae71f43c1e4f1fc56eb4f3b98e8f05399b68b4d31dc03efc1_obj/model.obj
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0006%, norm=0.0151%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0018%, norm=0.0139%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0016%, norm=0.0171%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0006%, norm=0.0129%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0034%, norm=0.0170%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0012%, norm=0.0118%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0025%, norm=0.0175%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0017%, norm=0.0166%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0011%, norm=0.0294%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0011%, norm=0.0202%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0001%, norm=0.0204%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0020%, norm=0.0229%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0006%, norm=0.0114%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0026%, norm=0.0338%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0012%, norm=0.0176%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0003%, norm=0.0140%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0006%, norm=0.0176%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0023%, norm=0.0182%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed/bunk_bed_7b33d701516b9baae71f43c1e4f1fc56eb4f3b98e8f05399b68b4d31dc03efc1.tar.gz (keep_original=False)
+time: 79.65 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_877854c8bc2301e6491270c27a06bef180e339f402c6ba10489d8e89db656c1c_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed/bunk_bed_877854c8bc2301e6491270c27a06bef180e339f402c6ba10489d8e89db656c1c =====
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0352%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0424%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0632%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0389%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0524%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0431%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0413%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0237%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0292%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0361%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0509%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0616%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0489%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0333%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0461%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0568%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0432%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0393%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0505%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed/bunk_bed_877854c8bc2301e6491270c27a06bef180e339f402c6ba10489d8e89db656c1c.tar.gz (keep_original=False)
+time: 75.08 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_91b82697b438b22df35918a3022cbb32e8056d3f14bd89d82ba61171bae2a819_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed/bunk_bed_91b82697b438b22df35918a3022cbb32e8056d3f14bd89d82ba61171bae2a819 =====
+[warn] p3d OBJ loader failed: list index out of range ; falling back to trimesh loader.
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0249%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0441%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0206%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0551%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0372%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0192%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0184%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0424%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0253%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0276%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0190%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0222%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0209%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0176%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0770%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed/bunk_bed_91b82697b438b22df35918a3022cbb32e8056d3f14bd89d82ba61171bae2a819.tar.gz (keep_original=False)
+time: 88.44 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_9a29025ce4be29800c30316c9be6bfb8afd89145bcd9f6f0695110e85ad2b063_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed/bunk_bed_9a29025ce4be29800c30316c9be6bfb8afd89145bcd9f6f0695110e85ad2b063 =====
+[info] OBJ via PyTorch3D loader: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_9a29025ce4be29800c30316c9be6bfb8afd89145bcd9f6f0695110e85ad2b063_obj/model.obj
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed/bunk_bed_9a29025ce4be29800c30316c9be6bfb8afd89145bcd9f6f0695110e85ad2b063.tar.gz (keep_original=False)
+time: 75.99 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_aa0cd9918b0dd483f074df951efaa7b3c979abb5a08b2c3e3169c7927ae26a22_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed/bunk_bed_aa0cd9918b0dd483f074df951efaa7b3c979abb5a08b2c3e3169c7927ae26a22 =====
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0200%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0272%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0124%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0113%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0213%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0200%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0132%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0281%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0232%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0235%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0156%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0152%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0249%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0251%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0143%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0151%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0161%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0118%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0145%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed/bunk_bed_aa0cd9918b0dd483f074df951efaa7b3c979abb5a08b2c3e3169c7927ae26a22.tar.gz (keep_original=False)
+time: 75.76 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_ac9cb34919c696ed1fac6be8c30bac8a10fb1e3349bf6cebf47162b81e437010_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed/bunk_bed_ac9cb34919c696ed1fac6be8c30bac8a10fb1e3349bf6cebf47162b81e437010 =====
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0198%, norm=0.0390%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0114%, norm=0.0263%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0318%, norm=0.0487%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0237%, norm=0.0437%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0102%, norm=0.0311%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0069%, norm=0.0259%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0103%, norm=0.0281%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0093%, norm=0.0272%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0098%, norm=0.0264%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0167%, norm=0.0357%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0169%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0342%, norm=0.0495%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0184%, norm=0.0373%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0068%, norm=0.0266%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0077%, norm=0.0286%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0050%, norm=0.0215%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0161%, norm=0.0352%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0086%, norm=0.0221%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0279%, norm=0.0452%
+[NOCS-SAVE] plus: out-of-range before clamp = 0.0143%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed/bunk_bed_ac9cb34919c696ed1fac6be8c30bac8a10fb1e3349bf6cebf47162b81e437010.tar.gz (keep_original=False)
+time: 75.01 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_b58c4c1950763ca1726f9746cd048d417513a9becf66d196e9827a9d4e180989_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed/bunk_bed_b58c4c1950763ca1726f9746cd048d417513a9becf66d196e9827a9d4e180989 =====
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0173%, norm=0.0363%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0248%, norm=0.0392%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0093%, norm=0.0273%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0291%, norm=0.0449%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0382%, norm=0.0550%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0183%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0159%, norm=0.0364%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0222%, norm=0.0374%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0250%, norm=0.0418%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0006%, norm=0.0184%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0317%, norm=0.0467%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0321%, norm=0.0469%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0198%, norm=0.0328%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0110%, norm=0.0245%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0002%, norm=0.0205%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0165%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0156%, norm=0.0355%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0136%, norm=0.0324%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0101%, norm=0.0326%
+[NOCS-SAVE] plus: out-of-range before clamp = 0.0167%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed/bunk_bed_b58c4c1950763ca1726f9746cd048d417513a9becf66d196e9827a9d4e180989.tar.gz (keep_original=False)
+time: 74.73 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_b7462813cafc016260007c1187aae0015468b7f60e1243c94a96ab1e67a176d4_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed/bunk_bed_b7462813cafc016260007c1187aae0015468b7f60e1243c94a96ab1e67a176d4 =====
+[info] OBJ via PyTorch3D loader: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_b7462813cafc016260007c1187aae0015468b7f60e1243c94a96ab1e67a176d4_obj/model.obj
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0004%, norm=0.0108%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0002%, norm=0.0100%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0007%, norm=0.0107%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed/bunk_bed_b7462813cafc016260007c1187aae0015468b7f60e1243c94a96ab1e67a176d4.tar.gz (keep_original=False)
+time: 75.19 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_d1bf1e06e6b44697ed3b1a54c83099e647a9f70cc8335941d5da221fe0b8aa91_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed/bunk_bed_d1bf1e06e6b44697ed3b1a54c83099e647a9f70cc8335941d5da221fe0b8aa91 =====
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0008%, norm=0.0177%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0010%, norm=0.0221%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0021%, norm=0.0143%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0046%, norm=0.0252%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0069%, norm=0.0197%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0030%, norm=0.0347%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0038%, norm=0.0144%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0018%, norm=0.0178%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0242%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0030%, norm=0.0237%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0017%, norm=0.0148%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0002%, norm=0.0283%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0013%, norm=0.0321%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0043%, norm=0.0255%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0007%, norm=0.0203%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0043%, norm=0.0254%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0025%, norm=0.0236%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0005%, norm=0.0179%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0035%, norm=0.0183%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed/bunk_bed_d1bf1e06e6b44697ed3b1a54c83099e647a9f70cc8335941d5da221fe0b8aa91.tar.gz (keep_original=False)
+time: 75.42 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_d75cc485fc189396870a34caae8a0f81f7ddade57b5839c0ad9c2f78af018bd3_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed/bunk_bed_d75cc485fc189396870a34caae8a0f81f7ddade57b5839c0ad9c2f78af018bd3 =====
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0005%, norm=0.0393%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0002%, norm=0.0331%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0003%, norm=0.0230%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0002%, norm=0.0183%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0010%, norm=0.0289%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0006%, norm=0.0163%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0010%, norm=0.0204%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0010%, norm=0.0196%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0006%, norm=0.0399%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0011%, norm=0.0286%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0002%, norm=0.0300%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0004%, norm=0.0287%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0005%, norm=0.0436%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0011%, norm=0.0290%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0002%, norm=0.0545%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0005%, norm=0.0201%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0001%, norm=0.0130%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0013%, norm=0.0235%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0014%, norm=0.0401%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed/bunk_bed_d75cc485fc189396870a34caae8a0f81f7ddade57b5839c0ad9c2f78af018bd3.tar.gz (keep_original=False)
+time: 75.25 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_e0e17e838d3e14b7ffd5bb67d1c9ad2745b797691b642060634e4639efb71408_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed/bunk_bed_e0e17e838d3e14b7ffd5bb67d1c9ad2745b797691b642060634e4639efb71408 =====
+[info] OBJ via PyTorch3D loader: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_e0e17e838d3e14b7ffd5bb67d1c9ad2745b797691b642060634e4639efb71408_obj/model.obj
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0140%, norm=0.2480%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0196%, norm=0.1615%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0019%, norm=0.4256%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0208%, norm=0.3552%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0082%, norm=0.2606%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0358%, norm=0.1376%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0019%, norm=0.1977%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0036%, norm=0.1201%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0050%, norm=0.2835%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0026%, norm=0.1346%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0257%, norm=0.2204%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0198%, norm=0.2298%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0228%, norm=0.2669%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0086%, norm=0.3321%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0059%, norm=0.3283%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0239%, norm=0.1616%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0214%, norm=0.2093%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0309%, norm=0.2600%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0130%, norm=0.2384%
+[NOCS-SAVE] plus: out-of-range before clamp = 0.0150%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed/bunk_bed_e0e17e838d3e14b7ffd5bb67d1c9ad2745b797691b642060634e4639efb71408.tar.gz (keep_original=False)
+time: 74.87 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_f45b71b83dbfa1e9a67191d7ed2b97d4dd3fcffa9432749b94596a0341de71e7_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed/bunk_bed_f45b71b83dbfa1e9a67191d7ed2b97d4dd3fcffa9432749b94596a0341de71e7 =====
+[info] OBJ via PyTorch3D loader: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bunk_bed/bunk_bed_f45b71b83dbfa1e9a67191d7ed2b97d4dd3fcffa9432749b94596a0341de71e7_obj/model.obj
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0054%, norm=0.3557%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0444%, norm=0.2748%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0247%, norm=0.3248%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0514%, norm=0.4133%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0276%, norm=0.2272%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0103%, norm=0.4420%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0264%, norm=0.5353%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0594%, norm=0.1721%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0443%, norm=0.4439%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0170%, norm=0.4244%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0067%, norm=0.3606%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0098%, norm=0.7212%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0365%, norm=0.4519%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0398%, norm=0.5007%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0343%, norm=0.3762%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0414%, norm=0.4134%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0816%, norm=0.1848%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0150%, norm=0.4443%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0519%, norm=0.4352%
+[NOCS-SAVE] plus: out-of-range before clamp = 0.0328%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bunk_bed/bunk_bed_f45b71b83dbfa1e9a67191d7ed2b97d4dd3fcffa9432749b94596a0341de71e7.tar.gz (keep_original=False)
+time: 79.91 seconds
+[done] rc=0  time=1764.53s
+[render/batch] done rc=0  total=23  time=1764.53s  avg=76.72s/obj
+===== CATEGORY: dining_table =====
+[OXL-PER-CAT] Processing category: dining_table
+[OXL-PER-CAT] Label json: /home/vault/v100dd/v100dd26/Dataset/core_data/labeled_rotations/dining_table/final_shape_rotations.json
+[OXL-PER-CAT] SHA index CSV: /home/vault/v100dd/v100dd26/Dataset/core_data/metadata.csv
+[OXL-PER-CAT] Found 13 SHAs for category 'dining_table'
+[OXL-PER-CAT] 13 entries to download
+[OXL-PER-CAT] Downloading 13 objects to staging...
+    ▶ OBJ(local): mtl_copied=2 tex_copied=4 skipped=0 failed=0 (roots=/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/dd054d3f52b582c5d9fd224d2178a08e1aab684cadbb5dbf3483110789734c55/mesh, /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/dd054d3f52b582c5d9fd224d2178a08e1aab684cadbb5dbf3483110789734c55, /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/dd054d3f52b582c5d9fd224d2178a08e1aab684cadbb5dbf3483110789734c55/mesh/models/furniture/kitchen)
+      · expected=3 present=3 placed_now=4 missing=0
+[OXL-PER-CAT] [dd054d3f52b582c5d9fd224d2178a08e1aab684cadbb5dbf3483110789734c55] ensure(obj): downloaded=4 missing=0 repo_missing=0 repo_failed=0
+    ▶ OBJ(local): mtl_copied=2 tex_copied=5 skipped=0 failed=0 (roots=/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/e3a6ee88cd0a0de97014d56a7a5b9531c4ac240ee0140525467985483262538c/mesh, /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/e3a6ee88cd0a0de97014d56a7a5b9531c4ac240ee0140525467985483262538c, /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/e3a6ee88cd0a0de97014d56a7a5b9531c4ac240ee0140525467985483262538c/mesh/models/furniture/livingroom/diningTable)
+      · expected=4 present=4 placed_now=5 missing=0
+[OXL-PER-CAT] [e3a6ee88cd0a0de97014d56a7a5b9531c4ac240ee0140525467985483262538c] ensure(obj): downloaded=5 missing=0 repo_missing=0 repo_failed=0
+    ▶ OBJ(local): mtl_copied=1 tex_copied=1 skipped=0 failed=0 (roots=/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/69a0a2aa4fb8120ba71edee20fa8b4ea9390fafac8dbb29aee3def234f4629ef/mesh, /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/69a0a2aa4fb8120ba71edee20fa8b4ea9390fafac8dbb29aee3def234f4629ef, /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/69a0a2aa4fb8120ba71edee20fa8b4ea9390fafac8dbb29aee3def234f4629ef/mesh/assets/60b70f4c73aeaa33146f0e00)
+      · expected=0 present=0 placed_now=1 missing=0
+[OXL-PER-CAT] [69a0a2aa4fb8120ba71edee20fa8b4ea9390fafac8dbb29aee3def234f4629ef] ensure(obj): downloaded=1 missing=0 repo_missing=0 repo_failed=0
+    ▶ GLB externals summary: refs=0 (all embedded); nothing to fetch.
+[OXL-PER-CAT] [f3e1fb888ecbad640929215e0239c0fbb554fdfd039decd9c718d359747f2eda] ensure(glb): downloaded=0 missing=0 repo_missing=0 repo_failed=0
+    ▶ OBJ(local): mtl_copied=2 tex_copied=3 skipped=0 failed=0 (roots=/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/2ec66fc317d65930217f49431fea1c2433cab791413bf3321b2d5f639816bd4e/mesh, /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/2ec66fc317d65930217f49431fea1c2433cab791413bf3321b2d5f639816bd4e, /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/2ec66fc317d65930217f49431fea1c2433cab791413bf3321b2d5f639816bd4e/mesh/SUNCG/bedroom/42c9c2961815798dcd486ca3be77686b/0_15/134)
+      · expected=2 present=2 placed_now=3 missing=0
+[OXL-PER-CAT] [2ec66fc317d65930217f49431fea1c2433cab791413bf3321b2d5f639816bd4e] ensure(obj): downloaded=3 missing=0 repo_missing=0 repo_failed=0
+[OXL-PER-CAT] [9cbf405253c8389b2c870a4583a357adc123c45fac114259d2d1880d2558ad6b] ensure(fbx): downloaded=0 missing=1 repo_missing=0 repo_failed=0
+      · skip placeholders (no file path): .png
+[OXL-PER-CAT] [bf0af2b4fc84dba86c231e5fcafdc8a815688ec2cf485390c4c42786df6443cf] ensure(fbx): downloaded=0 missing=2 repo_missing=0 repo_failed=0
+    ▶ OBJ(local): mtl_copied=2 tex_copied=2 skipped=0 failed=0 (roots=/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/aadabafcb6f471936bfe52488797a09ce3e948e0b05812c0033e11a85ed0e635/mesh, /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/aadabafcb6f471936bfe52488797a09ce3e948e0b05812c0033e11a85ed0e635, /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/aadabafcb6f471936bfe52488797a09ce3e948e0b05812c0033e11a85ed0e635/mesh/chair_manipulation_chair_models/models/ikea_models/meshes/IKEA_chair_JOKKMOKK/nojitter_png_221da64f5789c4bfcf7d397dd220c7e2_obj0)
+      · expected=1 present=1 placed_now=2 missing=0
+[OXL-PER-CAT] [aadabafcb6f471936bfe52488797a09ce3e948e0b05812c0033e11a85ed0e635] ensure(obj): downloaded=2 missing=0 repo_missing=0 repo_failed=0
+    ▶ OBJ(local): mtl_copied=2 tex_copied=2 skipped=0 failed=0 (roots=/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/b3a5dbc3ca746d8a1f161233b3dcfd1f8a58b8d7277394294451a6f8b08b938a/mesh, /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/b3a5dbc3ca746d8a1f161233b3dcfd1f8a58b8d7277394294451a6f8b08b938a, /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/b3a5dbc3ca746d8a1f161233b3dcfd1f8a58b8d7277394294451a6f8b08b938a/mesh/resources/objects/tableSet)
+      · expected=1 present=1 placed_now=2 missing=0
+[OXL-PER-CAT] [b3a5dbc3ca746d8a1f161233b3dcfd1f8a58b8d7277394294451a6f8b08b938a] ensure(obj): downloaded=2 missing=0 repo_missing=0 repo_failed=0
+    ▶ OBJ(local): mtl_copied=0 tex_copied=0 skipped=0 failed=0 (roots=/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/a76401c3de7979a40403ae5c5f117ce2872de0347b740067e28915b55b45586d/mesh, /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/a76401c3de7979a40403ae5c5f117ce2872de0347b740067e28915b55b45586d, /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/a76401c3de7979a40403ae5c5f117ce2872de0347b740067e28915b55b45586d/mesh/AdminPage/src/main/webapp/resources/file)
+      · expected=0 present=0 placed_now=0 missing=0
+[OXL-PER-CAT] [a76401c3de7979a40403ae5c5f117ce2872de0347b740067e28915b55b45586d] ensure(obj): downloaded=0 missing=0 repo_missing=0 repo_failed=0
+    ▶ OBJ(local): mtl_copied=0 tex_copied=0 skipped=0 failed=0 (roots=/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/d41d213b84d6c1ef02a877992bbcfcc0d8376119c636e9fdf843acac077c8612/mesh, /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/d41d213b84d6c1ef02a877992bbcfcc0d8376119c636e9fdf843acac077c8612, /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/d41d213b84d6c1ef02a877992bbcfcc0d8376119c636e9fdf843acac077c8612/mesh/AdminPage/src/main/webapp/resources/file)
+      · expected=0 present=0 placed_now=0 missing=0
+[OXL-PER-CAT] [d41d213b84d6c1ef02a877992bbcfcc0d8376119c636e9fdf843acac077c8612] ensure(obj): downloaded=0 missing=0 repo_missing=0 repo_failed=0
+[OXL-PER-CAT] [76e8576f0303fc2760fcc38682bc2182e66d3a148911225c2a5e4844b812f157] ensure(fbx): downloaded=0 missing=0 repo_missing=0 repo_failed=0
+[OXL-PER-CAT] [33577118197ded541d5ab7df11227f107d441e4068721a8611f02a4bec484a48] ensure(fbx): downloaded=0 missing=0 repo_missing=0 repo_failed=0
+[OXL-PER-CAT] ensure summary:
+  · total items: 13
+  · fetched: 11
+  · missing: 2
+[OXL-PER-CAT] Wrote detailed report: /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/oxl_detailed_report.csv
+[OXL-PER-CAT] Processed 13/13 downloaded objects (targets=13) for category 'dining_table'
+[OXL-PER-CAT] Wrote metadata: /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/metadata_dining_table.csv (13 rows)
+[OXL-PER-CAT] Wrote report: /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/report.json
+[OXL-PER-CAT] Wrote report CSV: /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/report.csv
+[OXL-PER-CAT] Cleaned staging directory: /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/dining_table_stage
+--- [cat] Step 2: Align & export GLBs ---
+[OXL] downloads under: /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table
+$ /home/hpc/v100dd/v100dd26/blender-4.5.3-linux-x64/blender -b -P /home/hpc/v100dd/v100dd26/project/Dataset_pipeline/src/align_export/align_export_snapshot_blender.py -- --json /home/vault/v100dd/v100dd26/Dataset/core_data/labeled_rotations/dining_table/final_shape_rotations.json --data_root /home/vault/v100dd/v100dd26/Dataset --category dining_table --out_dir /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table --snapshot snapshot.png --normalize_unit --target_size 1.0 --topdown --clean_out_dir --overwrite --export_format obj --oxl_layout --oxl_out_category ObjaverseXL_github --oxl_filter_by_label
+WARN (bpy.rna): source/blender/python/intern/bpy_rna.cc:1354 pyrna_enum_to_py: current value '29' matches no enum in 'Image', 'Diffuse Texture', 'file_format'
+Blender 4.5.3 LTS (hash 67807e1800cc built 2025-09-09 01:38:15)
+OBJ import of '134_fixed.obj' took 11.38 ms
+Writing to /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_2ec66fc317d65930217f49431fea1c2433cab791413bf3321b2d5f639816bd4e_obj/model.obj
+OBJ export of 'model.obj' took 13.94 ms
+Error: Could not write image: internal error, see console
+Error: Image 'Diffuse Texture' could not be saved to '/home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_33577118197ded541d5ab7df11227f107d441e4068721a8611f02a4bec484a48_obj/textures/Diffuse_Texture.png'
+WARN (bpy.rna): source/blender/python/intern/bpy_rna.cc:1354 pyrna_enum_to_py: current value '29' matches no enum in 'Image', 'Diffuse Texture.002', 'file_format'
+Error: Could not write image: internal error, see console
+Error: Image 'Diffuse Texture.002' could not be saved to '/home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_33577118197ded541d5ab7df11227f107d441e4068721a8611f02a4bec484a48_obj/textures/Diffuse_Texture.png'
+WARN (bpy.rna): source/blender/python/intern/bpy_rna.cc:1354 pyrna_enum_to_py: current value '29' matches no enum in 'Image', 'Diffuse Texture.001', 'file_format'
+Error: Could not write image: internal error, see console
+Error: Image 'Diffuse Texture.001' could not be saved to '/home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_33577118197ded541d5ab7df11227f107d441e4068721a8611f02a4bec484a48_obj/textures/Diffuse_Texture.png'
+WARN (bpy.rna): source/blender/python/intern/bpy_rna.cc:1354 pyrna_enum_to_py: current value '29' matches no enum in 'Image', 'Diffuse Texture.003', 'file_format'
+Error: Could not write image: internal error, see console
+Error: Image 'Diffuse Texture.003' could not be saved to '/home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_33577118197ded541d5ab7df11227f107d441e4068721a8611f02a4bec484a48_obj/textures/Diffuse_Texture.png'
+WARN (bpy.rna): source/blender/python/intern/bpy_rna.cc:1354 pyrna_enum_to_py: current value '29' matches no enum in 'Image', 'Diffuse Texture', 'file_format'
+Writing to /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_33577118197ded541d5ab7df11227f107d441e4068721a8611f02a4bec484a48_obj/model.obj
+OBJ export of 'model.obj' took 6.22 ms
+Error: Could not write image: internal error, see console
+Error: Image 'Diffuse Texture' could not be saved to '/home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_33577118197ded541d5ab7df11227f107d441e4068721a8611f02a4bec484a48_obj/textures/Diffuse_Texture.png'
+WARN (bpy.rna): source/blender/python/intern/bpy_rna.cc:1354 pyrna_enum_to_py: current value '29' matches no enum in 'Image', 'Diffuse Texture.002', 'file_format'
+Error: Could not write image: internal error, see console
+Error: Image 'Diffuse Texture.002' could not be saved to '/home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_33577118197ded541d5ab7df11227f107d441e4068721a8611f02a4bec484a48_obj/textures/Diffuse_Texture.png'
+WARN (bpy.rna): source/blender/python/intern/bpy_rna.cc:1354 pyrna_enum_to_py: current value '29' matches no enum in 'Image', 'Diffuse Texture.001', 'file_format'
+Error: Could not write image: internal error, see console
+Error: Image 'Diffuse Texture.001' could not be saved to '/home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_33577118197ded541d5ab7df11227f107d441e4068721a8611f02a4bec484a48_obj/textures/Diffuse_Texture.png'
+WARN (bpy.rna): source/blender/python/intern/bpy_rna.cc:1354 pyrna_enum_to_py: current value '29' matches no enum in 'Image', 'Diffuse Texture.003', 'file_format'
+Error: Could not write image: internal error, see console
+Error: Image 'Diffuse Texture.003' could not be saved to '/home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_33577118197ded541d5ab7df11227f107d441e4068721a8611f02a4bec484a48_obj/textures/Diffuse_Texture.png'
+WARN (bpy.rna): source/blender/python/intern/bpy_rna.cc:1354 pyrna_enum_to_py: current value '29' matches no enum in 'Image', 'Diffuse Texture', 'file_format'
+OBJ import of 'model.obj' took 7.93 ms
+Writing to /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_69a0a2aa4fb8120ba71edee20fa8b4ea9390fafac8dbb29aee3def234f4629ef_obj/model.obj
+OBJ export of 'model.obj' took 8.10 ms
+Error: Could not write image: internal error, see console
+Error: Image 'Diffuse Texture' could not be saved to '/home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_76e8576f0303fc2760fcc38682bc2182e66d3a148911225c2a5e4844b812f157_obj/textures/Diffuse_Texture.png'
+WARN (bpy.rna): source/blender/python/intern/bpy_rna.cc:1354 pyrna_enum_to_py: current value '29' matches no enum in 'Image', 'Diffuse Texture.002', 'file_format'
+Error: Could not write image: internal error, see console
+Error: Image 'Diffuse Texture.002' could not be saved to '/home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_76e8576f0303fc2760fcc38682bc2182e66d3a148911225c2a5e4844b812f157_obj/textures/Diffuse_Texture.png'
+WARN (bpy.rna): source/blender/python/intern/bpy_rna.cc:1354 pyrna_enum_to_py: current value '29' matches no enum in 'Image', 'Diffuse Texture.001', 'file_format'
+Error: Could not write image: internal error, see console
+Error: Image 'Diffuse Texture.001' could not be saved to '/home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_76e8576f0303fc2760fcc38682bc2182e66d3a148911225c2a5e4844b812f157_obj/textures/Diffuse_Texture.png'
+WARN (bpy.rna): source/blender/python/intern/bpy_rna.cc:1354 pyrna_enum_to_py: current value '29' matches no enum in 'Image', 'Diffuse Texture.003', 'file_format'
+Error: Could not write image: internal error, see console
+Error: Image 'Diffuse Texture.003' could not be saved to '/home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_76e8576f0303fc2760fcc38682bc2182e66d3a148911225c2a5e4844b812f157_obj/textures/Diffuse_Texture.png'
+WARN (bpy.rna): source/blender/python/intern/bpy_rna.cc:1354 pyrna_enum_to_py: current value '29' matches no enum in 'Image', 'Diffuse Texture', 'file_format'
+Writing to /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_76e8576f0303fc2760fcc38682bc2182e66d3a148911225c2a5e4844b812f157_obj/model.obj
+OBJ export of 'model.obj' took 39.92 ms
+Error: Could not write image: internal error, see console
+Error: Image 'Diffuse Texture' could not be saved to '/home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_76e8576f0303fc2760fcc38682bc2182e66d3a148911225c2a5e4844b812f157_obj/textures/Diffuse_Texture.png'
+WARN (bpy.rna): source/blender/python/intern/bpy_rna.cc:1354 pyrna_enum_to_py: current value '29' matches no enum in 'Image', 'Diffuse Texture.002', 'file_format'
+Error: Could not write image: internal error, see console
+Error: Image 'Diffuse Texture.002' could not be saved to '/home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_76e8576f0303fc2760fcc38682bc2182e66d3a148911225c2a5e4844b812f157_obj/textures/Diffuse_Texture.png'
+WARN (bpy.rna): source/blender/python/intern/bpy_rna.cc:1354 pyrna_enum_to_py: current value '29' matches no enum in 'Image', 'Diffuse Texture.001', 'file_format'
+Error: Could not write image: internal error, see console
+Error: Image 'Diffuse Texture.001' could not be saved to '/home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_76e8576f0303fc2760fcc38682bc2182e66d3a148911225c2a5e4844b812f157_obj/textures/Diffuse_Texture.png'
+WARN (bpy.rna): source/blender/python/intern/bpy_rna.cc:1354 pyrna_enum_to_py: current value '29' matches no enum in 'Image', 'Diffuse Texture.003', 'file_format'
+Error: Could not write image: internal error, see console
+Error: Image 'Diffuse Texture.003' could not be saved to '/home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_76e8576f0303fc2760fcc38682bc2182e66d3a148911225c2a5e4844b812f157_obj/textures/Diffuse_Texture.png'
+Error: Image 'Wood Roughness' does not have any image data
+ERROR (io.obj): source/blender/io/wavefront_obj/importer/obj_import_file_reader.cc:861 parse_and_store: OBJ import: cannot read from MTL file: '/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/a76401c3de7979a40403ae5c5f117ce2872de0347b740067e28915b55b45586d/raw/IKE010014-3D.mtl'
+Writing to /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_9cbf405253c8389b2c870a4583a357adc123c45fac114259d2d1880d2558ad6b_obj/model.obj
+OBJ export of 'model.obj' took 90.19 ms
+OBJ import of 'IKEA-Markor_Table_And_Harald_Chairs-3D.obj' took 36.58 ms
+Writing to /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_a76401c3de7979a40403ae5c5f117ce2872de0347b740067e28915b55b45586d_obj/model.obj
+OBJ export of 'model.obj' took 39.40 ms
+OBJ import of '221da64f5789c4bfcf7d397dd220c7e2_obj0_object_fixed.obj' took 28.57 ms
+Writing to /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_aadabafcb6f471936bfe52488797a09ce3e948e0b05812c0033e11a85ed0e635_obj/model.obj
+OBJ export of 'model.obj' took 10.27 ms
+OBJ import of 'untitled_fixed.obj' took 85.93 ms
+Writing to /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_b3a5dbc3ca746d8a1f161233b3dcfd1f8a58b8d7277394294451a6f8b08b938a_obj/model.obj
+OBJ export of 'model.obj' took 48.89 ms
+Error: Image 'Image' does not have any image data
+Error: Image 'Image.001' does not have any image data
+Error: Image 'Map #35017' does not have any image data
+Error: Image 'Map #35017.001' does not have any image data
+Writing to /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_bf0af2b4fc84dba86c231e5fcafdc8a815688ec2cf485390c4c42786df6443cf_obj/model.obj
+OBJ export of 'model.obj' took 20.94 ms
+Error: Image 'Image' does not have any image data
+Error: Image 'Image.001' does not have any image data
+Error: Image 'Map #35017' does not have any image data
+Error: Image 'Map #35017.001' does not have any image data
+ERROR (io.obj): source/blender/io/wavefront_obj/importer/obj_import_file_reader.cc:861 parse_and_store: OBJ import: cannot read from MTL file: '/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/d41d213b84d6c1ef02a877992bbcfcc0d8376119c636e9fdf843acac077c8612/raw/IKE010005-3D.mtl'
+Info: No orphaned data-blocks to purge
+[align] relink: fixed=0, missing=0
+Info: Saved "_import_tmp.blend"
+Info: Total files 2 | Changed 2 | Failed 0
+Info: Packed 2 file(s)
+Object: 134_fixed, material slots = 2
+  Slot 0: Material = material_0
+    Image: //textures/wood_4.jpg size=<bpy_int[2], Image.size>
+  Slot 1: Material = material_1
+    Image: //textures/textile_2_1.jpg size=<bpy_int[2], Image.size>
+Info: File exported successfully
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+FBX version: 7200
+Info: Saved "rectangletable.temp.blend"
+Info: Total files 4 | Changed 0 | Failed 0
+Info: Saved "rectangletable.temp.blend"
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/33577118197ded541d5ab7df11227f107d441e4068721a8611f02a4bec484a48/raw/rectangletable.fbm/tabletop.dds' not found
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/33577118197ded541d5ab7df11227f107d441e4068721a8611f02a4bec484a48/raw/rectangletable.fbm/chair.dds' not found
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/33577118197ded541d5ab7df11227f107d441e4068721a8611f02a4bec484a48/raw/rectangletable.fbm/tabletop.dds' not found
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/33577118197ded541d5ab7df11227f107d441e4068721a8611f02a4bec484a48/raw/rectangletable.fbm/chair.dds' not found
+Info: Packed 4 file(s)
+[align] relink: fixed=4, missing=0
+Info: Saved "_import_tmp.blend"
+Info: Total files 4 | Changed 4 | Failed 0
+Info: Packed 4 file(s)
+Object: mesh_0, material slots = 2
+  Slot 0: Material = 2800066D
+    Image: //rectangletable.fbm/tabletop.dds size=<bpy_int[2], Image.size>
+    Image: //rectangletable.fbm/tabletop.dds size=<bpy_int[2], Image.size>
+  Slot 1: Material = 280004EE
+    Image: //rectangletable.fbm/chair.dds size=<bpy_int[2], Image.size>
+    Image: //rectangletable.fbm/chair.dds size=<bpy_int[2], Image.size>
+Info: File exported successfully
+[warn] MTL map refers to missing file: Diffuse_Texture.png
+[warn] MTL map refers to missing file: Diffuse_Texture.png
+[warn] MTL map refers to missing file: Diffuse_Texture.png
+[warn] MTL map refers to missing file: Diffuse_Texture.png
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+[align] relink: fixed=0, missing=0
+Info: Saved "_import_tmp.blend"
+Info: Total files 0 | Changed 0 | Failed 0
+Info: No new files have been packed
+Object: group1076093454, material slots = 6
+  Slot 0: Material = mat20
+    [!] No Image Texture node found
+  Slot 1: Material = mat9
+    [!] No Image Texture node found
+  Slot 2: Material = mat4
+    [!] No Image Texture node found
+  Slot 3: Material = mat8
+    [!] No Image Texture node found
+  Slot 4: Material = mat17
+    [!] No Image Texture node found
+  Slot 5: Material = mat24
+    [!] No Image Texture node found
+Info: File exported successfully
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+FBX version: 7200
+Info: Saved "slum_rectangle.temp.blend"
+Info: Total files 4 | Changed 0 | Failed 0
+Info: Saved "slum_rectangle.temp.blend"
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/76e8576f0303fc2760fcc38682bc2182e66d3a148911225c2a5e4844b812f157/raw/slum_rectangle.fbm/slum_tabletop.dds' not found
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/76e8576f0303fc2760fcc38682bc2182e66d3a148911225c2a5e4844b812f157/raw/slum_rectangle.fbm/slum_mtchair.dds' not found
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/76e8576f0303fc2760fcc38682bc2182e66d3a148911225c2a5e4844b812f157/raw/slum_rectangle.fbm/slum_tabletop.dds' not found
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/76e8576f0303fc2760fcc38682bc2182e66d3a148911225c2a5e4844b812f157/raw/slum_rectangle.fbm/slum_mtchair.dds' not found
+Info: Packed 4 file(s)
+[align] relink: fixed=4, missing=0
+Info: Saved "_import_tmp.blend"
+Info: Total files 4 | Changed 4 | Failed 0
+Info: Packed 4 file(s)
+Object: mesh_0, material slots = 2
+  Slot 0: Material = 780000F0
+    Image: //slum_rectangle.fbm/slum_tabletop.dds size=<bpy_int[2], Image.size>
+    Image: //slum_rectangle.fbm/slum_tabletop.dds size=<bpy_int[2], Image.size>
+  Slot 1: Material = 780000EE
+    Image: //slum_rectangle.fbm/slum_mtchair.dds size=<bpy_int[2], Image.size>
+    Image: //slum_rectangle.fbm/slum_mtchair.dds size=<bpy_int[2], Image.size>
+Info: File exported successfully
+[warn] MTL map refers to missing file: Diffuse_Texture.png
+[warn] MTL map refers to missing file: Diffuse_Texture.png
+[warn] MTL map refers to missing file: Diffuse_Texture.png
+[warn] MTL map refers to missing file: Diffuse_Texture.png
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+FBX version: 7400
+Warning: Could not find 'Wood_011_Roughness.jpg' in '/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/9cbf405253c8389b2c870a4583a357adc123c45fac114259d2d1880d2558ad6b/raw'
+Info: Saved "mesaComedor.temp.blend"
+Info: Total files 2 | Changed 1 | Failed 0
+Info: Saved "mesaComedor.temp.blend"
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/9cbf405253c8389b2c870a4583a357adc123c45fac114259d2d1880d2558ad6b/raw/mesaComedor.fbm/Wood_011_Normal.jpg' not found
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/9cbf405253c8389b2c870a4583a357adc123c45fac114259d2d1880d2558ad6b/raw/C:/francisco.arleo/Pictures/Blend/Kitchen/Wood_011a_SD-20190125T205643Z-001/Wood_011a_SD/Wood_011_Roughness.jpg' not found
+Info: Packed 2 file(s)
+[align] relink: fixed=1, missing=1
+Info: Saved "_import_tmp.blend"
+Info: Total files 2 | Changed 1 | Failed 0
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/9cbf405253c8389b2c870a4583a357adc123c45fac114259d2d1880d2558ad6b/raw/C:/francisco.arleo/Pictures/Blend/Kitchen/Wood_011a_SD-20190125T205643Z-001/Wood_011a_SD/Wood_011_Roughness.jpg' not found
+Info: Packed 2 file(s)
+Object: Chair Seat, material slots = 5
+  Slot 0: Material = Chair
+    [!] No Image Texture node found
+  Slot 1: Material = Chair Frame
+    Image: //mesaComedor.fbm/Wood_011_Normal.jpg size=<bpy_int[2], Image.size>
+    Image: //C:/francisco.arleo/Pictures/Blend/Kitchen/Wood_011a_SD-20190125T205643Z-001/Wood_011a_SD/Wood_011_Roughness.jpg size=<bpy_int[2], Image.size>
+  Slot 2: Material = Table Texture
+    [!] No Image Texture node found
+  Slot 3: Material = Plate Shader
+    [!] No Image Texture node found
+  Slot 4: Material = Cutlery Shader
+    [!] No Image Texture node found
+Info: File exported successfully
+[warn] MTL map refers to missing file: /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/9cbf405253c8389b2c870a4583a357adc123c45fac114259d2d1880d2558ad6b/raw/C:/francisco.arleo/Pictures/Blend/Kitchen/Wood_011a_SD-20190125T205643Z-001/Wood_011a_SD/Wood_011_Roughness.jpg
+[warn] MTL map refers to missing file: Wood_011_Normal.jpg
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+[align] relink: fixed=0, missing=0
+Info: Saved "_import_tmp.blend"
+Info: Total files 0 | Changed 0 | Failed 0
+Info: No new files have been packed
+Object: IKEA-Markor_Table_And_Harald_Chairs-3D, material slots = 3
+  Slot 0: Material = 01___Default
+    [!] No Image Texture node found
+  Slot 1: Material = 02___Default
+    [!] No Image Texture node found
+  Slot 2: Material = 03___Default
+    [!] No Image Texture node found
+Info: File exported successfully
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+[align] relink: fixed=0, missing=0
+Info: Saved "_import_tmp.blend"
+Info: Total files 1 | Changed 1 | Failed 0
+Info: Packed 1 file(s)
+Object: 221da64f5789c4bfcf7d397dd220c7e2_obj0_object_fixed, material slots = 1
+  Slot 0: Material = wood_maple
+    Image: //textures/wood_maple.jpg size=<bpy_int[2], Image.size>
+Info: File exported successfully
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+[align] relink: fixed=0, missing=0
+Info: Saved "_import_tmp.blend"
+Info: Total files 1 | Changed 1 | Failed 0
+Info: Packed 1 file(s)
+Object: LISABO_by_IKEA__corona, material slots = 1
+  Slot 0: Material = wire_204204204
+    Image: //textures/wood.jpg size=<bpy_int[2], Image.size>
+Info: File exported successfully
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+FBX version: 7400
+Error, could not find any file path in  FBXElem(id=b'Texture', props=[2215115344, b'\x00\x01Texture', b''], props_type=bytearray(b'LSS'), elems=[FBXElem(id=b'Type', props=[b'TextureVideoClip'], props_type=bytearray(b'S'), elems=[]), FBXElem(id=b'Version', props=[202], props_type=bytearray(b'I'), elems=[]), FBXElem(id=b'TextureName', props=[b'\x00\x01Texture'], props_type=bytearray(b'S'), elems=[]), FBXElem(id=b'Properties70', props=[], props_type=bytearray(b''), elems=[FBXElem(id=b'P', props=[b'3dsMax', b'Compound', b'', b''], props_type=bytearray(b'SSSS'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|ClassIDa', b'int', b'Integer', b'', 1475236828], props_type=bytearray(b'SSSSI'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|ClassIDb', b'int', b'Integer', b'', 323967540], props_type=bytearray(b'SSSSI'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|SuperClassID', b'int', b'Integer', b'', 3088], props_type=bytearray(b'SSSSI'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters', b'Compound', b'', b''], props_type=bytearray(b'SSSS'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|src_color', b'Color', b'', b'A', 1.0, 0.0, 0.0], props_type=bytearray(b'SSSSDDD'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|pre_on', b'Bool', b'', b'A', 1], props_type=bytearray(b'SSSSI'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|brightness', b'Float', b'', b'A', 0.0], props_type=bytearray(b'SSSSF'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|contrast', b'Float', b'', b'A', 100.0], props_type=bytearray(b'SSSSF'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|gamma', b'Float', b'', b'A', 1.2999999523162842], props_type=bytearray(b'SSSSF'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|pre_unmultiply', b'Bool', b'', b'A', 0], props_type=bytearray(b'SSSSI'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|pre_clamp_on', b'Bool', b'', b'A', 0], props_type=bytearray(b'SSSSI'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|pre_clamp_min', b'Float', b'', b'A', 0.0], props_type=bytearray(b'SSSSF'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|pre_clamp_max', b'Float', b'', b'A', 1.0], props_type=bytearray(b'SSSSF'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|pre_clamp_norm', b'Bool', b'', b'A', 0], props_type=bytearray(b'SSSSI'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|pre_invert', b'Bool', b'', b'A', 0], props_type=bytearray(b'SSSSI'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|pre_mono', b'Bool', b'', b'A', 0], props_type=bytearray(b'SSSSI'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|hsl_on', b'Bool', b'', b'A', 0], props_type=bytearray(b'SSSSI'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|hsl_hue_off', b'Float', b'', b'A', 0.0], props_type=bytearray(b'SSSSF'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|hsl_hue_gain', b'Float', b'', b'A', 0.0], props_type=bytearray(b'SSSSF'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|hsl_sat_off', b'Float', b'', b'A', 0.0], props_type=bytearray(b'SSSSF'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|hsl_sat_gain', b'Float', b'', b'A', 100.0], props_type=bytearray(b'SSSSF'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|hsl_light_off', b'Float', b'', b'A', 0.0], props_type=bytearray(b'SSSSF'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|hsl_light_gain', b'Float', b'', b'A', 100.0], props_type=bytearray(b'SSSSF'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|hsv_on', b'Bool', b'', b'A', 1], props_type=bytearray(b'SSSSI'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|hsv_hue_off', b'Float', b'', b'A', 10.300000190734863], props_type=bytearray(b'SSSSF'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|hsv_hue_gain', b'Float', b'', b'A', 0.0], props_type=bytearray(b'SSSSF'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|hsv_sat_off', b'Float', b'', b'A', 0.0], props_type=bytearray(b'SSSSF'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|hsv_sat_gain', b'Float', b'', b'A', 100.0], props_type=bytearray(b'SSSSF'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|hsv_val_off', b'Float', b'', b'A', 0.0], props_type=bytearray(b'SSSSF'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|hsv_val_gain', b'Float', b'', b'A', 100.0], props_type=bytearray(b'SSSSF'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|rgba_on', b'Bool', b'', b'A', 0], props_type=bytearray(b'SSSSI'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|red_off', b'Float', b'', b'A', 0.0], props_type=bytearray(b'SSSSF'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|red_gain', b'Float', b'', b'A', 100.0], props_type=bytearray(b'SSSSF'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|green_off', b'Float', b'', b'A', 0.0], props_type=bytearray(b'SSSSF'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|green_gain', b'Float', b'', b'A', 100.0], props_type=bytearray(b'SSSSF'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|blue_off', b'Float', b'', b'A', 0.0], props_type=bytearray(b'SSSSF'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|blue_gain', b'Float', b'', b'A', 100.0], props_type=bytearray(b'SSSSF'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|alpha_off', b'Float', b'', b'A', 0.0], props_type=bytearray(b'SSSSF'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|alpha_gain', b'Float', b'', b'A', 100.0], props_type=bytearray(b'SSSSF'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|red_chan', b'Integer', b'', b'A', 0], props_type=bytearray(b'SSSSI'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|green_chan', b'Integer', b'', b'A', 1], props_type=bytearray(b'SSSSI'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|blue_chan', b'Integer', b'', b'A', 2], props_type=bytearray(b'SSSSI'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|alpha_chan', b'Integer', b'', b'A', 8], props_type=bytearray(b'SSSSI'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|pre_multiply', b'Bool', b'', b'A', 0], props_type=bytearray(b'SSSSI'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|BlockID_0_ParameterID_19', b'Bool', b'', b'A', 0], props_type=bytearray(b'SSSSI'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|post_on', b'Bool', b'', b'A', 0], props_type=bytearray(b'SSSSI'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|post_clamp_on', b'Bool', b'', b'A', 0], props_type=bytearray(b'SSSSI'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|post_clamp_min', b'Float', b'', b'A', 0.0], props_type=bytearray(b'SSSSF'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|post_clamp_max', b'Float', b'', b'A', 1.0], props_type=bytearray(b'SSSSF'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|post_clamp_norm', b'Bool', b'', b'A', 0], props_type=bytearray(b'SSSSI'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|post_invert', b'Bool', b'', b'A', 0], props_type=bytearray(b'SSSSI'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|post_mono', b'Bool', b'', b'A', 0], props_type=bytearray(b'SSSSI'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|src_tex', b'Reference', b'', b'A'], props_type=bytearray(b'SSSS'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|hsv_sat_off_tex', b'Reference', b'', b'A'], props_type=bytearray(b'SSSS'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|hsv_val_off_tex', b'Reference', b'', b'A'], props_type=bytearray(b'SSSS'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|hsv_hue_gain_tex', b'Reference', b'', b'A'], props_type=bytearray(b'SSSS'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|hsv_sat_gain_tex', b'Reference', b'', b'A'], props_type=bytearray(b'SSSS'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|hsv_val_gain_tex', b'Reference', b'', b'A'], props_type=bytearray(b'SSSS'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|hsl_sat_off_tex', b'Reference', b'', b'A'], props_type=bytearray(b'SSSS'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|hsl_light_off_tex', b'Reference', b'', b'A'], props_type=bytearray(b'SSSS'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|hsl_hue_gain_tex', b'Reference', b'', b'A'], props_type=bytearray(b'SSSS'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|hsl_sat_gain_tex', b'Reference', b'', b'A'], props_type=bytearray(b'SSSS'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|hsl_light_gain_tex', b'Reference', b'', b'A'], props_type=bytearray(b'SSSS'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|red_off_tex', b'Reference', b'', b'A'], props_type=bytearray(b'SSSS'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|green_off_tex', b'Reference', b'', b'A'], props_type=bytearray(b'SSSS'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|blue_off_tex', b'Reference', b'', b'A'], props_type=bytearray(b'SSSS'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|alpha_off_tex', b'Reference', b'', b'A'], props_type=bytearray(b'SSSS'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|red_gain_tex', b'Reference', b'', b'A'], props_type=bytearray(b'SSSS'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|green_gain_tex', b'Reference', b'', b'A'], props_type=bytearray(b'SSSS'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|blue_gain_tex', b'Reference', b'', b'A'], props_type=bytearray(b'SSSS'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|alpha_gain_tex', b'Reference', b'', b'A'], props_type=bytearray(b'SSSS'), elems=[]), FBXElem(id=b'P', props=[b'3dsMax|parameters|old_file_mode', b'Bool', b'', b'A', 0], props_type=bytearray(b'SSSSI'), elems=[])]), FBXElem(id=b'Media', props=[b''], props_type=bytearray(b'S'), elems=[]), FBXElem(id=b'FileName', props=[b''], props_type=bytearray(b'S'), elems=[]), FBXElem(id=b'RelativeFilename', props=[b''], props_type=bytearray(b'S'), elems=[]), FBXElem(id=b'ModelUVTranslation', props=[0.0, 0.0], props_type=bytearray(b'DD'), elems=[]), FBXElem(id=b'ModelUVScaling', props=[1.0, 1.0], props_type=bytearray(b'DD'), elems=[]), FBXElem(id=b'Texture_Alpha_Source', props=[b'None'], props_type=bytearray(b'S'), elems=[]), FBXElem(id=b'Cropping', props=[0, 0, 0, 0], props_type=bytearray(b'IIII'), elems=[])])
+       Falling back to:  
+Warning: Could not find 'Wood_01.jpg' in '/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/bf0af2b4fc84dba86c231e5fcafdc8a815688ec2cf485390c4c42786df6443cf/raw'
+Warning: Could not find 'Wood_02.jpg' in '/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/bf0af2b4fc84dba86c231e5fcafdc8a815688ec2cf485390c4c42786df6443cf/raw'
+Warning: Could not find 'Wood_02.jpg' in '/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/bf0af2b4fc84dba86c231e5fcafdc8a815688ec2cf485390c4c42786df6443cf/raw'
+Info: Saved "table_chairs_group_01.temp.blend"
+Info: Total files 4 | Changed 4 | Failed 0
+Info: Saved "table_chairs_group_01.temp.blend"
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/bf0af2b4fc84dba86c231e5fcafdc8a815688ec2cf485390c4c42786df6443cf/raw/Wood_01.jpg' not found
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/bf0af2b4fc84dba86c231e5fcafdc8a815688ec2cf485390c4c42786df6443cf/raw/Wood_02.jpg' not found
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/bf0af2b4fc84dba86c231e5fcafdc8a815688ec2cf485390c4c42786df6443cf/raw/Wood_02.jpg' not found
+Info: Packed 4 file(s)
+[align] relink: fixed=1, missing=3
+Info: Saved "_import_tmp.blend"
+Info: Total files 4 | Changed 1 | Failed 0
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/bf0af2b4fc84dba86c231e5fcafdc8a815688ec2cf485390c4c42786df6443cf/raw/Wood_01.jpg' not found
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/bf0af2b4fc84dba86c231e5fcafdc8a815688ec2cf485390c4c42786df6443cf/raw/Wood_02.jpg' not found
+Error: Unable to pack file, source path '/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/bf0af2b4fc84dba86c231e5fcafdc8a815688ec2cf485390c4c42786df6443cf/raw/Wood_02.jpg' not found
+Info: Packed 4 file(s)
+Object: Chair_01, material slots = 5
+  Slot 0: Material = Wood_01
+    Image: //Wood_01.jpg size=<bpy_int[2], Image.size>
+  Slot 1: Material = Chrome
+    [!] No Image Texture node found
+  Slot 2: Material = Wood_Edge
+    Image: //table_chairs_group_01.fbm size=<bpy_int[2], Image.size>
+  Slot 3: Material = Wood_02
+    Image: //Wood_02.jpg size=<bpy_int[2], Image.size>
+    Image: //Wood_02.jpg size=<bpy_int[2], Image.size>
+  Slot 4: Material = GLASS
+    [!] No Image Texture node found
+Info: File exported successfully
+[warn] MTL map refers to missing file: /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/bf0af2b4fc84dba86c231e5fcafdc8a815688ec2cf485390c4c42786df6443cf/raw/Wood_01.jpg
+[warn] MTL map refers to missing file: /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/bf0af2b4fc84dba86c231e5fcafdc8a815688ec2cf485390c4c42786df6443cf/raw/Wood_02.jpg
+[warn] MTL map refers to missing file: /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/bf0af2b4fc84dba86c231e5fcafdc8a815688ec2cf485390c4c42786df6443cf/raw/Wood_02.jpg
+[warn] MTL map refers to missing file: /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/bf0af2b4fc84dba86c231e5fcafdc8a815688ec2cf485390c4c42786df6443cf/raw/table_chairs_group_01.fbm
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+[align] relink: fixed=0, missing=0
+Info: Saved "_import_tmp.blend"
+Info: Total files 0 | Changed 0 | Failed 0
+Info: No new files have been packed
+Object: IKEA-Gateleg_table_and_Bertil_Chairs-3D, material slots = 1
+  Slot 0: Material = Material__2
+    [!] No Image Texture node found
+Info: File exported successfully
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+[align] relink: fixed=0, missing=0
+Info: Saved "_import_tmp.blend"
+Info: Total files 3 | Changed 3 | Failed 0
+Info: Packed 3 file(s)
+Object: kitchenTable_fixed, material slots = 5
+  Slot 0: Material = _2
+    Image: //textures/_2.jpg size=<bpy_int[2], Image.size>
+  Slot 1: Material = FrontColor
+    [!] No Image Texture node found
+  Slot 2: Material = Wood__Floor
+    Image: //textures/Wood__Floor.jpg size=<bpy_int[2], Image.size>
+  Slot 3: Material = Wood_Bamboo_Medium
+    Image: //textures/Wood_Bamboo_Medium.jpg size=<bpy_int[2], Image.size>
+  Slot 4: Material = Color_C04
+    [!] No Image Texture node found
+Info: File exported successfully
+[warn] MTL map refers to missing file: Wood_Bamboo_Medium.jpg
+[warn] MTL map refers to missing file: Wood__Floor.jpg
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+[align] relink: fixed=0, missing=0
+Info: Saved "_import_tmp.blend"
+Info: Total files 4 | Changed 4 | Failed 0
+Info: Packed 4 file(s)
+Object: diningTable_fixed, material slots = 5
+  Slot 0: Material = Wood_Cherry_Original
+    Image: //textures/Wood_Cherry_Original.jpg size=<bpy_int[2], Image.size>
+  Slot 1: Material = Carpet_Diamond_Olive
+    Image: //textures/Carpet_Diamond_Olive.jpg size=<bpy_int[2], Image.size>
+  Slot 2: Material = _Wood_Cherry_Original_1
+    Image: //textures/_Wood_Cherry_Original_1.jpg size=<bpy_int[2], Image.size>
+  Slot 3: Material = FrontColor
+    [!] No Image Texture node found
+  Slot 4: Material = _Wood_Cherry_Original__1
+    Image: //textures/_Wood_Cherry_Original__1.jpg size=<bpy_int[2], Image.size>
+Info: File exported successfully
+[warn] MTL map refers to missing file: Carpet_Diamond_Olive.jpg
+[warn] MTL map refers to missing file: Wood_Cherry_Original.jpg
+[warn] MTL map refers to missing file: _Wood_Cherry_Original_1.jpg
+[warn] MTL map refers to missing file: _Wood_Cherry_Original__1.jpg
+Info: No orphaned data-blocks to purge
+Info: No orphaned data-blocks to purge
+07:22:18 | INFO: Data are loaded, start creating Blender stuff
+07:22:18 | INFO: Blender create Mesh node 0
+07:22:18 | INFO: Blender create Mesh node 1
+07:22:18 | INFO: Blender create Mesh node 2
+07:22:18 | INFO: Blender create Mesh node 3
+07:22:18 | INFO: Blender create Mesh node 4
+07:22:18 | INFO: Blender create Mesh node 5
+07:22:18 | INFO: Blender create Mesh node 6
+07:22:18 | INFO: Blender create Mesh node 7
+07:22:18 | INFO: Blender create Mesh node 8
+07:22:18 | INFO: glTF import finished in 0.01s
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_33577118197ded541d5ab7df11227f107d441e4068721a8611f02a4bec484a48_obj/Diffuse_Texture.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: 'Diffuse_Texture.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: 'Diffuse Texture.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_76e8576f0303fc2760fcc38682bc2182e66d3a148911225c2a5e4844b812f157_obj/Diffuse_Texture.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: 'Diffuse_Texture.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: 'Diffuse Texture.png'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_9cbf405253c8389b2c870a4583a357adc123c45fac114259d2d1880d2558ad6b_obj//home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/9cbf405253c8389b2c870a4583a357adc123c45fac114259d2d1880d2558ad6b/raw/C:/francisco.arleo/Pictures/Blend/Kitchen/Wood_011a_SD-20190125T205643Z-001/Wood_011a_SD/Wood_011_Roughness.jpg'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/9cbf405253c8389b2c870a4583a357adc123c45fac114259d2d1880d2558ad6b/raw/C:/francisco.arleo/Pictures/Blend/Kitchen/Wood_011a_SD-20190125T205643Z-001/Wood_011a_SD/Wood_011_Roughness.jpg'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL github/dining table/9cbf405253c8389b2c870a4583a357adc123c45fac114259d2d1880d2558ad6b/raw/C:/francisco.arleo/Pictures/Blend/Kitchen/Wood 011a SD-20190125T205643Z-001/Wood 011a SD/Wood 011 Roughness.jpg'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_9cbf405253c8389b2c870a4583a357adc123c45fac114259d2d1880d2558ad6b_obj/Wood_011_Roughness.jpg'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_bf0af2b4fc84dba86c231e5fcafdc8a815688ec2cf485390c4c42786df6443cf_obj//home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/bf0af2b4fc84dba86c231e5fcafdc8a815688ec2cf485390c4c42786df6443cf/raw/Wood_01.jpg'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/bf0af2b4fc84dba86c231e5fcafdc8a815688ec2cf485390c4c42786df6443cf/raw/Wood_01.jpg'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL github/dining table/bf0af2b4fc84dba86c231e5fcafdc8a815688ec2cf485390c4c42786df6443cf/raw/Wood 01.jpg'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_bf0af2b4fc84dba86c231e5fcafdc8a815688ec2cf485390c4c42786df6443cf_obj/Wood_01.jpg'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_bf0af2b4fc84dba86c231e5fcafdc8a815688ec2cf485390c4c42786df6443cf_obj//home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/bf0af2b4fc84dba86c231e5fcafdc8a815688ec2cf485390c4c42786df6443cf/raw/table_chairs_group_01.fbm'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_bf0af2b4fc84dba86c231e5fcafdc8a815688ec2cf485390c4c42786df6443cf_obj//home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/bf0af2b4fc84dba86c231e5fcafdc8a815688ec2cf485390c4c42786df6443cf/raw/Wood_02.jpg'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/bf0af2b4fc84dba86c231e5fcafdc8a815688ec2cf485390c4c42786df6443cf/raw/Wood_02.jpg'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL github/dining table/bf0af2b4fc84dba86c231e5fcafdc8a815688ec2cf485390c4c42786df6443cf/raw/Wood 02.jpg'
+WARN (io.obj): source/blender/io/wavefront_obj/importer/obj_import_mtl.cc:73 load_image_at_path: Cannot load image file: '/home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_bf0af2b4fc84dba86c231e5fcafdc8a815688ec2cf485390c4c42786df6443cf_obj/Wood_02.jpg'
+OBJ import of 'IKEA-Gateleg_table_and_Bertil_Chairs-3D.obj' took 5.48 ms
+Writing to /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_d41d213b84d6c1ef02a877992bbcfcc0d8376119c636e9fdf843acac077c8612_obj/model.obj
+OBJ export of 'model.obj' took 9.76 ms
+OBJ import of 'kitchenTable_fixed.obj' took 13.37 ms
+Writing to /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_dd054d3f52b582c5d9fd224d2178a08e1aab684cadbb5dbf3483110789734c55_obj/model.obj
+OBJ export of 'model.obj' took 17.37 ms
+OBJ import of 'diningTable_fixed.obj' took 8.90 ms
+Writing to /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_e3a6ee88cd0a0de97014d56a7a5b9531c4ac240ee0140525467985483262538c_obj/model.obj
+OBJ export of 'model.obj' took 10.32 ms
+ERROR: Image "" not available. Keeping packed image
+ERROR: Image "" not available. Keeping packed image
+ERROR: Image "" not available. Keeping packed image
+ERROR: Image "" not available. Keeping packed image
+Writing to /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_f3e1fb888ecbad640929215e0239c0fbb554fdfd039decd9c718d359747f2eda_obj/model.obj
+OBJ export of 'model.obj' took 5.15 ms
+ERROR: Image "" not available. Keeping packed image
+ERROR: Image "" not available. Keeping packed image
+ERROR: Image "" not available. Keeping packed image
+ERROR: Image "" not available. Keeping packed image
+OBJ import of 'model.obj' took 9.27 ms
+OBJ import of 'model.obj' took 3.08 ms
+OBJ import of 'model.obj' took 3.54 ms
+OBJ import of 'model.obj' took 3.06 ms
+OBJ import of 'model.obj' took 90.17 ms
+OBJ import of 'model.obj' took 18.81 ms
+OBJ import of 'model.obj' took 6.07 ms
+OBJ import of 'model.obj' took 28.37 ms
+OBJ import of 'model.obj' took 15.79 ms
+OBJ import of 'model.obj' took 3.89 ms
+OBJ import of 'model.obj' took 11.69 ms
+OBJ import of 'model.obj' took 7.93 ms
+OBJ import of 'model.obj' took 4.24 ms
+Fra:1 Mem:27.45M (Peak 27.45M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Sun
+Fra:1 Mem:27.46M (Peak 27.46M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 134_fixed
+Fra:1 Mem:27.46M (Peak 27.46M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | IKEA-Markor_Table_And_Harald_Chairs-3D
+Fra:1 Mem:27.46M (Peak 27.46M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | LISABO_by_IKEA__corona
+Fra:1 Mem:28.50M (Peak 28.50M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | kitchenTable_fixed
+Fra:1 Mem:29.51M (Peak 29.52M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Mesh_0
+Fra:1 Mem:49.93M (Peak 59.88M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Initializing
+Fra:1 Mem:47.52M (Peak 59.88M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Waiting for render to start
+Fra:1 Mem:47.52M (Peak 59.88M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Scene
+Fra:1 Mem:47.52M (Peak 59.88M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Shaders
+Fra:1 Mem:47.52M (Peak 59.88M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Loading render kernels (may take a few minutes the first time)
+Fra:1 Mem:47.63M (Peak 59.88M) | Time:00:00.15 | Mem:0.03M, Peak:0.03M | Scene, ViewLayer | Updating Procedurals
+Fra:1 Mem:47.63M (Peak 59.88M) | Time:00:00.15 | Mem:0.03M, Peak:0.03M | Scene, ViewLayer | Updating Background
+Fra:1 Mem:47.63M (Peak 59.88M) | Time:00:00.15 | Mem:0.03M, Peak:0.03M | Scene, ViewLayer | Updating Camera
+Fra:1 Mem:47.63M (Peak 59.88M) | Time:00:00.15 | Mem:0.03M, Peak:0.03M | Scene, ViewLayer | Updating Meshes Flags
+Fra:1 Mem:47.63M (Peak 59.88M) | Time:00:00.15 | Mem:0.03M, Peak:0.03M | Scene, ViewLayer | Updating Objects
+Fra:1 Mem:47.63M (Peak 59.88M) | Time:00:00.15 | Mem:0.03M, Peak:0.03M | Scene, ViewLayer | Updating Objects | Copying Transformations to device
+Fra:1 Mem:47.63M (Peak 59.88M) | Time:00:00.15 | Mem:0.03M, Peak:0.03M | Scene, ViewLayer | Updating Particle Systems
+Fra:1 Mem:47.63M (Peak 59.88M) | Time:00:00.15 | Mem:0.03M, Peak:0.03M | Scene, ViewLayer | Updating Particle Systems | Copying Particles to device
+Fra:1 Mem:47.63M (Peak 59.88M) | Time:00:00.15 | Mem:0.03M, Peak:0.03M | Scene, ViewLayer | Updating Meshes
+Fra:1 Mem:55.26M (Peak 59.88M) | Time:00:00.21 | Mem:0.03M, Peak:0.03M | Scene, ViewLayer | Updating Objects | Applying Static Transformations
+Fra:1 Mem:55.26M (Peak 59.88M) | Time:00:00.21 | Mem:0.03M, Peak:0.03M | Scene, ViewLayer | Updating Mesh | Computing attributes
+Fra:1 Mem:67.62M (Peak 67.62M) | Time:00:00.22 | Mem:0.03M, Peak:0.03M | Scene, ViewLayer | Updating Mesh | Copying Attributes to device
+Fra:1 Mem:67.61M (Peak 67.62M) | Time:00:00.22 | Mem:12.39M, Peak:12.39M | Scene, ViewLayer | Updating Scene BVH | Building
+Fra:1 Mem:67.61M (Peak 67.62M) | Time:00:00.22 | Mem:12.39M, Peak:12.39M | Scene, ViewLayer | Updating Scene BVH | Building BVH
+Fra:1 Mem:67.61M (Peak 67.62M) | Time:00:00.22 | Mem:18.98M, Peak:18.98M | Scene, ViewLayer | Updating Scene BVH | Building BVH 0%
+Fra:1 Mem:67.61M (Peak 67.62M) | Time:00:00.23 | Mem:26.16M, Peak:32.75M | Scene, ViewLayer | Updating Scene BVH | Copying BVH to device
+Fra:1 Mem:67.61M (Peak 67.62M) | Time:00:00.23 | Mem:26.16M, Peak:32.75M | Scene, ViewLayer | Updating Mesh | Computing normals
+Fra:1 Mem:74.72M (Peak 74.72M) | Time:00:00.23 | Mem:26.16M, Peak:32.75M | Scene, ViewLayer | Updating Mesh | Copying Mesh to device
+Fra:1 Mem:74.72M (Peak 74.72M) | Time:00:00.23 | Mem:33.27M, Peak:33.27M | Scene, ViewLayer | Updating Objects Flags
+Fra:1 Mem:74.72M (Peak 74.72M) | Time:00:00.23 | Mem:33.27M, Peak:33.27M | Scene, ViewLayer | Updating Primitive Offsets
+Fra:1 Mem:74.72M (Peak 74.72M) | Time:00:00.23 | Mem:33.27M, Peak:33.27M | Scene, ViewLayer | Updating Images
+Fra:1 Mem:74.72M (Peak 74.72M) | Time:00:00.23 | Mem:33.27M, Peak:33.27M | Scene, ViewLayer | Updating Images | Loading Wood_baseColor.png
+Fra:1 Mem:76.72M (Peak 76.72M) | Time:00:00.23 | Mem:33.27M, Peak:33.27M | Scene, ViewLayer | Updating Images | Loading Material_baseColor.png
+Fra:1 Mem:76.72M (Peak 76.72M) | Time:00:00.23 | Mem:33.27M, Peak:33.27M | Scene, ViewLayer | Updating Images | Loading Wood_02.jpg
+Fra:1 Mem:80.72M (Peak 80.72M) | Time:00:00.23 | Mem:33.27M, Peak:33.27M | Scene, ViewLayer | Updating Images | Loading Wood_Normal_Texture.png
+Fra:1 Mem:83.84M (Peak 83.84M) | Time:00:00.23 | Mem:33.27M, Peak:33.27M | Scene, ViewLayer | Updating Images | Loading Wood_Cherry_Original.png
+Fra:1 Mem:83.84M (Peak 83.84M) | Time:00:00.23 | Mem:33.27M, Peak:33.27M | Scene, ViewLayer | Updating Images | Loading Carpet_Diamond_Olive.png
+Fra:1 Mem:90.60M (Peak 90.60M) | Time:00:00.23 | Mem:33.27M, Peak:33.27M | Scene, ViewLayer | Updating Images | Loading _Wood_Cherry_Original_1.png
+Fra:1 Mem:90.60M (Peak 90.60M) | Time:00:00.23 | Mem:33.27M, Peak:33.27M | Scene, ViewLayer | Updating Images | Loading _Wood_Cherry_Original__1.png
+Fra:1 Mem:97.08M (Peak 97.08M) | Time:00:00.25 | Mem:55.62M, Peak:55.62M | Scene, ViewLayer | Updating Camera Volume
+Fra:1 Mem:97.08M (Peak 97.08M) | Time:00:00.25 | Mem:55.62M, Peak:55.62M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:97.08M (Peak 97.08M) | Time:00:00.25 | Mem:55.70M, Peak:55.70M | Scene, ViewLayer | Updating Lights
+Fra:1 Mem:97.08M (Peak 97.08M) | Time:00:00.25 | Mem:55.70M, Peak:55.70M | Scene, ViewLayer | Updating Lights | Computing tree
+Fra:1 Mem:97.08M (Peak 97.08M) | Time:00:00.25 | Mem:55.70M, Peak:55.70M | Scene, ViewLayer | Updating Integrator
+Fra:1 Mem:97.08M (Peak 97.08M) | Time:00:00.25 | Mem:55.70M, Peak:55.70M | Scene, ViewLayer | Updating Film
+Fra:1 Mem:97.09M (Peak 97.09M) | Time:00:00.25 | Mem:55.62M, Peak:55.70M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:97.09M (Peak 97.09M) | Time:00:00.25 | Mem:55.70M, Peak:55.70M | Scene, ViewLayer | Updating Baking
+Fra:1 Mem:97.09M (Peak 97.09M) | Time:00:00.25 | Mem:55.70M, Peak:55.70M | Scene, ViewLayer | Updating Device | Writing constant memory
+Fra:1 Mem:97.09M (Peak 97.09M) | Time:00:00.25 | Mem:55.70M, Peak:55.70M | Scene, ViewLayer | Loading denoising kernels (may take a few minutes the first time)
+Fra:1 Mem:97.09M (Peak 97.09M) | Time:00:00.25 | Mem:55.70M, Peak:55.70M | Scene, ViewLayer | Sample 0/64
+Fra:1 Mem:236.41M (Peak 236.41M) | Time:00:00.31 | Remaining:00:03.37 | Mem:194.87M, Peak:194.87M | Scene, ViewLayer | Sample 1/64
+Fra:1 Mem:295.01M (Peak 382.90M) | Time:00:06.30 | Mem:194.87M, Peak:194.87M | Scene, ViewLayer | Sample 64/64
+Fra:1 Mem:295.01M (Peak 382.90M) | Time:00:06.30 | Mem:194.87M, Peak:194.87M | Scene, ViewLayer | Finished
+Saved: '/home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/snapshot_obj.png'
+Time: 00:06.47 (Saving: 00:00.17)
+
+[align] relink: fixed=0, missing=0
+Info: Saved "_import_tmp.blend"
+Info: Total files 0 | Changed 0 | Failed 0
+Info: No new files have been packed
+Object: Mesh_0, material slots = 2
+  Slot 0: Material = Wood
+    Image:  size=<bpy_int[2], Image.size>
+  Slot 1: Material = Material
+    Image:  size=<bpy_int[2], Image.size>
+Info: File exported successfully
+Info: No orphaned data-blocks to purge
+[SUMMARY] imported=13  valid=13  invalid=0
+[OK] report: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/align_report_obj.tsv
+Info: No orphaned data-blocks to purge
+[OK] snapshot saved: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/snapshot_obj.png
+[OK] exported: 13 → /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table
+
+Blender quit
+[done] rc=0  time=10.98s
+--- [cat] Step 3: Render orbit RGBD & videos ---
+[INFO] dining_table: to render → 13 item(s) (OBJ) → flat storage
+[render/batch] cat=dining_table  dir=/home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table  out=/home/vault/v100dd/v100dd26/Dataset/renders_xl/dining_table  total=13
+$ /home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/bin/python /home/hpc/v100dd/v100dd26/project/Dataset_pipeline/src/video_render/render_orbit_full.py --obj /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table --out /home/vault/v100dd/v100dd26/Dataset/renders_xl/dining_table --label dining_table --num_cams 40 --elev_deg 20.0 --fov_deg 60.0 --image_size 768 --top_ring_num 40 --top_ring_elev_deg 78.0 --top_ring_dist_scale 0.85 --axis_correction none --seed 123 --batch_chunk 8 --bin_size 64 --max_faces_per_bin 400000 --no_cull_backfaces --save_rgb_png --save_mask_png --save_nocs_png8 --nocs_norm bbox --cam_mode random --rand_cams 150 --sphere_dist 1.73 --pos_tangent_jitter 0.02 --depth_jitter 0.02 --input_format obj --use_uv_textures --obj_loader p3d --atlas_size 512 --atlas_mem_limit_gb 2.0 --overwrite --viz_backend mpl --viz_max_frustums 150 --archive_output --archive_format tar.gz --manifest /tmp/3079853.alex/tmporub3w7e_render_manifest.json
+[info] GPU rendering on: NVIDIA A100-SXM4-40GB
+[p3d] torch=2.1.2 cuda=11.8; pytorch3d=0.7.4 HAVE_P3D=True HAVE_LOAD_OBJS_AS_MESHES=True HAVE_LOAD_OBJ=True
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_2ec66fc317d65930217f49431fea1c2433cab791413bf3321b2d5f639816bd4e_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/dining_table/dining_table_2ec66fc317d65930217f49431fea1c2433cab791413bf3321b2d5f639816bd4e =====
+[info] OBJ via PyTorch3D loader: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_2ec66fc317d65930217f49431fea1c2433cab791413bf3321b2d5f639816bd4e_obj/model.obj
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/dining_table/dining_table_2ec66fc317d65930217f49431fea1c2433cab791413bf3321b2d5f639816bd4e.tar.gz (keep_original=False)
+time: 76.68 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_33577118197ded541d5ab7df11227f107d441e4068721a8611f02a4bec484a48_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/dining_table/dining_table_33577118197ded541d5ab7df11227f107d441e4068721a8611f02a4bec484a48 =====
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/dining_table/dining_table_33577118197ded541d5ab7df11227f107d441e4068721a8611f02a4bec484a48.tar.gz (keep_original=False)
+time: 74.97 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_69a0a2aa4fb8120ba71edee20fa8b4ea9390fafac8dbb29aee3def234f4629ef_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/dining_table/dining_table_69a0a2aa4fb8120ba71edee20fa8b4ea9390fafac8dbb29aee3def234f4629ef =====
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/dining_table/dining_table_69a0a2aa4fb8120ba71edee20fa8b4ea9390fafac8dbb29aee3def234f4629ef.tar.gz (keep_original=False)
+time: 73.77 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_76e8576f0303fc2760fcc38682bc2182e66d3a148911225c2a5e4844b812f157_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/dining_table/dining_table_76e8576f0303fc2760fcc38682bc2182e66d3a148911225c2a5e4844b812f157 =====
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/dining_table/dining_table_76e8576f0303fc2760fcc38682bc2182e66d3a148911225c2a5e4844b812f157.tar.gz (keep_original=False)
+time: 73.47 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_9cbf405253c8389b2c870a4583a357adc123c45fac114259d2d1880d2558ad6b_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/dining_table/dining_table_9cbf405253c8389b2c870a4583a357adc123c45fac114259d2d1880d2558ad6b =====
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/dining_table/dining_table_9cbf405253c8389b2c870a4583a357adc123c45fac114259d2d1880d2558ad6b.tar.gz (keep_original=False)
+time: 77.42 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_a76401c3de7979a40403ae5c5f117ce2872de0347b740067e28915b55b45586d_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/dining_table/dining_table_a76401c3de7979a40403ae5c5f117ce2872de0347b740067e28915b55b45586d =====
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/dining_table/dining_table_a76401c3de7979a40403ae5c5f117ce2872de0347b740067e28915b55b45586d.tar.gz (keep_original=False)
+time: 79.23 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_aadabafcb6f471936bfe52488797a09ce3e948e0b05812c0033e11a85ed0e635_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/dining_table/dining_table_aadabafcb6f471936bfe52488797a09ce3e948e0b05812c0033e11a85ed0e635 =====
+[info] OBJ via PyTorch3D loader: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_aadabafcb6f471936bfe52488797a09ce3e948e0b05812c0033e11a85ed0e635_obj/model.obj
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0118%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0192%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0180%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0245%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0211%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0159%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0158%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0312%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0201%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0163%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0213%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0108%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0133%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0161%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0214%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0100%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0219%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0185%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0138%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/dining_table/dining_table_aadabafcb6f471936bfe52488797a09ce3e948e0b05812c0033e11a85ed0e635.tar.gz (keep_original=False)
+time: 80.51 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_b3a5dbc3ca746d8a1f161233b3dcfd1f8a58b8d7277394294451a6f8b08b938a_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/dining_table/dining_table_b3a5dbc3ca746d8a1f161233b3dcfd1f8a58b8d7277394294451a6f8b08b938a =====
+[info] OBJ via PyTorch3D loader: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_b3a5dbc3ca746d8a1f161233b3dcfd1f8a58b8d7277394294451a6f8b08b938a_obj/model.obj
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/dining_table/dining_table_b3a5dbc3ca746d8a1f161233b3dcfd1f8a58b8d7277394294451a6f8b08b938a.tar.gz (keep_original=False)
+time: 78.74 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_bf0af2b4fc84dba86c231e5fcafdc8a815688ec2cf485390c4c42786df6443cf_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/dining_table/dining_table_bf0af2b4fc84dba86c231e5fcafdc8a815688ec2cf485390c4c42786df6443cf =====
+[warn] p3d OBJ loader failed: [Errno 21] Is a directory: '/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/bf0af2b4fc84dba86c231e5fcafdc8a815688ec2cf485390c4c42786df6443cf/raw/table_chairs_group_01.fbm' ; falling back to trimesh loader.
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/dining_table/dining_table_bf0af2b4fc84dba86c231e5fcafdc8a815688ec2cf485390c4c42786df6443cf.tar.gz (keep_original=False)
+time: 73.54 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_d41d213b84d6c1ef02a877992bbcfcc0d8376119c636e9fdf843acac077c8612_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/dining_table/dining_table_d41d213b84d6c1ef02a877992bbcfcc0d8376119c636e9fdf843acac077c8612 =====
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0101%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0102%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0109%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/dining_table/dining_table_d41d213b84d6c1ef02a877992bbcfcc0d8376119c636e9fdf843acac077c8612.tar.gz (keep_original=False)
+time: 74.73 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_dd054d3f52b582c5d9fd224d2178a08e1aab684cadbb5dbf3483110789734c55_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/dining_table/dining_table_dd054d3f52b582c5d9fd224d2178a08e1aab684cadbb5dbf3483110789734c55 =====
+[info] OBJ via PyTorch3D loader: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_dd054d3f52b582c5d9fd224d2178a08e1aab684cadbb5dbf3483110789734c55_obj/model.obj
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/dining_table/dining_table_dd054d3f52b582c5d9fd224d2178a08e1aab684cadbb5dbf3483110789734c55.tar.gz (keep_original=False)
+time: 76.68 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_e3a6ee88cd0a0de97014d56a7a5b9531c4ac240ee0140525467985483262538c_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/dining_table/dining_table_e3a6ee88cd0a0de97014d56a7a5b9531c4ac240ee0140525467985483262538c =====
+[info] OBJ via PyTorch3D loader: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_e3a6ee88cd0a0de97014d56a7a5b9531c4ac240ee0140525467985483262538c_obj/model.obj
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0128%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0105%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0146%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0130%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0181%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0108%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0135%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0141%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0137%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0155%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0155%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0109%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/dining_table/dining_table_e3a6ee88cd0a0de97014d56a7a5b9531c4ac240ee0140525467985483262538c.tar.gz (keep_original=False)
+time: 74.88 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_f3e1fb888ecbad640929215e0239c0fbb554fdfd039decd9c718d359747f2eda_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/dining_table/dining_table_f3e1fb888ecbad640929215e0239c0fbb554fdfd039decd9c718d359747f2eda =====
+[info] OBJ via PyTorch3D loader: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dining_table/dining_table_f3e1fb888ecbad640929215e0239c0fbb554fdfd039decd9c718d359747f2eda_obj/model.obj
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0421%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0600%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0546%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0416%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0506%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0672%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0440%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0348%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0455%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0545%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0713%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0413%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0407%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0577%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0451%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0657%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0728%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0445%
+[NOCS] out-of-range ratio (pre-clamp): plus=0.0000%, norm=0.0485%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/dining_table/dining_table_f3e1fb888ecbad640929215e0239c0fbb554fdfd039decd9c718d359747f2eda.tar.gz (keep_original=False)
+time: 81.44 seconds
+[done] rc=0  time=1002.82s
+[render/batch] done rc=0  total=13  time=1002.82s  avg=77.14s/obj
+[ALL DONE] Per-category flow outputs:
+- Downloads: /home/vault/v100dd/v100dd26/Dataset
+- Aligned GLBs: /home/vault/v100dd/v100dd26/Dataset/aligned_xl
+- Renders: /home/vault/v100dd/v100dd26/Dataset/renders_xl
+[2025-10-10 07:39:08] Pipeline runtime: 4386 seconds
+[2025-10-10 07:39:08] Array job finished
+[2025-10-10 07:39:08] Total array job runtime: 4390 seconds
+=== JOB_STATISTICS ===
+=== current date     : Fri Oct 10 07:39:08 CEST 2025
+= Job-ID             : 3079853 on alex as 3079848_1
+= Job-Name           : dataset-pipeline-array
+= Job-Command        : /home/hpc/v100dd/v100dd26/scripts/dataset/dataset_pipeline_array.sh
+= Initial workdir    : /home/hpc/v100dd/v100dd26/project/Dataset_pipeline
+= Queue/Partition    : a100
+= Slurm account      : v100dd with QOS=normal
+= Features           : a100_40
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 01:14:48
+= Total RAM usage    : 26.1 GiB of assigned  GiB (%)
+= Node list          : a0704
+= Subm/Elig/Start/End: 2025-10-10T06:01:50 / 2025-10-10T06:01:50 / 2025-10-10T06:24:20 / 2025-10-10T07:39:08
+======================
+=== Quota infos ======
+    Path              Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc           62.1G   104.9G   209.7G        N/A     131K     500K   1,000K        N/A    
+    /home/vault        207.8G  1048.6G  2097.2G        N/A  18,105      200K     400K        N/A    
+    atuin.rrze.uni-erlangen.de:/srv/home     0.0K     0.0K     0.0K        N/A       1                           N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+NVIDIA A100-SXM4-40GB, 00000000:13:00.0, 8257, 75 %, 0 %, 8250 MiB, 1761828 ms
+NVIDIA A100-SXM4-40GB, 00000000:13:00.0, 18348, 74 %, 0 %, 5004 MiB, 1000056 ms

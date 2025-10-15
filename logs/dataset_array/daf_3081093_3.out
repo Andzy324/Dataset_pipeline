@@ -1,0 +1,72 @@
+### Starting TaskPrologue of job 3081093 on a0602 at Di 14. Okt 23:01:16 CEST 2025
+Running on cores 16-31 with governor ondemand
+Tue Oct 14 23:01:16 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.82.07              Driver Version: 580.82.07      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-40GB          On  |   00000000:13:00.0 Off |                    0 |
+| N/A   36C    P0             53W /  400W |       0MiB /  40960MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+[2025-10-14 23:01:16] Array job started
+Python 3.10.18
+Tue Oct 14 23:01:19 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.82.07              Driver Version: 580.82.07      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-40GB          On  |   00000000:13:00.0 Off |                    0 |
+| N/A   35C    P0             53W /  400W |       0MiB /  40960MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+/home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/bin/git-lfs
+Updated Git hooks.
+Git LFS initialized.
+=== JOB_STATISTICS ===
+=== current date     : Tue Oct 14 23:01:21 CEST 2025
+= Job-ID             : 3081093 on alex as 3081093_3
+= Job-Name           : dataset-pipeline-array
+= Job-Command        : /home/hpc/v100dd/v100dd26/scripts/dataset/dataset_pipeline_array.sh
+= Initial workdir    : /home/hpc/v100dd/v100dd26/project/Dataset_pipeline
+= Queue/Partition    : a100
+= Slurm account      : v100dd with QOS=normal
+= Features           : a100_40
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 00:00:26
+= Total RAM usage    : 0.2 GiB of assigned  GiB (%)
+= Node list          : a0602
+= Subm/Elig/Start/End: 2025-10-13T02:52:18 / 2025-10-13T02:52:18 / 2025-10-14T23:00:54 / 2025-10-14T23:01:20
+======================
+=== Quota infos ======
+    Path              Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc           62.5G   104.9G   209.7G        N/A     135K     500K   1,000K        N/A    
+    /home/vault        935.1G  1048.6G  2097.2G        N/A      92K     200K     400K        N/A    
+    atuin.rrze.uni-erlangen.de:/srv/home     0.0K     0.0K     0.0K        N/A       1                           N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]

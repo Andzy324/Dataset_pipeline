@@ -47,6 +47,7 @@ Notes:
 from __future__ import annotations
 import argparse, json, os, re, shutil, subprocess, sys, time, tempfile
 from dataclasses import dataclass
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import Iterable, List, Tuple, Optional, Optional, Union, Dict, Any
 
@@ -105,6 +106,95 @@ def ensure_dir(p: Path) -> Path:
     p.mkdir(parents=True, exist_ok=True)
     return p
 
+
+CATEGORY_ALIAS_MAP = {
+    "monitor_(computer_equipment) computer_monitor": "computer_monitor",
+}
+CATEGORY_ALIAS_REVERSE = {v: k for k, v in CATEGORY_ALIAS_MAP.items()}
+
+def _category_alias(cat: str) -> str:
+    return CATEGORY_ALIAS_MAP.get(cat, cat)
+
+def _category_original_from_alias(alias: str) -> str:
+    return CATEGORY_ALIAS_REVERSE.get(alias, alias)
+
+_GIT_LFS_PATCHED = False
+_LFS_DISABLED_REPOS: set[str] = set()
+
+def _extract_repo_name_from_git_config(repo_dir: Path) -> Optional[str]:
+    """Parse the remote URL from .git/config and normalize to org/repo."""
+    try:
+        config_path = repo_dir / '.git' / 'config'
+        if not config_path.exists():
+            return None
+        text = config_path.read_text(encoding='utf-8', errors='ignore')
+    except Exception:
+        return None
+
+    url = None
+    for line in text.splitlines():
+        line = line.strip()
+        if line.lower().startswith('url'):
+            try:
+                _, value = line.split('=', 1)
+            except ValueError:
+                continue
+            url = value.strip()
+            break
+    if not url:
+        return None
+
+    if url.endswith('.git'):
+        url = url[:-4]
+    if 'github.com:' in url:
+        url = url.split('github.com:', 1)[1]
+    elif 'github.com/' in url:
+        url = url.split('github.com/', 1)[1]
+    return url.strip('/') or None
+
+def _extract_repo_name_from_url(url: str) -> Optional[str]:
+    if not url or 'github.com' not in url:
+        return None
+    repo = url.split('github.com', 1)[1]
+    repo = repo.lstrip('/: ')
+    parts = repo.split('/')
+    if len(parts) >= 2:
+        repo = '/'.join(parts[:2])
+    return repo.strip('/') or None
+
+def _patch_objaverse_git_lfs():
+    """Monkey patch Objaverse GitHub downloader to ignore LFS-disabled repos."""
+    global _GIT_LFS_PATCHED
+    if _GIT_LFS_PATCHED:
+        return
+    try:
+        from objaverse.xl import github as oxl_github  # type: ignore
+    except Exception:
+        return
+
+    cls = getattr(oxl_github, 'GitHubDownloader', None)
+    if cls is None:
+        return
+
+    def _safe_pull(cls_, repo_dir: str) -> None:
+        if not cls._has_lfs_files(repo_dir):
+            return
+        try:
+            subprocess.run(['git', 'lfs', 'pull'], cwd=repo_dir, check=True,
+                           stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        except subprocess.CalledProcessError as e:
+            combined = (e.stderr or '') + (e.stdout or '')
+            msg = combined.lower()
+            if 'lfs is disabled' in msg or 'failed to fetch some objects' in msg:
+                repo_name = _extract_repo_name_from_git_config(Path(repo_dir))
+                if repo_name:
+                    _LFS_DISABLED_REPOS.add(repo_name)
+                print(f'[OXL-PER-CAT] Git LFS disabled for repo {repo_name or repo_dir}; skipping LFS artifacts.')
+                return
+            raise
+
+    cls._pull_lfs_files = classmethod(_safe_pull)  # type: ignore[attr-defined]
+    _GIT_LFS_PATCHED = True
 
 # ---------- Helpers for OXL branch (download → extract → pick mesh) ----------
 # --- NEW: split a label_json (all categories) into per-label small JSONs ---
@@ -738,9 +828,13 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
     - 通过sha256作为key进行关联筛选
     """
     try:
-        from dataset_toolkits.trellis.datasets import ObjaverseXL as OXL
+        from download_toolkits.trellis.datasets import ObjaverseXL as OXL
     except Exception as e:
         raise ImportError(f"Failed to import trellis.datasets.ObjaverseXL: {e}")
+
+    verbose = not getattr(args, 'quiet', False)
+    display_category = _category_alias(category)
+    cat_log_name = display_category if display_category == category else f"{display_category} ({category})"
 
     # 1. 加载对应类别的label json和全部sha_index csv
     if not getattr(args, 'label_dir', None):
@@ -774,9 +868,9 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
     # 读取CSV格式的sha_index
     sha_index_df = _pd.read_csv(sha_index_csv_path)
     
-    print(f"[OXL-PER-CAT] Processing category: {category}")
-    print(f"[OXL-PER-CAT] Label json: {label_json_path}")
-    print(f"[OXL-PER-CAT] SHA index CSV: {sha_index_csv_path}")
+    print(f"[OXL-PER-CAT] Processing category: {cat_log_name}")
+    if verbose: print(f"[OXL-PER-CAT] Label json: {label_json_path}")
+    if verbose: print(f"[OXL-PER-CAT] SHA index CSV: {sha_index_csv_path}")
     
     # 2. 筛选出当前category需要的sha256
     # 从label_data中提取该category的所有sha256
@@ -797,7 +891,7 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
             if category in labels:
                 category_shas.add(sha)
     
-    print(f"[OXL-PER-CAT] Found {len(category_shas)} SHAs for category '{category}'")
+    print(f"[OXL-PER-CAT] Found {len(category_shas)} SHAs for category '{cat_log_name}'")
     
     # 3. 从sha_index_df中筛选出真正需要下载的条目
     # 筛选出在category_shas中的sha256行
@@ -823,7 +917,7 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
         print(f"[OXL-PER-CAT] {len(filtered_df)} entries to download")
 
     if len(filtered_df) == 0:
-        print(f"[OXL-PER-CAT] No entries to download for category '{category}', skipping...")
+        print(f"[OXL-PER-CAT] No entries to download for category '{cat_log_name}', skipping...")
         return
 
     # 4. 构建metadata DataFrame（直接使用筛选后的数据）
@@ -863,19 +957,24 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
         stage_dir.mkdir(parents=True, exist_ok=True)
     
     # 6. 执行下载
-    print(f"[OXL-PER-CAT] Downloading {len(meta)} objects to staging...")
+    _patch_objaverse_git_lfs()
+    disabled_before = set(_LFS_DISABLED_REPOS)
+    if verbose: print(f"[OXL-PER-CAT] Downloading {len(meta)} objects to staging...")
     with github_auth_env(args):
         df = OXL.download(meta, str(stage_dir))
+    new_disabled_repos = set(_LFS_DISABLED_REPOS) - disabled_before
+    if new_disabled_repos and verbose:
+        print(f"[OXL-PER-CAT] Git LFS disabled for: {', '.join(sorted(new_disabled_repos))}")
     
     # if df is None or len(df) == 0:
-    #     print(f"[OXL-PER-CAT] No objects downloaded for category '{category}'")
+    #     print(f"[OXL-PER-CAT] No objects downloaded for category '{cat_log_name}'")
     #     return
     if df is None:
         df = _pd.DataFrame(columns=meta.columns)
     if limit_int is not None and limit_int > 0 and len(df) > limit_int:
         df = df.head(limit_int)
     if len(df) == 0:
-        print(f"[OXL-PER-CAT] No objects downloaded for category '{category}'")
+        print(f"[OXL-PER-CAT] No objects downloaded for category '{cat_log_name}'")
     downloaded_shas = set(df['sha256'].astype(str)) if not df.empty else set()
     for sha_key in list(sha_status.keys()):
         if sha_key not in downloaded_shas:
@@ -887,16 +986,44 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
     label_dir = ensure_dir(cat_dir / category)
     processed_count = 0
     oxl_reports: List[Dict[str, Any]] = []
-    
-    for _, rec in df.iterrows():
-        if limit_int is not None and limit_int > 0 and processed_count >= limit_int:
-            break
+
+    stats: Dict[str, Any] = {
+        "total_in_meta": len(meta),
+        "downloaded_rows": 0,
+        "ensure_counts": {},
+        "skipped_existing": 0,
+        "extract_failed": 0,
+        "stage_missing": 0,
+    }
+
+    records = list(enumerate(df.to_dict("records")))
+    worker_count = getattr(args, "per_category_workers", 1)
+    try:
+        worker_count = int(worker_count)
+    except Exception:
+        worker_count = 1
+    if worker_count <= 0:
+        worker_count = 1
+
+    def _merge_stats(delta: Dict[str, Any]) -> None:
+        if not delta:
+            return
+        stats["downloaded_rows"] += delta.get("downloaded_rows", 0)
+        stats["extract_failed"] += delta.get("extract_failed", 0)
+        stats["stage_missing"] += delta.get("stage_missing", 0)
+        ensure_delta = delta.get("ensure_counts", {})
+        for kind, metrics in ensure_delta.items():
+            dest = stats["ensure_counts"].setdefault(
+                kind, {"downloaded": 0, "missing": 0, "repo_missing": 0, "local_missing": 0, "repo_failed": 0}
+            )
+            for key, value in metrics.items():
+                dest[key] = dest.get(key, 0) + value
+
+    def _process_record(item: Tuple[int, Dict[str, Any]]) -> Tuple[int, Dict[str, Any]]:
+        idx, rec = item
         sha = rec.get('sha256')
-        sha_key = str(sha)
-        if not sha_key or sha_key.lower() == 'nan':
-            continue
-        sha_status.setdefault(sha_key, {'status': 'pending', 'reason': '', 'mesh_path': ''})
-        rel = rec.get('local_path', '')
+        sha_key = str(sha) if sha is not None else ''
+        status_entry = {'status': 'pending', 'reason': '', 'mesh_path': ''}
         report_entry: Dict[str, Any] = {
             'sha': sha,
             'status': 'pending',
@@ -907,30 +1034,62 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
             'repo_failed': '',
             'source_url': rec.get('source_url', ''),
         }
+        report_entries: List[Dict[str, Any]] = []
+        stats_delta: Dict[str, Any] = {
+            'downloaded_rows': 0,
+            'extract_failed': 0,
+            'stage_missing': 0,
+            'ensure_counts': {},
+        }
+        processed = False
 
-        # 源文件路径
+        if not sha_key or sha_key.lower() == 'nan':
+            return idx, {
+                'sha_key': sha_key,
+                'sha_status': status_entry,
+                'report_entries': report_entries,
+                'stats_delta': stats_delta,
+                'processed': processed,
+            }
+
+        repo_name = _extract_repo_name_from_url(report_entry['source_url'])
+        if repo_name and repo_name in new_disabled_repos:
+            if verbose:
+                print(f"[OXL-PER-CAT] Skipping {sha} due to Git LFS disabled for {repo_name}")
+            report_entry['status'] = 'lfs_skipped'
+            report_entry['reason'] = 'git_lfs_disabled'
+            status_entry['status'] = 'lfs_skipped'
+            status_entry['reason'] = 'git_lfs_disabled'
+            status_entry['mesh_path'] = ''
+            report_entries.append(report_entry)
+            return idx, {
+                'sha_key': sha_key,
+                'sha_status': status_entry,
+                'report_entries': report_entries,
+                'stats_delta': stats_delta,
+                'processed': processed,
+            }
+
+        rel = rec.get('local_path', '')
         obj_path = (stage_dir / rel).resolve()
-        
-        # 目标目录：label/sha
-        inst_root = ensure_dir(label_dir / sha)
+
+        inst_root = ensure_dir(label_dir / sha_key)
         dst_raw = ensure_dir(inst_root / 'raw')
-        
-        # 处理GitHub repo格式
+
         is_github_repo = str(rel).startswith('raw/github/repos/')
         zip_in_repo = None
         inner_repo_path = None
-        
+
         if is_github_repo:
             parts = str(rel).split('/')
             try:
                 zi = next(i for i, p in enumerate(parts) if p.endswith('.zip'))
-                zip_rel = "/".join(parts[:zi+1])
-                inner_repo_path = "/".join(parts[zi+1:]) if len(parts) > zi+1 else ''
+                zip_rel = '/'.join(parts[:zi + 1])
+                inner_repo_path = '/'.join(parts[zi + 1:]) if len(parts) > zi + 1 else ''
                 zip_in_repo = (stage_dir / zip_rel).resolve()
             except StopIteration:
                 pass
-        
-        # 复制源文件到raw目录
+
         if is_github_repo and zip_in_repo and zip_in_repo.exists():
             obj_path = zip_in_repo
         elif obj_path.exists():
@@ -944,16 +1103,19 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
         else:
             print(f"[OXL-PER-CAT] ✘ staging file missing for {sha}: {rel}")
             report_entry['status'] = 'stage_missing'
-            oxl_reports.append(report_entry)
-            if 'stats' in locals():
-                stats.setdefault('stage_missing', 0)
-                stats['stage_missing'] += 1
-            sha_status[sha_key]['status'] = 'stage_missing'
-            sha_status[sha_key]['reason'] = f'stage_missing:{rel}'
-            sha_status[sha_key]['mesh_path'] = ''    
-            continue
-        
-        # 解压到mesh目录
+            stats_delta['stage_missing'] += 1
+            status_entry['status'] = 'stage_missing'
+            status_entry['reason'] = f'stage_missing:{rel}'
+            status_entry['mesh_path'] = ''
+            report_entries.append(report_entry)
+            return idx, {
+                'sha_key': sha_key,
+                'sha_status': status_entry,
+                'report_entries': report_entries,
+                'stats_delta': stats_delta,
+                'processed': processed,
+            }
+
         mesh_path = None
         mesh_dir = None
         if _is_archive_name(obj_path.name):
@@ -963,10 +1125,19 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
             except Exception as e:
                 print(f"[OXL-PER-CAT] ✘ extract failed: {obj_path.name} -> {e}")
                 report_entry['status'] = 'extract_failed'
-                oxl_reports.append(report_entry)
-                continue
-            
-            # 查找mesh文件
+                stats_delta['extract_failed'] += 1
+                status_entry['status'] = 'extract_failed'
+                status_entry['reason'] = str(e)
+                status_entry['mesh_path'] = ''
+                report_entries.append(report_entry)
+                return idx, {
+                    'sha_key': sha_key,
+                    'sha_status': status_entry,
+                    'report_entries': report_entries,
+                    'stats_delta': stats_delta,
+                    'processed': processed,
+                }
+
             if is_github_repo and inner_repo_path:
                 cand = (mesh_dir / inner_repo_path).resolve()
                 if cand.exists():
@@ -975,105 +1146,87 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
                     mesh_path = _pick_mesh_file(mesh_dir) or _pick_mesh_file(inst_root)
             else:
                 mesh_path = _pick_mesh_file(mesh_dir) or _pick_mesh_file(inst_root)
-            
-            # 可选：删除原始压缩包
+
             if mesh_path and getattr(args, 'oxl_prune_zips', False):
                 try:
                     os.remove(obj_path)
                 except Exception:
                     pass
         else:
-            if obj_path.suffix.lower() in ['.glb','.gltf','.obj','.fbx','.stl','.ply','.blend']:
+            if obj_path.suffix.lower() in ['.glb', '.gltf', '.obj', '.fbx', '.stl', '.ply', '.blend']:
                 mesh_path = obj_path
                 mesh_dir = obj_path.parent
-        
+
         if not mesh_path or not mesh_path.exists():
             print(f"[OXL-PER-CAT] ✘ no mesh found for {sha}")
-            if 'stats' in locals(): stats["extract_failed"] += 1
+            stats_delta['extract_failed'] += 1
             report_entry['status'] = 'no_mesh'
-            oxl_reports.append(report_entry)
-            sha_status[sha_key]['status'] = 'no_mesh'
-            sha_status[sha_key]['reason'] = ''
-            sha_status[sha_key]['mesh_path'] = ''
-            continue
-        
-        # 先补全资产（在原始位置）
+            status_entry['status'] = 'no_mesh'
+            status_entry['reason'] = ''
+            status_entry['mesh_path'] = ''
+            report_entries.append(report_entry)
+            return idx, {
+                'sha_key': sha_key,
+                'sha_status': status_entry,
+                'report_entries': report_entries,
+                'stats_delta': stats_delta,
+                'processed': processed,
+            }
+
         try:
-            from dataset_toolkits.build_metadata import ensure_complete_asset_anyformat
-            
-            # 使用原始mesh目录作为local_roots，保持目录结构
-            # _local_roots = [p for p in [mesh_dir, inst_root] if p and p.exists()]
-            # _local_roots: list[Path] = []    
-            # for base in [mesh_dir, inst_root, getattr(mesh_path, "parent", None)]:
-            #     if base and Path(base).exists():
-            #         _local_roots.append(Path(base).resolve())
-            # _seen=set(); _local_roots=[p for p in _local_roots if str(p) not in _seen and not _seen.add(str(p))]
-            _local_roots: list[Path] = []
+            from download_toolkits.build_metadata import ensure_complete_asset_anyformat
+
+            _local_roots: List[Path] = []
             for base in (mesh_dir, inst_root):
                 if isinstance(base, Path) and base.exists():
                     _local_roots.append(base.resolve())
-
-            # 2) 加入 OBJ 的真实父目录
             try:
-                parent = getattr(mesh_path, "parent", None)
+                parent = getattr(mesh_path, 'parent', None)
                 if isinstance(parent, Path) and parent.exists():
                     _local_roots.append(parent.resolve())
             except Exception:
                 pass
-
-            # 3) 去重（按字符串，保持顺序）
             _seen = set()
-            _local_roots = [p for p in _local_roots if (s := str(p)) not in _seen and not _seen.add(s)]
-            # 确保mesh_dir不为None if dst_raw.exists() 
-            target_raw_dir = dst_raw 
-            # link mesh to raw dir before collecting, since rewriting the objs should happen in saved dir
-            final_mesh_path = _place_into_raw(mesh_path, dst_raw, prefer=getattr(args, "oxl_consolidate_link_mode", "hardlink"))
+            _local_roots = [p for p in _local_roots if (str(p) not in _seen and not _seen.add(str(p)))]
+
+            target_raw_dir = dst_raw
+            final_mesh_path = _place_into_raw(mesh_path, dst_raw, prefer=getattr(args, 'oxl_consolidate_link_mode', 'hardlink'))
             rep = ensure_complete_asset_anyformat(
-                asset_path = final_mesh_path, # fix will make it happen at the path 
-                src_url    = rec.get('source_url','') or '',
-                raw_dir    = target_raw_dir,  # 先在mesh目录补全
-                overwrite  = getattr(args, 'overwrite_consolidate', False),
-                local_only = True,
-                local_roots= _local_roots,
+                asset_path=final_mesh_path,
+                src_url=rec.get('source_url', '') or '',
+                raw_dir=target_raw_dir,
+                overwrite=getattr(args, 'overwrite_consolidate', False),
+                local_only=True,
+                local_roots=_local_roots,
             )
-            
-            # 输出摘要
-            kind = rep.get('kind','?')
-            report_entry['kind'] = kind
-            dl = rep.get('downloaded',0)
-            miss = rep.get('missing_names',[]) or rep.get('missing',[])
+
+            kind = rep.get('kind', '?')
+            stats_delta['downloaded_rows'] += 1
+            miss = rep.get('missing_names', []) or rep.get('missing', []) or []
             repo_missing = rep.get('repo_missing_names', []) or []
             repo_failed = rep.get('found_but_failed', []) or []
             missing_reason_map = rep.get('missing_reason_map', {}) or {}
             local_missing = [name for name, reason in missing_reason_map.items() if reason == 'local_missing']
             repo_missing_reason = [name for name, reason in missing_reason_map.items() if reason == 'repo_missing']
 
-            print(f"[OXL-PER-CAT] [{sha}] ensure({kind}): downloaded={dl} missing={len(miss)} repo_missing={len(repo_missing)} repo_failed={len(repo_failed)}")
-            if repo_missing:
-                print("               · repo_missing examples: " + ", ".join(repo_missing[:5]))
-            if repo_failed:
-                print("               · repo_failed examples: " + ", ".join(repo_failed[:5]))
-            if local_missing:
-                print("               · local_missing examples: " + ", ".join(local_missing[:5]))
-            if 'stats' not in locals():
-                stats = {"total_in_meta": len(meta), "downloaded_rows": 0,
-                        "ensure_counts": {"obj": {"downloaded":0,"missing":0},
-                                        "fbx": {"downloaded":0,"missing":0},
-                                        "glb": {"downloaded":0,"missing":0}},
-                        "skipped_existing": 0, "extract_failed": 0}
-            # 类型归一（rep.get('kind') 返回 obj/fbx/glb/…）
-            _kind = (rep.get('kind','?') or '?').lower()
-            if _kind not in stats["ensure_counts"]:
-                stats["ensure_counts"][_kind] = {"downloaded":0,"missing":0}
-            stats["ensure_counts"][_kind]["downloaded"] += int(rep.get('downloaded',0) or 0)
-            stats["ensure_counts"][_kind]["missing"]    += int(len(rep.get('missing_names',[]) or rep.get('missing',[]) or []))
-            stats["ensure_counts"][_kind].setdefault("repo_missing", 0)
-            stats["ensure_counts"][_kind]["repo_missing"] += len(repo_missing)
-            stats["ensure_counts"][_kind].setdefault("local_missing", 0)
-            stats["ensure_counts"][_kind]["local_missing"] += len(local_missing)
-            stats["ensure_counts"][_kind].setdefault("repo_failed", 0)
-            stats["ensure_counts"][_kind]["repo_failed"] += len(repo_failed)
-            stats["downloaded_rows"] += 1
+            _kind = (kind or '?').lower()
+            kind_counts = stats_delta['ensure_counts'].setdefault(
+                _kind, {'downloaded': 0, 'missing': 0, 'repo_missing': 0, 'local_missing': 0, 'repo_failed': 0}
+            )
+            kind_counts['downloaded'] += int(rep.get('downloaded', 0) or 0)
+            kind_counts['missing'] += len(miss)
+            kind_counts['repo_missing'] += len(repo_missing)
+            kind_counts['local_missing'] += len(local_missing)
+            kind_counts['repo_failed'] += len(repo_failed)
+
+            if verbose:
+                print(f"[OXL-PER-CAT] [{sha}] ensure({kind}): downloaded={rep.get('downloaded',0)} missing={len(miss)} repo_missing={len(repo_missing)} repo_failed={len(repo_failed)}")
+                if repo_missing:
+                    print("               · repo_missing examples: " + ", ".join(repo_missing[:5]))
+                if repo_failed:
+                    print("               · repo_failed examples: " + ", ".join(repo_failed[:5]))
+                if local_missing:
+                    print("               · local_missing examples: " + ", ".join(local_missing[:5]))
 
             status_val = 'fetched'
             if miss:
@@ -1085,43 +1238,78 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
                     status_val = 'missing'
             report_entry.update({
                 'status': status_val,
+                'kind': kind,
                 'missing_textures': ";".join(miss),
-                'missing_reason': ";".join(f"{k}:{v}" for k,v in missing_reason_map.items()),
+                'missing_reason': ";".join(f"{k}:{v}" for k, v in missing_reason_map.items()),
                 'repo_missing': ";".join(repo_missing),
                 'repo_failed': ";".join(repo_failed),
             })
-            reason_text = ";".join(f"{k}:{v}" for k,v in missing_reason_map.items())
-            if not reason_text and miss:
-                reason_text = ";".join(miss)
-            sha_status[sha_key]['status'] = status_val
-            sha_status[sha_key]['reason'] = reason_text or status_val
-            sha_status[sha_key]['mesh_path'] = str(final_mesh_path) if final_mesh_path else ''
+            reason_text = report_entry['missing_reason'] or (";".join(miss) if miss else status_val)
+            status_entry['status'] = status_val
+            status_entry['reason'] = reason_text if reason_text else status_val
+            status_entry['mesh_path'] = str(final_mesh_path) if final_mesh_path else ''
+            processed = True
         except Exception as e:
             print(f"[OXL-PER-CAT] ensure assets failed: {e}")
-            if 'stats' in locals(): stats["extract_failed"] += 1
+            stats_delta['extract_failed'] += 1
             report_entry['status'] = 'ensure_failed'
             report_entry['missing_reason'] = str(e)
-            oxl_reports.append(report_entry)
-            sha_status[sha_key]['status'] = 'ensure_failed'
-            sha_status[sha_key]['reason'] = str(e)
-            sha_status[sha_key]['mesh_path'] = ''
-            continue
+            status_entry['status'] = 'ensure_failed'
+            status_entry['reason'] = str(e)
+            status_entry['mesh_path'] = ''
+            report_entries.append(report_entry)
+            return idx, {
+                'sha_key': sha_key,
+                'sha_status': status_entry,
+                'report_entries': report_entries,
+                'stats_delta': stats_delta,
+                'processed': processed,
+            }
 
-        # # 补全完成后，将mesh文件移动到raw目录
-        # final_mesh_path = _place_into_raw(mesh_path, dst_raw, prefer=getattr(args, "oxl_consolidate_link_mode", "hardlink"))
-        
-        # 可选：清理mesh目录
         if getattr(args, 'oxl_prune_mesh_dir', False):
             try:
                 shutil.rmtree(inst_root / 'mesh', ignore_errors=True)
             except Exception:
                 pass
-        
-        processed_count += 1
-        if report_entry['status'] == 'pending':
-            report_entry['status'] = 'fetched' if not miss else report_entry['status']
-        oxl_reports.append(report_entry)
 
+        if report_entry['status'] == 'pending':
+            report_entry['status'] = 'fetched' if not report_entry['missing_textures'] else report_entry['status']
+        if report_entry['status'] == 'pending':
+            report_entry['status'] = 'fetched'
+        report_entries.append(report_entry)
+
+        return idx, {
+            'sha_key': sha_key,
+            'sha_status': status_entry,
+            'report_entries': report_entries,
+            'stats_delta': stats_delta,
+            'processed': processed,
+        }
+
+    results: Dict[int, Dict[str, Any]] = {}
+    if worker_count == 1:
+        for item in records:
+            idx, res = _process_record(item)
+            results[idx] = res
+    else:
+        with ThreadPoolExecutor(max_workers=worker_count) as ex:
+            future_map = {ex.submit(_process_record, item): item[0] for item in records}
+            for fut in as_completed(future_map):
+                idx, res = fut.result()
+                results[idx] = res
+
+    for idx in range(len(records)):
+        res = results.get(idx)
+        if not res:
+            continue
+        sha_key = res.get('sha_key')
+        if not sha_key:
+            continue
+        sha_status[sha_key] = res.get('sha_status', sha_status.get(sha_key, {'status': 'pending', 'reason': '', 'mesh_path': ''}))
+        oxl_reports.extend(res.get('report_entries', []))
+        _merge_stats(res.get('stats_delta'))
+        if res.get('processed'):
+            processed_count += 1
     for info in sha_status.values():
         if info['status'] == 'pending':
             info['status'] = 'processed'
@@ -1148,7 +1336,7 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
         for entry in oxl_reports:
             status = entry.get('status', 'unknown')
             status_counts[status] = status_counts.get(status, 0) + 1
-        print("[OXL-PER-CAT] ensure summary:")
+        if verbose: print("[OXL-PER-CAT] ensure summary:")
         print(f"  · total items: {total}")
         for key in sorted(status_counts.keys()):
             print(f"  · {key}: {status_counts[key]}")
@@ -1166,9 +1354,9 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
             for entry in oxl_reports:
                 row = {k: entry.get(k, '') for k in fieldnames}
                 wr_det.writerow(row)
-        print(f"[OXL-PER-CAT] Wrote detailed report: {detail_csv}")
+        if verbose: print(f"[OXL-PER-CAT] Wrote detailed report: {detail_csv}")
 
-    print(f"[OXL-PER-CAT] Processed {processed_count}/{len(df)} downloaded objects (targets={len(meta)}) for category '{category}'")
+    if verbose: print(f"[OXL-PER-CAT] Processed {processed_count}/{len(df)} downloaded objects (targets={len(meta)}) for category '{cat_log_name}'")
 
     
     # 8. 生成metadata.csv
@@ -1200,9 +1388,8 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
                     local_path_val = str(actual_mesh.resolve())
             wr.writerow({
                 'sha256': sha,
-                # 'local_path': str(actual_mesh.resolve()) if actual_mesh else '',
                 'local_path': local_path_val,
-                'category': category,
+                'category': display_category,
                 'shape_key': sha,
                 'source_url': rec.get('source_url', ''),
                 'rendered': 'False',
@@ -1211,17 +1398,21 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
             })
     
     # print(f"[OXL-PER-CAT] Wrote metadata: {meta_csv} ({processed_count} rows)")
-    print(f"[OXL-PER-CAT] Wrote metadata: {meta_csv} ({len(meta)} rows)")
+    if verbose: print(f"[OXL-PER-CAT] Wrote metadata: {meta_csv} ({len(meta)} rows)")
     import csv as _csv
     import json as _json
-    if 'stats' not in locals():
-        stats = {"total_in_meta": len(meta), "downloaded_rows": int(processed_count),
-                "ensure_counts": {}, "skipped_existing": 0, "extract_failed": 0}
+    stats["total_in_meta"] = len(meta)
+    stats["downloaded_rows"] = int(processed_count)
+    stats.setdefault("ensure_counts", {})
+    stats.setdefault("skipped_existing", 0)
+    stats.setdefault("extract_failed", 0)
+    stats.setdefault("stage_missing", 0)
     not_downloaded = sum(1 for info in sha_status.values() if info['status'] == 'not_downloaded')
     not_processed = sum(1 for info in sha_status.values() if info['status'] in {'not_downloaded','stage_missing','extract_failed','no_mesh','ensure_failed'})
 
     report_json = {
-        "label": category,
+        "label": display_category,
+        "label_original": category,
         "total_in_meta": int(stats.get("total_in_meta", 0)),
         "processed_rows": int(processed_count),
         "extract_failed": int(stats.get("extract_failed", 0)),
@@ -1235,15 +1426,14 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
     }
 
     (label_dir / "report.json").write_text(_json.dumps(report_json, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"[OXL-PER-CAT] Wrote report: {label_dir/'report.json'}")
+    if verbose: print(f"[OXL-PER-CAT] Wrote report: {label_dir/'report.json'}")
 
     # 同步一份 CSV（便于表格审阅）
     rep_csv = label_dir / "report.csv"
     with rep_csv.open("w", newline="", encoding="utf-8") as f:
         wr = _csv.writer(f)
-        # wr.writerow(["label","total_in_meta","processed_rows","downloaded_rows","extract_failed","metadata_csv"])
-        wr.writerow(["label","total_in_meta","processed_rows","downloaded_rows","extract_failed","not_downloaded_rows","not_processed_rows","metadata_csv"])
-        wr.writerow([category, report_json["total_in_meta"], report_json["processed_rows"],
+        wr.writerow(["label","label_original","total_in_meta","processed_rows","downloaded_rows","extract_failed","not_downloaded_rows","not_processed_rows","metadata_csv"])
+        wr.writerow([display_category, category, report_json["total_in_meta"], report_json["processed_rows"],
                     report_json["downloaded_rows"], report_json["extract_failed"],
                     report_json["downloaded_rows"], report_json["extract_failed"],
                     report_json["not_downloaded_rows"], report_json["not_processed_rows"],
@@ -1253,12 +1443,12 @@ def step_download_assets_oxl_per_category(args, P: PipelinePaths, category: str)
         wr.writerow(["kind","ensure_downloaded","ensure_missing"])
         for k, v in report_json["ensure_counts"].items():
             wr.writerow([k, v.get("downloaded",0), v.get("missing",0)])
-    print(f"[OXL-PER-CAT] Wrote report CSV: {rep_csv}")
+    if verbose: print(f"[OXL-PER-CAT] Wrote report CSV: {rep_csv}")
     # 9. 清理staging目录
     if stage_dir.exists() and not getattr(args, 'oxl_keep_stage', False):
         try:
             shutil.rmtree(stage_dir)
-            print(f"[OXL-PER-CAT] Cleaned staging directory: {stage_dir}")
+            if verbose: print(f"[OXL-PER-CAT] Cleaned staging directory: {stage_dir}")
         except Exception:
             pass
 
@@ -1713,6 +1903,9 @@ def step_align_export_one_category(args, P: PipelinePaths, category: str) -> Pat
     """Invoke Blender in background to align + export GLBs for a single category.
     Returns the output directory containing GLBs for that category.
     """
+    display_category = _category_alias(category)
+    cat_log_name = display_category if display_category == category else f"{display_category} ({category})"
+
     blender = str(args.blender)
     align_script = Path(args.align_script).resolve()
     if not align_script.exists():
@@ -1720,7 +1913,7 @@ def step_align_export_one_category(args, P: PipelinePaths, category: str) -> Pat
     
     # >>> per-category rotation json <<<
     rot_fp = resolve_or_merge_rot_json(args, category)
-    out_dir = ensure_dir(P.aligned_glb / category)
+    out_dir = ensure_dir(P.aligned_glb / display_category)
     # --- 若 dl_backend=oxl，重定向下载与分类根 ---
     if getattr(args, "dl_backend", "custom") == "oxl":
         if not getattr(args, "download_root", None):
@@ -1732,20 +1925,20 @@ def step_align_export_one_category(args, P: PipelinePaths, category: str) -> Pat
         OXL_LABELS_ROOT.mkdir(parents=True, exist_ok=True)
         print(f"[OXL] downloads under: {OXL_LABELS_ROOT}")
         OXL_OUT_CAT = "aligned_xl"
-        out_dir = ensure_dir(DOWNLOAD_ROOT / OXL_OUT_CAT / category)
+        out_dir = ensure_dir(DOWNLOAD_ROOT / OXL_OUT_CAT / display_category)
     if getattr(args, "align_out_root", None) and args.dl_backend == "oxl":
-        out_dir = Path(args.align_out_root).resolve() / category
+        out_dir = Path(args.align_out_root).resolve() / display_category
     # Skip check: if aligned dir already has GLBs and not overwrite
     has_glb = any(out_dir.glob("*.glb"))
     has_obj = any(p.is_dir() and p.name.endswith("_obj") for p in out_dir.iterdir())
     if out_dir.exists() and not args.overwrite_align:
         if args.export_format == "glb":
             if any(out_dir.glob("*.glb")):
-                print(f"[SKIP] Align for {category}: already has GLBs in {out_dir}")
+                print(f"[SKIP] Align for {cat_log_name}: already has GLBs in {out_dir}")
                 return out_dir
         else:
             if any(p.is_dir() and p.name.endswith("_obj") for p in out_dir.iterdir()):
-                print(f"[SKIP] Align for {category}: already has OBJ folders in {out_dir}")
+                print(f"[SKIP] Align for {cat_log_name}: already has OBJ folders in {out_dir}")
                 return out_dir
 
     # Compose Blender background command; args after "--" are passed to the script.
@@ -1776,6 +1969,8 @@ def step_align_export_one_category(args, P: PipelinePaths, category: str) -> Pat
         bl_cmd += ["--grid_n",  str(int(args.grid_n))]
     if args.export_format:
         bl_cmd += ["--export_format", str(args.export_format)]
+    if getattr(args, 'quiet', False):
+        bl_cmd += ["--quiet"]
     # 新：是否传 OXL 路径参数
     if getattr(args, "dl_backend", "custom") == "oxl":
         bl_cmd += ["--oxl_layout", "--oxl_out_category", str(getattr(args, "oxl_out_category", "oxl"))]
@@ -1806,12 +2001,14 @@ def step_render(args, P: PipelinePaths, models: Iterable[Path], category: str) -
         print("[render] no models to render")
         return
 
-    category_fs = _sanitize_label_for_fs(category) if category else None
+    display_category = _category_alias(category)
+    category_fs = _sanitize_label_for_fs(display_category) if display_category else None
+    cat_log_name = display_category if display_category == category else f"{display_category} ({category})"
 
     # ========== 批量模式：一次调用渲染脚本，输入指向对齐目录 ==========
     if getattr(args, "render_batch_mode", "single") == "batch":
         aligned_dir = Path(models_list[0]).parent.parent
-        out_root = (P.renders / (category_fs or category or "unknown"))
+        out_root = (P.renders / (category_fs or display_category or "unknown"))
         out_root.mkdir(parents=True, exist_ok=True)
 
         manifest_entries = []
@@ -1844,13 +2041,13 @@ def step_render(args, P: PipelinePaths, models: Iterable[Path], category: str) -
             print("[render/batch] manifest empty; nothing to do")
             return
 
-        print(f"[render/batch] cat={category}  dir={aligned_dir}  out={out_root}  total={total}")
+        print(f"[render/batch] cat={cat_log_name}  dir={aligned_dir}  out={out_root}  total={total}")
         t0 = time.perf_counter()
 
         cmd = [sys.executable, str(render_script),
                "--obj", str(aligned_dir),
                "--out", str(out_root),
-               "--label", str(category),
+               "--label", str(display_category),
                "--num_cams", str(int(args.num_cams)),
                "--elev_deg", str(float(args.elev_deg)),
                "--fov_deg", str(float(args.fov_deg)),
@@ -2001,7 +2198,7 @@ def step_render(args, P: PipelinePaths, models: Iterable[Path], category: str) -
         if args.save_h5:
             cmd += ["--save_h5"]
         if category is not None:
-            cmd += ["--label", str(category)]
+            cmd += ["--label", str(display_category)]
         if args.save_rgb_png:
             cmd += ["--save_rgb_png"]
         if args.save_mask_png:
@@ -2556,8 +2753,12 @@ def build_argparser() -> argparse.ArgumentParser:
     p.add_argument("--render_batch_mode", choices=["batch", "single"], default="batch",
                    help="batch: 单次调用渲染脚本处理该 category 的清单；single: 逐个模型调用（兼容旧法，便于统计单模型耗时）")
     p.add_argument("--progress", action=argparse.BooleanOptionalAction, default=False, help="显示 tqdm 进度条")
+    p.add_argument("--per_category_workers", type=int, default=1,
+               help="每个类别本地资产整理的线程数；>1 时并行解压/ensure")
     p.add_argument("--print_effective", action=argparse.BooleanOptionalAction, default=False,
                help="打印最终生效的参数（完整字典）与组装的伪命令行，便于检查。")
+    p.add_argument("--quiet", action=argparse.BooleanOptionalAction, default=False,
+               help="减少控制台输出，保留必要的日志。")
     p.add_argument("--github_token", type=str, default=None,
                help="GitHub token (PAT). 支持直接写明文，或以 'env:VAR' 读取环境变量，或 'file:/path/to/token' 读取文件。")
     p.add_argument("--git_no_prompt", action=argparse.BooleanOptionalAction, default=False,

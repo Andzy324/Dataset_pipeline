@@ -21,6 +21,13 @@ from math import inf
 
 from collections.abc import Iterable
 
+QUIET = False
+
+
+def _log(msg: str, *, force: bool = False):
+    if force or not QUIET:
+        print(msg)
+
 def _as_iter(objs):
     """把输入规范化为 list；若是单个 Object 就包成 [obj]。"""
     if objs is None:
@@ -206,7 +213,7 @@ def relink_images(raw_dir: Path, fbm_dir: Path|None=None):
             fixed += 1
         else:
             missing += 1
-    print(f"[align] relink: fixed={fixed}, missing={missing}")
+    _log(f"[align] relink: fixed={fixed}, missing={missing}", force=bool(missing))
 
 def relink_images_from_fbm(fbx_path: Path):
     """
@@ -691,28 +698,28 @@ def fix_material_slots(obj, search_dirs, bump_info=None):
 def check_materials(obj):
     """检查一个合并后的 object 是否正确挂上贴图"""
     if obj.type != "MESH":
-        print(f"[Skip] {obj.name} is not a mesh")
+        _log(f"[Skip] {obj.name} is not a mesh")
         return
-    print(f"Object: {obj.name}, material slots = {len(obj.material_slots)}")
+    _log(f"Object: {obj.name}, material slots = {len(obj.material_slots)}")
     for i, slot in enumerate(obj.material_slots):
         mat = slot.material
         if not mat:
-            print(f"  Slot {i}: [!] No material")
+            _log(f"  Slot {i}: [!] No material")
             continue
-        print(f"  Slot {i}: Material = {mat.name}")
+        _log(f"  Slot {i}: Material = {mat.name}")
         if mat.use_nodes:
             nodes = mat.node_tree.nodes
             tex_nodes = [n for n in nodes if n.type == "TEX_IMAGE"]
             if not tex_nodes:
-                print("    [!] No Image Texture node found")
+                _log("    [!] No Image Texture node found")
             for tn in tex_nodes:
                 img = tn.image
                 if img:
-                    print(f"    Image: {img.filepath} size={img.size}")
+                    _log(f"    Image: {img.filepath} size={img.size}")
                 else:
-                    print("    [!] TEX_IMAGE node exists but no image loaded")
+                    _log("    [!] TEX_IMAGE node exists but no image loaded")
         else:
-            print("    [!] Material not using nodes")
+            _log("    [!] Material not using nodes")
 
 def is_orthonormal(R, eps=1e-5):
     R = np.asarray(R, float).reshape(3,3)
@@ -910,7 +917,7 @@ def is_hollow_with_opening(obj, dbg=False,
     其中相对度量的归一尺度用整体 AABB 对角线。
     """
     loops = world_boundary_loops(obj)
-    if dbg: print(f"  [DBG] boundary_loops={len(loops)}")
+    if dbg: _log(f"  [DBG] boundary_loops={len(loops)}")
     if len(loops) < 2:
         return False, "no_or_single_boundary_loop"
 
@@ -1332,7 +1339,7 @@ def place_camera_fit(minv, maxv, out_path, res=1600, fov_deg=75.0, base_bias=10.
     center = (minv + maxv) * 0.5
     span = max((maxv - minv).x, (maxv - minv).y, (maxv - minv).z)
     if verbose:
-        print(f"[CAM DEBUG] all_min={minv}, all_max={maxv}, center={center}, span={span}")
+        _log(f"[CAM DEBUG] all_min={minv}, all_max={maxv}, center={center}, span={span}")
     xy_span = max((maxv - minv).x, (maxv - minv).y)
     z_span  = (maxv - minv).z
     # 相机放在对角线方向
@@ -1467,7 +1474,7 @@ def export_only_selected_glb(obj_or_objs, out_path):
         with open(out_path, 'rb') as f:
             magic = f.read(4)
         size = os.path.getsize(out_path)
-        print(f"[GLB] exported: {out_path.name} size={size} magic={magic}")
+        _log(f"[GLB] exported: {out_path.name} size={size} magic={magic}")
     except Exception:
         pass
 
@@ -2595,6 +2602,7 @@ def main():
     ap.add_argument("--target_size", type=float, default=1.0, help="normalize_unit 时的目标最大边尺寸")
     ap.add_argument("--prefer_gpu", action="store_true", help="尽力启用 GPU 渲染")
     ap.add_argument("--verbose", action="store_true")
+    ap.add_argument("--quiet", action="store_true", help="suppress informational logs; warnings still printed")
     ap.add_argument("--overwrite", action="store_true", help="Overwrite existing GLBs and snapshot.png")
     ap.add_argument("--clean_out_dir", action="store_true", help="Remove existing exported GLBs in out_dir before running")
     ap.add_argument("--limit", type=int, default=None, help="Only process first N shapes (debug)")
@@ -2612,6 +2620,9 @@ def main():
                 help="When --oxl_layout, only process items whose 'label' list contains --category")
     
     args = ap.parse_args(argv)
+
+    global QUIET
+    QUIET = bool(args.quiet and not args.verbose)
 
     data_root = Path(args.data_root)
     out_dir   = Path(args.out_dir); out_dir.mkdir(parents=True, exist_ok=True)
@@ -2892,11 +2903,11 @@ def main():
             clear_scene_hard()
 
     report_fp.write_text("".join(report_lines), encoding="utf-8")
-    print(f"[SUMMARY] imported={imported_cnt}  valid={valid_cnt}  invalid={invalid_cnt}")
-    print(f"[OK] report: {report_fp}")
+    _log(f"[SUMMARY] imported={imported_cnt}  valid={valid_cnt}  invalid={invalid_cnt}", force=True)
+    _log(f"[OK] report: {report_fp}", force=True)
 
     if not exported:
-        print("No shapes exported; stop.")
+        _log("No shapes exported; stop.", force=True)
         return
     # —— 快照拼图：
     # ---------- Pass 2：拼图 & 快照 ----------
@@ -2907,10 +2918,10 @@ def main():
     # 清理坏条目（防御性）
     exported = [it for it in exported if it.get('path') and Path(it['path']).exists()]
     if not exported:
-        print("No shapes exported; stop.")
+        _log("No shapes exported; stop.", force=True)
         report_fp.write_text("".join(report_lines), encoding="utf-8")
-        print(f"[SUMMARY] imported={imported_cnt}  valid={valid_cnt}  invalid={invalid_cnt}")
-        print(f"[OK] report: {report_fp}")
+        _log(f"[SUMMARY] imported={imported_cnt}  valid={valid_cnt}  invalid={invalid_cnt}", force=True)
+        _log(f"[OK] report: {report_fp}", force=True)
         return
 
     N_ = args.grid_n or int(math.ceil(math.sqrt(len(exported))))
@@ -2946,16 +2957,16 @@ def main():
         except Exception: pass
 
     if placed == 0:
-        print("[SNAP] no objects placed; skip rendering")
+        _log("[SNAP] no objects placed; skip rendering", force=True)
     else:
         span_xy = max((all_max - all_min).x, (all_max - all_min).y)
         axes_size = max(1.0, span_xy * 5.0)
         # add_world_axes(size=axes_size)
         place_camera_fit(all_min, all_max, snap_path, N=N_, topdown=args.topdown, verbose=args.verbose)
         bpy.ops.render.render(write_still=True)
-        print(f"[OK] snapshot saved: {snap_path}")
+        _log(f"[OK] snapshot saved: {snap_path}", force=True)
 
-    print(f"[OK] exported: {len(exported)} → {out_dir}")
+    _log(f"[OK] exported: {len(exported)} → {out_dir}", force=True)
 
 
 if __name__ == "__main__":

@@ -27,13 +27,14 @@ dry_run: false                        # 仅打印命令不执行
 ############################
 # [选择范围 / 数据筛选] oxl mode labels need to be set as well
 ############################
-categories: [dog, bear]           # 显式指定类别；否则依 rot_dir 或 png_root 自动推断
+categories: [door, monitor_(computer_equipment) computer_monitor]          # 显式指定类别；否则依 rot_dir 或 png_root 自动推断
 ids_json:                                  # 仅处理该 JSON 中列出的 shape id（可空）, for custom mode
 ids_txt:                                   # 仅处理该 TXT（每行一个 shape_key）（可空）
 debug_limit:                               # 整体 debug 限制数量（整数，可空）
 label_dir: /home/vault/v100dd/v100dd26/Dataset/core_data/labeled_rotations
 sha_index_csv: /home/vault/v100dd/v100dd26/Dataset/core_data/metadata.csv
 
+quiet: true                                # no stdout except warnings/errors
 ############################
 # [rotations / 合并策略（多类别驱动）], rot_dir and rot_filename used by oxl mode as well
 ############################
@@ -61,10 +62,10 @@ overwrite_download: true                   # 强制覆盖已下载资源（custo
 # —— OXL 专属选项 —— /<download_root>/<oxl_out_category>/<label>/<sha>/mesh and raw, raw is the selected out 3d assets; mesh is extracted zip
 oxl_source: github                         # OXL 数据源：sketchfab / github
 label_json: /home/vault/v100dd/v100dd26/Dataset/core_data/all_sha256_to_rotation.json  # 用于按 label 预筛
-labels: [dog, bear]                               # OXL 预筛标签（逗号分隔字符串也可）
+labels: [door, monitor_(computer_equipment) computer_monitor]                              # OXL 预筛标签（逗号分隔字符串也可）
 label_match_mode: any                      # any/all：与 labels 的匹配逻辑
 oxl_out_category: ObjaverseXL_github       # OXL 下载存放的大类名；空串则保持你现在的用法 
-oxl_labels: [dog, bear]                            # OXL 下游渲染/对齐所用的 label 子目录白名单 oxl_labels == labels
+oxl_labels: [door, monitor_(computer_equipment) computer_monitor]                            # OXL 下游渲染/对齐所用的 label 子目录白名单 oxl_labels == labels
 oxl_stage_dir:                             # 暂存目录（zip/原始）默认 <download_root>/<oxl_out_category>/_stage
 oxl_keep_stage: false                       # consolidate 后是否保留 _stage
 oxl_keep_pool: false                       # consolidate 后是否保留 _pool, _pool stores the expressed repos and used to pick the meshes and textures out, but disabled in per_category_flow mode
@@ -76,7 +77,7 @@ overwrite_consolidate: true                # 强制重做 consolidate：清空�
 oxl_force_reconsolidate: false             # 即使本次 metadata 无新增，也从 _stage 扫描归拢
 oxl_refresh_metadata: false                # 即使已有 metadata.csv 也重新拉取, currenty not used in per_category mode, overall metadata is passed
 oxl_consolidate_link_mode: hardlink        # consolidate 时入库方式：hardlink/copy/symlink
-
+per_category_workers: 4                   # per_category_flow 模式下的process number
 ######################################################################
 # (2) Align & Export 阶段（Blender） /<download_root>/<OXL_OUT_CAT>/<label>/<sha>/{label}_{sha}_obj
 ######################################################################
@@ -87,7 +88,7 @@ grid_n:                                    # 网格 nxn 采样点（可空), adj
 prefer_gpu: false                          # Blender 使用 GPU（若可用）
 topdown: true                              # 视点/导出辅助标志, snapshot from top
 clean_aligned_dir: true                    # 导出前清理旧 GLB/OBJ
-limit: 0                                   # 每类最多处理前 N 个实例（下载/对齐/渲染）
+limit: 3                                   # 每类最多处理前 N 个实例（下载/对齐/渲染）
 require_hollow_for:                        # 需要空腔检测的类别列表（如 ["mug"]），可空, not used
 overwrite_align: true                      # 重新对齐覆盖
 export_format: obj                         # 导出格式：glb / obj
@@ -113,7 +114,7 @@ seed: 123                                  # 渲染随机种子（确定性）
 # —— 相机模式 / 球面采样 ——
 cam_mode: random                           # rings / random
 rand_cams: 150                             # random 模式下的相机数量
-sphere_dist: 1.5                           # random 模式基准球半径（对齐后单位尺度模型）
+sphere_dist: 1.73                           # random 模式基准球半径（对齐后单位尺度模型）
 pos_tangent_jitter: 0.02                  # random 模式切向扰动比例 0.02
 depth_jitter: 0.02                         # random 模式半径扰动比例
 
@@ -121,7 +122,7 @@ depth_jitter: 0.02                         # random 模式半径扰动比例
 use_uv_textures: true
 no_cull_backfaces: true                    # 关闭背面剔除（某些空腔/薄壁物体更稳）
 input_format: obj                          # 指定输入模型格式以加速：glb/obj；默认自动识别
-obj_loader: trimesh                           # OBJ 加载器：auto / trimesh / p3d（推荐 trimesh, usually falling back to this）
+obj_loader: p3d                            # OBJ 加载器：auto / trimesh / p3d（推荐 trimesh, usually falling back to this）
 atlas_size: 512                            # p3d 图集分辨率（每面采样）
 use_atlas: false                           # 为 OBJ 建立 per-face 图集（高内存）
 atlas_mem_limit_gb: 2.0                    # 超过该估算上限自动改用 UV
@@ -133,16 +134,16 @@ batch_chunk: 8                             # 调用渲染器时的分块数量�
 render_batch_mode: batch                   # batch：清单一次渲；single：逐个模型（便于统计), currently not implemented
 progress: true
 # —— h5py saving ——
-save_h5: true
+save_h5: false
 # —— 深度/NOCS/视频输出 ——
-save_rgb_png: false
-save_mask_png: false
+save_rgb_png: true
+save_mask_png: true
 save_metric_depth: false
 save_depth_png16: false
 make_depth_video: false
 depth_video_max_meters: 0.0                # <=0 则自动取 99 分位
 save_nocs: False                           # 保存 float32 NOCS .npy
-save_nocs_png8: false                       # 保存 NOCS PNG8 可视化
+save_nocs_png8: true                       # 保存 NOCS PNG8 可视化
 make_nocs_video: false                      # 导出 NOCS 视频
 nocs_norm: bbox                            # bbox / center_scale
 nocs_equal_axis: false                     # center_scale 下用最长边统一尺度
@@ -151,7 +152,7 @@ nocs_check_stride: 8                       # 采样步长
 nocs_check_voxel: 0.02                     # 体素量化步长（0~1）
 nocs_check_topk: 8                         # 打印误差 Top-K
 make_video: false                           # 导出 RGB 视频
-video_fps: 12                              # 视频帧率
+video_fps: 8                               # 视频帧率
 overwrite_render: true                     # 覆盖已有渲染结果
 # —— Visualization of Cameras ——
 viz_poses: false
@@ -159,6 +160,10 @@ viz_backend: mpl
 viz_show: false                          #interactive window
 viz_frustum: false                       #Draw a small frustum pyramid for each camera
 viz_max_frustums: 150
+# —— Compression ——
+archive_output: true
+archive_format: tar.gz                    # tar.gz / zip
+keep_unarchived_output: false           # 是否保留渲染输出目录（否则只留压缩包）
 ######################################################################
 # github env setting
 ######################################################################

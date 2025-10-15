@@ -1600,8 +1600,8 @@ def render_rgbd_batched(
                 with torch.no_grad():
                     over_plus = ((Xn_plus_unclamped < 0) | (Xn_plus_unclamped > 1)).float().mean().item()
                     over_norm = ((Xn_norm_unclamped < 0) | (Xn_norm_unclamped > 1)).float().mean().item()
-                    if (over_plus > LOG_TOL) or (over_norm > LOG_TOL):
-                        print(f"[NOCS] out-of-range ratio (pre-clamp): plus={over_plus*100:.4f}%, norm={over_norm*100:.4f}%")
+                    # if (over_plus > LOG_TOL): #or (over_norm > LOG_TOL): only use plus now
+                    #     print(f"[NOCS] out-of-range ratio (pre-clamp): plus={over_plus*100:.4f}%, norm={over_norm*100:.4f}%")
 
              
                 # debug to check the frame-wise NOCS consistency
@@ -1663,7 +1663,7 @@ def save_mask_series(out_dir: Path, mask: torch.Tensor):
 def save_rgb_depth_series(out_dir: Path, rgb: torch.Tensor, depth: torch.Tensor, *, 
         save_rgb_png: bool, save_metric_depth: bool, save_depth_png16: bool):
     out_dir.mkdir(parents=True, exist_ok=True)
-    rgb_dir = out_dir / "rgb_png"
+    rgb_dir = out_dir / "rgbs"
     depth_npy_dir = out_dir / "depth_npy"
     depth_png16_dir = out_dir / "depth_png16"
     N, H, W, _ = rgb.shape
@@ -1724,7 +1724,7 @@ def make_depth_video_from_depths(out_path: Path, depth: torch.Tensor, *, fps: in
     finally:
         writer.close()
 
-def save_poses_json(out_dir: Path, cameras: FoVPerspectiveCameras, ring_meta: List[Dict]):
+def save_extrinsics_json(out_dir: Path, cameras: FoVPerspectiveCameras, ring_meta: List[Dict]):
     R = cameras.R.detach().cpu().numpy()
     T = cameras.T.detach().cpu().numpy()
     poses = []
@@ -1751,7 +1751,7 @@ def save_poses_json(out_dir: Path, cameras: FoVPerspectiveCameras, ring_meta: Li
                 "dist": float(dist) if isinstance(dist, (int, float)) else (float(dist[i]) if dist is not None else None),
             })
         offset += num
-    with open(out_dir / "poses.json", "w") as f:
+    with open(out_dir / "extrinsics.json", "w") as f:
         json.dump(poses, f, indent=2)
 
 
@@ -2356,13 +2356,13 @@ def render_single(a, device, src_path: Path, out_dir: Path):
     else:
         nocs_to_save = nocs 
     if (a.save_nocs or a.save_nocs_png8) and (nocs is not None):
-        save_nocs_series(out_dir / "nocs_png", nocs_to_save, save_npy=a.save_nocs, save_png8=a.save_nocs_png8)
+        save_nocs_series(out_dir / "nocs", nocs_to_save, save_npy=a.save_nocs, save_png8=a.save_nocs_png8)
 
     save_rgb_depth_series(out_dir, rgb, depth,
                           save_rgb_png=a.save_rgb_png,
                           save_metric_depth=a.save_metric_depth,
                           save_depth_png16=a.save_depth_png16)
-    save_poses_json(out_dir, cameras, meta)
+    save_extrinsics_json(out_dir, cameras, meta)
     save_intrinsics_json(out_dir, a.image_size, a.fov_deg)
     if a.make_video:
         make_video_from_rgbs(out_dir / 'orbit_rgb.mp4', rgb, fps=a.video_fps)
@@ -2372,7 +2372,7 @@ def render_single(a, device, src_path: Path, out_dir: Path):
     if a.make_nocs_video and (nocs is not None):
         make_nocs_video(out_dir / 'orbit_nocs.mp4', nocs, fps=a.video_fps)
     if a.save_mask_png:
-        save_mask_series(out_dir / "mask_png", mask)
+        save_mask_series(out_dir / "masks", mask)
     if a.save_h5:
         # 注意：我们前面把 rgb/depth 已经转到 CPU；nocs 也是 CPU
         label = (a.label.strip() or out_dir.name.split('_')[0])
