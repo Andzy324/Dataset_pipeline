@@ -582,6 +582,77 @@ def mtl_has_maps(obj_path: Path) -> bool:
             return True
     return False
 
+
+def mtl_map_count(obj_path: Path) -> int:
+    """
+    Count how many map_* entries are referenced by the OBJ's MTL files.
+    Used to infer multi-material cases that should prefer atlas loading.
+    """
+    obj_path = Path(obj_path)
+    mtls: List[Path] = []
+    try:
+        with obj_path.open("r", encoding="utf-8", errors="ignore") as f:
+            for line in f:
+                if line.lower().startswith("mtllib"):
+                    parts = line.split()[1:]
+                    mtls.extend(obj_path.parent / p for p in parts)
+    except Exception:
+        return 0
+
+    count = 0
+    for mtl in mtls:
+        if not mtl.exists():
+            continue
+        try:
+            for line in mtl.read_text(encoding="utf-8", errors="ignore").splitlines():
+                if line.strip().lower().startswith("map_"):
+                    count += 1
+        except Exception:
+            continue
+    return count
+
+
+def _textures_have_data(tex) -> bool:
+    if tex is None:
+        return False
+    # Atlas textures
+    try:
+        if hasattr(tex, "atlas_packed"):
+            atlas = tex.atlas_packed()
+            if atlas is not None and atlas.numel() > 0:
+                return True
+    except Exception:
+        pass
+    # UV textures
+    for attr in ("maps_padded", "maps_list"):
+        try:
+            fn = getattr(tex, attr, None)
+            if fn is None:
+                continue
+            data = fn()
+            if data is None:
+                continue
+            if hasattr(data, "numel"):  # tensor
+                if data.numel() > 0:
+                    return True
+            elif isinstance(data, (list, tuple)) and data:
+                first = data[0]
+                if hasattr(first, "numel") and first.numel() > 0:
+                    return True
+                if hasattr(first, "__len__") and len(first) > 0:
+                    return True
+        except Exception:
+            continue
+    # Vertex color textures
+    try:
+        if hasattr(tex, "verts_features_padded"):
+            vf = tex.verts_features_padded()
+            if vf is not None and vf.numel() > 0:
+                return True
+    except Exception:
+        pass
+    return False
+
 def _n_meshes(meshes: Meshes) -> int:
     """robust: PyTorch3D 各版本都能拿到批大小"""
     try:
@@ -621,10 +692,14 @@ def load_obj_with_textures_p3d(
         raise RuntimeError("pytorch3d load_objs_as_meshes not available in this environment.")
 
     obj_path = Path(obj_path)
+    maps_in_mtl = mtl_map_count(obj_path)
+    multi_map_expected = maps_in_mtl > 1
+    force_atlas = bool(use_atlas)
+
     from importlib import import_module
     _io = import_module("pytorch3d.io")
     # 若请求 atlas，先做熔断检查
-    create_atlas = bool(use_atlas)
+    create_atlas = bool(force_atlas or multi_map_expected)
     if create_atlas:
         F = _estimate_face_count_from_obj(obj_path)
         bytes_est = _atlas_bytes_estimate(F, atlas_size)
@@ -633,6 +708,9 @@ def load_obj_with_textures_p3d(
             print(f"[warn] atlas memory estimate {bytes_est/1e9:.1f} GB > limit {atlas_mem_limit_gb} GB; "
                   f"auto-switch to UV textures (no atlas).  (faces≈{F}, tile={atlas_size})")
             create_atlas = False
+            if multi_map_expected:
+                print("[warn] OBJ references multiple textures but atlas was disabled due to memory limit; "
+                      "result may drop extra materials.")
 
     # ---- 1) 先试 UV 贴图模式 ----
     def _load(uv_mode: bool):
@@ -682,19 +760,24 @@ def load_obj_with_textures_p3d(
             pass
         return False
 
-    # 先试 UV ...
-    mesh = _load(uv_mode=True)
-    if not _has_valid_textures(mesh):
-        print("[warn] UV texture load failed or empty; ", end="")
-        has_map = mtl_has_maps(obj_path)
-        if create_atlas and has_map:
-            print(f"retry with atlas (tile={atlas_size})...")
-            mesh = _load(uv_mode=False)
-        else:
-            print("no map_* to retry or atlas disabled; falling back to trimesh loader.")
-            raise RuntimeError("UV textures missing; atlas disabled")
+    # 根据情况直接选择加载模式，避免重复尝试
+    if create_atlas:
+        mesh = _load(uv_mode=False)
         if not _has_valid_textures(mesh):
-            raise RuntimeError("PyTorch3D textures still empty after retries")
+            raise RuntimeError("PyTorch3D atlas textures empty; cannot preserve multi-material OBJ")
+    else:
+        mesh = _load(uv_mode=True)
+        if not _has_valid_textures(mesh):
+            print("[warn] UV texture load failed or empty; ", end="")
+            has_map = mtl_has_maps(obj_path)
+            if force_atlas and has_map:
+                print(f"retry with atlas (tile={atlas_size})...")
+                mesh = _load(uv_mode=False)
+            else:
+                print("no map_* to retry or atlas disabled; falling back to trimesh loader.")
+                raise RuntimeError("UV textures missing; atlas disabled")
+            if not _has_valid_textures(mesh):
+                raise RuntimeError("PyTorch3D textures still empty after retries")
 
             # if not _has_valid_textures(mesh):
             #     # 到这还不行，给出明确诊断，方便你定位 MTL/路径问题
@@ -1264,7 +1347,6 @@ class NOCSConsistencyChecker:
 
 
 # ------------------------------ Rendering ------------------------------
-
 def make_renderer(cameras: FoVPerspectiveCameras, image_size: int, device: torch.device, *, cull_backfaces: bool, bg_color: Tuple[float, float, float], bin_size: int | None = 0, max_faces_per_bin: int | None = None) -> MeshRenderer:
     # Build raster settings with robust defaults; bin_size=0 uses naive rasterization (no binning), avoids overflow warnings
     rs_kwargs = dict(image_size=int(image_size), blur_radius=0.0, faces_per_pixel=1, cull_backfaces=bool(cull_backfaces))
@@ -1353,7 +1435,7 @@ def render_rgbd_batched(
     *,
     batch_chunk: int = 0,
     cull_backfaces: bool = True,
-    bg_color: Tuple[float, float, float] = (1.0, 1.0, 1.0),
+    bg_color: Tuple[float, float, float] = (0.2, 0.2, 0.2),#(1.0, 1.0, 1.0), new bg_color as meshlab
     bin_size: int | None = 0,
     max_faces_per_bin: int | None = None,
     # --- NEW ---
@@ -1391,6 +1473,10 @@ def render_rgbd_batched(
         rs_kwargs["max_faces_per_bin"] = int(max_faces_per_bin)
     raster_settings = RasterizationSettings(**rs_kwargs)
 
+    # lights = PointLights(device=device, location=[(2.0, 2.0, 2.0)], ambient_color=((0.15,0.15,0.15),))
+    # materials = Materials(device=device, ambient_color=((0.2, 0.2, 0.2),), 
+    #                       diffuse_color=((0.7, 0.7, 0.7),), specular_color=((0.1, 0.1, 0.1),), 
+    #                       shininess=16)
     lights = PointLights(device=device, location=[(2.0, 2.0, 2.0)], ambient_color=((0.4,0.4,0.4),))
     materials = Materials(
         device=device,
@@ -1399,6 +1485,8 @@ def render_rgbd_batched(
         specular_color=((0.04, 0.04, 0.04),),
         shininess=32.0,
     )
+    
+    
     blend = BlendParams(background_color=tuple(bg_color))
 
     rgbs: list[torch.Tensor] = []
@@ -2222,6 +2310,9 @@ def render_single(a, device, src_path: Path, out_dir: Path):
                 atlas_mem_limit_gb=a.atlas_mem_limit_gb,
                 axis_correction=a.axis_correction,
             )
+            tex_check = getattr(mesh, "textures", None)
+            if not _textures_have_data(tex_check):
+                raise RuntimeError("PyTorch3D loader returned mesh without textures")
             print(f"[info] OBJ via PyTorch3D loader: {src_path}")
         except Exception as e:
             print(f"[warn] p3d OBJ loader failed: {e} ; falling back to trimesh loader.")
@@ -2238,6 +2329,52 @@ def render_single(a, device, src_path: Path, out_dir: Path):
             flip_v=a.flip_v, apply_scene_xform=(not a.no_apply_scene_xform),
             axis_correction=a.axis_correction,
         )
+
+    tex = getattr(mesh, "textures", None)
+    # if tex is None:
+    #     print(f"[debug][tex] {src_path.name}: textures=None")
+    # else:
+    #     print(f"[debug][tex] {src_path.name}: type={type(tex).__name__}")
+    #     try:
+    #         maps = tex.maps_padded()
+    #         if maps is not None:
+    #             print(f"[debug][tex] maps shape={tuple(maps.shape)} "
+    #                   f"min={float(maps.min()):.4f} max={float(maps.max()):.4f}")
+    #     except Exception as e:
+    #         print(f"[debug][tex] maps_padded failed: {e}")
+    #     try:
+    #         maps_list = tex.maps_list()
+    #         if maps_list:
+    #             print(f"[debug][tex] maps_list count={len(maps_list)} "
+    #                   f"sizes={[tuple(m.shape) for m in maps_list]}")
+    #     except Exception as e:
+    #         print(f"[debug][tex] maps_list failed: {e}")
+    #     try:
+    #         atlas = tex.atlas_packed()
+    #         if atlas is not None:
+    #             print(f"[debug][tex] atlas shape={tuple(atlas.shape)} "
+    #                   f"min={float(atlas.min()):.4f} max={float(atlas.max()):.4f}")
+    #     except Exception:
+    #         pass
+    #     try:
+    #         faces_uvs = tex.faces_uvs_list()
+    #         print(f"[debug][tex] faces_uvs_list count={len(faces_uvs)} "
+    #               f"lens={[fu.shape for fu in faces_uvs]}")
+    #     except Exception as e:
+    #         print(f"[debug][tex] faces_uvs_list failed: {e}")
+    #     try:
+    #         verts_uvs = tex.verts_uvs_list()
+    #         print(f"[debug][tex] verts_uvs_list count={len(verts_uvs)} "
+    #               f"lens={[vu.shape for vu in verts_uvs]}")
+    #     except Exception as e:
+    #         print(f"[debug][tex] verts_uvs_list failed: {e}")
+    #     try:
+    #         verts_feat = tex.verts_features_padded()
+    #         if verts_feat is not None:
+    #             print(f"[debug][tex] verts_features shape={tuple(verts_feat.shape)} "
+    #                   f"min={float(verts_feat.min()):.4f} max={float(verts_feat.max()):.4f}")
+    #     except Exception:
+    #         pass
 
     # --- camera rings (unchanged) ---
     base_dist = compute_fit_distance(mesh, fov_deg=a.fov_deg, margin=1.8)

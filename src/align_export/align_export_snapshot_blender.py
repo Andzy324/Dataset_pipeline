@@ -1870,7 +1870,7 @@ def normalize_texture_basename(name: str) -> str:
 
 #     mtl_path.write_text("\n".join(out), encoding="utf-8")
 def ensure_mtl_has_maps(obj, mtl_path: Path, textures_dir: Path):
-    import bpy, os, shutil, re
+    import bpy, os, shutil, re, shlex
     from pathlib import Path
 
     # 允许的贴图扩展
@@ -1900,17 +1900,11 @@ def ensure_mtl_has_maps(obj, mtl_path: Path, textures_dir: Path):
     txt = mtl_path.read_text(encoding="utf-8", errors="ignore")
     lines = txt.splitlines()
     textures_dir.mkdir(parents=True, exist_ok=True)
-
-    # -------- Pass 0: 按块统计是否已有 map_ / bump
-    has_map = {}        # name -> bool
-    cur = None
-    for l in lines:
-        s = l.strip()
-        if s.lower().startswith("newmtl"):
-            cur = s.split(None, 1)[1] if " " in s else ""
-            has_map.setdefault(cur, False)
-        elif cur and s.lower().startswith(("map_", "bump")):
-            has_map[cur] = True
+    available_idx: Dict[str, Path] = {}
+    for p in textures_dir.iterdir():
+        if p.is_file():
+            safe_path = ensure_texture_safe_name(p)
+            available_idx[_canon_key(safe_path.name)] = safe_path
 
     # -------- 收集每个材质的贴图，并确保真实写入 textures/（返回“安全名”）
     def dump_image(img) -> str | None:
@@ -1938,6 +1932,7 @@ def ensure_mtl_has_maps(obj, mtl_path: Path, textures_dir: Path):
                 dst = textures_dir / safe
                 if str(src.resolve()) != str(dst.resolve()):
                     shutil.copy2(str(src), str(dst))
+                available_idx[_canon_key(safe)] = dst
                 return safe
 
             # 情况 B：打包 / 无物理源 -> 另存为 PNG（强制 .png，不叠加）
@@ -1952,6 +1947,7 @@ def ensure_mtl_has_maps(obj, mtl_path: Path, textures_dir: Path):
             finally:
                 img.file_format = prev_fmt
                 img.filepath = prev_fp
+            available_idx[_canon_key(safe)] = dst
             return safe
         except Exception:
             return None
@@ -1989,43 +1985,92 @@ def ensure_mtl_has_maps(obj, mtl_path: Path, textures_dir: Path):
     if not mat_maps:
         return  # 无可补图，不动 MTL
 
-    # -------- Pass 1：逐块补写（仅当该块原先没有任何 map_/bump）
-    out = []
-    cur_name = None
+    def _resolve_existing_name(token: str) -> Optional[str]:
+        if not token:
+            return None
+        base = Path(token).name
+        candidates = [base, _safe_name_keep_ext(base), _safe_name_as_png(base)]
+        for cand in candidates:
+            key = _canon_key(cand)
+            if key in available_idx:
+                return available_idx[key].name
+        return None
 
     def _exists_safe(name: str) -> bool:
-        return bool(name) and (textures_dir / name).is_file()
+        return _resolve_existing_name(name) is not None
 
-    for line in lines:
+    def _map_token_kind(token: str) -> Optional[str]:
+        t = token.lower()
+        if t.startswith("map_kd"):
+            return "kd"
+        if t.startswith("map_bump") or t == "bump" or t.startswith("bump"):
+            return "nm"
+        if t.startswith("map_d"):
+            return "al"
+        return None
+
+    def _rewrite_map_line(line: str) -> Tuple[Optional[str], Optional[str]]:
+        try:
+            tokens = shlex.split(line)
+        except Exception:
+            tokens = line.split()
+        if len(tokens) < 2:
+            return None, None
+        path_token = tokens[-1]
+        resolved = _resolve_existing_name(path_token)
+        if not resolved:
+            return None, None
+        options = tokens[1:-1]
+        new_path = f"textures/{resolved}"
+        rebuilt = " ".join([tokens[0], *options, new_path]).strip()
+        kind = _map_token_kind(tokens[0])
+        return rebuilt, kind
+
+    out: List[str] = []
+    cur_name: Optional[str] = None
+    block_lines: List[str] = []
+    placed_flags = {"kd": False, "nm": False, "al": False}
+
+    def _flush_block():
+        nonlocal block_lines, cur_name, placed_flags
+        if cur_name and cur_name in mat_maps:
+            m = mat_maps[cur_name]
+            resolved = _resolve_existing_name(m.get("kd", ""))
+            if resolved and not placed_flags["kd"]:
+                block_lines.append(f'map_Kd textures/{resolved}')
+            resolved = _resolve_existing_name(m.get("nm", ""))
+            if resolved and not placed_flags["nm"]:
+                block_lines.append(f'bump -bm 1 textures/{resolved}')
+            resolved = _resolve_existing_name(m.get("al", ""))
+            if resolved and not placed_flags["al"]:
+                block_lines.append(f'map_d textures/{resolved}')
+        if block_lines:
+            out.extend(block_lines)
+        block_lines = []
+        placed_flags = {"kd": False, "nm": False, "al": False}
+
+    for line in lines + ["__END__"]:
         s = line.strip()
+        if s == "__END__":
+            _flush_block()
+            cur_name = None
+            continue
         if s.lower().startswith("newmtl"):
+            _flush_block()
             cur_name = s.split(None, 1)[1] if " " in s else ""
-            out.append(line)
-            # 仅当该块目前没有 map_ 且我们采集到了贴图，才补
-            if not has_map.get(cur_name, False) and cur_name in mat_maps:
-                m = mat_maps[cur_name]
-                # 只有当磁盘真实存在时才写入 MTL
-                if _exists_safe(m.get("kd", "")):
-                    out.append(f'map_Kd textures/{m["kd"]}')
-                if _exists_safe(m.get("nm", "")):
-                    # 用 'bump' 写法，保留 -bm 1；部分解析器更兼容
-                    out.append(f'bump -bm 1 textures/{m["nm"]}')
-                if _exists_safe(m.get("al", "")):
-                    out.append(f'map_d textures/{m["al"]}')
+            block_lines.append(line)
             continue
 
-        out.append(line)
+        if s.lower().startswith("map_") or s.lower().startswith("bump"):
+            rewritten, kind = _rewrite_map_line(line)
+            if rewritten:
+                block_lines.append(rewritten)
+                if kind:
+                    placed_flags[kind] = True
+            # 若贴图未被收集则跳过该行，由 flush 阶段补齐
+            continue
 
-    # 若 MTL 没任何 newmtl，但采到了贴图：补一个默认块
-    if not any(l.strip().lower().startswith("newmtl") for l in lines) and mat_maps:
-        name, m = next(iter(mat_maps.items()))
-        out += [f"newmtl {name}"]
-        if _exists_safe(m.get("kd", "")):
-            out.append(f'map_Kd textures/{m["kd"]}')
-        if _exists_safe(m.get("nm", "")):
-            out.append(f'bump -bm 1 textures/{m["nm"]}')
-        if _exists_safe(m.get("al", "")):
-            out.append(f'map_d textures/{m["al"]}')
+        block_lines.append(line)
 
     mtl_path.write_text("\n".join(out), encoding="utf-8")
 
@@ -2060,21 +2105,21 @@ def _canon_key(s: str) -> str:
 #             idx[_canon_key(p.name)] = p
 #     return idx
 
-# def ensure_texture_safe_name(p: Path) -> Path:
-#     """
-#     若 textures/ 下文件名包含空格/奇字符，则重命名为安全名；返回最终路径。
-#     """
-#     safe = sanitize_basename(p.name)
-#     if safe != p.name:
-#         q = p.with_name(safe)
-#         if not q.exists():
-#             p.rename(q)
-#         else:
-#             # 若已存在同名安全文件，选择覆盖或去重（这里选择覆盖为简单）
-#             q.unlink()
-#             p.rename(q)
-#         return q
-#     return p
+def ensure_texture_safe_name(p: Path) -> Path:
+    """
+    若 textures/ 下文件名包含空格/奇字符，则重命名为安全名；返回最终路径。
+    """
+    safe = sanitize_basename(p.name)
+    if safe != p.name:
+        q = p.with_name(safe)
+        if not q.exists():
+            p.rename(q)
+        else:
+            # 若已存在同名安全文件，选择覆盖保持唯一
+            q.unlink()
+            p.rename(q)
+        return q
+    return p
 
 # def _fuzzy_pick_key(idx_keys, old_bn: str) -> Optional[str]:
 #     """从 idx_keys 里挑一个与 old_bn 最接近的 key（按 token 子串倒序优先）。"""

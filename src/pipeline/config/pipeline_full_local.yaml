@@ -7,18 +7,18 @@
 ############################
 # [核心路径 / 脚本入口]
 ############################
-root: /home/vault/v100dd/v100dd26/Dataset    # Pipeline 根目录（会派生 downloads/aligned_glb/renders 等, oxl: ）
-png_root: /home/vault/v100dd/v100dd26/Dataset      # build_metadata.py 用来推断类别/shape_keys 的 PNG 根, custom mode
-download_root: /home/vault/v100dd/v100dd26/Dataset   # oxl mode; custom，默认在 root 下派生,  
-blender: /home/hpc/v100dd/v100dd26/blender-4.5.3-linux-x64/blender           # Blender 可执行路径
-build_script: /home/hpc/v100dd/v100dd26/project/Dataset_pipeline/src/download_toolkits/build_metadata.py # 用于 custom mode 下生成 metadata and download
-align_script: /home/hpc/v100dd/v100dd26/project/Dataset_pipeline/src/align_export/align_export_snapshot_blender.py
-render_script: /home/hpc/v100dd/v100dd26/project/Dataset_pipeline/src/video_render/render_orbit_full.py #
+root: /home/zby/Simulation-pipeline/Data    # Pipeline 根目录（会派生 downloads/aligned_glb/renders 等, oxl: ）
+png_root: /home/zby/Simulation-pipeline/Data/G-objaverse      # build_metadata.py 用来推断类别/shape_keys 的 PNG 根, custom mode
+download_root: /home/zby/Simulation-pipeline/Data/datasets   # oxl mode; custom，默认在 root 下派生,  
+blender: /snap/bin/blender            # Blender 可执行路径
+build_script: /home/zby/Simulation-pipeline/Dataset_pipeline/src/download_toolkits/build_metadata.py # 用于 custom mode 下生成 metadata and download
+align_script: /home/zby/Simulation-pipeline/Dataset_pipeline/src/align_export/align_export_snapshot_blender.py
+render_script: /home/zby/Simulation-pipeline/Dataset_pipeline/src/video_render/render_orbit_full.py #
 
 ############################
 # [流程控制]
 ############################
-steps: [download, align, render]                     # 运行阶段：download / align / render 的任意子集或任意顺序
+steps: [align, render]                     # 运行阶段：download / align / render 的任意子集或任意顺序
 per_category_flow: true               # 按类别流水线：download→align→render 逐类执行
 render_after_each_category: false     # （可选）当 steps 含 align+render 时，在每个类内交错执行
 render_scheme: flat                   # 渲染输出布局：flat/hier
@@ -27,25 +27,25 @@ dry_run: false                        # 仅打印命令不执行
 ############################
 # [选择范围 / 数据筛选] oxl mode labels need to be set as well
 ############################
-categories: [door, monitor_(computer_equipment) computer_monitor]          # 显式指定类别；否则依 rot_dir 或 png_root 自动推断
+categories: [monitor_(computer_equipment) computer_monitor]       # 显式指定类别；否则依 rot_dir 或 png_root 自动推断
 ids_json:                                  # 仅处理该 JSON 中列出的 shape id（可空）, for custom mode
 ids_txt:                                   # 仅处理该 TXT（每行一个 shape_key）（可空）
 debug_limit:                               # 整体 debug 限制数量（整数，可空）
-label_dir: /home/vault/v100dd/v100dd26/Dataset/core_data/labeled_rotations
-sha_index_csv: /home/vault/v100dd/v100dd26/Dataset/core_data/metadata.csv
+label_dir: /home/zby/Simulation-pipeline/Data/datasets/labeled_rotations
+sha_index_csv: /home/zby/Simulation-pipeline/shape_canonicalization_tool/data_downloader/core_data/metadata.csv
 
-quiet: true                                # no stdout except warnings/errors
 ############################
 # [rotations / 合并策略（多类别驱动）], rot_dir and rot_filename used by oxl mode as well
 ############################
 rot_json:                                  # 当某类缺省 per-category rotation 时的兜底 JSON
-rot_dir: /home/vault/v100dd/v100dd26/Dataset/core_data/labeled_rotations      # 形如 <rot_dir>/<category>/<rot_filename>
+rot_dir: /home/zby/Simulation-pipeline/Data/datasets/labeled_rotations      # 形如 <rot_dir>/<category>/<rot_filename>
 rot_filename: final_shape_rotations.json   # 每类 rotation 文件名, also for oxl mode
 rot_merge_glob: "*_cluster_*_rotations.json"  # 当 per-category 文件不存在时，用该 glob 匹配合并
 rot_dup_policy: prefer_last                # 合并重复 shape id 的策略：prefer_last/prefer_first/error
 persist_merged_rot: true                   # 合并后是否写回文件
 force_remerge: false                       # 即便已有 rot_filename 也强制重新根据 cluster 合并
 
+quiet: true                             # 静默模式（减少日志量）
 ############################
 # [映射表（多来源合并）] custom mode only
 ############################
@@ -61,23 +61,24 @@ dl_backend: oxl                            # 下载后端：custom / oxl（Objav
 overwrite_download: true                   # 强制覆盖已下载资源（custom 分支）
 # —— OXL 专属选项 —— /<download_root>/<oxl_out_category>/<label>/<sha>/mesh and raw, raw is the selected out 3d assets; mesh is extracted zip
 oxl_source: github                         # OXL 数据源：sketchfab / github
-label_json: /home/vault/v100dd/v100dd26/Dataset/core_data/all_sha256_to_rotation.json  # 用于按 label 预筛
-labels: [door, monitor_(computer_equipment) computer_monitor]                              # OXL 预筛标签（逗号分隔字符串也可）
+label_json: /home/zby/Simulation-pipeline/shape_canonicalization_tool/data_downloader/core_data/all_sha256_to_rotation.json  # 用于按 label 预筛
+labels: [monitor_(computer_equipment) computer_monitor]                              # OXL 预筛标签（逗号分隔字符串也可）
 label_match_mode: any                      # any/all：与 labels 的匹配逻辑
 oxl_out_category: ObjaverseXL_github       # OXL 下载存放的大类名；空串则保持你现在的用法 
-oxl_labels: [door, monitor_(computer_equipment) computer_monitor]                            # OXL 下游渲染/对齐所用的 label 子目录白名单 oxl_labels == labels
+oxl_labels: [monitor_(computer_equipment) computer_monitor]                         # OXL 下游渲染/对齐所用的 label 子目录白名单 oxl_labels == labels
 oxl_stage_dir:                             # 暂存目录（zip/原始）默认 <download_root>/<oxl_out_category>/_stage
 oxl_keep_stage: false                       # consolidate 后是否保留 _stage
 oxl_keep_pool: false                       # consolidate 后是否保留 _pool, _pool stores the expressed repos and used to pick the meshes and textures out, but disabled in per_category_flow mode
 oxl_prune_zips: false                      # 成功解压并选取 mesh 后是否删除原 zip
 oxl_prefer_label_root: true                # consolidate 时优先布局到 <out_cat>/<label>/<sha>/raw, not used
-oxl_prune_mesh_dir: true                  # 资产完成后是否清理 <sha>/mesh 临时目录
+oxl_prune_mesh_dir: false                  # 资产完成后是否清理 <sha>/mesh 临时目录, should be active when scaling
 overwrite_download_repo: true              # 强制重下仓库/zip：会清空 _stage 并重来
 overwrite_consolidate: true                # 强制重做 consolidate：清空目标 sha 后重建, use df to build the queue for consolidate, so need to overwrite the download_repo as well
 oxl_force_reconsolidate: false             # 即使本次 metadata 无新增，也从 _stage 扫描归拢
 oxl_refresh_metadata: false                # 即使已有 metadata.csv 也重新拉取, currenty not used in per_category mode, overall metadata is passed
 oxl_consolidate_link_mode: hardlink        # consolidate 时入库方式：hardlink/copy/symlink
 per_category_workers: 4                   # per_category_flow 模式下的process number
+
 ######################################################################
 # (2) Align & Export 阶段（Blender） /<download_root>/<OXL_OUT_CAT>/<label>/<sha>/{label}_{sha}_obj
 ######################################################################
@@ -88,7 +89,7 @@ grid_n:                                    # 网格 nxn 采样点（可空), adj
 prefer_gpu: false                          # Blender 使用 GPU（若可用）
 topdown: true                              # 视点/导出辅助标志, snapshot from top
 clean_aligned_dir: true                    # 导出前清理旧 GLB/OBJ
-limit: 3                                   # 每类最多处理前 N 个实例（下载/对齐/渲染）
+limit: 3                                    # Blender 步骤仅处理前 N 个
 require_hollow_for:                        # 需要空腔检测的类别列表（如 ["mug"]），可空, not used
 overwrite_align: true                      # 重新对齐覆盖
 export_format: obj                         # 导出格式：glb / obj
@@ -100,7 +101,7 @@ export_format: obj                         # 导出格式：glb / obj
 num_cams: 40
 elev_deg: 20.0
 fov_deg: 60.0
-image_size: 768
+image_size: 384
 
 # —— 顶环相机参数（环拍） ——
 top_ring_num: 40
@@ -115,7 +116,7 @@ seed: 123                                  # 渲染随机种子（确定性）
 cam_mode: random                           # rings / random
 rand_cams: 150                             # random 模式下的相机数量
 sphere_dist: 1.73                           # random 模式基准球半径（对齐后单位尺度模型）
-pos_tangent_jitter: 0.02                  # random 模式切向扰动比例 0.02
+pos_tangent_jitter: 0.02                  # random 模式切向扰动比例
 depth_jitter: 0.02                         # random 模式半径扰动比例
 
 # —— 材质/贴图/背面剔除 ——
@@ -123,16 +124,16 @@ use_uv_textures: true
 no_cull_backfaces: true                    # 关闭背面剔除（某些空腔/薄壁物体更稳）
 bg_color: [1.0, 1.0, 1.0]                  # 渲染背景颜色 (RGB 0~1)
 input_format: obj                          # 指定输入模型格式以加速：glb/obj；默认自动识别
-obj_loader: p3d                            # OBJ 加载器：auto / trimesh / p3d（推荐 trimesh, usually falling back to this）
-atlas_size: 512                            # p3d 图集分辨率（每面采样）
-use_atlas: true                            # 为 OBJ 建立 per-face 图集（高内存）
+obj_loader: p3d                           # OBJ 加载器：auto / trimesh / p3d（推荐 trimesh, usually falling back to this）
+atlas_size: 128                            # p3d 图集分辨率（每面采样）
+use_atlas: true                           # 为 OBJ 建立 per-face 图集（高内存）
 atlas_mem_limit_gb: 2.0                    # 超过该估算上限自动改用 UV
 
 # —— 批量/性能 ——
 bin_size: 64                               # 渲染时按复杂度分批的批大小（越小越省内存）
-max_faces_per_bin: 400000                  # 每批最大面数上限
-batch_chunk: 8                             # 调用渲染器时的分块数量（你的脚本里用来控制切片）
-render_batch_mode: batch                   # batch：清单一次渲；single：逐个模型（便于统计), currently not implemented
+max_faces_per_bin: 200000                  # 每批最大面数上限
+batch_chunk: 2                             # 调用渲染器时的分块数量（你的脚本里用来控制切片）
+render_batch_mode: batch                  # batch：清单一次渲；single：逐个模型（便于统计), currently not implemented
 progress: true
 # —— h5py saving ——
 save_h5: false
@@ -143,7 +144,7 @@ save_metric_depth: false
 save_depth_png16: false
 make_depth_video: false
 depth_video_max_meters: 0.0                # <=0 则自动取 99 分位
-save_nocs: False                           # 保存 float32 NOCS .npy
+save_nocs: false                           # 保存 float32 NOCS .npy
 save_nocs_png8: true                       # 保存 NOCS PNG8 可视化
 make_nocs_video: false                      # 导出 NOCS 视频
 nocs_norm: bbox                            # bbox / center_scale
@@ -152,14 +153,15 @@ check_nocs: false                          # 渲染中做跨帧一致性检查
 nocs_check_stride: 8                       # 采样步长
 nocs_check_voxel: 0.02                     # 体素量化步长（0~1）
 nocs_check_topk: 8                         # 打印误差 Top-K
-make_video: false                           # 导出 RGB 视频
-video_fps: 8                               # 视频帧率
+make_video: true                           # 导出 RGB 视频
+video_fps: 4                              # 视频帧率
 overwrite_render: true                     # 覆盖已有渲染结果
+
 # —— Visualization of Cameras ——
-viz_poses: false
+viz_poses: true
 viz_backend: mpl 
-viz_show: false                          #interactive window
-viz_frustum: false                       #Draw a small frustum pyramid for each camera
+viz_show: true                          #interactive window
+viz_frustum: true                       #Draw a small frustum pyramid for each camera
 viz_max_frustums: 150
 # —— Compression ——
 archive_output: true
@@ -168,5 +170,5 @@ keep_unarchived_output: false           # 是否保留渲染输出目录（否�
 ######################################################################
 # github env setting
 ######################################################################
-github_token: "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" 
+github_token: "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"      #"env:GITHUB_TOKEN"   ① 从环境变量读取
 git_no_prompt: true

@@ -118,6 +118,47 @@ def _category_alias(cat: str) -> str:
 def _category_original_from_alias(alias: str) -> str:
     return CATEGORY_ALIAS_REVERSE.get(alias, alias)
 
+
+def _aligned_dir_candidates(args, P: "PipelinePaths", category: str) -> List[Path]:
+    """
+    Collect possible aligned-directory paths for a category, considering
+    both the original label and any alias used during alignment.
+    """
+    display_category = _category_alias(category)
+    candidates: List[Path] = []
+
+    if getattr(args, "dl_backend", "custom") == "oxl":
+        align_root: Optional[Path] = None
+        if getattr(args, "align_out_root", None):
+            align_root = Path(args.align_out_root)
+        elif getattr(args, "download_root", None):
+            align_root = Path(args.download_root) / OXL_OUT_CAT
+        if align_root is not None:
+            candidates.append(align_root / display_category)
+            if display_category != category:
+                candidates.append(align_root / category)
+
+    candidates.append(P.aligned_glb / display_category)
+    if display_category != category:
+        candidates.append(P.aligned_glb / category)
+
+    deduped: List[Path] = []
+    seen: set[str] = set()
+    for path in candidates:
+        key = str(path)
+        if key in seen:
+            continue
+        seen.add(key)
+        deduped.append(path)
+    return deduped
+
+
+def _find_existing_aligned_dir(args, P: "PipelinePaths", category: str) -> Optional[Path]:
+    for candidate in _aligned_dir_candidates(args, P, category):
+        if candidate.is_dir():
+            return candidate
+    return None
+
 _GIT_LFS_PATCHED = False
 _LFS_DISABLED_REPOS: set[str] = set()
 
@@ -2104,6 +2145,8 @@ def step_render(args, P: PipelinePaths, models: Iterable[Path], category: str) -
             cmd += ["--input_format", str(args.input_format)]
         if getattr(args, "use_uv_textures", False):
             cmd += ["--use_uv_textures"]
+        if getattr(args, "bg_color", None):
+            cmd += ["--bg_color", *(str(float(c)) for c in args.bg_color)]
         if getattr(args, "obj_loader", None):
             cmd += ["--obj_loader", str(args.obj_loader)]
         if getattr(args, "atlas_size", None):
@@ -2245,6 +2288,8 @@ def step_render(args, P: PipelinePaths, models: Iterable[Path], category: str) -
 
         if args.use_uv_textures or ext == ".obj":
             cmd += ["--use_uv_textures"]
+        if getattr(args, "bg_color", None):
+            cmd += ["--bg_color", *(str(float(c)) for c in args.bg_color)]
         if getattr(args, "viz_poses", None):
             cmd += ["--viz_poses"]
         if getattr(args, "viz_backend", None):
@@ -2681,6 +2726,8 @@ def build_argparser() -> argparse.ArgumentParser:
     p.add_argument("--top_ring_dist_scale", type=float, default=0.85)
     p.add_argument("--use_uv_textures", action=argparse.BooleanOptionalAction, default=False)
     p.add_argument("--no_cull_backfaces", action=argparse.BooleanOptionalAction, default=False)
+    p.add_argument("--bg_color", type=float, nargs=3, default=None,
+                   help="Background RGB color passed to render_orbit_full.py (three floats in [0,1]); omit to use renderer default.")
     p.add_argument('--axis_correction', type=str, default='none', choices=['none','y_up_to_z_up','z_up_to_y_up'])
     p.add_argument("--seed", type=int, default=123, help="Random seed for rendering (default: None)")
     p.add_argument("--batch_chunk", type=int, default=0)
@@ -2861,26 +2908,18 @@ def main():
                 print("[SKIP] [cat] align & export")
                 # If we didn't align now, but will render, try to locate existing dir
                 if "render" in steps_set:
-                    maybe = P.aligned_glb / cat
-                    if args.dl_backend == "oxl" and args.align_out_root:
-                        maybe = Path(args.align_out_root) / cat
-                    elif args.dl_backend == "oxl" and not args.align_out_root:
-                        maybe = Path(args.download_root) / OXL_OUT_CAT / cat
-                    align_out_dir = maybe if maybe.is_dir() else None
+                    align_out_dir = _find_existing_aligned_dir(args, P, cat)
 
             # Step 3: render for this category
             if "render" in steps_set:
                 print("--- [cat] Step 3: Render orbit RGBD & videos ---")
                 if align_out_dir is None:
-                    maybe = P.aligned_glb / cat
-                    if args.dl_backend == "oxl" and args.align_out_root:
-                        maybe = Path(args.align_out_root) / cat
-                    elif args.dl_backend == "oxl" and not args.align_out_root:
-                        maybe = Path(args.download_root) / OXL_OUT_CAT / cat
-                    if not maybe.is_dir():
-                        print(f"[WARN] No aligned directory for {cat}; skipping render.")
+                    align_out_dir = _find_existing_aligned_dir(args, P, cat)
+                    if align_out_dir is None:
+                        alias = _category_alias(cat)
+                        extra = f" (alias: {alias})" if alias != cat else ""
+                        print(f"[WARN] No aligned directory for {cat}{extra}; skipping render.")
                         continue
-                    align_out_dir = maybe
                 glb_list = list(iter_glbs(align_out_dir)) # collected corresponding type data as list passing 
                 obj_list = list(iter_objs(align_out_dir))
                 models = glb_list if args.input_format == "glb" else (obj_list if args.input_format == "obj" else (glb_list if glb_list else obj_list))
@@ -2924,7 +2963,7 @@ def main():
         elif "render" in steps_set:
             cats = [d.name for d in sorted(P.aligned_glb.iterdir()) if d.is_dir()]
 
-    aligned_dirs: List[Path] = []
+    aligned_dirs: List[Tuple[str, Path]] = []
 
     # === Step 2+3: Interleaved per category ===
     if args.render_after_each_category and ("align" in steps_set) and ("render" in steps_set):
@@ -2948,7 +2987,7 @@ def main():
         print(f"=== Step 2: Align & export GLBs (categories: {cats}) ===")
         for cat in cats:
             out_dir = step_align_export_one_category(args, P, cat)
-            aligned_dirs.append(out_dir)
+            aligned_dirs.append((cat, out_dir))
     else:
         print("[SKIP] Step 2: align & export")
 
@@ -2963,10 +3002,13 @@ def main():
         else:
             if not aligned_dirs:
                 if cats:
-                    aligned_dirs = [P.aligned_glb / c for c in cats if (P.aligned_glb / c).is_dir()]
+                    for cat in cats:
+                        existing = _find_existing_aligned_dir(args, P, cat)
+                        if existing:
+                            aligned_dirs.append((cat, existing))
                 else:
-                    aligned_dirs = [d for d in sorted(P.aligned_glb.iterdir()) if d.is_dir()]
-            for cat_dir in aligned_dirs:
+                    aligned_dirs = [(d.name, d) for d in sorted(P.aligned_glb.iterdir()) if d.is_dir()]
+            for cat, cat_dir in aligned_dirs:
                 glb_list = list(iter_glbs(cat_dir))
                 obj_list = list(iter_objs(cat_dir))
                 models = glb_list if args.input_format == "glb" else (obj_list if args.input_format == "obj" else (glb_list if glb_list else obj_list))
