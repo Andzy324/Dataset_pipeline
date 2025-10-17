@@ -535,9 +535,31 @@ def _estimate_face_count_from_obj(obj_path: Path, max_scan: int = 5_000_000) -> 
                 break
     return max(1, cnt)
 
-def _atlas_bytes_estimate(faces: int, tile: int) -> int:
-    # F × T × T × 3通道 × 4字节
-    return int(faces) * int(tile) * int(tile) * 3 * 4
+def _atlas_bytes_estimate(
+    faces: int,
+    tile: int,
+    *,
+    batch_dup: int = 1,
+    mip_scale: float = 4.0 / 3.0,
+    safety: float = 2.0,
+) -> int:
+    """
+    估算 atlas 占用：
+        faces × tile² × (RGB float32) × batch_dup × mip_scale × safety
+    - batch_dup：渲染时通常会把 mesh extend 到 batch_chunk 份；
+                 atlas 会被复制到每一份 mesh 上
+    - mip_scale：粗略补偿 mipmap/内部 padding（默认 4/3）
+    - safety   ：额外冗余，涵盖 atlas build 中的临时缓冲 / PyTorch 预留 chunk
+    """
+    faces = max(1, int(faces))
+    tile = max(1, int(tile))
+    batch_dup = max(1, int(batch_dup))
+    mip_scale = max(1.0, float(mip_scale))
+    safety = max(1.0, float(safety))
+
+    base = faces * tile * tile * 3 * 4  # float32 RGB
+    est = base * batch_dup * mip_scale * safety
+    return int(est)
 
 
 def obj_used_materials(obj_path: Path) -> Set[str]:
@@ -912,6 +934,7 @@ def load_obj_with_textures_p3d(
     atlas_size: int = 8,
     atlas_mem_limit_gb: float = 8.0,     # ★ 超限自动关掉 atlas
     axis_correction: str = "none",
+    batch_dup: int = 1,
 ) -> Tuple[Meshes, str, str]:
     """
     优先使用 PyTorch3D 新接口 load_objs_as_meshes：
@@ -958,11 +981,15 @@ def load_obj_with_textures_p3d(
     create_atlas = bool(use_atlas or (multi_diffuse_sources and not missing_maps))
     if create_atlas:
         F = _estimate_face_count_from_obj(obj_path)
-        bytes_est = _atlas_bytes_estimate(F, atlas_size)
+        bytes_est = _atlas_bytes_estimate(
+            F,
+            atlas_size,
+            batch_dup=batch_dup,
+        )
         limit = int(atlas_mem_limit_gb * (1024**3))
         if bytes_est > limit:
             print(f"[warn] atlas memory estimate {bytes_est/1e9:.1f} GB > limit {atlas_mem_limit_gb} GB; "
-                  f"auto-switch to UV textures (no atlas).  (faces≈{F}, tile={atlas_size})")
+                  f"auto-switch to UV textures (no atlas).  (faces≈{F}, tile={atlas_size}, batch_dup≈{batch_dup})")
             atlas_disabled_reason = (f"atlas estimate {bytes_est/1e9:.1f}GB exceeds limit {atlas_mem_limit_gb}GB")
             create_atlas = False
 
@@ -2619,6 +2646,19 @@ def render_single(a, device, src_path: Path, out_dir: Path):
     mask = None
     meta: List[Dict] = []
 
+    # 估计一次 atlas 在 batch 中会被复制的次数（约束在正数）
+    est_batch_chunk = int(getattr(a, "batch_chunk", 1) or 1)
+    if a.cam_mode == 'random':
+        total_views = max(1, int(getattr(a, "rand_cams", 0) or 0))
+    else:
+        total_views = (
+            int(getattr(a, "num_cams", 0) or 0)
+            + int(getattr(a, "top_ring_num", 0) or 0)
+            + int(getattr(a, "lat_ring_num", 0) or 0)
+        )
+        total_views = max(1, total_views)
+    atlas_batch_dup = max(1, min(est_batch_chunk, total_views))
+
     try:
         # --- load mesh (keep your original branches) ---
         if ext == ".obj" and a.use_uv_textures and a.obj_loader in ("auto", "p3d"):
@@ -2630,6 +2670,7 @@ def render_single(a, device, src_path: Path, out_dir: Path):
                     atlas_size=a.atlas_size,
                     atlas_mem_limit_gb=a.atlas_mem_limit_gb,
                     axis_correction=a.axis_correction,
+                    batch_dup=atlas_batch_dup,
                 )
                 print(f"[info] OBJ loader mode={loader_mode}: {loader_reason}")
             except Exception as e:
