@@ -1809,7 +1809,7 @@ def render_rgbd_batched(
         rs_kwargs["max_faces_per_bin"] = int(max_faces_per_bin)
     raster_settings = RasterizationSettings(**rs_kwargs)
 
-    lights = PointLights(device=device, location=[(2.0, 2.0, 2.0)], ambient_color=((0.4,0.4,0.4),))
+    lights = PointLights(device=device, location=[(1.1, 1.1, 2.0)], ambient_color=((0.55,0.55,0.55),))
     materials = Materials(
         device=device,
         ambient_color=((0.6, 0.6, 0.6),),
