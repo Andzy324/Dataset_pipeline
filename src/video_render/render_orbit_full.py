@@ -541,7 +541,7 @@ def _atlas_bytes_estimate(
     *,
     batch_dup: int = 1,
     mip_scale: float = 4.0 / 3.0,
-    safety: float = 2.0,
+    safety: float = 1.6,
 ) -> int:
     """
     估算 atlas 占用：
@@ -2647,7 +2647,7 @@ def render_single(a, device, src_path: Path, out_dir: Path):
     meta: List[Dict] = []
 
     # 估计一次 atlas 在 batch 中会被复制的次数（约束在正数）
-    est_batch_chunk = int(getattr(a, "batch_chunk", 1) or 1)
+    est_batch_chunk = max(1, int(getattr(a, "batch_chunk", 1) or 1))
     if a.cam_mode == 'random':
         total_views = max(1, int(getattr(a, "rand_cams", 0) or 0))
     else:
@@ -2657,7 +2657,23 @@ def render_single(a, device, src_path: Path, out_dir: Path):
             + int(getattr(a, "lat_ring_num", 0) or 0)
         )
         total_views = max(1, total_views)
-    atlas_batch_dup = max(1, min(est_batch_chunk, total_views))
+    atlas_batch_dup = est_batch_chunk
+
+    atlas_limit_gb = float(getattr(a, "atlas_mem_limit_gb", 0.0) or 0.0)
+    if device.type == 'cuda':
+        try:
+            idx = device.index if device.index is not None else torch.cuda.current_device()
+            free_bytes, _total_bytes = torch.cuda.mem_get_info(idx)
+            free_gb = free_bytes / (1024 ** 3)
+            dynamic_cap = 0.6 * free_gb
+            if atlas_limit_gb <= 0.0:
+                atlas_limit_gb = dynamic_cap
+            else:
+                atlas_limit_gb = min(atlas_limit_gb, dynamic_cap)
+        except Exception:
+            pass
+    elif atlas_limit_gb <= 0.0:
+        atlas_limit_gb = 0.0
 
     try:
         # --- load mesh (keep your original branches) ---
@@ -2668,7 +2684,7 @@ def render_single(a, device, src_path: Path, out_dir: Path):
                     device=device,
                     use_atlas=a.use_atlas,
                     atlas_size=a.atlas_size,
-                    atlas_mem_limit_gb=a.atlas_mem_limit_gb,
+                    atlas_mem_limit_gb=atlas_limit_gb,
                     axis_correction=a.axis_correction,
                     batch_dup=atlas_batch_dup,
                 )
