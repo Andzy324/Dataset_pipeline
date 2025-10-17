@@ -2108,6 +2108,10 @@ def step_render(args, P: PipelinePaths, models: Iterable[Path], category: str) -
             cmd += ["--seed", str(int(args.seed))]
         if getattr(args, "batch_chunk", None):
             cmd += ["--batch_chunk", str(int(args.batch_chunk))]
+        if getattr(args, "io_workers", None) is not None:
+            cmd += ["--io_workers", str(int(args.io_workers))]
+        if getattr(args, "io_max_pending", None) is not None:
+            cmd += ["--io_max_pending", str(int(args.io_max_pending))]
         if getattr(args, "bin_size", None) is not None:
             cmd += ["--bin_size", str(int(args.bin_size))]
         if getattr(args, "max_faces_per_bin", None) is not None:
@@ -2181,7 +2185,7 @@ def step_render(args, P: PipelinePaths, models: Iterable[Path], category: str) -
                 json.dump(manifest_entries, tf, indent=2)
                 manifest_path = Path(tf.name)
             cmd += ["--manifest", str(manifest_path)]
-            rc = sh(cmd, dry=getattr(args, "dry_run", False))
+            rc = sh(cmd, dry=getattr(args, "dry_run", False)) #, quiet=getattr(args, "quiet", False)
         finally:
             if manifest_path and manifest_path.exists():
                 try:
@@ -2238,6 +2242,10 @@ def step_render(args, P: PipelinePaths, models: Iterable[Path], category: str) -
             cmd += ["--seed", str(int(args.seed))]
         if args.batch_chunk:
             cmd += ["--batch_chunk", str(int(args.batch_chunk))]
+        if args.io_workers is not None:
+            cmd += ["--io_workers", str(int(args.io_workers))]
+        if args.io_max_pending is not None:
+            cmd += ["--io_max_pending", str(int(args.io_max_pending))]
         if args.save_h5:
             cmd += ["--save_h5"]
         if category is not None:
@@ -2313,7 +2321,7 @@ def step_render(args, P: PipelinePaths, models: Iterable[Path], category: str) -
         if args.overwrite_render:
             cmd += ["--overwrite"]
         
-        rc = sh(cmd, dry=args.dry_run)
+        rc = sh(cmd, dry=getattr(args, "dry_run", False), quiet=getattr(args, "quiet", False))
         if rc != 0:
             print(f"[WARN] Rendering failed for {model}")
 
@@ -2731,6 +2739,10 @@ def build_argparser() -> argparse.ArgumentParser:
     p.add_argument('--axis_correction', type=str, default='none', choices=['none','y_up_to_z_up','z_up_to_y_up'])
     p.add_argument("--seed", type=int, default=123, help="Random seed for rendering (default: None)")
     p.add_argument("--batch_chunk", type=int, default=0)
+    p.add_argument("--io_workers", type=int, default=6,
+                   help="渲染写盘线程池大小（0=同步执行）。推荐值：6。")
+    p.add_argument("--io_max_pending", type=int, default=12,
+                   help="后台待写任务上限（<=0 自动取 2*workers）。推荐值：12。")
     p.add_argument("--save_rgb_png", action=argparse.BooleanOptionalAction, default=False)
     p.add_argument("--save_mask_png", action=argparse.BooleanOptionalAction, default=False)
     p.add_argument("--save_metric_depth", action=argparse.BooleanOptionalAction, default=False)

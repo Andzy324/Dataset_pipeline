@@ -55,10 +55,13 @@ import os
 import random
 import re
 import tarfile
+from concurrent.futures import Future, ThreadPoolExecutor
 from pathlib import Path
-from typing import Dict, List, Tuple
+from threading import BoundedSemaphore
+from typing import Any, Dict, List, Optional, Set, Tuple
+import shlex
 import shutil
-from zipfile import ZipFile, ZIP_DEFLATED
+from zipfile import ZIP_DEFLATED, ZipFile
 
 import imageio
 import numpy as np
@@ -80,6 +83,15 @@ def _sanitize_name_for_fs(name: str) -> str:
     s = _FS_LABEL_WS_PATTERN.sub("_", s)
     s = re.sub(r"_+", "_", s).strip("_")
     return s or "item"
+
+
+def _round_tuple(values, ndigits: int = 3) -> Optional[Tuple[float, ...]]:
+    if values is None:
+        return None
+    try:
+        return tuple(round(float(v), ndigits) for v in values)
+    except Exception:
+        return None
 
 def _archive_path_from_dir(out_dir: Path, fmt: str) -> Path:
     out_dir = Path(out_dir)
@@ -116,6 +128,114 @@ def archive_output_dir(out_dir: Path, fmt: str = "tar.gz", keep_original: bool =
         shutil.rmtree(out_dir)
     print(f"[archive] wrote {archive_path} (keep_original={keep_original})")
     return archive_path
+
+# --- Async IO helpers --------------------------------------------------------
+class AsyncIOManager:
+    """
+    Lightweight thread-pool wrapper for deferring blocking IO (e.g., PNG/H5 writes).
+    Set workers=0 to fall back to synchronous execution.
+    """
+
+    def __init__(
+        self,
+        *,
+        workers: int = 4,
+        max_pending: int | None = None,
+    ) -> None:
+        self.workers = max(0, int(workers))
+        self.max_pending = max_pending if (max_pending is None or max_pending > 0) else None
+
+        self.exec = ThreadPoolExecutor(max_workers=self.workers) if self.workers > 0 else None
+        self._pending_limit = (
+            max(1, self.workers * 2) if self.max_pending is None else max(1, int(self.max_pending))
+        )
+        self._sem = BoundedSemaphore(self._pending_limit) if self.exec is not None else None
+        self._futs: list[Future] = []
+
+    def _run_callable(self, func, args, kwargs):
+        return func(*args, **kwargs)
+
+    def submit(self, func, *args, **kwargs) -> None:
+        if self.exec is None:
+            self._run_callable(func, args, kwargs)
+            return
+
+        assert self._sem is not None
+        self._sem.acquire()
+        fut = self.exec.submit(self._run_callable, func, args, kwargs)
+
+        def _release(_fut):
+            try:
+                self._sem.release()
+            except Exception:
+                pass
+
+        fut.add_done_callback(_release)
+        self._futs.append(fut)
+
+    def drain(self) -> None:
+        if self.exec is None:
+            return
+        while self._futs:
+            fut = self._futs.pop(0)
+            fut.result()
+
+    def close(self) -> None:
+        if self.exec is None:
+            return
+        try:
+            self.drain()
+        finally:
+            self.exec.shutdown(wait=True, cancel_futures=False)
+            self.exec = None
+
+
+def free_model_resources(*objs, executor: AsyncIOManager | None = None) -> None:
+    try:
+        torch.cuda.synchronize()
+    except Exception:
+        pass
+
+    for obj in objs:
+        try:
+            del obj
+        except Exception:
+            pass
+
+    if executor is not None:
+        try:
+            executor.drain()
+        finally:
+            executor.close()
+
+    try:
+        torch.cuda.empty_cache()
+        torch.cuda.ipc_collect()
+    except Exception:
+        pass
+
+    import gc
+    gc.collect()
+
+# --- mesh summary helper ----------------------------------------------------
+
+def debug_print_mesh_summary(mesh: Meshes) -> None:
+    """
+    Print a lightweight summary of a PyTorch3D Meshes object for debugging.
+    Safe to call even if mesh is batched or lacks textures.
+    """
+    if mesh is None:
+        print("[mesh] None")
+        return
+    try:
+        num_meshes = len(mesh)
+        verts = mesh.verts_packed()
+        faces = mesh.faces_packed()
+        vcount = verts.shape[0] if verts is not None else 0
+        fcount = faces.shape[0] if faces is not None else 0
+        print(f"[mesh] meshes={num_meshes} verts={vcount} faces={fcount} device={verts.device if verts is not None else 'cpu'}")
+    except Exception as e:
+        print(f"[mesh] summary failed: {type(e).__name__}: {e}")
 
 # --- PyTorch3D imports (with version fallbacks) ---
 from pytorch3d.renderer import (
@@ -419,6 +539,188 @@ def _atlas_bytes_estimate(faces: int, tile: int) -> int:
     # F × T × T × 3通道 × 4字节
     return int(faces) * int(tile) * int(tile) * 3 * 4
 
+
+def obj_used_materials(obj_path: Path) -> Set[str]:
+    used: Set[str] = set()
+    try:
+        with obj_path.open("r", encoding="utf-8", errors="ignore") as f:
+            for line in f:
+                line = line.strip()
+                if not line or line.startswith("#"):
+                    continue
+                if line.lower().startswith("usemtl"):
+                    parts = line.split(None, 1)
+                    if len(parts) >= 2:
+                        used.add(parts[1].strip())
+    except Exception:
+        pass
+    return used
+
+
+def mtl_material_summary(obj_path: Path, only_materials: Optional[Set[str]] = None) -> List[Dict[str, Any]]:
+    obj_path = Path(obj_path)
+    obj_dir = obj_path.parent
+    summaries: List[Dict[str, Any]] = []
+    mtl_files: List[Path] = []
+    try:
+        with obj_path.open("r", encoding="utf-8", errors="ignore") as f:
+            for line in f:
+                if line.lower().startswith("mtllib"):
+                    parts = line.split()[1:]
+                    mtl_files.extend(obj_dir / p for p in parts)
+    except Exception:
+        return summaries
+
+    for mtl_path in mtl_files:
+        if not mtl_path.exists():
+            continue
+        try:
+            text = mtl_path.read_text(encoding="utf-8", errors="ignore").splitlines()
+        except Exception:
+            continue
+
+        current: Optional[Dict[str, Any]] = None
+        parent = mtl_path.parent
+        scale_vals = (1.0, 1.0)
+        offset_vals = (0.0, 0.0)
+        clamp_flag = False
+
+        for raw in text:
+            line = raw.strip()
+            if not line or line.startswith("#"):
+                continue
+            lower = line.lower()
+            if lower.startswith("newmtl"):
+                if current is not None:
+                    summaries.append(current)
+                name = line.split(None, 1)[1].strip() if " " in line else ""
+                if only_materials and name not in only_materials:
+                    current = None
+                    continue
+                current = {
+                    "name": name,
+                    "map_kd_resolved": [],
+                    "missing_map_kd": False,
+                    "kd": None,
+                    "map_kd_scale": (1.0, 1.0),
+                    "map_kd_offset": (0.0, 0.0),
+                    "map_kd_clamp": False,
+                    "map_ka_resolved": [],
+                    "missing_map_ka": False,
+                    "map_ka_scale": (1.0, 1.0),
+                    "map_ka_offset": (0.0, 0.0),
+                    "map_ka_clamp": False,
+                }
+                scale_vals = (1.0, 1.0)
+                offset_vals = (0.0, 0.0)
+                clamp_flag = False
+            elif current is None:
+                continue
+            elif lower.startswith("kd "):
+                parts = line.split()
+                if len(parts) >= 4:
+                    try:
+                        current["kd"] = [float(parts[1]), float(parts[2]), float(parts[3])]
+                    except Exception:
+                        current["kd"] = None
+            elif lower.startswith("map_kd"):
+                try:
+                    tokens = shlex.split(raw)
+                except Exception:
+                    tokens = raw.split()
+                if not tokens:
+                    continue
+                idx = 1
+                while idx < len(tokens) - 1:
+                    t = tokens[idx].lower()
+                    if t == "-s" and idx + 2 < len(tokens):
+                        try:
+                            scale_vals = (float(tokens[idx+1]), float(tokens[idx+2]))
+                        except Exception:
+                            scale_vals = (1.0, 1.0)
+                        idx += 3
+                        continue
+                    if t == "-o" and idx + 2 < len(tokens):
+                        try:
+                            offset_vals = (float(tokens[idx+1]), float(tokens[idx+2]))
+                        except Exception:
+                            offset_vals = (0.0, 0.0)
+                        idx += 3
+                        continue
+                    if t == "-clamp" and idx + 1 < len(tokens):
+                        clamp_flag = tokens[idx+1].lower() in ("on", "1", "true")
+                        idx += 2
+                        continue
+                    idx += 1
+                tex_path = Path(tokens[-1])
+                if not tex_path.is_absolute():
+                    tex_path = parent / tex_path
+                if tex_path.exists():
+                    try:
+                        current["map_kd_resolved"].append(str(tex_path.resolve()))
+                    except Exception:
+                        current["map_kd_resolved"].append(str(tex_path))
+                else:
+                    current["missing_map_kd"] = True
+                current["map_kd_scale"] = scale_vals
+                current["map_kd_offset"] = offset_vals
+                current["map_kd_clamp"] = clamp_flag
+            elif lower.startswith("map_ka"):
+                try:
+                    tokens = shlex.split(raw)
+                except Exception:
+                    tokens = raw.split()
+                if not tokens:
+                    continue
+                idx = 1
+                ka_scale = (1.0, 1.0)
+                ka_offset = (0.0, 0.0)
+                ka_clamp = False
+                while idx < len(tokens) - 1:
+                    t = tokens[idx].lower()
+                    if t == "-s" and idx + 2 < len(tokens):
+                        try:
+                            ka_scale = (float(tokens[idx+1]), float(tokens[idx+2]))
+                        except Exception:
+                            ka_scale = (1.0, 1.0)
+                        idx += 3
+                        continue
+                    if t == "-o" and idx + 2 < len(tokens):
+                        try:
+                            ka_offset = (float(tokens[idx+1]), float(tokens[idx+2]))
+                        except Exception:
+                            ka_offset = (0.0, 0.0)
+                        idx += 3
+                        continue
+                    if t == "-clamp" and idx + 1 < len(tokens):
+                        ka_clamp = tokens[idx+1].lower() in ("on", "1", "true")
+                        idx += 2
+                        continue
+                    idx += 1
+                tex_path = Path(tokens[-1])
+                if not tex_path.is_absolute():
+                    tex_path = parent / tex_path
+                if tex_path.exists():
+                    try:
+                        current["map_ka_resolved"].append(str(tex_path.resolve()))
+                    except Exception:
+                        current["map_ka_resolved"].append(str(tex_path))
+                else:
+                    current["missing_map_ka"] = True
+                current["map_ka_scale"] = ka_scale
+                current["map_ka_offset"] = ka_offset
+                current["map_ka_clamp"] = ka_clamp
+
+        if current is not None:
+            if not current["map_kd_resolved"] and current["map_ka_resolved"]:
+                current["map_kd_resolved"] = current["map_ka_resolved"]
+                current["missing_map_kd"] = current["missing_map_ka"]
+                current["map_kd_scale"] = current["map_ka_scale"]
+                current["map_kd_offset"] = current["map_ka_offset"]
+                current["map_kd_clamp"] = current["map_ka_clamp"]
+            summaries.append(current)
+    return summaries
+
 from pytorch3d.renderer import TexturesAtlas
 
 def has_textures(mesh) -> bool:
@@ -582,77 +884,6 @@ def mtl_has_maps(obj_path: Path) -> bool:
             return True
     return False
 
-
-def mtl_map_count(obj_path: Path) -> int:
-    """
-    Count how many map_* entries are referenced by the OBJ's MTL files.
-    Used to infer multi-material cases that should prefer atlas loading.
-    """
-    obj_path = Path(obj_path)
-    mtls: List[Path] = []
-    try:
-        with obj_path.open("r", encoding="utf-8", errors="ignore") as f:
-            for line in f:
-                if line.lower().startswith("mtllib"):
-                    parts = line.split()[1:]
-                    mtls.extend(obj_path.parent / p for p in parts)
-    except Exception:
-        return 0
-
-    count = 0
-    for mtl in mtls:
-        if not mtl.exists():
-            continue
-        try:
-            for line in mtl.read_text(encoding="utf-8", errors="ignore").splitlines():
-                if line.strip().lower().startswith("map_"):
-                    count += 1
-        except Exception:
-            continue
-    return count
-
-
-def _textures_have_data(tex) -> bool:
-    if tex is None:
-        return False
-    # Atlas textures
-    try:
-        if hasattr(tex, "atlas_packed"):
-            atlas = tex.atlas_packed()
-            if atlas is not None and atlas.numel() > 0:
-                return True
-    except Exception:
-        pass
-    # UV textures
-    for attr in ("maps_padded", "maps_list"):
-        try:
-            fn = getattr(tex, attr, None)
-            if fn is None:
-                continue
-            data = fn()
-            if data is None:
-                continue
-            if hasattr(data, "numel"):  # tensor
-                if data.numel() > 0:
-                    return True
-            elif isinstance(data, (list, tuple)) and data:
-                first = data[0]
-                if hasattr(first, "numel") and first.numel() > 0:
-                    return True
-                if hasattr(first, "__len__") and len(first) > 0:
-                    return True
-        except Exception:
-            continue
-    # Vertex color textures
-    try:
-        if hasattr(tex, "verts_features_padded"):
-            vf = tex.verts_features_padded()
-            if vf is not None and vf.numel() > 0:
-                return True
-    except Exception:
-        pass
-    return False
-
 def _n_meshes(meshes: Meshes) -> int:
     """robust: PyTorch3D 各版本都能拿到批大小"""
     try:
@@ -681,7 +912,7 @@ def load_obj_with_textures_p3d(
     atlas_size: int = 8,
     atlas_mem_limit_gb: float = 8.0,     # ★ 超限自动关掉 atlas
     axis_correction: str = "none",
-) -> Meshes:
+) -> Tuple[Meshes, str, str]:
     """
     优先使用 PyTorch3D 新接口 load_objs_as_meshes：
       - 默认 create_texture_atlas=False（使用 UV 贴图，省内存）
@@ -692,14 +923,39 @@ def load_obj_with_textures_p3d(
         raise RuntimeError("pytorch3d load_objs_as_meshes not available in this environment.")
 
     obj_path = Path(obj_path)
-    maps_in_mtl = mtl_map_count(obj_path)
-    multi_map_expected = maps_in_mtl > 1
-    force_atlas = bool(use_atlas)
+    used_materials = obj_used_materials(obj_path)
+    material_summary = mtl_material_summary(obj_path, used_materials if used_materials else None)
+    distinct_maps = {
+        str(Path(p).resolve())
+        for entry in material_summary
+        for p in entry.get("map_kd_resolved", [])
+    }
+    pure_colors = {
+        rounded
+        for entry in material_summary
+        for rounded in [_round_tuple(entry.get("kd"), 3)]
+        if not entry.get("map_kd_resolved") and rounded is not None
+    }
+    missing_maps = any(entry.get("missing_map_kd") for entry in material_summary)
+    multi_diffuse_sources = (len(distinct_maps) + len(pure_colors)) > 1
 
     from importlib import import_module
     _io = import_module("pytorch3d.io")
     # 若请求 atlas，先做熔断检查
-    create_atlas = bool(force_atlas or multi_map_expected)
+    atlas_disabled_reason: Optional[str] = None
+    atlas_reason_parts: List[str] = []
+    if len(distinct_maps) > 1:
+        atlas_reason_parts.append(f"{len(distinct_maps)} diffuse textures")
+    if len(pure_colors) > 1:
+        atlas_reason_parts.append(f"{len(pure_colors)} pure colors")
+    elif len(pure_colors) == 1 and len(distinct_maps) >= 1:
+        atlas_reason_parts.append("pure colors + textures")
+    if use_atlas:
+        atlas_reason_parts.append("forced atlas")
+    if missing_maps:
+        atlas_reason_parts.append("missing diffuse maps")
+
+    create_atlas = bool(use_atlas or (multi_diffuse_sources and not missing_maps))
     if create_atlas:
         F = _estimate_face_count_from_obj(obj_path)
         bytes_est = _atlas_bytes_estimate(F, atlas_size)
@@ -707,10 +963,8 @@ def load_obj_with_textures_p3d(
         if bytes_est > limit:
             print(f"[warn] atlas memory estimate {bytes_est/1e9:.1f} GB > limit {atlas_mem_limit_gb} GB; "
                   f"auto-switch to UV textures (no atlas).  (faces≈{F}, tile={atlas_size})")
+            atlas_disabled_reason = (f"atlas estimate {bytes_est/1e9:.1f}GB exceeds limit {atlas_mem_limit_gb}GB")
             create_atlas = False
-            if multi_map_expected:
-                print("[warn] OBJ references multiple textures but atlas was disabled due to memory limit; "
-                      "result may drop extra materials.")
 
     # ---- 1) 先试 UV 贴图模式 ----
     def _load(uv_mode: bool):
@@ -731,81 +985,105 @@ def load_obj_with_textures_p3d(
         finally:
             os.chdir(cwd)
 
+    # def _has_valid_textures(mesh: Meshes) -> bool:
+    #     # TexturesUV 或 TexturesAtlas 都可以，关键是非空
+    #     tex = getattr(mesh, "textures", None)
+    #     if tex is None:
+    #         return False
+    #     # TexturesUV: maps() 非空；TexturesAtlas: atlas_packed() 非空
+    #     try:
+    #         if hasattr(tex, "maps_padded"):
+    #             mp = tex.maps_padded()
+    #             if mp is not None and mp.numel() > 0:
+    #                 return True
+    #     except Exception:
+    #         pass
+    #     try:
+    #         if hasattr(tex, "maps_list"):
+    #             ml = tex.maps_list()
+    #             if ml and ml[0] is not None and ml[0].numel() > 0:
+    #                 return True
+    #     except Exception:
+    #         pass
+    #     # NOTE: 不调用 atlas_packed()，避免触发整张图集的构建导致显存激增
+    #     # try:
+    #     #     if hasattr(tex, "atlas_packed"):
+    #     #         atlas = tex.atlas_packed()
+    #     #         if atlas is not None and atlas.numel() > 0:
+    #     #             return True
+    #     # except Exception:
+    #     #     pass
+    #     return False
     def _has_valid_textures(mesh: Meshes) -> bool:
-        # TexturesUV 或 TexturesAtlas 都可以，关键是非空
-        tex = getattr(mesh, "textures", None)
-        if tex is None:
+        tx = getattr(mesh, "textures", None)
+        if tx is None:
             return False
-        # TexturesUV: maps() 非空；TexturesAtlas: atlas_packed() 非空
-        try:
-            if hasattr(tex, "maps_padded"):
-                mp = tex.maps_padded()
-                if mp is not None and mp.numel() > 0:
-                    return True
-        except Exception:
-            pass
-        try:
-            if hasattr(tex, "maps_list"):
-                ml = tex.maps_list()
-                if ml and ml[0] is not None and ml[0].numel() > 0:
-                    return True
-        except Exception:
-            pass
-        try:
-            if hasattr(tex, "atlas_packed"):
-                atlas = tex.atlas_packed()
-                if atlas is not None and atlas.numel() > 0:
-                    return True
-        except Exception:
-            pass
-        return False
+        # 不要调用 atlas_packed()，避免重分配
+        if isinstance(tx, TexturesUV):
+            try:
+                mp = tx.maps_padded()
+                return (mp is not None) and (mp.ndim == 4) and (mp.shape[-1] in (3,4)) and (mp.numel() > 0)
+            except Exception:
+                return True
+        if isinstance(tx, TexturesAtlas):
+            # atlas 实例即认为可用
+            return True
+        if isinstance(tx, TexturesVertex):
+            try:
+                vf = tx.verts_features_padded()
+                return (vf is not None) and (vf.ndim == 3) and (vf.shape[-1] == 3)
+            except Exception:
+                return True
+        return True
 
-    # 根据情况直接选择加载模式，避免重复尝试
-    if create_atlas:
+    def _finish(mesh: Meshes) -> Meshes:
+        Rfix = axis_correction_matrix(axis_correction, device)
+        if not torch.allclose(Rfix, torch.eye(3, device=device)):
+            verts_fixed = [V @ Rfix.T for V in mesh.verts_list()]
+            faces_list = mesh.faces_list()
+            tex = mesh.textures
+            try:
+                tex = tex.to(device)
+            except Exception:
+                pass
+            mesh = Meshes(verts=verts_fixed, faces=faces_list, textures=tex)
+        return mesh
+
+    if create_atlas and (use_atlas or multi_diffuse_sources):
         mesh = _load(uv_mode=False)
-        if not _has_valid_textures(mesh):
-            raise RuntimeError("PyTorch3D atlas textures empty; cannot preserve multi-material OBJ")
-    else:
-        mesh = _load(uv_mode=True)
-        if not _has_valid_textures(mesh):
-            print("[warn] UV texture load failed or empty; ", end="")
-            has_map = mtl_has_maps(obj_path)
-            if force_atlas and has_map:
-                print(f"retry with atlas (tile={atlas_size})...")
-                mesh = _load(uv_mode=False)
-            else:
-                print("no map_* to retry or atlas disabled; falling back to trimesh loader.")
-                raise RuntimeError("UV textures missing; atlas disabled")
+        if _has_valid_textures(mesh):
+            reason = "; ".join(atlas_reason_parts) if atlas_reason_parts else "atlas enabled"
+            return _finish(mesh), "atlas", reason
+        else:
+            print("[warn] atlas load failed or empty textures; falling back to UV")
+            create_atlas = False
+
+    # UV primary path
+    mesh = _load(uv_mode=True)
+    if not _has_valid_textures(mesh):
+        print("[warn] UV texture load failed or empty; ", end="")
+        has_map = bool(distinct_maps)
+        if create_atlas and has_map:
+            print(f"retry with atlas (tile={atlas_size})...")
+            mesh = _load(uv_mode=False)
             if not _has_valid_textures(mesh):
-                raise RuntimeError("PyTorch3D textures still empty after retries")
-
-            # if not _has_valid_textures(mesh):
-            #     # 到这还不行，给出明确诊断，方便你定位 MTL/路径问题
-            #     raise RuntimeError(
-            #         "PyTorch3D failed to attach textures for this OBJ.\n"
-            #         "可能原因：\n"
-            #         "  - OBJ 未正确引用 .mtl（缺少 mtllib/usemtl）；\n"
-            #         "  - .mtl 未包含 map_Kd / 贴图路径错误；\n"
-            #         "  - 贴图路径为相对路径，但当前工作目录或解析目录不对；\n"
-            #         "  - 贴图格式 PyTorch3D 无法解码；\n"
-            #         "建议：用低层 _io.load_obj() 检查 aux.texture_images 是否非空；"
-            #         "或临时导出为 atlas（create_texture_atlas=True）以规避多材质拼接问题。"
-            #     )
-
-    # ---- 2) 轴系修正：只旋转顶点，不触碰 textures ----
-    Rfix = axis_correction_matrix(axis_correction, device)
-    if not torch.allclose(Rfix, torch.eye(3, device=device)):
-        verts_fixed = [V @ Rfix.T for V in mesh.verts_list()]
-        faces_list  = mesh.faces_list()
-        # 确保 textures 也在目标 device（有些版本 textures 默认在 CPU）
-        tex = mesh.textures
-        try:
-            tex = tex.to(device)
-        except Exception:
-            pass
-        mesh = Meshes(verts=verts_fixed, faces=faces_list, textures=tex)
-
-    return mesh
+                raise RuntimeError("PyTorch3D atlas textures still empty after retries")
+            reason = "; ".join(atlas_reason_parts) if atlas_reason_parts else "atlas fallback after UV failure"
+            return _finish(mesh), "atlas", reason
+        else:
+            print("no map_* to retry or atlas disabled; falling back to trimesh loader.")
+            raise RuntimeError("UV textures missing; atlas disabled")
+    else:
+        if multi_diffuse_sources and (not create_atlas or atlas_disabled_reason):
+            detail = f"{len(distinct_maps)} map(s), {len(pure_colors)} pure color(s)"
+            if atlas_disabled_reason:
+                reason = f"{atlas_disabled_reason}; UV fallback ({detail})"
+            else:
+                reason = f"UV fallback ({detail})"
+            return _finish(mesh), "uv", reason
+        detail = f"{len(distinct_maps)} map(s), {len(pure_colors)} pure color(s)"
+        reason = f"single diffuse source ({detail})"
+        return _finish(mesh), "uv", reason
 
 def load_mesh_any(
     path: str | Path,
@@ -954,6 +1232,37 @@ def load_mesh_any(
             cnt.index_add_(0, idx, one)
             mask = cnt.squeeze(-1) > 0
             verts_rgb[mask] = verts_rgb[mask] / cnt[mask]
+    elif hasattr(tri, "visual") and getattr(tri.visual, "face_materials", None) is not None and getattr(tri.visual, "materials", None) is not None:
+        try:
+            face_materials = np.asarray(tri.visual.face_materials)
+            materials = list(tri.visual.materials)
+        except Exception:
+            face_materials = None
+            materials = []
+        if face_materials is not None and face_materials.size == faces.shape[0] and len(materials) > 0:
+            F = faces.shape[0]
+            face_cols = np.zeros((F, 3), dtype=np.float32)
+            for mid in np.unique(face_materials):
+                try:
+                    mat = materials[int(mid)]
+                    kd = getattr(mat, "diffuse", None)
+                    if kd is not None:
+                        col = np.asarray(kd[:3], dtype=np.float32)
+                    else:
+                        col = np.array([albedo, albedo, albedo], dtype=np.float32)
+                except Exception:
+                    col = np.array([albedo, albedo, albedo], dtype=np.float32)
+                face_cols[face_materials == mid] = col
+            verts_rgb = torch.zeros((verts.shape[0], 3), dtype=torch.float32, device=device)
+            cnt = torch.zeros((verts.shape[0], 1), dtype=torch.float32, device=device)
+            idx = faces.reshape(-1)
+            col = torch.from_numpy(face_cols).to(device)
+            col = col[:, None, :].expand(F, 3, 3).reshape(-1, 3)
+            one = torch.ones((idx.numel(), 1), dtype=torch.float32, device=device)
+            verts_rgb.index_add_(0, idx, col)
+            cnt.index_add_(0, idx, one)
+            mask = cnt.squeeze(-1) > 0
+            verts_rgb[mask] = verts_rgb[mask] / cnt[mask]
 
     if verts_rgb is None:
         verts_rgb = torch.full((verts.shape[0], 3), float(albedo), device=device)
@@ -1037,7 +1346,7 @@ def load_mesh_any_glb_uv(path, device, albedo: float = 0.7,
 
     # 把所有带纹理的子网格打包成一个 Meshes
     textures = TexturesUV(
-        maps=maps_list,
+        maps=_srgb_to_linear_(maps_list),
         faces_uvs=faces_uvs_list,
         verts_uvs=verts_uvs_list,
     )
@@ -1435,7 +1744,7 @@ def render_rgbd_batched(
     *,
     batch_chunk: int = 0,
     cull_backfaces: bool = True,
-    bg_color: Tuple[float, float, float] = (0.2, 0.2, 0.2),#(1.0, 1.0, 1.0), new bg_color as meshlab
+    bg_color: Tuple[float, float, float] = (1.0, 1.0, 1.0),
     bin_size: int | None = 0,
     max_faces_per_bin: int | None = None,
     # --- NEW ---
@@ -1473,10 +1782,6 @@ def render_rgbd_batched(
         rs_kwargs["max_faces_per_bin"] = int(max_faces_per_bin)
     raster_settings = RasterizationSettings(**rs_kwargs)
 
-    # lights = PointLights(device=device, location=[(2.0, 2.0, 2.0)], ambient_color=((0.15,0.15,0.15),))
-    # materials = Materials(device=device, ambient_color=((0.2, 0.2, 0.2),), 
-    #                       diffuse_color=((0.7, 0.7, 0.7),), specular_color=((0.1, 0.1, 0.1),), 
-    #                       shininess=16)
     lights = PointLights(device=device, location=[(2.0, 2.0, 2.0)], ambient_color=((0.4,0.4,0.4),))
     materials = Materials(
         device=device,
@@ -1485,8 +1790,6 @@ def render_rgbd_batched(
         specular_color=((0.04, 0.04, 0.04),),
         shininess=32.0,
     )
-    
-    
     blend = BlendParams(background_color=tuple(bg_color))
 
     rgbs: list[torch.Tensor] = []
@@ -2202,6 +2505,10 @@ def parse_args() -> argparse.Namespace:
     p.add_argument('--max_faces_per_bin', type=int, default=200000)
     # Runtime
     p.add_argument('--batch_chunk', type=int, default=0)
+    p.add_argument('--io_workers', type=int, default=4,
+               help='异步 IO 线程池大小；设为 0 则退化为同步写盘')
+    p.add_argument('--io_max_pending', type=int, default=0,
+               help='限制排队中的 IO 任务数（0=自动，约等于 2*workers）')
     p.add_argument('--save_rgb_png', action='store_true',
                help='将渲染的 RGB 保存为 PNG（uint8）')
     p.add_argument('--save_mask_png', action='store_true',
@@ -2299,235 +2606,215 @@ def render_single(a, device, src_path: Path, out_dir: Path):
     # choose loader by file suffix, NOT by input_format
     ext = src_path.suffix.lower()
 
-    # --- load mesh (keep your original branches) ---
-    if ext == ".obj" and a.use_uv_textures and a.obj_loader in ("auto", "p3d"):
-        try:
-            mesh = load_obj_with_textures_p3d(
-                src_path,
-                device=device,
-                use_atlas=a.use_atlas,
-                atlas_size=a.atlas_size,
-                atlas_mem_limit_gb=a.atlas_mem_limit_gb,
-                axis_correction=a.axis_correction,
-            )
-            tex_check = getattr(mesh, "textures", None)
-            if not _textures_have_data(tex_check):
-                raise RuntimeError("PyTorch3D loader returned mesh without textures")
-            print(f"[info] OBJ via PyTorch3D loader: {src_path}")
-        except Exception as e:
-            print(f"[warn] p3d OBJ loader failed: {e} ; falling back to trimesh loader.")
+    io_mgr = AsyncIOManager(
+        workers=getattr(a, "io_workers", 4),
+        max_pending=None if getattr(a, "io_max_pending", 0) <= 0 else int(a.io_max_pending),
+    )
+
+    mesh = None
+    cameras = None
+    rgb = None
+    depth = None
+    nocs = None
+    mask = None
+    meta: List[Dict] = []
+
+    try:
+        # --- load mesh (keep your original branches) ---
+        if ext == ".obj" and a.use_uv_textures and a.obj_loader in ("auto", "p3d"):
+            try:
+                mesh, loader_mode, loader_reason = load_obj_with_textures_p3d(
+                    src_path,
+                    device=device,
+                    use_atlas=a.use_atlas,
+                    atlas_size=a.atlas_size,
+                    atlas_mem_limit_gb=a.atlas_mem_limit_gb,
+                    axis_correction=a.axis_correction,
+                )
+                print(f"[info] OBJ loader mode={loader_mode}: {loader_reason}")
+            except Exception as e:
+                print(f"[warn] p3d OBJ loader failed: {e} ; falling back to trimesh loader.")
+                mesh = load_mesh_any(
+                    src_path, device=device,
+                    albedo=a.albedo, use_uv_textures=a.use_uv_textures,
+                    flip_v=a.flip_v, apply_scene_xform=(not a.no_apply_scene_xform),
+                    axis_correction=a.axis_correction,
+                )
+                print("[info] OBJ loader mode=trimesh: fallback after p3d failure")
+        else:
             mesh = load_mesh_any(
                 src_path, device=device,
                 albedo=a.albedo, use_uv_textures=a.use_uv_textures,
                 flip_v=a.flip_v, apply_scene_xform=(not a.no_apply_scene_xform),
                 axis_correction=a.axis_correction,
             )
-    else:
-        mesh = load_mesh_any(
-            src_path, device=device,
-            albedo=a.albedo, use_uv_textures=a.use_uv_textures,
-            flip_v=a.flip_v, apply_scene_xform=(not a.no_apply_scene_xform),
-            axis_correction=a.axis_correction,
-        )
 
-    tex = getattr(mesh, "textures", None)
-    # if tex is None:
-    #     print(f"[debug][tex] {src_path.name}: textures=None")
-    # else:
-    #     print(f"[debug][tex] {src_path.name}: type={type(tex).__name__}")
-    #     try:
-    #         maps = tex.maps_padded()
-    #         if maps is not None:
-    #             print(f"[debug][tex] maps shape={tuple(maps.shape)} "
-    #                   f"min={float(maps.min()):.4f} max={float(maps.max()):.4f}")
-    #     except Exception as e:
-    #         print(f"[debug][tex] maps_padded failed: {e}")
-    #     try:
-    #         maps_list = tex.maps_list()
-    #         if maps_list:
-    #             print(f"[debug][tex] maps_list count={len(maps_list)} "
-    #                   f"sizes={[tuple(m.shape) for m in maps_list]}")
-    #     except Exception as e:
-    #         print(f"[debug][tex] maps_list failed: {e}")
-    #     try:
-    #         atlas = tex.atlas_packed()
-    #         if atlas is not None:
-    #             print(f"[debug][tex] atlas shape={tuple(atlas.shape)} "
-    #                   f"min={float(atlas.min()):.4f} max={float(atlas.max()):.4f}")
-    #     except Exception:
-    #         pass
-    #     try:
-    #         faces_uvs = tex.faces_uvs_list()
-    #         print(f"[debug][tex] faces_uvs_list count={len(faces_uvs)} "
-    #               f"lens={[fu.shape for fu in faces_uvs]}")
-    #     except Exception as e:
-    #         print(f"[debug][tex] faces_uvs_list failed: {e}")
-    #     try:
-    #         verts_uvs = tex.verts_uvs_list()
-    #         print(f"[debug][tex] verts_uvs_list count={len(verts_uvs)} "
-    #               f"lens={[vu.shape for vu in verts_uvs]}")
-    #     except Exception as e:
-    #         print(f"[debug][tex] verts_uvs_list failed: {e}")
-    #     try:
-    #         verts_feat = tex.verts_features_padded()
-    #         if verts_feat is not None:
-    #             print(f"[debug][tex] verts_features shape={tuple(verts_feat.shape)} "
-    #                   f"min={float(verts_feat.min()):.4f} max={float(verts_feat.max()):.4f}")
-    #     except Exception:
-    #         pass
+        # --- camera rings (unchanged) ---
+        base_dist = compute_fit_distance(mesh, fov_deg=a.fov_deg, margin=1.8)
+        # 统一的起始方位：把 yaw_offset 叠加到 equatorial / top / lat
+        start0 = a.start_azim_deg if (a.start_azim_deg is not None) else (0.0 if a.no_random_start else None)
+        if start0 is not None:
+            start0 = float(start0) + float(a.yaw_offset_deg)
+        # 顶部环起始方位：显式给则用显式；否则跟随 equatorial（若 equatorial 随机，则用 yaw_offset）
+        top_start = a.top_ring_start_azim_deg if (a.top_ring_start_azim_deg is not None) else (start0 if start0 is not None else float(a.yaw_offset_deg))
+        # 纬向环固定方位：在用户给定基础上加偏航
+        lat_azim = float(a.lat_ring_azim_deg) + float(a.yaw_offset_deg)
 
-    # --- camera rings (unchanged) ---
-    base_dist = compute_fit_distance(mesh, fov_deg=a.fov_deg, margin=1.8)
-    # 统一的起始方位：把 yaw_offset 叠加到 equatorial / top / lat
-    # 注意：a.start_azim_deg=0 要被正确识别为“给定 0°”，不能当成 None
-    start0 = a.start_azim_deg if (a.start_azim_deg is not None) else (0.0 if a.no_random_start else None)
-    if start0 is not None:
-        start0 = float(start0) + float(a.yaw_offset_deg)
-    # 顶部环起始方位：显式给则用显式；否则跟随 equatorial（若 equatorial 随机，则用 yaw_offset）
-    top_start = a.top_ring_start_azim_deg if (a.top_ring_start_azim_deg is not None) else (start0 if start0 is not None else float(a.yaw_offset_deg))
-    # 纬向环固定方位：在用户给定基础上加偏航
-    lat_azim = float(a.lat_ring_azim_deg) + float(a.yaw_offset_deg)
+        Vs = torch.cat(mesh.verts_list(), dim=0).detach()
+        bmin = Vs.min(0).values; bmax = Vs.max(0).values
+        center = 0.5 * (bmin + bmax)
+        bbox_extent = (bmax - bmin)
+        obj_scale = float(bbox_extent.norm().item())
 
-    Vs = torch.cat(mesh.verts_list(), dim=0).detach()
-    bmin = Vs.min(0).values; bmax = Vs.max(0).values
-    center = 0.5 * (bmin + bmax)
-    bbox_extent = (bmax - bmin)
-    obj_scale = float(bbox_extent.norm().item())  # 一个代表性全局尺度
+        if a.cam_mode == 'random':
+            # 基础半径：优先用户指定，否则自动估计
+            base_dist = float(a.sphere_dist)
+            if base_dist <= 0:
+                base_dist = compute_fit_distance(mesh, fov_deg=a.fov_deg, margin=1.6)
 
-    if a.cam_mode == 'random':
-        # 基础半径：优先用户指定，否则自动估计
-        base_dist = float(a.sphere_dist)
-        if base_dist <= 0:
-            base_dist = compute_fit_distance(mesh, fov_deg=a.fov_deg, margin=1.6)  # 比 rings 稍紧凑一点
-
-        # 采样固定球面 + 小扰动（无 look-at 抖动）
-        eye, at = sample_fixed_sphere_cameras(
-            num=a.rand_cams,
-            dist=base_dist,
-            center=center,
-            device=device,
-            pos_tangent_jitter=float(a.pos_tangent_jitter),
-            depth_jitter=float(a.depth_jitter),
-        )
-
-        # 构建 R,T（Z-up；始终看 center）
-        R, T = build_lookat_from_eye_at(eye, at, device=device, up=(0.0, 0.0, 1.0))
-        cameras = FoVPerspectiveCameras(device=device, R=R, T=T, fov=float(a.fov_deg), znear=0.05, zfar=50.0)
-
-        # 记录 meta（便于复现/审计）
-        meta = [{
-            "name": "random_fixed_sphere", "num": int(a.rand_cams), "azims": None, "elevs": None, "dist": float(base_dist),
-            }]
-    else:
-        Rs, Ts, meta = [], [], []
-        R0, T0, az0, el0, d0 = ring_equatorial(
-            num=a.num_cams, elev_deg=a.elev_deg, dist=base_dist, device=device,
-            start_azim_deg=start0,
-            seed=(None if a.no_random_start else a.seed), center=center
-        )
-        Rs.append(R0); Ts.append(T0)
-        meta.append({"name":"equatorial","num":a.num_cams,
-                    "azims":az0.tolist(),"elevs":el0.tolist(),"dist":float(base_dist)})
-
-        if a.top_ring_num > 0:
-            top_dist = float(base_dist) * float(a.top_ring_dist_scale)
-            R1, T1, az1, el1, d1 = ring_top(
-                num=a.top_ring_num, top_elev_deg=a.top_ring_elev_deg,
-                dist=top_dist, device=device, start_azim_deg=top_start, center=center,
-            )  
-            Rs.append(R1); Ts.append(T1)
-            meta.append({"name":"top","num":a.top_ring_num,
-                        "azims":az1.tolist(),"elevs":el1.tolist(),"dist":float(top_dist)})
-
-        if a.lat_ring_num > 0:
-            lat_dist = float(base_dist) * float(a.lat_ring_dist_scale)
-            R2, T2, az2, el2, d2 = ring_latitudinal(
-                num=a.lat_ring_num, azim_deg=lat_azim, dist=lat_dist, device=device,
-                min_elev_deg=a.lat_ring_min_elev_deg, max_elev_deg=a.lat_ring_max_elev_deg,
+            eye, at = sample_fixed_sphere_cameras(
+                num=a.rand_cams,
+                dist=base_dist,
                 center=center,
+                device=device,
+                pos_tangent_jitter=float(a.pos_tangent_jitter),
+                depth_jitter=float(a.depth_jitter),
             )
-            Rs.append(R2); Ts.append(T2)
-            meta.append({"name":"latitudinal","num":a.lat_ring_num,
-                        "azims":az2.tolist(),"elevs":el2.tolist(),"dist":float(lat_dist)})
-        # # pytorch 3d convention is y up, z forward (set up camera using look_at_view_transform), so to preserve the obj orientation, we need to swap y and z axis
-        # # === 将相机外参从 Y-up 基底重写为 Z-up 基底（只改 R，T 保持不变）===
-        # # 依赖你脚本里已有的 axis_correction_matrix
-        # Q = axis_correction_matrix("y_up_to_z_up", device=Rs[0].device)  # [3,3]，绕 +X 轴 +90°
-        # Rs = [R @ Q for R in Rs]  # 右乘基变换：R_zup = R_yup @ Q
-        cameras = concat_cameras(Rs, Ts, device=device, fov_deg=a.fov_deg)
-    # === Camera visualization (optional) ===
-    if a.viz_poses:
-        try:
-            visualize_cameras(
-                cameras=cameras,
-                center=center, bmin=bmin, bmax=bmax,
-                out_dir=(out_dir / "cam_viz"),
-                meta=(meta if a.cam_mode=='rings' else None),
-                backend=a.viz_backend,
-                draw_frustum=a.viz_frustum,
-                max_frustums=a.viz_max_frustums,
-                show=a.viz_show,
-            )
-        except Exception as e:
-            print(f"[warn] camera viz failed: {type(e).__name__}: {e}")
-    # --- render & save (unchanged) ---
-    rgb, depth, nocs, mask = render_rgbd_batched(
-        mesh=mesh, cameras=cameras, image_size=a.image_size, device=device,
-        batch_chunk=a.batch_chunk, cull_backfaces=(not a.no_cull_backfaces),
-        bg_color=tuple(a.bg_color),
-        bin_size=(None if a.bin_size is None else int(a.bin_size)),
-        max_faces_per_bin=(None if a.max_faces_per_bin is None else int(a.max_faces_per_bin)),
-        # NOCS
-        return_nocs = (a.save_nocs or a.save_nocs_png8 or a.make_nocs_video or a.save_h5),
-        nocs_mode = a.nocs_norm,
-        nocs_equal_axis = a.nocs_equal_axis,
-        # NOCS checker
-        check_nocs=a.check_nocs,
-        nocs_check_stride=a.nocs_check_stride,
-        nocs_check_voxel=a.nocs_check_voxel,
-        nocs_check_topk=a.nocs_check_topk,
-    )
-    # --- NEW: 保存 NOCS 帧序列 ---
-    if isinstance(nocs, dict) and "plus" in nocs:
-        nocs_to_save = {"plus": nocs["plus"]} # 只保存 NOCS-plus
-    else:
-        nocs_to_save = nocs 
-    if (a.save_nocs or a.save_nocs_png8) and (nocs is not None):
-        save_nocs_series(out_dir / "nocs", nocs_to_save, save_npy=a.save_nocs, save_png8=a.save_nocs_png8)
 
-    save_rgb_depth_series(out_dir, rgb, depth,
-                          save_rgb_png=a.save_rgb_png,
-                          save_metric_depth=a.save_metric_depth,
-                          save_depth_png16=a.save_depth_png16)
-    save_extrinsics_json(out_dir, cameras, meta)
-    save_intrinsics_json(out_dir, a.image_size, a.fov_deg)
-    if a.make_video:
-        make_video_from_rgbs(out_dir / 'orbit_rgb.mp4', rgb, fps=a.video_fps)
-    if a.make_depth_video:
-        make_depth_video_from_depths(out_dir / 'orbit_depth.mp4', depth, fps=a.video_fps, max_meters=a.depth_video_max_meters)
-    # --- NEW: NOCS 视频 ---
-    if a.make_nocs_video and (nocs is not None):
-        make_nocs_video(out_dir / 'orbit_nocs.mp4', nocs, fps=a.video_fps)
-    if a.save_mask_png:
-        save_mask_series(out_dir / "masks", mask)
-    if a.save_h5:
-        # 注意：我们前面把 rgb/depth 已经转到 CPU；nocs 也是 CPU
-        label = (a.label.strip() or out_dir.name.split('_')[0])
-        out_h5 = out_dir / "all_cameras.h5"
-        save_h5_all(
-            out_path=out_h5,
-            rgb=rgb, depth=depth, mask=mask, nocs=nocs,
-            cameras=cameras, image_size=a.image_size, fov_deg=a.fov_deg, label=label,
-            bbox=(bmin, bmax, center, obj_scale), # ext could be computed later
-            # compress=a.h5_compress, gzip_level=a.h5_gzip_level, shuffle=a.h5_shuffle,
-            # mask_bitpack=a.mask_bitpack,  nocs_auto_tol=a.nocs_auto_tol,
-            # nocs_store=a.nocs_store,
+            R, T = build_lookat_from_eye_at(eye, at, device=device, up=(0.0, 0.0, 1.0))
+            cameras = FoVPerspectiveCameras(device=device, R=R, T=T, fov=float(a.fov_deg), znear=0.05, zfar=50.0)
+
+            meta = [{
+                "name": "random_fixed_sphere", "num": int(a.rand_cams), "azims": None, "elevs": None, "dist": float(base_dist),
+            }]
+        else:
+            Rs, Ts, meta = [], [], []
+            R0, T0, az0, el0, d0 = ring_equatorial(
+                num=a.num_cams, elev_deg=a.elev_deg, dist=base_dist, device=device,
+                start_azim_deg=start0,
+                seed=(None if a.no_random_start else a.seed), center=center
+            )
+            Rs.append(R0); Ts.append(T0)
+            meta.append({"name":"equatorial","num":a.num_cams,
+                        "azims":az0.tolist(),"elevs":el0.tolist(),"dist":float(base_dist)})
+
+            if a.top_ring_num > 0:
+                top_dist = float(base_dist) * float(a.top_ring_dist_scale)
+                R1, T1, az1, el1, d1 = ring_top(
+                    num=a.top_ring_num, top_elev_deg=a.top_ring_elev_deg,
+                    dist=top_dist, device=device, start_azim_deg=top_start, center=center,
+                )
+                Rs.append(R1); Ts.append(T1)
+                meta.append({"name":"top","num":a.top_ring_num,
+                            "azims":az1.tolist(),"elevs":el1.tolist(),"dist":float(top_dist)})
+
+            if a.lat_ring_num > 0:
+                lat_dist = float(base_dist) * float(a.lat_ring_dist_scale)
+                R2, T2, az2, el2, d2 = ring_latitudinal(
+                    num=a.lat_ring_num, azim_deg=lat_azim, dist=lat_dist, device=device,
+                    min_elev_deg=a.lat_ring_min_elev_deg, max_elev_deg=a.lat_ring_max_elev_deg,
+                    center=center,
+                )
+                Rs.append(R2); Ts.append(T2)
+                meta.append({"name":"latitudinal","num":a.lat_ring_num,
+                            "azims":az2.tolist(),"elevs":el2.tolist(),"dist":float(lat_dist)})
+
+            cameras = concat_cameras(Rs, Ts, device=device, fov_deg=a.fov_deg)
+
+        if a.viz_poses:
+            try:
+                visualize_cameras(
+                    cameras=cameras,
+                    center=center, bmin=bmin, bmax=bmax,
+                    out_dir=(out_dir / "cam_viz"),
+                    meta=(meta if a.cam_mode=='rings' else None),
+                    backend=a.viz_backend,
+                    draw_frustum=a.viz_frustum,
+                    max_frustums=a.viz_max_frustums,
+                    show=a.viz_show,
+                )
+            except Exception as e:
+                print(f"[warn] camera viz failed: {type(e).__name__}: {e}")
+
+        # try:
+        #     debug_print_mesh_summary(mesh)
+        # except Exception as e:
+        #     print(f"[warn] debug_print_mesh_summary failed: {type(e).__name__}: {e}")
+
+        rgb, depth, nocs, mask = render_rgbd_batched(
+            mesh=mesh, cameras=cameras, image_size=a.image_size, device=device,
+            batch_chunk=a.batch_chunk, cull_backfaces=(not a.no_cull_backfaces),
+            bg_color=tuple(a.bg_color),
+            bin_size=(None if a.bin_size is None else int(a.bin_size)),
+            max_faces_per_bin=(None if a.max_faces_per_bin is None else int(a.max_faces_per_bin)),
+            return_nocs = (a.save_nocs or a.save_nocs_png8 or a.make_nocs_video or a.save_h5),
+            nocs_mode = a.nocs_norm,
+            nocs_equal_axis = a.nocs_equal_axis,
+            check_nocs=a.check_nocs,
+            nocs_check_stride=a.nocs_check_stride,
+            nocs_check_voxel=a.nocs_check_voxel,
+            nocs_check_topk=a.nocs_check_topk,
         )
-    if getattr(a, "archive_output", False):
-        archive_output_dir(out_dir,
-                           fmt=getattr(a, "archive_format", "tar.gz"),
-                           keep_original=getattr(a, "keep_unarchived_output", False))
-import time         
+
+        if isinstance(nocs, dict) and "plus" in nocs:
+            nocs_to_save = {"plus": nocs["plus"]}
+        else:
+            nocs_to_save = nocs
+        if (a.save_nocs or a.save_nocs_png8) and (nocs is not None):
+            io_mgr.submit(
+                save_nocs_series,
+                out_dir / "nocs",
+                nocs_to_save,
+                save_npy=a.save_nocs,
+                save_png8=a.save_nocs_png8,
+            )
+
+        io_mgr.submit(
+            save_rgb_depth_series,
+            out_dir,
+            rgb,
+            depth,
+            save_rgb_png=a.save_rgb_png,
+            save_metric_depth=a.save_metric_depth,
+            save_depth_png16=a.save_depth_png16,
+        )
+        save_extrinsics_json(out_dir, cameras, meta)
+        save_intrinsics_json(out_dir, a.image_size, a.fov_deg)
+        if a.make_video:
+            make_video_from_rgbs(out_dir / 'orbit_rgb.mp4', rgb, fps=a.video_fps)
+        if a.make_depth_video:
+            make_depth_video_from_depths(out_dir / 'orbit_depth.mp4', depth, fps=a.video_fps, max_meters=a.depth_video_max_meters)
+        if a.make_nocs_video and (nocs is not None):
+            make_nocs_video(out_dir / 'orbit_nocs.mp4', nocs, fps=a.video_fps)
+        if a.save_mask_png:
+            io_mgr.submit(save_mask_series, out_dir / "masks", mask)
+        if a.save_h5:
+            label = (a.label.strip() or out_dir.name.split('_')[0])
+            out_h5 = out_dir / "all_cameras.h5"
+            io_mgr.submit(
+                save_h5_all,
+                out_path=out_h5,
+                rgb=rgb,
+                depth=depth,
+                mask=mask,
+                nocs=nocs,
+                cameras=cameras,
+                image_size=a.image_size,
+                fov_deg=a.fov_deg,
+                label=label,
+                bbox=(bmin, bmax, center, obj_scale),
+            )
+        if getattr(a, "archive_output", False):
+            io_mgr.drain()
+            archive_output_dir(
+                out_dir,
+                fmt=getattr(a, "archive_format", "tar.gz"),
+                keep_original=getattr(a, "keep_unarchived_output", False),
+            )
+    finally:
+        free_model_resources(mesh, cameras, rgb, depth, nocs, mask, executor=io_mgr)
+
+import time
 def main():
     a = parse_args()
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
