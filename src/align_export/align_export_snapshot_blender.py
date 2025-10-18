@@ -1906,6 +1906,159 @@ def ensure_mtl_has_maps(obj, mtl_path: Path, textures_dir: Path):
             safe_path = ensure_texture_safe_name(p)
             available_idx[_canon_key(safe_path.name)] = safe_path
 
+    baked_cache: Dict[Tuple[str, Tuple[float, float, float, float, str]], str] = {}
+
+    def _parse_map_options(opts: List[str]):
+        idx = 0
+        offset = [0.0, 0.0]
+        scale = [1.0, 1.0]
+        clamp_flag = None
+        remaining: List[str] = []
+
+        def _is_option_token(tok: str) -> bool:
+            if not tok.startswith('-'):
+                return False
+            # 负数（例如 -0.75）不应被当作新选项
+            try:
+                float(tok)
+                return False
+            except ValueError:
+                return True
+
+        def _consume_args(start):
+            args = []
+            k = start + 1
+            while k < len(opts) and not _is_option_token(opts[k]):
+                args.append(opts[k])
+                k += 1
+            return args, k
+
+        while idx < len(opts):
+            tok = opts[idx]
+            low = tok.lower()
+            if low == "-o":
+                args, idx_next = _consume_args(idx)
+                if len(args) >= 1:
+                    try: offset[0] = float(args[0])
+                    except Exception: pass
+                if len(args) >= 2:
+                    try: offset[1] = float(args[1])
+                    except Exception: pass
+                idx = idx_next
+            elif low == "-s":
+                args, idx_next = _consume_args(idx)
+                if len(args) >= 1:
+                    try: scale[0] = float(args[0])
+                    except Exception: pass
+                if len(args) >= 2:
+                    try: scale[1] = float(args[1])
+                    except Exception: pass
+                idx = idx_next
+            elif low == "-clamp":
+                args, idx_next = _consume_args(idx)
+                if args:
+                    clamp_flag = args[0].lower()
+                idx = idx_next
+            else:
+                remaining.append(tok)
+                args, idx_next = _consume_args(idx)
+                for a in args:
+                    remaining.append(a)
+                idx = idx_next
+        return offset, scale, clamp_flag, remaining
+
+    def _bake_map_kd_texture(tex_path: Path,
+                             offset: Tuple[float, float],
+                             scale: Tuple[float, float],
+                             clamp_flag: Optional[str]) -> Optional[str]:
+        if Image is None:
+            print("[align] bake map_Kd skipped: Pillow (PIL) not available.")
+            return None
+        if not tex_path.exists():
+            return None
+        clamp_on = (clamp_flag or "").lower() == "on"
+        key = (
+            str(tex_path.resolve()),
+            (float(offset[0]), float(offset[1]),
+             float(scale[0]), float(scale[1]),
+             "on" if clamp_on else "off")
+        )
+        cached = baked_cache.get(key)
+        if cached:
+            return cached
+
+        try:
+            img = Image.open(tex_path).convert("RGBA")
+        except Exception as e:
+            print(f"[align] bake map_Kd failed to open {tex_path}: {e}")
+            return None
+
+        arr = np.asarray(img).astype(np.float32)
+        H, W = arr.shape[:2]
+        if H == 0 or W == 0:
+            return None
+
+        xs = (np.arange(W, dtype=np.float32) + 0.5) / float(W)
+        ys = (np.arange(H, dtype=np.float32) + 0.5) / float(H)
+        u_out, v_out = np.meshgrid(xs, ys, indexing='xy')
+
+        sx = float(scale[0]) if scale[0] != 0 else 1.0
+        sy = float(scale[1]) if scale[1] != 0 else 1.0
+        ox = float(offset[0])
+        oy = float(offset[1])
+
+        u_in = u_out * sx + ox
+        v_in = v_out * sy + oy
+
+        if clamp_on:
+            u_in = np.clip(u_in, 0.0, 1.0)
+            v_in = np.clip(v_in, 0.0, 1.0)
+        else:
+            u_in = np.mod(u_in, 1.0)
+            v_in = np.mod(v_in, 1.0)
+
+        if W > 1:
+            x_in = u_in * (W - 1)
+        else:
+            x_in = np.zeros_like(u_in)
+        if H > 1:
+            # OBJ/MTL 的 v=0 在贴图底部，这里将其映射到图像索引的顶部行，所以要做一次 (1 - v) 翻转
+            y_in = (1.0 - v_in) * (H - 1)
+        else:
+            y_in = np.zeros_like(v_in)
+
+        x0 = np.floor(x_in).astype(np.int32)
+        y0 = np.floor(y_in).astype(np.int32)
+        x1 = np.clip(x0 + 1, 0, W - 1)
+        y1 = np.clip(y0 + 1, 0, H - 1)
+
+        wx = (x_in - x0)[..., None]
+        wy = (y_in - y0)[..., None]
+
+        Ia = arr[y0, x0]
+        Ib = arr[y0, x1]
+        Ic = arr[y1, x0]
+        Id = arr[y1, x1]
+
+        top = Ia * (1.0 - wx) + Ib * wx
+        bottom = Ic * (1.0 - wx) + Id * wx
+        out = top * (1.0 - wy) + bottom * wy
+
+        out = np.clip(out, 0.0, 255.0).astype(np.uint8)
+        baked = Image.fromarray(out, mode="RGBA")
+
+        digest = hashlib.md5(str(key).encode('utf-8')).hexdigest()[:8]
+        new_name = tex_path.stem + f"_baked_{digest}.png"
+        target_path = textures_dir / new_name
+        try:
+            baked.save(target_path)
+        except Exception as e:
+            print(f"[align] bake map_Kd failed to save {target_path}: {e}")
+            return None
+
+        baked_cache[key] = new_name
+        return new_name
+
     # -------- 收集每个材质的贴图，并确保真实写入 textures/（返回“安全名”）
     def dump_image(img) -> str | None:
         """落盘到 textures_dir 并返回安全文件名（磁盘实存的名字）。"""
@@ -1982,9 +2135,6 @@ def ensure_mtl_has_maps(obj, mtl_path: Path, textures_dir: Path):
         if kd or nm or al:
             mat_maps[mat.name] = {"kd": kd, "nm": nm, "al": al}
 
-    if not mat_maps:
-        return  # 无可补图，不动 MTL
-
     def _resolve_existing_name(token: str) -> Optional[str]:
         if not token:
             return None
@@ -1995,6 +2145,64 @@ def ensure_mtl_has_maps(obj, mtl_path: Path, textures_dir: Path):
             if key in available_idx:
                 return available_idx[key].name
         return None
+
+    def _should_drop_path(path_token: str) -> bool:
+        """返回 True 表示该 map 路径应该被视为无效。"""
+        if not path_token:
+            return True
+        lower = path_token.strip().lower()
+        if lower.endswith(".fbm"):
+            return True  # .fbm 通常是目录
+        # 若没在 textures_dir 里找到对应文件，也判定为无效
+        return _resolve_existing_name(path_token) is None
+
+    if not mat_maps:
+        cleaned: List[str] = []
+        for line in lines:
+            s = line.strip()
+            if s.lower().startswith(("map_", "bump")):
+                try:
+                    tokens = shlex.split(line)
+                except Exception:
+                    tokens = line.split()
+                if len(tokens) < 2:
+                    continue
+                path_token = tokens[-1]
+                if _should_drop_path(path_token):
+                    print(f"[align] drop invalid map entry: {line.strip()}")
+                    continue
+                resolved = _resolve_existing_name(path_token)
+                if not resolved:
+                    cleaned.append(line)
+                    continue
+                options = tokens[1:-1]
+                head = tokens[0]
+                head_l = head.lower()
+                new_options = list(options)
+                if head_l == "map_kd":
+                    offset, scale, clamp_flag, remaining = _parse_map_options(list(options))
+                    eps = 1e-6
+                    need_bake = (
+                        (abs(offset[0]) > eps) or (abs(offset[1]) > eps) or
+                        (abs(scale[0] - 1.0) > eps) or (abs(scale[1] - 1.0) > eps) or
+                        ((clamp_flag or "").lower() == "on")
+                    )
+                    if need_bake:
+                        tex_path = textures_dir / resolved
+                        baked_name = _bake_map_kd_texture(tex_path, tuple(offset), tuple(scale), clamp_flag)
+                        if baked_name:
+                            resolved = baked_name
+                            available_idx[_canon_key(baked_name)] = textures_dir / baked_name
+                        else:
+                            print(f"[align] bake map_Kd skipped for {tex_path.name}")
+                    new_options = remaining
+                new_path = f"textures/{resolved}"
+                cleaned.append(" ".join([head, *new_options, new_path]).strip())
+            else:
+                cleaned.append(line)
+        if cleaned != lines:
+            mtl_path.write_text("\n".join(cleaned), encoding="utf-8")
+        return
 
     def _exists_safe(name: str) -> bool:
         return _resolve_existing_name(name) is not None
@@ -2017,12 +2225,35 @@ def ensure_mtl_has_maps(obj, mtl_path: Path, textures_dir: Path):
         if len(tokens) < 2:
             return None, None
         path_token = tokens[-1]
+        if _should_drop_path(path_token):
+            print(f"[align] drop invalid map entry: {line.strip()}")
+            return None, None
         resolved = _resolve_existing_name(path_token)
         if not resolved:
             return None, None
         options = tokens[1:-1]
+        head = tokens[0]
+        head_l = head.lower()
+        new_options = list(options)
+        if head_l == "map_kd":
+            offset, scale, clamp_flag, remaining = _parse_map_options(list(options))
+            eps = 1e-6
+            need_bake = (
+                (abs(offset[0]) > eps) or (abs(offset[1]) > eps) or
+                (abs(scale[0] - 1.0) > eps) or (abs(scale[1] - 1.0) > eps) or
+                ((clamp_flag or "").lower() == "on")
+            )
+            if need_bake:
+                tex_path = textures_dir / resolved
+                baked_name = _bake_map_kd_texture(tex_path, tuple(offset), tuple(scale), clamp_flag)
+                if baked_name:
+                    resolved = baked_name
+                    available_idx[_canon_key(baked_name)] = textures_dir / baked_name
+                else:
+                    print(f"[align] bake map_Kd skipped for {tex_path.name}")
+            new_options = remaining
         new_path = f"textures/{resolved}"
-        rebuilt = " ".join([tokens[0], *options, new_path]).strip()
+        rebuilt = " ".join([head, *new_options, new_path]).strip()
         kind = _map_token_kind(tokens[0])
         return rebuilt, kind
 
@@ -2075,9 +2306,44 @@ def ensure_mtl_has_maps(obj, mtl_path: Path, textures_dir: Path):
     mtl_path.write_text("\n".join(out), encoding="utf-8")
 
 # ===================== 导出专用 MTL 修复 =====================
-import os, re, shlex, unicodedata, shutil
+import os, re, shlex, unicodedata, shutil, hashlib
 from pathlib import Path
 from typing import Dict, Tuple, Optional, List
+
+try:
+    from PIL import Image
+except ImportError:  # Pillow may be missing in some runtime environments
+    Image = None
+
+if Image is None:
+    import sys
+    _fallback_paths = [
+        Path.home() / ".local/lib/python3.11/site-packages",
+        # Path.home() / ".local/lib/python3.10/site-packages",
+        # Path.home() / ".local/lib/python3.9/site-packages",
+        # Path.home() / "snap/blender/current/.local/lib/python3.11/site-packages",
+    ]
+    # 允许用户显式指定一个 Conda/venv 路径（例如环境变量 ALIGN_CONDA_PREFIX）
+    _conda_env = os.environ.get("ALIGN_CONDA_PREFIX") or os.environ.get("CONDA_PREFIX")
+    if _conda_env:
+        _conda_env = Path(_conda_env)
+        pyver = f"python{sys.version_info.major}.{sys.version_info.minor}"
+        
+        _fallback_paths.append(_conda_env / "lib" / pyver / "site-packages")
+        lib_dir = _conda_env / "lib"
+        if lib_dir.exists():
+            current = os.environ.get("LD_LIBRARY_PATH", "")
+            os.environ["LD_LIBRARY_PATH"] = str(lib_dir) + (os.pathsep + current if current else "")
+
+    for _p in _fallback_paths:
+        if _p.exists() and str(_p) not in sys.path:
+            sys.path.append(str(_p))
+            try:
+                from PIL import Image  # type: ignore
+                break
+            except ImportError:
+                Image = None
+                continue
 
 # 仅保留安全字符；空格/非常规字符 -> "_"；扩展名统一小写
 _SAFE_CHARS_RE = re.compile(r"[^A-Za-z0-9._-]+")

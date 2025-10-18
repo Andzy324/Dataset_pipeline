@@ -541,7 +541,7 @@ def _atlas_bytes_estimate(
     *,
     batch_dup: int = 1,
     mip_scale: float = 4.0 / 3.0,
-    safety: float = 1.6,
+    safety: float = 1.44, # after 3 test examples
 ) -> int:
     """
     估算 atlas 占用：
@@ -935,32 +935,49 @@ def load_obj_with_textures_p3d(
     atlas_mem_limit_gb: float = 8.0,     # ★ 超限自动关掉 atlas
     axis_correction: str = "none",
     batch_dup: int = 1,
+    material_info: Optional[Dict[str, Any]] = None,
 ) -> Tuple[Meshes, str, str]:
     """
     优先使用 PyTorch3D 新接口 load_objs_as_meshes：
       - 默认 create_texture_atlas=False（使用 UV 贴图，省内存）
       - 若 use_atlas=True，则先估算 F 和内存，超限自动改回 UV
     """
-    debug_print_p3d_capability_once()
-    if not (HAVE_P3D and HAVE_LOAD_OBJS_AS_MESHES):
-        raise RuntimeError("pytorch3d load_objs_as_meshes not available in this environment.")
+    # debug_print_p3d_capability_once()
+    # if not (HAVE_P3D and HAVE_LOAD_OBJS_AS_MESHES):
+    #     raise RuntimeError("pytorch3d load_objs_as_meshes not available in this environment.")
 
     obj_path = Path(obj_path)
-    used_materials = obj_used_materials(obj_path)
-    material_summary = mtl_material_summary(obj_path, used_materials if used_materials else None)
-    distinct_maps = {
-        str(Path(p).resolve())
-        for entry in material_summary
-        for p in entry.get("map_kd_resolved", [])
-    }
-    pure_colors = {
-        rounded
-        for entry in material_summary
-        for rounded in [_round_tuple(entry.get("kd"), 3)]
-        if not entry.get("map_kd_resolved") and rounded is not None
-    }
-    missing_maps = any(entry.get("missing_map_kd") for entry in material_summary)
-    multi_diffuse_sources = (len(distinct_maps) + len(pure_colors)) > 1
+    if material_info is not None:
+        material_summary = material_info.get("material_summary") or []
+        distinct_maps = set(material_info.get("distinct_maps") or [])
+        pure_colors = set(material_info.get("pure_colors") or [])
+        missing_map_count = int(material_info.get("missing_map_count") or 0)
+        multi_diffuse_sources = bool(material_info.get("multi_diffuse")) if material_info.get("multi_diffuse") is not None else ((len(distinct_maps) + len(pure_colors)) > 1)
+    else:
+        used_materials = obj_used_materials(obj_path)
+        material_summary = mtl_material_summary(obj_path, used_materials if used_materials else None)
+        distinct_maps = {
+            str(Path(p).resolve())
+            for entry in material_summary
+            for p in entry.get("map_kd_resolved", [])
+        }
+        pure_colors = {
+            rounded
+            for entry in material_summary
+            for rounded in [_round_tuple(entry.get("kd"), 3)]
+            if not entry.get("map_kd_resolved") and rounded is not None
+        }
+        missing_map_count = sum(1 for entry in material_summary if entry.get("missing_map_kd"))
+        multi_diffuse_sources = (len(distinct_maps) + len(pure_colors)) > 1
+    missing_maps = missing_map_count > 0
+    detail_parts = [
+        f"materials={len(material_summary)}",
+        f"maps={len(distinct_maps)}",
+        f"pure_colors={len(pure_colors)}",
+        f"missing_maps={missing_map_count}",
+        "multi_diffuse=yes" if multi_diffuse_sources else "multi_diffuse=no",
+    ]
+    detail = ", ".join(detail_parts)
 
     from importlib import import_module
     _io = import_module("pytorch3d.io")
@@ -979,36 +996,85 @@ def load_obj_with_textures_p3d(
         atlas_reason_parts.append("missing diffuse maps")
 
     create_atlas = bool(use_atlas or (multi_diffuse_sources and not missing_maps))
+    atlas_tiles_to_try: List[int] = []
+    atlas_faces_estimate: Optional[int] = None
+    atlas_limit_bytes: Optional[int] = None
+    atlas_attempted = False
+
     if create_atlas:
-        F = _estimate_face_count_from_obj(obj_path)
-        bytes_est = _atlas_bytes_estimate(
-            F,
-            atlas_size,
-            batch_dup=batch_dup,
+        base_tile = int(atlas_size) if int(atlas_size) > 0 else 128
+        fallback_pool = [base_tile, 128, 96, 64]
+        atlas_tiles_to_try = sorted(
+            {t for t in fallback_pool if t > 0 and t <= max(base_tile, max(fallback_pool))}
+            , reverse=True
         )
-        limit = int(atlas_mem_limit_gb * (1024**3))
-        if bytes_est > limit:
-            print(f"[warn] atlas memory estimate {bytes_est/1e9:.1f} GB > limit {atlas_mem_limit_gb} GB; "
-                  f"auto-switch to UV textures (no atlas).  (faces≈{F}, tile={atlas_size}, batch_dup≈{batch_dup})")
-            atlas_disabled_reason = (f"atlas estimate {bytes_est/1e9:.1f}GB exceeds limit {atlas_mem_limit_gb}GB")
-            create_atlas = False
+        atlas_tiles_to_try = [t for t in atlas_tiles_to_try if t <= base_tile]
+        if not atlas_tiles_to_try:
+            atlas_tiles_to_try = [base_tile]
+
+        atlas_limit_bytes = int(atlas_mem_limit_gb * (1024**3))
+        if atlas_limit_bytes <= 0:
+            atlas_limit_bytes = None
+
+        def _attempt_atlas(tiles: List[int]) -> Tuple[Optional[Meshes], Optional[int]]:
+            nonlocal atlas_disabled_reason, atlas_faces_estimate
+            if not tiles:
+                return None, None
+            if atlas_faces_estimate is None:
+                atlas_faces_estimate = _estimate_face_count_from_obj(obj_path)
+            for tile in tiles:
+                bytes_est = _atlas_bytes_estimate(
+                    atlas_faces_estimate,
+                    tile,
+                    batch_dup=batch_dup,
+                )
+                if (atlas_limit_bytes is not None) and (bytes_est > atlas_limit_bytes):
+                    limit_gb = atlas_mem_limit_gb if atlas_mem_limit_gb > 0 else (atlas_limit_bytes / (1024**3))
+                    print(f"[debug] atlas tile {tile}: estimate {bytes_est/1e9:.2f} GB > limit {limit_gb:.2f} GB; trying smaller tile.")
+                    atlas_disabled_reason = (f"atlas estimate {bytes_est/1e9:.1f}GB exceeds limit {limit_gb:.1f}GB (tile={tile})")
+                    continue
+                mesh_candidate = _load(uv_mode=False, atlas_tile=tile)
+                if _has_valid_textures(mesh_candidate):
+                    return mesh_candidate, tile
+                else:
+                    print(f"[debug] atlas load failed or empty textures (tile={tile}); trying smaller tile.")
+                    atlas_disabled_reason = f"atlas load produced empty textures (tile={tile})"
+            return None, None
+    else:
+        def _attempt_atlas(_tiles: List[int]) -> Tuple[Optional[Meshes], Optional[int]]:
+            return None, None
 
     # ---- 1) 先试 UV 贴图模式 ----
-    def _load(uv_mode: bool):
+    def _load(uv_mode: bool, atlas_tile: Optional[int] = None):
         """Load with CWD temporarily switched to OBJ directory so relative textures resolve."""
         cwd = os.getcwd()
         try:
             os.chdir(obj_path.parent)
             target = obj_path.name
-            return _io.load_objs_as_meshes(
+            meshes = _io.load_objs_as_meshes(
                 [str(target)],
                 device=device,
                 load_textures=True,
                 create_texture_atlas=not uv_mode,
-                texture_atlas_size=int(atlas_size),
+                texture_atlas_size=int(atlas_tile if atlas_tile is not None else atlas_size),
                 texture_wrap="repeat",
                 path_manager=None,
             )
+            if uv_mode and HAVE_P3D and hasattr(meshes, "textures") and isinstance(meshes.textures, TexturesUV):
+                try:
+                    tex = meshes.textures
+                    maps_list = tex.maps_list()
+                    faces_uvs_list = tex.faces_uvs_list()
+                    verts_uvs_list = tex.verts_uvs_list()
+                    maps_fp16 = [
+                        m.to(device="cpu", dtype=torch.float16) if m is not None else None
+                        for m in maps_list
+                    ]
+                    tex_fp16 = TexturesUV(maps=maps_fp16, faces_uvs=faces_uvs_list, verts_uvs=verts_uvs_list)
+                    meshes = Meshes(verts=meshes.verts_list(), faces=meshes.faces_list(), textures=tex_fp16)
+                except Exception:
+                    pass
+            return meshes
         finally:
             os.chdir(cwd)
 
@@ -1076,13 +1142,16 @@ def load_obj_with_textures_p3d(
             mesh = Meshes(verts=verts_fixed, faces=faces_list, textures=tex)
         return mesh
 
+    atlas_initial_mesh: Optional[Meshes] = None
+    atlas_initial_tile: Optional[int] = None
     if create_atlas and (use_atlas or multi_diffuse_sources):
-        mesh = _load(uv_mode=False)
-        if _has_valid_textures(mesh):
-            reason = "; ".join(atlas_reason_parts) if atlas_reason_parts else "atlas enabled"
-            return _finish(mesh), "atlas", reason
+        atlas_attempted = True
+        atlas_initial_mesh, atlas_initial_tile = _attempt_atlas(atlas_tiles_to_try)
+        if atlas_initial_mesh is not None and atlas_initial_tile is not None:
+            reason_extra = "; ".join(atlas_reason_parts) if atlas_reason_parts else "atlas enabled"
+            reason = f"{reason_extra}, tile={atlas_initial_tile} ({detail})"
+            return _finish(atlas_initial_mesh), "atlas", reason
         else:
-            print("[warn] atlas load failed or empty textures; falling back to UV")
             create_atlas = False
 
     # UV primary path
@@ -1090,25 +1159,25 @@ def load_obj_with_textures_p3d(
     if not _has_valid_textures(mesh):
         print("[warn] UV texture load failed or empty; ", end="")
         has_map = bool(distinct_maps)
-        if create_atlas and has_map:
-            print(f"retry with atlas (tile={atlas_size})...")
-            mesh = _load(uv_mode=False)
-            if not _has_valid_textures(mesh):
+        if (use_atlas or multi_diffuse_sources) and has_map and not atlas_attempted:
+            print("retry with atlas using adaptive tile sizes...")
+            atlas_attempted = True
+            atlas_retry_mesh, atlas_retry_tile = _attempt_atlas(atlas_tiles_to_try)
+            if atlas_retry_mesh is None or atlas_retry_tile is None:
                 raise RuntimeError("PyTorch3D atlas textures still empty after retries")
-            reason = "; ".join(atlas_reason_parts) if atlas_reason_parts else "atlas fallback after UV failure"
-            return _finish(mesh), "atlas", reason
+            reason_extra = "; ".join(atlas_reason_parts) if atlas_reason_parts else "atlas fallback after UV failure"
+            reason = f"{reason_extra}, tile={atlas_retry_tile} ({detail})"
+            return _finish(atlas_retry_mesh), "atlas", reason
         else:
             print("no map_* to retry or atlas disabled; falling back to trimesh loader.")
             raise RuntimeError("UV textures missing; atlas disabled")
     else:
         if multi_diffuse_sources and (not create_atlas or atlas_disabled_reason):
-            detail = f"{len(distinct_maps)} map(s), {len(pure_colors)} pure color(s)"
             if atlas_disabled_reason:
                 reason = f"{atlas_disabled_reason}; UV fallback ({detail})"
             else:
                 reason = f"UV fallback ({detail})"
             return _finish(mesh), "uv", reason
-        detail = f"{len(distinct_maps)} map(s), {len(pure_colors)} pure color(s)"
         reason = f"single diffuse source ({detail})"
         return _finish(mesh), "uv", reason
 
@@ -1809,7 +1878,7 @@ def render_rgbd_batched(
         rs_kwargs["max_faces_per_bin"] = int(max_faces_per_bin)
     raster_settings = RasterizationSettings(**rs_kwargs)
 
-    lights = PointLights(device=device, location=[(1.1, 1.1, 2.0)], ambient_color=((0.55,0.55,0.55),))
+    lights = PointLights(device=device, location=[(1.0, 1.0, 2.0)], ambient_color=((0.6,0.6,0.6),))
     materials = Materials(
         device=device,
         ambient_color=((0.6, 0.6, 0.6),),
@@ -2665,7 +2734,7 @@ def render_single(a, device, src_path: Path, out_dir: Path):
             idx = device.index if device.index is not None else torch.cuda.current_device()
             free_bytes, _total_bytes = torch.cuda.mem_get_info(idx)
             free_gb = free_bytes / (1024 ** 3)
-            dynamic_cap = 0.6 * free_gb
+            dynamic_cap = 0.65 * free_gb 
             if atlas_limit_gb <= 0.0:
                 atlas_limit_gb = dynamic_cap
             else:
@@ -2675,29 +2744,74 @@ def render_single(a, device, src_path: Path, out_dir: Path):
     elif atlas_limit_gb <= 0.0:
         atlas_limit_gb = 0.0
 
+    material_info: Optional[Dict[str, Any]] = None
+    multi_pure_color_only = False
+    if ext == ".obj":
+        try:
+            used_materials = obj_used_materials(src_path)
+            material_summary = mtl_material_summary(src_path, used_materials if used_materials else None)
+        except Exception as e:
+            print(f"[warn] failed to summarize materials for {src_path.name}: {e}")
+            material_summary = []
+            used_materials = None
+        distinct_maps = {
+            str(Path(p).resolve())
+            for entry in material_summary
+            for p in entry.get("map_kd_resolved", [])
+        }
+        pure_colors = {
+            _round_tuple(entry.get("kd"), 3)
+            for entry in material_summary
+            if not entry.get("map_kd_resolved") and entry.get("kd") is not None
+        }
+        pure_colors.discard(None)
+        missing_map_count = sum(1 for entry in material_summary if entry.get("missing_map_kd"))
+        multi_diffuse = (len(distinct_maps) + len(pure_colors)) > 1
+        multi_pure_color_only = (len(distinct_maps) == 0 and len(pure_colors) > 1)
+        material_info = {
+            "material_summary": material_summary,
+            "distinct_maps": distinct_maps,
+            "pure_colors": pure_colors,
+            "missing_map_count": missing_map_count,
+            "multi_diffuse": multi_diffuse,
+        }
+        print(f"[mat-summary] {src_path.name}: materials={len(material_summary)}, maps={len(distinct_maps)}, "
+              f"pure_colors={len(pure_colors)}, missing_maps={missing_map_count}, "
+              f"multi_diffuse={'yes' if multi_diffuse else 'no'}")
+
     try:
         # --- load mesh (keep your original branches) ---
         if ext == ".obj" and a.use_uv_textures and a.obj_loader in ("auto", "p3d"):
-            try:
-                mesh, loader_mode, loader_reason = load_obj_with_textures_p3d(
-                    src_path,
-                    device=device,
-                    use_atlas=a.use_atlas,
-                    atlas_size=a.atlas_size,
-                    atlas_mem_limit_gb=atlas_limit_gb,
-                    axis_correction=a.axis_correction,
-                    batch_dup=atlas_batch_dup,
-                )
-                print(f"[info] OBJ loader mode={loader_mode}: {loader_reason}")
-            except Exception as e:
-                print(f"[warn] p3d OBJ loader failed: {e} ; falling back to trimesh loader.")
+            if multi_pure_color_only:
+                print(f"[info] OBJ loader mode=trimesh: multi pure-color materials (maps=0, pure_colors>1)")
                 mesh = load_mesh_any(
                     src_path, device=device,
                     albedo=a.albedo, use_uv_textures=a.use_uv_textures,
                     flip_v=a.flip_v, apply_scene_xform=(not a.no_apply_scene_xform),
                     axis_correction=a.axis_correction,
                 )
-                print("[info] OBJ loader mode=trimesh: fallback after p3d failure")
+            else:
+                try:
+                    mesh, loader_mode, loader_reason = load_obj_with_textures_p3d(
+                        src_path,
+                        device=device,
+                        use_atlas=a.use_atlas,
+                        atlas_size=a.atlas_size,
+                        atlas_mem_limit_gb=atlas_limit_gb,
+                        axis_correction=a.axis_correction,
+                        batch_dup=atlas_batch_dup,
+                        material_info=material_info,
+                    )
+                    print(f"[info] OBJ loader mode={loader_mode}: {loader_reason}")
+                except Exception as e:
+                    print(f"[warn] p3d OBJ loader failed: {e} ; falling back to trimesh loader.")
+                    mesh = load_mesh_any(
+                        src_path, device=device,
+                        albedo=a.albedo, use_uv_textures=a.use_uv_textures,
+                        flip_v=a.flip_v, apply_scene_xform=(not a.no_apply_scene_xform),
+                        axis_correction=a.axis_correction,
+                    )
+                    print("[info] OBJ loader mode=trimesh: fallback after p3d failure")
         else:
             mesh = load_mesh_any(
                 src_path, device=device,

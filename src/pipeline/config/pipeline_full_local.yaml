@@ -101,7 +101,7 @@ export_format: obj                         # 导出格式：glb / obj
 num_cams: 40
 elev_deg: 20.0
 fov_deg: 60.0
-image_size: 768
+image_size: 512
 
 # —— 顶环相机参数（环拍） ——
 top_ring_num: 40
@@ -114,7 +114,7 @@ seed: 123                                  # 渲染随机种子（确定性）
 
 # —— 相机模式 / 球面采样 ——
 cam_mode: random                           # rings / random
-rand_cams: 150                             # random 模式下的相机数量
+rand_cams: 100                             # random 模式下的相机数量, for debug:100
 sphere_dist: 1.73                           # random 模式基准球半径（对齐后单位尺度模型）
 pos_tangent_jitter: 0.02                  # random 模式切向扰动比例
 depth_jitter: 0.02                         # random 模式半径扰动比例
@@ -125,9 +125,9 @@ no_cull_backfaces: true                    # 关闭背面剔除（某些空腔/�
 bg_color: [1.0, 1.0, 1.0]                  # 渲染背景颜色 (RGB 0~1)
 input_format: obj                          # 指定输入模型格式以加速：glb/obj；默认自动识别
 obj_loader: p3d                           # OBJ 加载器：auto / trimesh / p3d（推荐 trimesh, usually falling back to this）
-atlas_size: 64                            # p3d 图集分辨率（每面采样）,64 is acceptable
+atlas_size: 128                            # p3d 图集分辨率（每面采样）,64 is acceptable
 use_atlas: false                          # 为 OBJ 建立 per-face 图集（高内存）
-atlas_mem_limit_gb: 2.0                    # 超过该估算上限自动改用 UV
+atlas_mem_limit_gb: 4.0                    # 超过该估算上限自动改用 UV
 
 # —— 批量/性能 ——
 bin_size: 64                               # 渲染时按复杂度分批的批大小（越小越省内存）
