@@ -1,0 +1,36 @@
+/home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/lib/python3.10/site-packages/pytorch3d/io/mtl_io.py:480: UserWarning: Texture file does not exist: /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/stool/0ee4d795771f0cf08e4d4f2c3b1fd2732492b85de5c74fc3c032c57d396856b1/raw/C:/Users/Thomas Paul/AppData/Roaming/Blender Foundation/Blender/3.2/scripts/addons/TexTools-Blender-master/resources/checker_map_gravity.png
+  warnings.warn(msg)
+/home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/lib/python3.10/site-packages/pytorch3d/io/mtl_io.py:102: UserWarning: Texture UV coordinates outside the range [0, 1].                 The integer part will be ignored to form a repeating pattern.
+  warnings.warn(msg)
+/home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/lib/python3.10/site-packages/pytorch3d/io/mtl_io.py:480: UserWarning: Texture file does not exist: /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/stool/6e04c84f3f5f9a8db6e6a4b84e76e52a928f3c66877e8e2cb0f1f1086bd5282a/raw/Textures/Metal Rusty Dirty Painted Green_basecolor.png
+  warnings.warn(msg)
+/home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/lib/python3.10/site-packages/pytorch3d/io/mtl_io.py:480: UserWarning: Texture file does not exist: /home/vault/v100dd/Dropbox/SyntyStudios/PolygonClub/_Working/_Textures/PolygonClub_Texture_01.psd
+  warnings.warn(msg)
+/home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/lib/python3.10/site-packages/pytorch3d/io/mtl_io.py:480: UserWarning: Texture file does not exist: /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/sofa/297f4f4cb0aaebc37737302e16e0a73ef3f6ff490be00f62bb41358a6e701a1d/raw/3D Voxel Office Pack-47.png
+  warnings.warn(msg)
+/home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/lib/python3.10/site-packages/pytorch3d/io/mtl_io.py:102: UserWarning: Texture UV coordinates outside the range [0, 1].                 The integer part will be ignored to form a repeating pattern.
+  warnings.warn(msg)
+/home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/lib/python3.10/site-packages/pytorch3d/io/mtl_io.py:480: UserWarning: Texture file does not exist: Diffuse_Texture.png
+  warnings.warn(msg)
+/home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/lib/python3.10/site-packages/pytorch3d/io/mtl_io.py:102: UserWarning: Texture UV coordinates outside the range [0, 1].                 The integer part will be ignored to form a repeating pattern.
+  warnings.warn(msg)
+/home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/lib/python3.10/site-packages/pytorch3d/io/mtl_io.py:480: UserWarning: Texture file does not exist: Diffuse_Texture.png
+  warnings.warn(msg)
+/home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/lib/python3.10/site-packages/pytorch3d/io/mtl_io.py:480: UserWarning: Texture file does not exist: -o 0 -1 0 textures/Кровать_DefaultMaterial_Albedo.png
+  warnings.warn(msg)
+/home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/lib/python3.10/site-packages/pytorch3d/io/mtl_io.py:480: UserWarning: Texture file does not exist: bunk_bed_D.png
+  warnings.warn(msg)
+/home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/lib/python3.10/site-packages/pytorch3d/io/mtl_io.py:480: UserWarning: Texture file does not exist: /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/aa0cd9918b0dd483f074df951efaa7b3c979abb5a08b2c3e3169c7927ae26a22/raw/C:/Users/User/OneDrive/Рабочий стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5edККК.jpg
+  warnings.warn(msg)
+/home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/lib/python3.10/site-packages/pytorch3d/io/mtl_io.py:480: UserWarning: Texture file does not exist: /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/aa0cd9918b0dd483f074df951efaa7b3c979abb5a08b2c3e3169c7927ae26a22/raw/C:/Users/User/OneDrive/Рабочий стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/621ddc50e570d2c4d4778a08be90a5ed.jpg
+  warnings.warn(msg)
+/home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/lib/python3.10/site-packages/pytorch3d/io/mtl_io.py:480: UserWarning: Texture file does not exist: /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bunk_bed/aa0cd9918b0dd483f074df951efaa7b3c979abb5a08b2c3e3169c7927ae26a22/raw/C:/Users/User/OneDrive/Рабочий стол/Егор/текстуры!!!!!!!!!!!!!!!!!!/белизна-сморщила-текстуру-ткани-простыню-конца-вверх-отменянную-в-126094238.jpg
+  warnings.warn(msg)
+/home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/lib/python3.10/site-packages/pytorch3d/io/mtl_io.py:480: UserWarning: Texture file does not exist: -o 0 -1 0 textures/bed_1.png
+  warnings.warn(msg)
+/home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/lib/python3.10/site-packages/pytorch3d/io/mtl_io.py:480: UserWarning: Texture file does not exist: Diffuse_Texture.png
+  warnings.warn(msg)
+/home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/lib/python3.10/site-packages/pytorch3d/io/mtl_io.py:102: UserWarning: Texture UV coordinates outside the range [0, 1].                 The integer part will be ignored to form a repeating pattern.
+  warnings.warn(msg)
+/home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/lib/python3.10/site-packages/pytorch3d/io/mtl_io.py:480: UserWarning: Texture file does not exist: /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dining_table/bf0af2b4fc84dba86c231e5fcafdc8a815688ec2cf485390c4c42786df6443cf/raw/Wood_01.jpg
+  warnings.warn(msg)

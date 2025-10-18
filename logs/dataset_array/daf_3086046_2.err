@@ -1,0 +1,2 @@
+/home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/lib/python3.10/site-packages/pytorch3d/io/mtl_io.py:102: UserWarning: Texture UV coordinates outside the range [0, 1].                 The integer part will be ignored to form a repeating pattern.
+  warnings.warn(msg)

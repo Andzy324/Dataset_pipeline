@@ -1,0 +1,146 @@
+### Starting TaskPrologue of job 3086046 on a0705 at Fr 17. Okt 15:38:29 CEST 2025
+Running on cores 48-63 with governor ondemand
+Fri Oct 17 15:38:29 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.95.05              Driver Version: 580.95.05      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-40GB          On  |   00000000:4F:00.0 Off |                    0 |
+| N/A   41C    P0             52W /  400W |       0MiB /  40960MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+[2025-10-17 15:38:29] Array job started
+Python 3.10.18
+Fri Oct 17 15:38:40 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.95.05              Driver Version: 580.95.05      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-40GB          On  |   00000000:4F:00.0 Off |                    0 |
+| N/A   40C    P0             52W /  400W |       0MiB /  40960MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+/home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/bin/git-lfs
+Updated Git hooks.
+Git LFS initialized.
+[2025-10-17 15:38:42] Array index 2 -> categories: door monitor_(computer_equipment) computer_monitor
+[2025-10-17 15:38:42] Total categories: 10 | group size: 4 | total groups: 3
+[2025-10-17 15:38:42] Running: python src/pipeline/mesh_pipeline_full.py --config src/pipeline/config/pipeline_full.yaml --allow_cli_override --categories door monitor_(computer_equipment) computer_monitor --oxl_labels door monitor_(computer_equipment) computer_monitor --labels door,monitor_(computer_equipment) computer_monitor
+=== Per-category flow over categories: ['door', 'monitor_(computer_equipment) computer_monitor'] ===
+===== CATEGORY: door =====
+[SKIP] [cat] download
+--- [cat] Step 2: Align & export GLBs ---
+[OXL] downloads under: /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/door
+[timing] door | align: 27.77s
+--- [cat] Step 3: Render orbit RGBD & videos ---
+[INFO] door: to render → 3 item(s) (OBJ) → flat storage
+[render/batch] cat=door  dir=/home/vault/v100dd/v100dd26/Dataset/aligned_xl/door  out=/home/vault/v100dd/v100dd26/Dataset/renders_xl/door  total=3
+$ /home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/bin/python /home/hpc/v100dd/v100dd26/project/Dataset_pipeline/src/video_render/render_orbit_full.py --obj /home/vault/v100dd/v100dd26/Dataset/aligned_xl/door --out /home/vault/v100dd/v100dd26/Dataset/renders_xl/door --label door --num_cams 40 --elev_deg 20.0 --fov_deg 60.0 --image_size 768 --top_ring_num 40 --top_ring_elev_deg 78.0 --top_ring_dist_scale 0.85 --axis_correction none --seed 123 --batch_chunk 12 --io_workers 8 --io_max_pending 12 --bin_size 128 --max_faces_per_bin 400000 --no_cull_backfaces --save_rgb_png --save_mask_png --save_nocs_png8 --nocs_norm bbox --cam_mode random --rand_cams 150 --sphere_dist 1.73 --pos_tangent_jitter 0.02 --depth_jitter 0.02 --input_format obj --use_uv_textures --bg_color 1.0 1.0 1.0 --obj_loader p3d --atlas_size 128 --atlas_mem_limit_gb 16.0 --overwrite --viz_backend mpl --viz_max_frustums 150 --archive_output --archive_format tar.gz --manifest /tmp/3086046.alex/tmpp31jqhve_render_manifest.json
+[info] GPU rendering on: NVIDIA A100-SXM4-40GB
+[p3d] torch=2.1.2 cuda=11.8; pytorch3d=0.7.4 HAVE_P3D=True HAVE_LOAD_OBJS_AS_MESHES=True HAVE_LOAD_OBJ=True
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/door/door_014ead86b7b1289a69a89b7aedcdb005500a5898759f0ad78a2ec541679a4900_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/door/door_014ead86b7b1289a69a89b7aedcdb005500a5898759f0ad78a2ec541679a4900 =====
+[info] OBJ loader mode=atlas: 3 diffuse textures
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/door/door_014ead86b7b1289a69a89b7aedcdb005500a5898759f0ad78a2ec541679a4900.tar.gz (keep_original=False)
+time: 70.98 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/door/door_0251e93d4305c67b64ebaa0e162b8e92876cd6434f902a959fcedf12491c3f40_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/door/door_0251e93d4305c67b64ebaa0e162b8e92876cd6434f902a959fcedf12491c3f40 =====
+[info] OBJ loader mode=uv: single diffuse source (1 map(s), 0 pure color(s))
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/door/door_0251e93d4305c67b64ebaa0e162b8e92876cd6434f902a959fcedf12491c3f40.tar.gz (keep_original=False)
+time: 71.19 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/door/door_02885b1e0bedf144deb7b10ef69aad8d7b397987b7398123bdb3b4d4c1f7554d_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/door/door_02885b1e0bedf144deb7b10ef69aad8d7b397987b7398123bdb3b4d4c1f7554d =====
+[info] OBJ loader mode=uv: single diffuse source (1 map(s), 0 pure color(s))
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/door/door_02885b1e0bedf144deb7b10ef69aad8d7b397987b7398123bdb3b4d4c1f7554d.tar.gz (keep_original=False)
+time: 69.17 seconds
+[done] rc=0  time=267.34s
+[render/batch] done rc=0  total=3  time=267.34s  avg=89.11s/obj
+[timing] door | render: 267.34s
+===== CATEGORY: monitor_(computer_equipment) computer_monitor =====
+[SKIP] [cat] download
+--- [cat] Step 2: Align & export GLBs ---
+[OXL] downloads under: /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/monitor_(computer_equipment) computer_monitor
+[timing] monitor_(computer_equipment) computer_monitor | align: 22.79s
+--- [cat] Step 3: Render orbit RGBD & videos ---
+[INFO] monitor_(computer_equipment) computer_monitor: to render → 3 item(s) (OBJ) → flat storage
+[render/batch] cat=computer_monitor (monitor_(computer_equipment) computer_monitor)  dir=/home/vault/v100dd/v100dd26/Dataset/aligned_xl/computer_monitor  out=/home/vault/v100dd/v100dd26/Dataset/renders_xl/computer_monitor  total=3
+$ /home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/bin/python /home/hpc/v100dd/v100dd26/project/Dataset_pipeline/src/video_render/render_orbit_full.py --obj /home/vault/v100dd/v100dd26/Dataset/aligned_xl/computer_monitor --out /home/vault/v100dd/v100dd26/Dataset/renders_xl/computer_monitor --label computer_monitor --num_cams 40 --elev_deg 20.0 --fov_deg 60.0 --image_size 768 --top_ring_num 40 --top_ring_elev_deg 78.0 --top_ring_dist_scale 0.85 --axis_correction none --seed 123 --batch_chunk 12 --io_workers 8 --io_max_pending 12 --bin_size 128 --max_faces_per_bin 400000 --no_cull_backfaces --save_rgb_png --save_mask_png --save_nocs_png8 --nocs_norm bbox --cam_mode random --rand_cams 150 --sphere_dist 1.73 --pos_tangent_jitter 0.02 --depth_jitter 0.02 --input_format obj --use_uv_textures --bg_color 1.0 1.0 1.0 --obj_loader p3d --atlas_size 128 --atlas_mem_limit_gb 16.0 --overwrite --viz_backend mpl --viz_max_frustums 150 --archive_output --archive_format tar.gz --manifest /tmp/3086046.alex/tmpp6eq6u91_render_manifest.json
+[info] GPU rendering on: NVIDIA A100-SXM4-40GB
+[p3d] torch=2.1.2 cuda=11.8; pytorch3d=0.7.4 HAVE_P3D=True HAVE_LOAD_OBJS_AS_MESHES=True HAVE_LOAD_OBJ=True
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/computer_monitor/computer_monitor_14b692ec5e10510aec8bfe3d1132891a4a9d805766a31b87b966725ccf2c6da7_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/computer_monitor/computer_monitor_14b692ec5e10510aec8bfe3d1132891a4a9d805766a31b87b966725ccf2c6da7 =====
+[info] OBJ loader mode=atlas: pure colors + textures
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/computer_monitor/computer_monitor_14b692ec5e10510aec8bfe3d1132891a4a9d805766a31b87b966725ccf2c6da7.tar.gz (keep_original=False)
+time: 68.07 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/computer_monitor/computer_monitor_3959e6b8e1e1aa8421fba9b684aa983f2e99df2ef79737e04c04149a80ebfcea_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/computer_monitor/computer_monitor_3959e6b8e1e1aa8421fba9b684aa983f2e99df2ef79737e04c04149a80ebfcea =====
+[info] OBJ loader mode=atlas: 3 diffuse textures
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/computer_monitor/computer_monitor_3959e6b8e1e1aa8421fba9b684aa983f2e99df2ef79737e04c04149a80ebfcea.tar.gz (keep_original=False)
+time: 69.78 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/computer_monitor/computer_monitor_47279669c1820f2663c4bcbcd2f09f23588fe4e72d0e662a03a4d922ffa39078_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/computer_monitor/computer_monitor_47279669c1820f2663c4bcbcd2f09f23588fe4e72d0e662a03a4d922ffa39078 =====
+[warn] atlas memory estimate 301.5 GB > limit 16.0 GB; auto-switch to UV textures (no atlas).  (faces≈59911, tile=128, batch_dup≈12)
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[info] OBJ loader mode=trimesh: fallback after p3d failure
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/computer_monitor/computer_monitor_47279669c1820f2663c4bcbcd2f09f23588fe4e72d0e662a03a4d922ffa39078.tar.gz (keep_original=False)
+time: 71.71 seconds
+[done] rc=0  time=217.34s
+[render/batch] done rc=0  total=3  time=217.34s  avg=72.45s/obj
+[timing] monitor_(computer_equipment) computer_monitor | render: 217.34s
+[ALL DONE] Per-category flow outputs:
+- Downloads: /home/vault/v100dd/v100dd26/Dataset
+- Aligned GLBs: /home/vault/v100dd/v100dd26/Dataset/aligned_xl
+- Renders: /home/vault/v100dd/v100dd26/Dataset/renders_xl
+[2025-10-17 15:47:38] Pipeline runtime: 536 seconds
+[2025-10-17 15:47:38] Array job finished
+[2025-10-17 15:47:38] Total array job runtime: 549 seconds
+=== JOB_STATISTICS ===
+=== current date     : Fri Oct 17 15:47:38 CEST 2025
+= Job-ID             : 3086046 on alex as 3086046_2
+= Job-Name           : dataset-pipeline-array
+= Job-Command        : /home/hpc/v100dd/v100dd26/scripts/dataset/dataset_pipeline_array.sh
+= Initial workdir    : /home/hpc/v100dd/v100dd26/project/Dataset_pipeline
+= Queue/Partition    : a100
+= Slurm account      : v100dd with QOS=normal
+= Features           : a100_40
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 00:11:05
+= Total RAM usage    : 9.5 GiB of assigned  GiB (%)
+= Node list          : a0705
+= Subm/Elig/Start/End: 2025-10-17T11:49:24 / 2025-10-17T11:49:24 / 2025-10-17T15:36:33 / 2025-10-17T15:47:38
+======================
+=== Quota infos ======
+    Path              Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc           62.1G   104.9G   209.7G        N/A     134K     500K   1,000K        N/A    
+    /home/vault        190.6G  1048.6G  2097.2G        N/A  31,149      200K     400K        N/A    
+    atuin.rrze.uni-erlangen.de:/srv/home     0.0K     0.0K     0.0K        N/A       1                           N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+NVIDIA A100-SXM4-40GB, 00000000:4F:00.0, 82738, 68 %, 0 %, 12380 MiB, 244064 ms
+NVIDIA A100-SXM4-40GB, 00000000:4F:00.0, 83638, 79 %, 0 %, 11568 MiB, 214451 ms

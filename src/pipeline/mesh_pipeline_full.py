@@ -61,6 +61,22 @@ except Exception as _e:
 from time import perf_counter
 OXL_OUT_CAT = "aligned_xl"
 
+from contextlib import contextmanager
+
+@contextmanager
+def step_timer(label: str):
+    start = perf_counter()
+    try:
+        yield
+    except Exception:
+        duration = perf_counter() - start
+        print(f"[timing] {label}: {duration:.2f}s (FAILED)")
+        raise
+    else:
+        duration = perf_counter() - start
+        print(f"[timing] {label}: {duration:.2f}s")
+
+
 def sh(cmd: List[str], dry: bool=False, cwd: Optional[Path]=None, quiet: bool=False) -> int:
     """
     Run a shell command with optional quiet mode.
@@ -2897,17 +2913,16 @@ def main():
             print(f"===== CATEGORY: {cat} =====")
             # Step 1: download (restricted to this category)
             if "download" in steps_set and getattr(args, "dl_backend", "custom") == "oxl":
-                # 检查必需的参数
                 if not getattr(args, 'label_dir', None) and not getattr(args, 'rot_dir', None):
                     raise ValueError("per_category OXL mode requires --label_dir (or --rot_dir)")
                 if not getattr(args, 'sha_index_csv', None):
                     raise ValueError("per_category OXL mode requires --sha_index_csv")
-                step_download_assets_oxl_per_category(args, P, cat)
-                # else:
-                #     step_download_assets_oxl(args, P)
+                with step_timer(f"{cat} | download"):
+                    step_download_assets_oxl_per_category(args, P, cat)
             elif "download" in steps_set and args.dl_backend == "custom":
                 print("--- [cat] Step 1: Download / verify assets ---")
-                step_download_assets(args, P, inferred_cats=[cat], cat=[cat])
+                with step_timer(f"{cat} | download"):
+                    step_download_assets(args, P, inferred_cats=[cat], cat=[cat])
             else:
                 print("[SKIP] [cat] download")
 
@@ -2915,7 +2930,8 @@ def main():
             align_out_dir = None
             if "align" in steps_set:
                 print("--- [cat] Step 2: Align & export GLBs ---")
-                align_out_dir = step_align_export_one_category(args, P, cat)
+                with step_timer(f"{cat} | align"):
+                    align_out_dir = step_align_export_one_category(args, P, cat)
             else:
                 print("[SKIP] [cat] align & export")
                 # If we didn't align now, but will render, try to locate existing dir
@@ -2932,11 +2948,12 @@ def main():
                         extra = f" (alias: {alias})" if alias != cat else ""
                         print(f"[WARN] No aligned directory for {cat}{extra}; skipping render.")
                         continue
-                glb_list = list(iter_glbs(align_out_dir)) # collected corresponding type data as list passing 
+                glb_list = list(iter_glbs(align_out_dir))
                 obj_list = list(iter_objs(align_out_dir))
                 models = glb_list if args.input_format == "glb" else (obj_list if args.input_format == "obj" else (glb_list if glb_list else obj_list))
                 print(f"[INFO] {cat}: to render → {len(models)} item(s) ({'GLB' if models==glb_list else 'OBJ'}) → {args.render_scheme} storage")
-                step_render(args, P, models, cat)
+                with step_timer(f"{cat} | render"):
+                    step_render(args, P, models, cat)
 
             else:
                 print("[SKIP] [cat] render")
@@ -2954,7 +2971,8 @@ def main():
 
     if "download" in steps_set:
         print("=== Step 1: Download / verify assets ===")
-        step_download_assets(args, P, inferred_cats=cats_for_infer if cats_for_infer else None)
+        with step_timer("global | download"):
+            step_download_assets(args, P, inferred_cats=cats_for_infer if cats_for_infer else None)
     else:
         print("[SKIP] Step 1: download")
 
@@ -2981,13 +2999,15 @@ def main():
     if args.render_after_each_category and ("align" in steps_set) and ("render" in steps_set):
         print(f"=== Step 2+3 (interleaved): categories: {cats} ===")
         for cat in cats:
-            out_dir = step_align_export_one_category(args, P, cat)
+            with step_timer(f"{cat} | align"):
+                out_dir = step_align_export_one_category(args, P, cat)
             print(f"=== Step 3 (interleaved): Render {cat} ===")
             glb_list = list(iter_glbs(out_dir))
             obj_list = list(iter_objs(out_dir))
             models = glb_list if args.input_format == "glb" else (obj_list if args.input_format == "obj" else (glb_list if glb_list else obj_list))
             print(f"[INFO] {cat}: to render → {len(models)} item(s) ({'GLB' if models==glb_list else 'OBJ'}) → {args.render_scheme} storage")
-            step_render(args, P, models, cat)
+            with step_timer(f"{cat} | render"):
+                step_render(args, P, models, cat)
         print("[ALL DONE] Outputs:")
         print("- Downloads:", P.downloads)
         print("- Aligned GLBs:", P.aligned_glb)
@@ -2998,7 +3018,8 @@ def main():
     if "align" in steps_set:
         print(f"=== Step 2: Align & export GLBs (categories: {cats}) ===")
         for cat in cats:
-            out_dir = step_align_export_one_category(args, P, cat)
+            with step_timer(f"{cat} | align"):
+                out_dir = step_align_export_one_category(args, P, cat)
             aligned_dirs.append((cat, out_dir))
     else:
         print("[SKIP] Step 2: align & export")
@@ -3010,7 +3031,8 @@ def main():
             out_cat = getattr(args, 'oxl_out_category', 'oxl')
             models = collect_models_oxl(P, out_cat, labels=getattr(args, 'oxl_labels', None))
             print(f"[INFO] OXL downstream: render {len(models)} item(s) from labels={getattr(args,'oxl_labels',None)}")
-            step_render(args, P, models, cat)
+            with step_timer("global | render (oxl)"):
+                step_render(args, P, models, out_cat)
         else:
             if not aligned_dirs:
                 if cats:
@@ -3025,7 +3047,8 @@ def main():
                 obj_list = list(iter_objs(cat_dir))
                 models = glb_list if args.input_format == "glb" else (obj_list if args.input_format == "obj" else (glb_list if glb_list else obj_list))
                 print(f"[INFO] {cat}: to render → {len(models)} item(s) ({'GLB' if models==glb_list else 'OBJ'}) → {args.render_scheme} storage")
-                step_render(args, P, models, cat)
+                with step_timer(f"{cat} | render"):
+                    step_render(args, P, models, cat)
     else:
         print("[SKIP] Step 3: render")
 

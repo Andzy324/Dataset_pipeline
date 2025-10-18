@@ -1,0 +1,842 @@
+### Starting TaskPrologue of job 3086460 on a0603 at Fr 17. Okt 15:24:21 CEST 2025
+Running on cores 64-79 with governor ondemand
+Fri Oct 17 15:24:21 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.95.05              Driver Version: 580.95.05      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-40GB          On  |   00000000:90:00.0 Off |                    0 |
+| N/A   46C    P0             55W /  400W |       0MiB /  40960MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+[2025-10-17 15:24:21] Array job started
+Python 3.10.18
+Fri Oct 17 15:24:24 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.95.05              Driver Version: 580.95.05      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-40GB          On  |   00000000:90:00.0 Off |                    0 |
+| N/A   46C    P0             55W /  400W |       0MiB /  40960MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+/home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/bin/git-lfs
+Updated Git hooks.
+Git LFS initialized.
+[2025-10-17 15:24:25] Array index 1 -> categories: dresser bookcase table_lamp lamp
+[2025-10-17 15:24:25] Total categories: 10 | group size: 4 | total groups: 3
+[2025-10-17 15:24:25] Running: python src/pipeline/mesh_pipeline_full.py --config src/pipeline/config/pipeline_full.yaml --allow_cli_override --categories dresser bookcase table_lamp lamp --oxl_labels dresser bookcase table_lamp lamp --labels dresser,bookcase,table_lamp,lamp
+=== Per-category flow over categories: ['dresser', 'bookcase', 'table_lamp', 'lamp'] ===
+===== CATEGORY: dresser =====
+[SKIP] [cat] download
+--- [cat] Step 2: Align & export GLBs ---
+[OXL] downloads under: /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dresser
+[timing] dresser | align: 17.02s
+--- [cat] Step 3: Render orbit RGBD & videos ---
+[INFO] dresser: to render → 13 item(s) (OBJ) → flat storage
+[render/batch] cat=dresser  dir=/home/vault/v100dd/v100dd26/Dataset/aligned_xl/dresser  out=/home/vault/v100dd/v100dd26/Dataset/renders_xl/dresser  total=13
+$ /home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/bin/python /home/hpc/v100dd/v100dd26/project/Dataset_pipeline/src/video_render/render_orbit_full.py --obj /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dresser --out /home/vault/v100dd/v100dd26/Dataset/renders_xl/dresser --label dresser --num_cams 40 --elev_deg 20.0 --fov_deg 60.0 --image_size 768 --top_ring_num 40 --top_ring_elev_deg 78.0 --top_ring_dist_scale 0.85 --axis_correction none --seed 123 --batch_chunk 12 --io_workers 8 --io_max_pending 12 --bin_size 128 --max_faces_per_bin 400000 --no_cull_backfaces --save_rgb_png --save_mask_png --save_nocs_png8 --nocs_norm bbox --cam_mode random --rand_cams 150 --sphere_dist 1.73 --pos_tangent_jitter 0.02 --depth_jitter 0.02 --input_format obj --use_uv_textures --bg_color 1.0 1.0 1.0 --obj_loader p3d --atlas_size 128 --atlas_mem_limit_gb 16.0 --overwrite --viz_backend mpl --viz_max_frustums 150 --archive_output --archive_format tar.gz --manifest /tmp/3086460.alex/tmp1xae9ykv_render_manifest.json
+[info] GPU rendering on: NVIDIA A100-SXM4-40GB
+[p3d] torch=2.1.2 cuda=11.8; pytorch3d=0.7.4 HAVE_P3D=True HAVE_LOAD_OBJS_AS_MESHES=True HAVE_LOAD_OBJ=True
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dresser/dresser_048571999d0b7b0a7db56a7649302449ff80f010a4794881d6ba106b1f55deae_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/dresser/dresser_048571999d0b7b0a7db56a7649302449ff80f010a4794881d6ba106b1f55deae =====
+[warn] atlas memory estimate 75.6 GB > limit 16.0 GB; auto-switch to UV textures (no atlas).  (faces≈15021, tile=128, batch_dup≈12)
+[info] OBJ loader mode=uv: atlas estimate 75.6GB exceeds limit 16.0GB; UV fallback (3 map(s), 0 pure color(s))
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/dresser/dresser_048571999d0b7b0a7db56a7649302449ff80f010a4794881d6ba106b1f55deae.tar.gz (keep_original=False)
+time: 74.89 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dresser/dresser_3b08e6ddaa3fbc4d363f1215b8e4e20b6d84a58d3c687be2f79c7620e4930ee1_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/dresser/dresser_3b08e6ddaa3fbc4d363f1215b8e4e20b6d84a58d3c687be2f79c7620e4930ee1 =====
+[warn] atlas memory estimate 73.8 GB > limit 16.0 GB; auto-switch to UV textures (no atlas).  (faces≈14659, tile=128, batch_dup≈12)
+[info] OBJ loader mode=uv: atlas estimate 73.8GB exceeds limit 16.0GB; UV fallback (1 map(s), 2 pure color(s))
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/dresser/dresser_3b08e6ddaa3fbc4d363f1215b8e4e20b6d84a58d3c687be2f79c7620e4930ee1.tar.gz (keep_original=False)
+time: 69.75 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dresser/dresser_6311079c3f9f00dc96de62d4870e1a0abeddcd623d8534f2904440242e407ca9_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/dresser/dresser_6311079c3f9f00dc96de62d4870e1a0abeddcd623d8534f2904440242e407ca9 =====
+[warn] atlas memory estimate 52.1 GB > limit 16.0 GB; auto-switch to UV textures (no atlas).  (faces≈10356, tile=128, batch_dup≈12)
+[info] OBJ loader mode=uv: atlas estimate 52.1GB exceeds limit 16.0GB; UV fallback (1 map(s), 2 pure color(s))
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/dresser/dresser_6311079c3f9f00dc96de62d4870e1a0abeddcd623d8534f2904440242e407ca9.tar.gz (keep_original=False)
+time: 71.09 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dresser/dresser_784bf3c70cf7d1b1a29165019394594d1c89ab47cc1471a113a716d85ddb8546_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/dresser/dresser_784bf3c70cf7d1b1a29165019394594d1c89ab47cc1471a113a716d85ddb8546 =====
+[info] OBJ loader mode=atlas: 2 diffuse textures
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/dresser/dresser_784bf3c70cf7d1b1a29165019394594d1c89ab47cc1471a113a716d85ddb8546.tar.gz (keep_original=False)
+time: 73.36 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dresser/dresser_a668de3683dcc8e14d559e2fa9a457ead124a8c2ac97b07990989ae473ae58c4_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/dresser/dresser_a668de3683dcc8e14d559e2fa9a457ead124a8c2ac97b07990989ae473ae58c4 =====
+[warn] atlas memory estimate 417.1 GB > limit 16.0 GB; auto-switch to UV textures (no atlas).  (faces≈82863, tile=128, batch_dup≈12)
+[info] OBJ loader mode=uv: atlas estimate 417.1GB exceeds limit 16.0GB; UV fallback (3 map(s), 1 pure color(s))
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/dresser/dresser_a668de3683dcc8e14d559e2fa9a457ead124a8c2ac97b07990989ae473ae58c4.tar.gz (keep_original=False)
+time: 74.15 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dresser/dresser_b744925c464d0561a3f36346160ccfaa5c8d3bdf6acdbc29af79c1546a9e82f5_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/dresser/dresser_b744925c464d0561a3f36346160ccfaa5c8d3bdf6acdbc29af79c1546a9e82f5 =====
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[info] OBJ loader mode=trimesh: fallback after p3d failure
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/dresser/dresser_b744925c464d0561a3f36346160ccfaa5c8d3bdf6acdbc29af79c1546a9e82f5.tar.gz (keep_original=False)
+time: 69.88 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dresser/dresser_b81e30aa5b5101930730416cfeeee8707ba1dd5ec856809c6138beba2b82b3a6_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/dresser/dresser_b81e30aa5b5101930730416cfeeee8707ba1dd5ec856809c6138beba2b82b3a6 =====
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[info] OBJ loader mode=trimesh: fallback after p3d failure
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/dresser/dresser_b81e30aa5b5101930730416cfeeee8707ba1dd5ec856809c6138beba2b82b3a6.tar.gz (keep_original=False)
+time: 67.79 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dresser/dresser_bb0fdeb1bc80c3e7ae1023e8b883017a249db5cc7c7a096f51f2355eea8b7b0c_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/dresser/dresser_bb0fdeb1bc80c3e7ae1023e8b883017a249db5cc7c7a096f51f2355eea8b7b0c =====
+[warn] atlas memory estimate 73.8 GB > limit 16.0 GB; auto-switch to UV textures (no atlas).  (faces≈14659, tile=128, batch_dup≈12)
+[info] OBJ loader mode=uv: atlas estimate 73.8GB exceeds limit 16.0GB; UV fallback (1 map(s), 2 pure color(s))
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/dresser/dresser_bb0fdeb1bc80c3e7ae1023e8b883017a249db5cc7c7a096f51f2355eea8b7b0c.tar.gz (keep_original=False)
+time: 69.64 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dresser/dresser_be21a5c0ed9989715d61b60b473e84eb9e136105a23e0a170141f173c114ec7e_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/dresser/dresser_be21a5c0ed9989715d61b60b473e84eb9e136105a23e0a170141f173c114ec7e =====
+[info] OBJ loader mode=uv: single diffuse source (1 map(s), 0 pure color(s))
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/dresser/dresser_be21a5c0ed9989715d61b60b473e84eb9e136105a23e0a170141f173c114ec7e.tar.gz (keep_original=False)
+time: 70.43 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dresser/dresser_d617b08f557a1bc2baff8bfed1c34818bcc83a5509ea0a28d0d80a30acdaaede_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/dresser/dresser_d617b08f557a1bc2baff8bfed1c34818bcc83a5509ea0a28d0d80a30acdaaede =====
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[info] OBJ loader mode=trimesh: fallback after p3d failure
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/dresser/dresser_d617b08f557a1bc2baff8bfed1c34818bcc83a5509ea0a28d0d80a30acdaaede.tar.gz (keep_original=False)
+time: 67.16 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dresser/dresser_da5ac4541786a0c838082c72d8fc9109ab038e74effea504f14db4586f1b19f5_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/dresser/dresser_da5ac4541786a0c838082c72d8fc9109ab038e74effea504f14db4586f1b19f5 =====
+[warn] atlas memory estimate 246.9 GB > limit 16.0 GB; auto-switch to UV textures (no atlas).  (faces≈49056, tile=128, batch_dup≈12)
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[info] OBJ loader mode=trimesh: fallback after p3d failure
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/dresser/dresser_da5ac4541786a0c838082c72d8fc9109ab038e74effea504f14db4586f1b19f5.tar.gz (keep_original=False)
+time: 69.23 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dresser/dresser_f1f1a08cd36c59dec18325c0a8462c460aba63eba03b0dc21a5860361b061363_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/dresser/dresser_f1f1a08cd36c59dec18325c0a8462c460aba63eba03b0dc21a5860361b061363 =====
+[warn] atlas memory estimate 164.4 GB > limit 16.0 GB; auto-switch to UV textures (no atlas).  (faces≈32666, tile=128, batch_dup≈12)
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[info] OBJ loader mode=trimesh: fallback after p3d failure
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/dresser/dresser_f1f1a08cd36c59dec18325c0a8462c460aba63eba03b0dc21a5860361b061363.tar.gz (keep_original=False)
+time: 67.98 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/dresser/dresser_f6ecfbe8ede50be7b42f6ea2307421659be1218fd0eaed53c046aa1f4a105ff7_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/dresser/dresser_f6ecfbe8ede50be7b42f6ea2307421659be1218fd0eaed53c046aa1f4a105ff7 =====
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[info] OBJ loader mode=trimesh: fallback after p3d failure
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/dresser/dresser_f6ecfbe8ede50be7b42f6ea2307421659be1218fd0eaed53c046aa1f4a105ff7.tar.gz (keep_original=False)
+time: 72.19 seconds
+[done] rc=0  time=931.39s
+[render/batch] done rc=0  total=13  time=931.39s  avg=71.65s/obj
+[timing] dresser | render: 931.39s
+===== CATEGORY: bookcase =====
+[SKIP] [cat] download
+--- [cat] Step 2: Align & export GLBs ---
+[OXL] downloads under: /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bookcase
+[timing] bookcase | align: 59.44s
+--- [cat] Step 3: Render orbit RGBD & videos ---
+[INFO] bookcase: to render → 27 item(s) (OBJ) → flat storage
+[render/batch] cat=bookcase  dir=/home/vault/v100dd/v100dd26/Dataset/aligned_xl/bookcase  out=/home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase  total=27
+$ /home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/bin/python /home/hpc/v100dd/v100dd26/project/Dataset_pipeline/src/video_render/render_orbit_full.py --obj /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bookcase --out /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase --label bookcase --num_cams 40 --elev_deg 20.0 --fov_deg 60.0 --image_size 768 --top_ring_num 40 --top_ring_elev_deg 78.0 --top_ring_dist_scale 0.85 --axis_correction none --seed 123 --batch_chunk 12 --io_workers 8 --io_max_pending 12 --bin_size 128 --max_faces_per_bin 400000 --no_cull_backfaces --save_rgb_png --save_mask_png --save_nocs_png8 --nocs_norm bbox --cam_mode random --rand_cams 150 --sphere_dist 1.73 --pos_tangent_jitter 0.02 --depth_jitter 0.02 --input_format obj --use_uv_textures --bg_color 1.0 1.0 1.0 --obj_loader p3d --atlas_size 128 --atlas_mem_limit_gb 16.0 --overwrite --viz_backend mpl --viz_max_frustums 150 --archive_output --archive_format tar.gz --manifest /tmp/3086460.alex/tmp06si7c0p_render_manifest.json
+[info] GPU rendering on: NVIDIA A100-SXM4-40GB
+[p3d] torch=2.1.2 cuda=11.8; pytorch3d=0.7.4 HAVE_P3D=True HAVE_LOAD_OBJS_AS_MESHES=True HAVE_LOAD_OBJ=True
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bookcase/bookcase_08b0f9b2931f8f16f1a128fbd18123170f90188cbbe48cc365f2635b507448ce_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_08b0f9b2931f8f16f1a128fbd18123170f90188cbbe48cc365f2635b507448ce =====
+[info] OBJ loader mode=uv: single diffuse source (1 map(s), 0 pure color(s))
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_08b0f9b2931f8f16f1a128fbd18123170f90188cbbe48cc365f2635b507448ce.tar.gz (keep_original=False)
+time: 69.18 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bookcase/bookcase_271b37813f459a62bb7ce593ddd6a8ec466028c4014ce12e600a8c99b972710e_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_271b37813f459a62bb7ce593ddd6a8ec466028c4014ce12e600a8c99b972710e =====
+[warn] atlas memory estimate 48.7 GB > limit 16.0 GB; auto-switch to UV textures (no atlas).  (faces≈9684, tile=128, batch_dup≈12)
+[info] OBJ loader mode=uv: atlas estimate 48.7GB exceeds limit 16.0GB; UV fallback (2 map(s), 11 pure color(s))
+[NOCS-SAVE] plus: out-of-range before clamp = 0.0166%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_271b37813f459a62bb7ce593ddd6a8ec466028c4014ce12e600a8c99b972710e.tar.gz (keep_original=False)
+time: 69.52 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bookcase/bookcase_288bff61dcbf3560fd97bb2586c1e163efca2cb0a1cf991411c1b62f8f5367ae_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_288bff61dcbf3560fd97bb2586c1e163efca2cb0a1cf991411c1b62f8f5367ae =====
+[info] OBJ loader mode=uv: single diffuse source (1 map(s), 0 pure color(s))
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_288bff61dcbf3560fd97bb2586c1e163efca2cb0a1cf991411c1b62f8f5367ae.tar.gz (keep_original=False)
+time: 68.74 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bookcase/bookcase_3904ef4a9011364c0449a41bc8c1c1105836a034b76ee537a627624378a9f4e6_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_3904ef4a9011364c0449a41bc8c1c1105836a034b76ee537a627624378a9f4e6 =====
+[warn] atlas memory estimate 22.6 GB > limit 16.0 GB; auto-switch to UV textures (no atlas).  (faces≈4492, tile=128, batch_dup≈12)
+[info] OBJ loader mode=uv: atlas estimate 22.6GB exceeds limit 16.0GB; UV fallback (5 map(s), 2 pure color(s))
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_3904ef4a9011364c0449a41bc8c1c1105836a034b76ee537a627624378a9f4e6.tar.gz (keep_original=False)
+time: 72.99 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bookcase/bookcase_3b67cae83719a60766db8943cc0b7e242a677e616bf96f9b04a67e8b09805d05_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_3b67cae83719a60766db8943cc0b7e242a677e616bf96f9b04a67e8b09805d05 =====
+[info] OBJ loader mode=atlas: 10 diffuse textures
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_3b67cae83719a60766db8943cc0b7e242a677e616bf96f9b04a67e8b09805d05.tar.gz (keep_original=False)
+time: 69.04 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bookcase/bookcase_3fe8525880c71beea740265a91650e369817aa231e43382ed4566ec8cdc9a512_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_3fe8525880c71beea740265a91650e369817aa231e43382ed4566ec8cdc9a512 =====
+[info] OBJ loader mode=atlas: 2 diffuse textures; pure colors + textures
+[NOCS-SAVE] plus: out-of-range before clamp = 0.0301%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_3fe8525880c71beea740265a91650e369817aa231e43382ed4566ec8cdc9a512.tar.gz (keep_original=False)
+time: 71.98 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bookcase/bookcase_554ac4b160765d43c7aaf0bab9e92bbc4c79a5004b001b75b1f2eb90fcccf41e_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_554ac4b160765d43c7aaf0bab9e92bbc4c79a5004b001b75b1f2eb90fcccf41e =====
+[info] OBJ loader mode=atlas: 2 diffuse textures
+[NOCS-SAVE] plus: out-of-range before clamp = 0.0178%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_554ac4b160765d43c7aaf0bab9e92bbc4c79a5004b001b75b1f2eb90fcccf41e.tar.gz (keep_original=False)
+time: 69.24 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bookcase/bookcase_563d6d0dacaa44ba52fc039f5f33790c9f8c8836a0ce49f2fee62f2e72405a48_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_563d6d0dacaa44ba52fc039f5f33790c9f8c8836a0ce49f2fee62f2e72405a48 =====
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[info] OBJ loader mode=trimesh: fallback after p3d failure
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_563d6d0dacaa44ba52fc039f5f33790c9f8c8836a0ce49f2fee62f2e72405a48.tar.gz (keep_original=False)
+time: 66.96 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bookcase/bookcase_5da571eae880ebe4e4034f5a961544b2a807cd847afaa328a7a3f974544d04b5_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_5da571eae880ebe4e4034f5a961544b2a807cd847afaa328a7a3f974544d04b5 =====
+[info] OBJ loader mode=uv: single diffuse source (1 map(s), 0 pure color(s))
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_5da571eae880ebe4e4034f5a961544b2a807cd847afaa328a7a3f974544d04b5.tar.gz (keep_original=False)
+time: 68.81 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bookcase/bookcase_62f433ebbcf2c07b6739fc77f779784837a1caf4b3ea190cabc9d5c347db1b35_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_62f433ebbcf2c07b6739fc77f779784837a1caf4b3ea190cabc9d5c347db1b35 =====
+[info] OBJ loader mode=atlas: 6 pure colors
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_62f433ebbcf2c07b6739fc77f779784837a1caf4b3ea190cabc9d5c347db1b35.tar.gz (keep_original=False)
+time: 67.94 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bookcase/bookcase_729ee18d9c53bcdbe457824560709f9cda09c1ca598c78e247bf5b5e71273906_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_729ee18d9c53bcdbe457824560709f9cda09c1ca598c78e247bf5b5e71273906 =====
+[info] OBJ loader mode=atlas: 4 diffuse textures; 2 pure colors
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_729ee18d9c53bcdbe457824560709f9cda09c1ca598c78e247bf5b5e71273906.tar.gz (keep_original=False)
+time: 70.62 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bookcase/bookcase_75c2e7e98b3175004a3fff97c77b72d6ccf4946b780b0f9664bb57fcd7ff1b49_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_75c2e7e98b3175004a3fff97c77b72d6ccf4946b780b0f9664bb57fcd7ff1b49 =====
+[info] OBJ loader mode=atlas: 2 diffuse textures
+[NOCS-SAVE] plus: out-of-range before clamp = 0.0213%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_75c2e7e98b3175004a3fff97c77b72d6ccf4946b780b0f9664bb57fcd7ff1b49.tar.gz (keep_original=False)
+time: 68.37 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bookcase/bookcase_787d358ebbac879fbaf6606d954bba4a2b08811a44d9f674d6fecdb025e8c309_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_787d358ebbac879fbaf6606d954bba4a2b08811a44d9f674d6fecdb025e8c309 =====
+[info] OBJ loader mode=atlas: 6 pure colors
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_787d358ebbac879fbaf6606d954bba4a2b08811a44d9f674d6fecdb025e8c309.tar.gz (keep_original=False)
+time: 68.85 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bookcase/bookcase_7edb00a9545cbffb89eae840b7f64c3ed2ccb8e2eaaad614ca9155c91553a8a6_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_7edb00a9545cbffb89eae840b7f64c3ed2ccb8e2eaaad614ca9155c91553a8a6 =====
+[info] OBJ loader mode=uv: single diffuse source (1 map(s), 0 pure color(s))
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_7edb00a9545cbffb89eae840b7f64c3ed2ccb8e2eaaad614ca9155c91553a8a6.tar.gz (keep_original=False)
+time: 67.78 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bookcase/bookcase_889caa1c2f4c1b67db6c0498d24bdbc482f27230ce38fa905d8af7b837e66b14_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_889caa1c2f4c1b67db6c0498d24bdbc482f27230ce38fa905d8af7b837e66b14 =====
+[info] OBJ loader mode=uv: single diffuse source (1 map(s), 0 pure color(s))
+[NOCS-SAVE] plus: out-of-range before clamp = 0.0124%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_889caa1c2f4c1b67db6c0498d24bdbc482f27230ce38fa905d8af7b837e66b14.tar.gz (keep_original=False)
+time: 69.86 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bookcase/bookcase_8912f08e980350bdbd67ea4c4e6716dce2fc418c68b0d68f13861f9a5ec3eac0_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_8912f08e980350bdbd67ea4c4e6716dce2fc418c68b0d68f13861f9a5ec3eac0 =====
+[info] OBJ loader mode=atlas: 5 diffuse textures; 2 pure colors
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_8912f08e980350bdbd67ea4c4e6716dce2fc418c68b0d68f13861f9a5ec3eac0.tar.gz (keep_original=False)
+time: 74.68 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bookcase/bookcase_9349c17e2006d2605408b9085d23f7d011465fecf8eda715ceebc49e967afe67_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_9349c17e2006d2605408b9085d23f7d011465fecf8eda715ceebc49e967afe67 =====
+[info] OBJ loader mode=uv: single diffuse source (1 map(s), 0 pure color(s))
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_9349c17e2006d2605408b9085d23f7d011465fecf8eda715ceebc49e967afe67.tar.gz (keep_original=False)
+time: 67.70 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bookcase/bookcase_a0738a3df30c07bd60c4d15719ba47f8e495f19eb40e758ad93d9ee5f61be808_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_a0738a3df30c07bd60c4d15719ba47f8e495f19eb40e758ad93d9ee5f61be808 =====
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[info] OBJ loader mode=trimesh: fallback after p3d failure
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_a0738a3df30c07bd60c4d15719ba47f8e495f19eb40e758ad93d9ee5f61be808.tar.gz (keep_original=False)
+time: 67.37 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bookcase/bookcase_a8e6e3a9858786f0ca1eeab89fca0a8f73ff82c7914abcef770272cbab167a1b_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_a8e6e3a9858786f0ca1eeab89fca0a8f73ff82c7914abcef770272cbab167a1b =====
+[warn] atlas memory estimate 30.6 GB > limit 16.0 GB; auto-switch to UV textures (no atlas).  (faces≈6082, tile=128, batch_dup≈12)
+[info] OBJ loader mode=uv: atlas estimate 30.6GB exceeds limit 16.0GB; UV fallback (1 map(s), 11 pure color(s))
+[NOCS-SAVE] plus: out-of-range before clamp = 0.0181%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_a8e6e3a9858786f0ca1eeab89fca0a8f73ff82c7914abcef770272cbab167a1b.tar.gz (keep_original=False)
+time: 69.15 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bookcase/bookcase_d360284290c1f498d27d981c8772876aca5b0bbff944003983cf197da278d6df_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_d360284290c1f498d27d981c8772876aca5b0bbff944003983cf197da278d6df =====
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[info] OBJ loader mode=trimesh: fallback after p3d failure
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_d360284290c1f498d27d981c8772876aca5b0bbff944003983cf197da278d6df.tar.gz (keep_original=False)
+time: 67.64 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bookcase/bookcase_db8aca4ad7f157d247b4b14cd78e65a30873e60a260a57f05c94d7816d8bb39e_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_db8aca4ad7f157d247b4b14cd78e65a30873e60a260a57f05c94d7816d8bb39e =====
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[info] OBJ loader mode=trimesh: fallback after p3d failure
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_db8aca4ad7f157d247b4b14cd78e65a30873e60a260a57f05c94d7816d8bb39e.tar.gz (keep_original=False)
+time: 66.96 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bookcase/bookcase_dbdeffc3d859935d2fb2f678871bad9f8d8f0a123d9f814fb1514a7592418d77_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_dbdeffc3d859935d2fb2f678871bad9f8d8f0a123d9f814fb1514a7592418d77 =====
+[info] OBJ loader mode=atlas: 6 diffuse textures
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_dbdeffc3d859935d2fb2f678871bad9f8d8f0a123d9f814fb1514a7592418d77.tar.gz (keep_original=False)
+time: 70.26 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bookcase/bookcase_e02e5febfc2dd8e4fdca8b68333f302ce3b02a7461dc8ca32f5a90e022d5be6d_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_e02e5febfc2dd8e4fdca8b68333f302ce3b02a7461dc8ca32f5a90e022d5be6d =====
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[info] OBJ loader mode=trimesh: fallback after p3d failure
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_e02e5febfc2dd8e4fdca8b68333f302ce3b02a7461dc8ca32f5a90e022d5be6d.tar.gz (keep_original=False)
+time: 67.00 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bookcase/bookcase_edd6a7649c0d214a0a8aa9d30d71507f278c9cedbd9e305e13044f9800bf4ea4_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_edd6a7649c0d214a0a8aa9d30d71507f278c9cedbd9e305e13044f9800bf4ea4 =====
+[warn] atlas memory estimate 30.0 GB > limit 16.0 GB; auto-switch to UV textures (no atlas).  (faces≈5956, tile=128, batch_dup≈12)
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[info] OBJ loader mode=trimesh: fallback after p3d failure
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_edd6a7649c0d214a0a8aa9d30d71507f278c9cedbd9e305e13044f9800bf4ea4.tar.gz (keep_original=False)
+time: 67.98 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bookcase/bookcase_f921b11bf288a12fddc64950e492ac4a8fa711e775a99d973f78664f46884270_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_f921b11bf288a12fddc64950e492ac4a8fa711e775a99d973f78664f46884270 =====
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[info] OBJ loader mode=trimesh: fallback after p3d failure
+[NOCS-SAVE] plus: out-of-range before clamp = 0.0407%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_f921b11bf288a12fddc64950e492ac4a8fa711e775a99d973f78664f46884270.tar.gz (keep_original=False)
+time: 69.23 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bookcase/bookcase_fa3692848194ac1c5553e3210242928b30cad96de2861fcf8877a67ffe218119_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_fa3692848194ac1c5553e3210242928b30cad96de2861fcf8877a67ffe218119 =====
+[info] OBJ loader mode=atlas: 15 pure colors
+[ERROR] Failed: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bookcase/bookcase_fa3692848194ac1c5553e3210242928b30cad96de2861fcf8877a67ffe218119_obj/model.obj :: CUDA out of memory. Tried to allocate 12.53 GiB. GPU 0 has a total capacty of 39.49 GiB of which 10.21 GiB is free. Including non-PyTorch memory, this process has 29.28 GiB memory in use. Of the allocated memory 15.96 GiB is allocated by PyTorch, and 12.04 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/bookcase/bookcase_fb1b8ef678f91afbcb1925ccb0d7952ff72bdc3d13599566d6fb69eb40fc635e_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_fb1b8ef678f91afbcb1925ccb0d7952ff72bdc3d13599566d6fb69eb40fc635e =====
+[warn] atlas memory estimate 1216.2 GB > limit 6.1245483398437495 GB; auto-switch to UV textures (no atlas).  (faces≈241642, tile=128, batch_dup≈12)
+[info] OBJ loader mode=uv: atlas estimate 1216.2GB exceeds limit 6.1245483398437495GB; UV fallback (2 map(s), 0 pure color(s))
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/bookcase/bookcase_fb1b8ef678f91afbcb1925ccb0d7952ff72bdc3d13599566d6fb69eb40fc635e.tar.gz (keep_original=False)
+time: 83.25 seconds
+[done] rc=0  time=1824.64s
+[render/batch] done rc=0  total=27  time=1824.64s  avg=67.58s/obj
+[timing] bookcase | render: 1824.64s
+===== CATEGORY: table_lamp =====
+[SKIP] [cat] download
+--- [cat] Step 2: Align & export GLBs ---
+[OXL] downloads under: /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/table_lamp
+[timing] table_lamp | align: 30.59s
+--- [cat] Step 3: Render orbit RGBD & videos ---
+[INFO] table_lamp: to render → 29 item(s) (OBJ) → flat storage
+[render/batch] cat=table_lamp  dir=/home/vault/v100dd/v100dd26/Dataset/aligned_xl/table_lamp  out=/home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp  total=29
+$ /home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/bin/python /home/hpc/v100dd/v100dd26/project/Dataset_pipeline/src/video_render/render_orbit_full.py --obj /home/vault/v100dd/v100dd26/Dataset/aligned_xl/table_lamp --out /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp --label table_lamp --num_cams 40 --elev_deg 20.0 --fov_deg 60.0 --image_size 768 --top_ring_num 40 --top_ring_elev_deg 78.0 --top_ring_dist_scale 0.85 --axis_correction none --seed 123 --batch_chunk 12 --io_workers 8 --io_max_pending 12 --bin_size 128 --max_faces_per_bin 400000 --no_cull_backfaces --save_rgb_png --save_mask_png --save_nocs_png8 --nocs_norm bbox --cam_mode random --rand_cams 150 --sphere_dist 1.73 --pos_tangent_jitter 0.02 --depth_jitter 0.02 --input_format obj --use_uv_textures --bg_color 1.0 1.0 1.0 --obj_loader p3d --atlas_size 128 --atlas_mem_limit_gb 16.0 --overwrite --viz_backend mpl --viz_max_frustums 150 --archive_output --archive_format tar.gz --manifest /tmp/3086460.alex/tmpp4je24jw_render_manifest.json
+[info] GPU rendering on: NVIDIA A100-SXM4-40GB
+[p3d] torch=2.1.2 cuda=11.8; pytorch3d=0.7.4 HAVE_P3D=True HAVE_LOAD_OBJS_AS_MESHES=True HAVE_LOAD_OBJ=True
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/table_lamp/table_lamp_00c3001fe093198371d8d237784f55f83c60bc6167f5d363d5c029a4592e8a60_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_00c3001fe093198371d8d237784f55f83c60bc6167f5d363d5c029a4592e8a60 =====
+[info] OBJ loader mode=atlas: 3 pure colors
+[NOCS-SAVE] plus: out-of-range before clamp = 0.0253%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_00c3001fe093198371d8d237784f55f83c60bc6167f5d363d5c029a4592e8a60.tar.gz (keep_original=False)
+time: 68.34 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/table_lamp/table_lamp_01ddc59b196231a75f1cb03720bdf4308ae089b2d1adf626202bc3de7aff19a8_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_01ddc59b196231a75f1cb03720bdf4308ae089b2d1adf626202bc3de7aff19a8 =====
+[warn] atlas memory estimate 3383.5 GB > limit 16.0 GB; auto-switch to UV textures (no atlas).  (faces≈672239, tile=128, batch_dup≈12)
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[info] OBJ loader mode=trimesh: fallback after p3d failure
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_01ddc59b196231a75f1cb03720bdf4308ae089b2d1adf626202bc3de7aff19a8.tar.gz (keep_original=False)
+time: 111.14 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/table_lamp/table_lamp_05e0abefd32421dbc4144b224b1d4a5c0889f04f7c8d0e5932adae2f84fda072_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_05e0abefd32421dbc4144b224b1d4a5c0889f04f7c8d0e5932adae2f84fda072 =====
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[info] OBJ loader mode=trimesh: fallback after p3d failure
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_05e0abefd32421dbc4144b224b1d4a5c0889f04f7c8d0e5932adae2f84fda072.tar.gz (keep_original=False)
+time: 67.30 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/table_lamp/table_lamp_2ad6c5117eee0e74b83687f4298276e6de6add4d8f46e58a9032a365934fa723_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_2ad6c5117eee0e74b83687f4298276e6de6add4d8f46e58a9032a365934fa723 =====
+[info] OBJ loader mode=atlas: 2 pure colors
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_2ad6c5117eee0e74b83687f4298276e6de6add4d8f46e58a9032a365934fa723.tar.gz (keep_original=False)
+time: 67.07 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/table_lamp/table_lamp_351c09186ec5da05b1bbffcdb1a42f9c277f447650b64ea80dda6c7abbefb977_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_351c09186ec5da05b1bbffcdb1a42f9c277f447650b64ea80dda6c7abbefb977 =====
+[info] OBJ loader mode=atlas: 3 pure colors
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_351c09186ec5da05b1bbffcdb1a42f9c277f447650b64ea80dda6c7abbefb977.tar.gz (keep_original=False)
+time: 68.54 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/table_lamp/table_lamp_4ec004d929b0be5deb544594d84c9e8d88f74441514a46b499faac3e4f4b9418_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_4ec004d929b0be5deb544594d84c9e8d88f74441514a46b499faac3e4f4b9418 =====
+[info] OBJ loader mode=atlas: 2 diffuse textures
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_4ec004d929b0be5deb544594d84c9e8d88f74441514a46b499faac3e4f4b9418.tar.gz (keep_original=False)
+time: 66.93 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/table_lamp/table_lamp_5da7690e8af96126ae057a46cd5c379b460955cfb4f015a7cbb5da7a2437013a_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_5da7690e8af96126ae057a46cd5c379b460955cfb4f015a7cbb5da7a2437013a =====
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[info] OBJ loader mode=trimesh: fallback after p3d failure
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_5da7690e8af96126ae057a46cd5c379b460955cfb4f015a7cbb5da7a2437013a.tar.gz (keep_original=False)
+time: 66.51 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/table_lamp/table_lamp_6b3836a0b6b9e0367c2a076da816b5427cfc59bc1fa3a115db906f005b6afa5f_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_6b3836a0b6b9e0367c2a076da816b5427cfc59bc1fa3a115db906f005b6afa5f =====
+[warn] atlas memory estimate 68.3 GB > limit 16.0 GB; auto-switch to UV textures (no atlas).  (faces≈13572, tile=128, batch_dup≈12)
+[info] OBJ loader mode=uv: atlas estimate 68.3GB exceeds limit 16.0GB; UV fallback (3 map(s), 0 pure color(s))
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_6b3836a0b6b9e0367c2a076da816b5427cfc59bc1fa3a115db906f005b6afa5f.tar.gz (keep_original=False)
+time: 68.84 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/table_lamp/table_lamp_720a2e2e97957e233bd1cd9123e38fa784c5b0aab2ad3bba50b16efef63bb001_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_720a2e2e97957e233bd1cd9123e38fa784c5b0aab2ad3bba50b16efef63bb001 =====
+[info] OBJ loader mode=atlas: 2 diffuse textures
+[ERROR] Failed: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/table_lamp/table_lamp_720a2e2e97957e233bd1cd9123e38fa784c5b0aab2ad3bba50b16efef63bb001_obj/model.obj :: CUDA out of memory. Tried to allocate 14.61 GiB. GPU 0 has a total capacty of 39.49 GiB of which 5.70 GiB is free. Including non-PyTorch memory, this process has 33.79 GiB memory in use. Of the allocated memory 18.39 GiB is allocated by PyTorch, and 14.12 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/table_lamp/table_lamp_75bc1365749cacc78cd5666b6f17f3947200ad662815b9727f9ffb43fb2328ba_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_75bc1365749cacc78cd5666b6f17f3947200ad662815b9727f9ffb43fb2328ba =====
+[info] OBJ loader mode=atlas: 7 pure colors
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_75bc1365749cacc78cd5666b6f17f3947200ad662815b9727f9ffb43fb2328ba.tar.gz (keep_original=False)
+time: 66.89 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/table_lamp/table_lamp_780709daea73b517b973d496b99d361e81e4ba614ea986b0aac714398cb57083_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_780709daea73b517b973d496b99d361e81e4ba614ea986b0aac714398cb57083 =====
+[info] OBJ loader mode=uv: single diffuse source (1 map(s), 0 pure color(s))
+[NOCS-SAVE] plus: out-of-range before clamp = 0.0107%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_780709daea73b517b973d496b99d361e81e4ba614ea986b0aac714398cb57083.tar.gz (keep_original=False)
+time: 66.72 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/table_lamp/table_lamp_796b545bbe8cca033c2eb219af055010109c018660523aa466f488620700606d_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_796b545bbe8cca033c2eb219af055010109c018660523aa466f488620700606d =====
+[warn] atlas memory estimate 32.2 GB > limit 16.0 GB; auto-switch to UV textures (no atlas).  (faces≈6388, tile=128, batch_dup≈12)
+[info] OBJ loader mode=uv: atlas estimate 32.2GB exceeds limit 16.0GB; UV fallback (3 map(s), 0 pure color(s))
+[NOCS-SAVE] plus: out-of-range before clamp = 0.0107%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_796b545bbe8cca033c2eb219af055010109c018660523aa466f488620700606d.tar.gz (keep_original=False)
+time: 68.18 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/table_lamp/table_lamp_8010397c6e5a59f4fad64939ff8f842c02811fbf7e4223c7cdf8a7caf546b240_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_8010397c6e5a59f4fad64939ff8f842c02811fbf7e4223c7cdf8a7caf546b240 =====
+[info] OBJ loader mode=uv: single diffuse source (1 map(s), 0 pure color(s))
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_8010397c6e5a59f4fad64939ff8f842c02811fbf7e4223c7cdf8a7caf546b240.tar.gz (keep_original=False)
+time: 66.49 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/table_lamp/table_lamp_97656e7c90517a6fa820082d6a3ba40a4eee17a48bec2612a997068231c7881e_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_97656e7c90517a6fa820082d6a3ba40a4eee17a48bec2612a997068231c7881e =====
+[info] OBJ loader mode=atlas: 6 pure colors
+[NOCS-SAVE] plus: out-of-range before clamp = 0.0124%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_97656e7c90517a6fa820082d6a3ba40a4eee17a48bec2612a997068231c7881e.tar.gz (keep_original=False)
+time: 68.17 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/table_lamp/table_lamp_9d4779581396cf07705e4fb77d1a6306fcc3687e6bc622082968c0d9af81b5cb_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_9d4779581396cf07705e4fb77d1a6306fcc3687e6bc622082968c0d9af81b5cb =====
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[info] OBJ loader mode=trimesh: fallback after p3d failure
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_9d4779581396cf07705e4fb77d1a6306fcc3687e6bc622082968c0d9af81b5cb.tar.gz (keep_original=False)
+time: 67.40 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/table_lamp/table_lamp_a06c981c2ede960644d80a3c5708fb4d0118e0d21eed13f46a1774a09f406fc1_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_a06c981c2ede960644d80a3c5708fb4d0118e0d21eed13f46a1774a09f406fc1 =====
+[warn] atlas memory estimate 68.8 GB > limit 16.0 GB; auto-switch to UV textures (no atlas).  (faces≈13660, tile=128, batch_dup≈12)
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[info] OBJ loader mode=trimesh: fallback after p3d failure
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_a06c981c2ede960644d80a3c5708fb4d0118e0d21eed13f46a1774a09f406fc1.tar.gz (keep_original=False)
+time: 69.10 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/table_lamp/table_lamp_a1b2fe3615fd07124de0ab0f1dc7e0b55cada3d07ce9a46d67b972bccc8c8c30_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_a1b2fe3615fd07124de0ab0f1dc7e0b55cada3d07ce9a46d67b972bccc8c8c30 =====
+[info] OBJ loader mode=atlas: 4 pure colors
+[NOCS-SAVE] plus: out-of-range before clamp = 0.0503%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_a1b2fe3615fd07124de0ab0f1dc7e0b55cada3d07ce9a46d67b972bccc8c8c30.tar.gz (keep_original=False)
+time: 68.49 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/table_lamp/table_lamp_aeabcdb32361e5baf6f0547ffb8fff744bdda676fe6f6bc9b6889c819ed0ca6c_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_aeabcdb32361e5baf6f0547ffb8fff744bdda676fe6f6bc9b6889c819ed0ca6c =====
+[info] OBJ loader mode=atlas: 4 pure colors
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_aeabcdb32361e5baf6f0547ffb8fff744bdda676fe6f6bc9b6889c819ed0ca6c.tar.gz (keep_original=False)
+time: 67.72 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/table_lamp/table_lamp_b9493ae274470325ebd00e4585f8f5659c79ad9673a065d1f55397d554d6f6fe_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_b9493ae274470325ebd00e4585f8f5659c79ad9673a065d1f55397d554d6f6fe =====
+[info] OBJ loader mode=atlas: 4 pure colors
+[NOCS-SAVE] plus: out-of-range before clamp = 0.0120%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_b9493ae274470325ebd00e4585f8f5659c79ad9673a065d1f55397d554d6f6fe.tar.gz (keep_original=False)
+time: 71.91 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/table_lamp/table_lamp_bcc4224518f484a193ecc8c3e13dcd013a8bad0aea1b9b0f4a0b8e4307c9133e_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_bcc4224518f484a193ecc8c3e13dcd013a8bad0aea1b9b0f4a0b8e4307c9133e =====
+[info] OBJ loader mode=atlas: 3 diffuse textures
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_bcc4224518f484a193ecc8c3e13dcd013a8bad0aea1b9b0f4a0b8e4307c9133e.tar.gz (keep_original=False)
+time: 70.66 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/table_lamp/table_lamp_c1024884a62bb185c479adc9093a5aebb7a01fd6137c724511ac04d0d8bbcba9_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_c1024884a62bb185c479adc9093a5aebb7a01fd6137c724511ac04d0d8bbcba9 =====
+[info] OBJ loader mode=atlas: 3 pure colors
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_c1024884a62bb185c479adc9093a5aebb7a01fd6137c724511ac04d0d8bbcba9.tar.gz (keep_original=False)
+time: 66.75 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/table_lamp/table_lamp_d2130a546e1d65d21a735ade90a992e521b52b593fc4e2fde5afeebda5af4308_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_d2130a546e1d65d21a735ade90a992e521b52b593fc4e2fde5afeebda5af4308 =====
+[info] OBJ loader mode=uv: single diffuse source (1 map(s), 0 pure color(s))
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_d2130a546e1d65d21a735ade90a992e521b52b593fc4e2fde5afeebda5af4308.tar.gz (keep_original=False)
+time: 66.26 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/table_lamp/table_lamp_d350cbdd835def8835845cd7c630ea6668dfa8397ba46fb81fcc65877b8fe336_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_d350cbdd835def8835845cd7c630ea6668dfa8397ba46fb81fcc65877b8fe336 =====
+[warn] atlas memory estimate 21.3 GB > limit 16.0 GB; auto-switch to UV textures (no atlas).  (faces≈4235, tile=128, batch_dup≈12)
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[info] OBJ loader mode=trimesh: fallback after p3d failure
+[NOCS-SAVE] plus: out-of-range before clamp = 0.0130%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_d350cbdd835def8835845cd7c630ea6668dfa8397ba46fb81fcc65877b8fe336.tar.gz (keep_original=False)
+time: 67.46 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/table_lamp/table_lamp_dae605ed77c5563d7f1b95a622d089a2c0671f1992bfaac620a7baa2aa52d4ff_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_dae605ed77c5563d7f1b95a622d089a2c0671f1992bfaac620a7baa2aa52d4ff =====
+[info] OBJ loader mode=atlas: 2 diffuse textures; pure colors + textures
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_dae605ed77c5563d7f1b95a622d089a2c0671f1992bfaac620a7baa2aa52d4ff.tar.gz (keep_original=False)
+time: 67.96 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/table_lamp/table_lamp_e5cf3e5cc2e185c610e897feb4e32c4a21f78b99e41f95e0b4413c8135573117_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_e5cf3e5cc2e185c610e897feb4e32c4a21f78b99e41f95e0b4413c8135573117 =====
+[warn] atlas memory estimate 68.3 GB > limit 16.0 GB; auto-switch to UV textures (no atlas).  (faces≈13572, tile=128, batch_dup≈12)
+[info] OBJ loader mode=uv: atlas estimate 68.3GB exceeds limit 16.0GB; UV fallback (3 map(s), 0 pure color(s))
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_e5cf3e5cc2e185c610e897feb4e32c4a21f78b99e41f95e0b4413c8135573117.tar.gz (keep_original=False)
+time: 68.38 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/table_lamp/table_lamp_ea5789e3e9f5aa77fea76b204ea6829fcb3cc7eddad990ecf3325f9432ee952e_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_ea5789e3e9f5aa77fea76b204ea6829fcb3cc7eddad990ecf3325f9432ee952e =====
+[info] OBJ loader mode=atlas: 7 pure colors
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_ea5789e3e9f5aa77fea76b204ea6829fcb3cc7eddad990ecf3325f9432ee952e.tar.gz (keep_original=False)
+time: 66.54 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/table_lamp/table_lamp_f1364a9c1d4a86a5c3c3d4351d90e319c574fa770c10c72d459cfba236582616_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_f1364a9c1d4a86a5c3c3d4351d90e319c574fa770c10c72d459cfba236582616 =====
+[info] OBJ loader mode=atlas: 5 pure colors
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_f1364a9c1d4a86a5c3c3d4351d90e319c574fa770c10c72d459cfba236582616.tar.gz (keep_original=False)
+time: 66.64 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/table_lamp/table_lamp_f1dab6c2a1bff7268330722b5792bb76410f902970018bdaa3ecd349cd62d02a_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_f1dab6c2a1bff7268330722b5792bb76410f902970018bdaa3ecd349cd62d02a =====
+[warn] atlas memory estimate 18.4 GB > limit 16.0 GB; auto-switch to UV textures (no atlas).  (faces≈3664, tile=128, batch_dup≈12)
+[info] OBJ loader mode=uv: atlas estimate 18.4GB exceeds limit 16.0GB; UV fallback (1 map(s), 2 pure color(s))
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_f1dab6c2a1bff7268330722b5792bb76410f902970018bdaa3ecd349cd62d02a.tar.gz (keep_original=False)
+time: 66.96 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/table_lamp/table_lamp_f5b95c4de9a78a6c3926d94f57953791cfa9b01d37ad633091b1707354ac5624_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_f5b95c4de9a78a6c3926d94f57953791cfa9b01d37ad633091b1707354ac5624 =====
+[info] OBJ loader mode=uv: single diffuse source (1 map(s), 0 pure color(s))
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/table_lamp/table_lamp_f5b95c4de9a78a6c3926d94f57953791cfa9b01d37ad633091b1707354ac5624.tar.gz (keep_original=False)
+time: 68.79 seconds
+[done] rc=0  time=1962.80s
+[render/batch] done rc=0  total=29  time=1962.80s  avg=67.68s/obj
+[timing] table_lamp | render: 1962.80s
+===== CATEGORY: lamp =====
+[SKIP] [cat] download
+--- [cat] Step 2: Align & export GLBs ---
+[OXL] downloads under: /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/lamp
+[timing] lamp | align: 99.63s
+--- [cat] Step 3: Render orbit RGBD & videos ---
+[INFO] lamp: to render → 48 item(s) (OBJ) → flat storage
+[render/batch] cat=lamp  dir=/home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp  out=/home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp  total=48
+$ /home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/bin/python /home/hpc/v100dd/v100dd26/project/Dataset_pipeline/src/video_render/render_orbit_full.py --obj /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp --out /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp --label lamp --num_cams 40 --elev_deg 20.0 --fov_deg 60.0 --image_size 768 --top_ring_num 40 --top_ring_elev_deg 78.0 --top_ring_dist_scale 0.85 --axis_correction none --seed 123 --batch_chunk 12 --io_workers 8 --io_max_pending 12 --bin_size 128 --max_faces_per_bin 400000 --no_cull_backfaces --save_rgb_png --save_mask_png --save_nocs_png8 --nocs_norm bbox --cam_mode random --rand_cams 150 --sphere_dist 1.73 --pos_tangent_jitter 0.02 --depth_jitter 0.02 --input_format obj --use_uv_textures --bg_color 1.0 1.0 1.0 --obj_loader p3d --atlas_size 128 --atlas_mem_limit_gb 16.0 --overwrite --viz_backend mpl --viz_max_frustums 150 --archive_output --archive_format tar.gz --manifest /tmp/3086460.alex/tmp449kqgkq_render_manifest.json
+[info] GPU rendering on: NVIDIA A100-SXM4-40GB
+[p3d] torch=2.1.2 cuda=11.8; pytorch3d=0.7.4 HAVE_P3D=True HAVE_LOAD_OBJS_AS_MESHES=True HAVE_LOAD_OBJ=True
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_03e27c91e14957373f8a47e7a3f841843c2ac2962d579fb793f967169e65a4be_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_03e27c91e14957373f8a47e7a3f841843c2ac2962d579fb793f967169e65a4be =====
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[info] OBJ loader mode=trimesh: fallback after p3d failure
+[NOCS-SAVE] plus: out-of-range before clamp = 0.0271%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_03e27c91e14957373f8a47e7a3f841843c2ac2962d579fb793f967169e65a4be.tar.gz (keep_original=False)
+time: 69.34 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_071a5b4a4edf1862459c8c3f1084043f6f2732185782b198218665c089ee0175_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_071a5b4a4edf1862459c8c3f1084043f6f2732185782b198218665c089ee0175 =====
+[info] OBJ loader mode=uv: single diffuse source (1 map(s), 0 pure color(s))
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_071a5b4a4edf1862459c8c3f1084043f6f2732185782b198218665c089ee0175.tar.gz (keep_original=False)
+time: 68.00 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_089874c28947d57371ab39ce78e5cc37fa3fe8b96f96836b80ce80f226155d97_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_089874c28947d57371ab39ce78e5cc37fa3fe8b96f96836b80ce80f226155d97 =====
+[info] OBJ loader mode=atlas: 2 diffuse textures
+[NOCS-SAVE] plus: out-of-range before clamp = 0.0145%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_089874c28947d57371ab39ce78e5cc37fa3fe8b96f96836b80ce80f226155d97.tar.gz (keep_original=False)
+time: 72.23 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_1193cd9297ae3b47661ae664e79d004dbf2df891c1896c77d350da4ca1e60e8d_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_1193cd9297ae3b47661ae664e79d004dbf2df891c1896c77d350da4ca1e60e8d =====
+[warn] atlas memory estimate 17.3 GB > limit 16.0 GB; auto-switch to UV textures (no atlas).  (faces≈3446, tile=128, batch_dup≈12)
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[info] OBJ loader mode=trimesh: fallback after p3d failure
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_1193cd9297ae3b47661ae664e79d004dbf2df891c1896c77d350da4ca1e60e8d.tar.gz (keep_original=False)
+time: 69.53 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_13a232742998ad6ec15bdbbed14d3910dcc2618a5cf46c50b125b8dc9a758e23_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_13a232742998ad6ec15bdbbed14d3910dcc2618a5cf46c50b125b8dc9a758e23 =====
+[info] OBJ loader mode=atlas: 2 pure colors
+[NOCS-SAVE] plus: out-of-range before clamp = 0.0114%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_13a232742998ad6ec15bdbbed14d3910dcc2618a5cf46c50b125b8dc9a758e23.tar.gz (keep_original=False)
+time: 69.78 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_1d0f3916cc5a5315cbb605685e7c230853afc2d8a53383f68a40bad1ef287476_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_1d0f3916cc5a5315cbb605685e7c230853afc2d8a53383f68a40bad1ef287476 =====
+[info] OBJ loader mode=atlas: 2 pure colors
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_1d0f3916cc5a5315cbb605685e7c230853afc2d8a53383f68a40bad1ef287476.tar.gz (keep_original=False)
+time: 68.14 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_337a78171848056176c0dd6c7da3c7087b0542bb8dfb281bff6a099b8b071bf3_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_337a78171848056176c0dd6c7da3c7087b0542bb8dfb281bff6a099b8b071bf3 =====
+[warn] atlas memory estimate 68.3 GB > limit 16.0 GB; auto-switch to UV textures (no atlas).  (faces≈13572, tile=128, batch_dup≈12)
+[info] OBJ loader mode=uv: atlas estimate 68.3GB exceeds limit 16.0GB; UV fallback (3 map(s), 0 pure color(s))
+[NOCS-SAVE] plus: out-of-range before clamp = 0.0116%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_337a78171848056176c0dd6c7da3c7087b0542bb8dfb281bff6a099b8b071bf3.tar.gz (keep_original=False)
+time: 69.98 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_3484e359fc65f6a79ab596745c982164e31d369fe48aac681fef0371756bebb6_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_3484e359fc65f6a79ab596745c982164e31d369fe48aac681fef0371756bebb6 =====
+[warn] p3d OBJ loader failed: [Errno 21] Is a directory: '/home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/lamp/3484e359fc65f6a79ab596745c982164e31d369fe48aac681fef0371756bebb6/raw/Lamparina.fbm' ; falling back to trimesh loader.
+[info] OBJ loader mode=trimesh: fallback after p3d failure
+[NOCS-SAVE] plus: out-of-range before clamp = 0.0226%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_3484e359fc65f6a79ab596745c982164e31d369fe48aac681fef0371756bebb6.tar.gz (keep_original=False)
+time: 68.39 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_3e27aa21cb671aae20f534b54acccaaa015557c334b7f90009eda5e685238471_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_3e27aa21cb671aae20f534b54acccaaa015557c334b7f90009eda5e685238471 =====
+[warn] atlas memory estimate 121.9 GB > limit 16.0 GB; auto-switch to UV textures (no atlas).  (faces≈24213, tile=128, batch_dup≈12)
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[info] OBJ loader mode=trimesh: fallback after p3d failure
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_3e27aa21cb671aae20f534b54acccaaa015557c334b7f90009eda5e685238471.tar.gz (keep_original=False)
+time: 69.50 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_4004e87b243c8a967782460fcab043b7418e8fc3ed196a3984637176138275b2_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_4004e87b243c8a967782460fcab043b7418e8fc3ed196a3984637176138275b2 =====
+[info] OBJ loader mode=atlas: 3 pure colors
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_4004e87b243c8a967782460fcab043b7418e8fc3ed196a3984637176138275b2.tar.gz (keep_original=False)
+time: 67.95 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_40e094b23f54d39d49f7a2e5871cc1f6f57afce22ee43a8c43a103ffd37a2644_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_40e094b23f54d39d49f7a2e5871cc1f6f57afce22ee43a8c43a103ffd37a2644 =====
+[info] OBJ loader mode=atlas: 4 pure colors
+[NOCS-SAVE] plus: out-of-range before clamp = 0.0179%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_40e094b23f54d39d49f7a2e5871cc1f6f57afce22ee43a8c43a103ffd37a2644.tar.gz (keep_original=False)
+time: 67.22 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_40eb7c8aee98f3d02f5b5987e3d9bb07b5ce6889198974e247f85f1d5bdc44e6_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_40eb7c8aee98f3d02f5b5987e3d9bb07b5ce6889198974e247f85f1d5bdc44e6 =====
+[info] OBJ loader mode=atlas: 2 pure colors
+[ERROR] Failed: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_40eb7c8aee98f3d02f5b5987e3d9bb07b5ce6889198974e247f85f1d5bdc44e6_obj/model.obj :: CUDA out of memory. Tried to allocate 12.80 GiB. GPU 0 has a total capacty of 39.49 GiB of which 9.37 GiB is free. Including non-PyTorch memory, this process has 30.11 GiB memory in use. Of the allocated memory 16.27 GiB is allocated by PyTorch, and 12.56 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_4479f784ace61b39c7c1e9fe430f179d042862e597f01ba904692a436e38c840_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_4479f784ace61b39c7c1e9fe430f179d042862e597f01ba904692a436e38c840 =====
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[info] OBJ loader mode=trimesh: fallback after p3d failure
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_4479f784ace61b39c7c1e9fe430f179d042862e597f01ba904692a436e38c840.tar.gz (keep_original=False)
+time: 67.19 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_48da4446492d7cf1c654d2352d325efca6962e43b991e4a280b56538e5f977d5_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_48da4446492d7cf1c654d2352d325efca6962e43b991e4a280b56538e5f977d5 =====
+[warn] atlas memory estimate 120.8 GB > limit 16.0 GB; auto-switch to UV textures (no atlas).  (faces≈24002, tile=128, batch_dup≈12)
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[info] OBJ loader mode=trimesh: fallback after p3d failure
+[NOCS-SAVE] plus: out-of-range before clamp = 0.0124%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_48da4446492d7cf1c654d2352d325efca6962e43b991e4a280b56538e5f977d5.tar.gz (keep_original=False)
+time: 68.46 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_4d3543b48d9067f2dae8f69098579c1ef6b5106930c0725803e54ea0f7a2c724_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_4d3543b48d9067f2dae8f69098579c1ef6b5106930c0725803e54ea0f7a2c724 =====
+[info] OBJ loader mode=atlas: 2 pure colors
+[ERROR] Failed: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_4d3543b48d9067f2dae8f69098579c1ef6b5106930c0725803e54ea0f7a2c724_obj/model.obj :: CUDA out of memory. Tried to allocate 12.02 GiB. GPU 0 has a total capacty of 39.49 GiB of which 11.31 GiB is free. Including non-PyTorch memory, this process has 28.18 GiB memory in use. Of the allocated memory 15.37 GiB is allocated by PyTorch, and 11.53 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_4fb49293a4281a391df20f876192a41528df09c48ead7b3da301dbe80908dcba_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_4fb49293a4281a391df20f876192a41528df09c48ead7b3da301dbe80908dcba =====
+[info] OBJ loader mode=atlas: 3 pure colors
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_4fb49293a4281a391df20f876192a41528df09c48ead7b3da301dbe80908dcba.tar.gz (keep_original=False)
+time: 67.31 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_51c7b58f6d4887ecf5b36c9258f5cd31af5769c25d0416e60688d31523b9878b_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_51c7b58f6d4887ecf5b36c9258f5cd31af5769c25d0416e60688d31523b9878b =====
+[info] OBJ loader mode=atlas: 3 pure colors
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_51c7b58f6d4887ecf5b36c9258f5cd31af5769c25d0416e60688d31523b9878b.tar.gz (keep_original=False)
+time: 66.14 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_528a0c27e7cefec61a4156eafb3779b94f046c3ae99d113179ec1fcdd60ea3a1_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_528a0c27e7cefec61a4156eafb3779b94f046c3ae99d113179ec1fcdd60ea3a1 =====
+[info] OBJ loader mode=atlas: 3 diffuse textures
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_528a0c27e7cefec61a4156eafb3779b94f046c3ae99d113179ec1fcdd60ea3a1.tar.gz (keep_original=False)
+time: 69.72 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_62d934e57ecc066dbd29472dc4ed7c13238589ada76cbe7d7a5c172c89f7d12a_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_62d934e57ecc066dbd29472dc4ed7c13238589ada76cbe7d7a5c172c89f7d12a =====
+[info] OBJ loader mode=atlas: 2 pure colors
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_62d934e57ecc066dbd29472dc4ed7c13238589ada76cbe7d7a5c172c89f7d12a.tar.gz (keep_original=False)
+time: 69.03 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_63d8ee48b27f01c5c2b2e17b0f5684ebdf6e8c011d07d892ffdbe031e13aa5d5_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_63d8ee48b27f01c5c2b2e17b0f5684ebdf6e8c011d07d892ffdbe031e13aa5d5 =====
+[info] OBJ loader mode=atlas: 2 pure colors
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_63d8ee48b27f01c5c2b2e17b0f5684ebdf6e8c011d07d892ffdbe031e13aa5d5.tar.gz (keep_original=False)
+time: 67.12 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_6bd95c0d05b06172a94d3827190d525747e145fa99f4fa35f7a089dc38731255_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_6bd95c0d05b06172a94d3827190d525747e145fa99f4fa35f7a089dc38731255 =====
+[info] OBJ loader mode=uv: single diffuse source (1 map(s), 0 pure color(s))
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_6bd95c0d05b06172a94d3827190d525747e145fa99f4fa35f7a089dc38731255.tar.gz (keep_original=False)
+time: 77.13 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_6ef561418e26db14623d34999b4360c4f25dc03f6c0b14570b3eba419ab0ec7f_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_6ef561418e26db14623d34999b4360c4f25dc03f6c0b14570b3eba419ab0ec7f =====
+[info] OBJ loader mode=uv: single diffuse source (1 map(s), 0 pure color(s))
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_6ef561418e26db14623d34999b4360c4f25dc03f6c0b14570b3eba419ab0ec7f.tar.gz (keep_original=False)
+time: 66.34 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_7639ae62a98299e23f9e733abe6a229e1b37347e781b6411caf422a12a0d7877_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_7639ae62a98299e23f9e733abe6a229e1b37347e781b6411caf422a12a0d7877 =====
+[info] OBJ loader mode=uv: single diffuse source (1 map(s), 0 pure color(s))
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_7639ae62a98299e23f9e733abe6a229e1b37347e781b6411caf422a12a0d7877.tar.gz (keep_original=False)
+time: 81.94 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_778a4b91a5a3ea77db5902f4a81ce54ebc524bc5e636c36969a7114dc43d24e2_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_778a4b91a5a3ea77db5902f4a81ce54ebc524bc5e636c36969a7114dc43d24e2 =====
+[info] OBJ loader mode=uv: single diffuse source (1 map(s), 0 pure color(s))
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_778a4b91a5a3ea77db5902f4a81ce54ebc524bc5e636c36969a7114dc43d24e2.tar.gz (keep_original=False)
+time: 83.40 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_788ddac335d34ec8a7afd99d7ed7dbdd0408a100f48ff82ab6da962815925cb8_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_788ddac335d34ec8a7afd99d7ed7dbdd0408a100f48ff82ab6da962815925cb8 =====
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[info] OBJ loader mode=trimesh: fallback after p3d failure
+[NOCS-SAVE] plus: out-of-range before clamp = 0.0126%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_788ddac335d34ec8a7afd99d7ed7dbdd0408a100f48ff82ab6da962815925cb8.tar.gz (keep_original=False)
+time: 85.55 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_7909a0894c58bb1554b4175c9a70cb2ff123617841b7190f57ae9f806a382c6e_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_7909a0894c58bb1554b4175c9a70cb2ff123617841b7190f57ae9f806a382c6e =====
+[info] OBJ loader mode=atlas: 2 pure colors
+[NOCS-SAVE] plus: out-of-range before clamp = 0.0318%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_7909a0894c58bb1554b4175c9a70cb2ff123617841b7190f57ae9f806a382c6e.tar.gz (keep_original=False)
+time: 68.39 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_8b244a4c6b0d4c7bf15ababe18d8f5bb016103102a509f974854724f9e5160b9_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_8b244a4c6b0d4c7bf15ababe18d8f5bb016103102a509f974854724f9e5160b9 =====
+[info] OBJ loader mode=atlas: 3 pure colors
+[NOCS-SAVE] plus: out-of-range before clamp = 0.0256%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_8b244a4c6b0d4c7bf15ababe18d8f5bb016103102a509f974854724f9e5160b9.tar.gz (keep_original=False)
+time: 68.65 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_9034479f961218183782a1a53eac8caae19b044ed5ebdcf13eff8f2271961530_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_9034479f961218183782a1a53eac8caae19b044ed5ebdcf13eff8f2271961530 =====
+[info] OBJ loader mode=uv: single diffuse source (1 map(s), 0 pure color(s))
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_9034479f961218183782a1a53eac8caae19b044ed5ebdcf13eff8f2271961530.tar.gz (keep_original=False)
+time: 83.48 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_90dbea320d0fb657fc1afa7b26b5b0c4ca0b54d467c3685280b8ea1adbcf1fb4_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_90dbea320d0fb657fc1afa7b26b5b0c4ca0b54d467c3685280b8ea1adbcf1fb4 =====
+[info] OBJ loader mode=uv: single diffuse source (1 map(s), 0 pure color(s))
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_90dbea320d0fb657fc1afa7b26b5b0c4ca0b54d467c3685280b8ea1adbcf1fb4.tar.gz (keep_original=False)
+time: 70.00 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_9bc4b29a38f2f4603d9db903983c2e98d506106d92617d8274a96aa9cd371ad3_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_9bc4b29a38f2f4603d9db903983c2e98d506106d92617d8274a96aa9cd371ad3 =====
+[info] OBJ loader mode=atlas: 3 pure colors
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_9bc4b29a38f2f4603d9db903983c2e98d506106d92617d8274a96aa9cd371ad3.tar.gz (keep_original=False)
+time: 67.04 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_a6af5b0fc18e5223688116e21893b6926ba3f9f9392339b1a997262019b96f78_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_a6af5b0fc18e5223688116e21893b6926ba3f9f9392339b1a997262019b96f78 =====
+[info] OBJ loader mode=uv: single diffuse source (1 map(s), 0 pure color(s))
+[NOCS-SAVE] plus: out-of-range before clamp = 0.0206%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_a6af5b0fc18e5223688116e21893b6926ba3f9f9392339b1a997262019b96f78.tar.gz (keep_original=False)
+time: 115.16 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_bf0433b85831cd5f192186646654025348b224b04a54efc4eddc2db43ee4315c_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_bf0433b85831cd5f192186646654025348b224b04a54efc4eddc2db43ee4315c =====
+[info] OBJ loader mode=atlas: pure colors + textures
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_bf0433b85831cd5f192186646654025348b224b04a54efc4eddc2db43ee4315c.tar.gz (keep_original=False)
+time: 67.42 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_c003501a6c9de00aaa5ccadb35a8f69516a44a35f885e094f830f6e8f9b4b9c7_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_c003501a6c9de00aaa5ccadb35a8f69516a44a35f885e094f830f6e8f9b4b9c7 =====
+[info] OBJ loader mode=atlas: 2 pure colors
+[NOCS-SAVE] plus: out-of-range before clamp = 0.0275%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_c003501a6c9de00aaa5ccadb35a8f69516a44a35f885e094f830f6e8f9b4b9c7.tar.gz (keep_original=False)
+time: 68.02 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_c058dd5ed4f1a513ee75cb2c2d25895659a2e459f3b0ef2891c1c308126f189c_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_c058dd5ed4f1a513ee75cb2c2d25895659a2e459f3b0ef2891c1c308126f189c =====
+[info] OBJ loader mode=atlas: 11 pure colors
+[NOCS-SAVE] plus: out-of-range before clamp = 0.0164%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_c058dd5ed4f1a513ee75cb2c2d25895659a2e459f3b0ef2891c1c308126f189c.tar.gz (keep_original=False)
+time: 67.48 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_c1b2e99faac55c7bb23b2d294f8a6ecd07ebd5544fc4fae6f1070a12da89e2d4_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_c1b2e99faac55c7bb23b2d294f8a6ecd07ebd5544fc4fae6f1070a12da89e2d4 =====
+[info] OBJ loader mode=atlas: 2 pure colors
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_c1b2e99faac55c7bb23b2d294f8a6ecd07ebd5544fc4fae6f1070a12da89e2d4.tar.gz (keep_original=False)
+time: 68.65 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_d008722c39a59dc42993ac906c1ff730cde2bd837e01a3e16441564f50fc4e47_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_d008722c39a59dc42993ac906c1ff730cde2bd837e01a3e16441564f50fc4e47 =====
+[warn] atlas memory estimate 17.3 GB > limit 16.0 GB; auto-switch to UV textures (no atlas).  (faces≈3446, tile=128, batch_dup≈12)
+[info] OBJ loader mode=uv: atlas estimate 17.3GB exceeds limit 16.0GB; UV fallback (4 map(s), 0 pure color(s))
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_d008722c39a59dc42993ac906c1ff730cde2bd837e01a3e16441564f50fc4e47.tar.gz (keep_original=False)
+time: 68.22 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_d51c10e84b8d0b4f1a437ff3ad11cb977c0e6c1708343ccefd9299030b9a2ec8_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_d51c10e84b8d0b4f1a437ff3ad11cb977c0e6c1708343ccefd9299030b9a2ec8 =====
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[info] OBJ loader mode=trimesh: fallback after p3d failure
+[NOCS-SAVE] plus: out-of-range before clamp = 0.0102%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_d51c10e84b8d0b4f1a437ff3ad11cb977c0e6c1708343ccefd9299030b9a2ec8.tar.gz (keep_original=False)
+time: 67.44 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_d66712a1f55cbf5bc5799944ab312a60881d9c62b12da38ba15b23bedb49314a_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_d66712a1f55cbf5bc5799944ab312a60881d9c62b12da38ba15b23bedb49314a =====
+[info] OBJ loader mode=uv: single diffuse source (1 map(s), 0 pure color(s))
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_d66712a1f55cbf5bc5799944ab312a60881d9c62b12da38ba15b23bedb49314a.tar.gz (keep_original=False)
+time: 69.58 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_d6a26ea25cb0b3fd0ac214052e7b38bc734fbaebede5c0ca593f947c3b22db28_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_d6a26ea25cb0b3fd0ac214052e7b38bc734fbaebede5c0ca593f947c3b22db28 =====
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[info] OBJ loader mode=trimesh: fallback after p3d failure
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_d6a26ea25cb0b3fd0ac214052e7b38bc734fbaebede5c0ca593f947c3b22db28.tar.gz (keep_original=False)
+time: 97.99 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_d9c466163a8894c6ef58280ded07473d0c14dddfb44aea969008dc94229bddfa_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_d9c466163a8894c6ef58280ded07473d0c14dddfb44aea969008dc94229bddfa =====
+[info] OBJ loader mode=uv: single diffuse source (1 map(s), 0 pure color(s))
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_d9c466163a8894c6ef58280ded07473d0c14dddfb44aea969008dc94229bddfa.tar.gz (keep_original=False)
+time: 66.51 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_dd7317322b07efb95368f9ebb6613fc6d15071fd5d17bb767f438be17e6f7c39_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_dd7317322b07efb95368f9ebb6613fc6d15071fd5d17bb767f438be17e6f7c39 =====
+[info] OBJ loader mode=atlas: pure colors + textures
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_dd7317322b07efb95368f9ebb6613fc6d15071fd5d17bb767f438be17e6f7c39.tar.gz (keep_original=False)
+time: 68.15 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_de59d98683fab1d3a5f5673da9e09846025d14e1d5b9f58beba1c28d6a51a3c5_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_de59d98683fab1d3a5f5673da9e09846025d14e1d5b9f58beba1c28d6a51a3c5 =====
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[info] OBJ loader mode=trimesh: fallback after p3d failure
+[NOCS-SAVE] plus: out-of-range before clamp = 0.0106%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_de59d98683fab1d3a5f5673da9e09846025d14e1d5b9f58beba1c28d6a51a3c5.tar.gz (keep_original=False)
+time: 97.46 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_de5e0aa44a6019857607b2d9979450a0296d0f9e13ce6be4d5d3a52ec53ca853_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_de5e0aa44a6019857607b2d9979450a0296d0f9e13ce6be4d5d3a52ec53ca853 =====
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[info] OBJ loader mode=trimesh: fallback after p3d failure
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_de5e0aa44a6019857607b2d9979450a0296d0f9e13ce6be4d5d3a52ec53ca853.tar.gz (keep_original=False)
+time: 67.14 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_de6a7075129dc79634b178dcb2ed0187c9533165c92d69d9e3809ac73887f51b_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_de6a7075129dc79634b178dcb2ed0187c9533165c92d69d9e3809ac73887f51b =====
+[info] OBJ loader mode=uv: single diffuse source (1 map(s), 0 pure color(s))
+[NOCS-SAVE] plus: out-of-range before clamp = 0.1858%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_de6a7075129dc79634b178dcb2ed0187c9533165c92d69d9e3809ac73887f51b.tar.gz (keep_original=False)
+time: 67.27 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_e2bd7adacbd5b4ef5648a43000200bed8c1f2d1c4df94aa493665e2274eeb02c_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_e2bd7adacbd5b4ef5648a43000200bed8c1f2d1c4df94aa493665e2274eeb02c =====
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[info] OBJ loader mode=trimesh: fallback after p3d failure
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_e2bd7adacbd5b4ef5648a43000200bed8c1f2d1c4df94aa493665e2274eeb02c.tar.gz (keep_original=False)
+time: 66.67 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_ea879277b417449a99d48048df1c3747ca60c1641769e6ad81897c77d2029c0b_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_ea879277b417449a99d48048df1c3747ca60c1641769e6ad81897c77d2029c0b =====
+[warn] UV texture load failed or empty; no map_* to retry or atlas disabled; falling back to trimesh loader.
+[warn] p3d OBJ loader failed: UV textures missing; atlas disabled ; falling back to trimesh loader.
+[info] OBJ loader mode=trimesh: fallback after p3d failure
+[NOCS-SAVE] plus: out-of-range before clamp = 0.0175%
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_ea879277b417449a99d48048df1c3747ca60c1641769e6ad81897c77d2029c0b.tar.gz (keep_original=False)
+time: 68.24 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_eda46eb208d8cd61d9a47abd3f02c93cf2e434ba940fa4d3e169e95126764579_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_eda46eb208d8cd61d9a47abd3f02c93cf2e434ba940fa4d3e169e95126764579 =====
+[info] OBJ loader mode=atlas: 3 pure colors
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_eda46eb208d8cd61d9a47abd3f02c93cf2e434ba940fa4d3e169e95126764579.tar.gz (keep_original=False)
+time: 67.93 seconds
+
+===== Rendering: /home/vault/v100dd/v100dd26/Dataset/aligned_xl/lamp/lamp_eed406b9ffad7dd181d74724646c0089f4631308f791f274ffcf55d8471f0889_obj/model.obj → /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_eed406b9ffad7dd181d74724646c0089f4631308f791f274ffcf55d8471f0889 =====
+[info] OBJ loader mode=atlas: 4 pure colors
+[archive] wrote /home/vault/v100dd/v100dd26/Dataset/renders_xl/lamp/lamp_eed406b9ffad7dd181d74724646c0089f4631308f791f274ffcf55d8471f0889.tar.gz (keep_original=False)
+time: 66.93 seconds
+[done] rc=0  time=3335.97s
+[render/batch] done rc=0  total=48  time=3335.97s  avg=69.50s/obj
+[timing] lamp | render: 3335.98s
+[ALL DONE] Per-category flow outputs:
+- Downloads: /home/vault/v100dd/v100dd26/Dataset
+- Aligned GLBs: /home/vault/v100dd/v100dd26/Dataset/aligned_xl
+- Renders: /home/vault/v100dd/v100dd26/Dataset/renders_xl
+[2025-10-17 17:42:07] Pipeline runtime: 8262 seconds
+[2025-10-17 17:42:07] Array job finished
+[2025-10-17 17:42:07] Total array job runtime: 8266 seconds
+=== JOB_STATISTICS ===
+=== current date     : Fri Oct 17 17:42:08 CEST 2025
+= Job-ID             : 3086460 on alex as 3086046_1
+= Job-Name           : dataset-pipeline-array
+= Job-Command        : /home/hpc/v100dd/v100dd26/scripts/dataset/dataset_pipeline_array.sh
+= Initial workdir    : /home/hpc/v100dd/v100dd26/project/Dataset_pipeline
+= Queue/Partition    : a100
+= Slurm account      : v100dd with QOS=normal
+= Features           : a100_40
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 02:18:04
+= Total RAM usage    : 10.6 GiB of assigned  GiB (%)
+= Node list          : a0603
+= Subm/Elig/Start/End: 2025-10-17T11:49:24 / 2025-10-17T11:49:24 / 2025-10-17T15:24:03 / 2025-10-17T17:42:07
+======================
+=== Quota infos ======
+    Path              Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc           62.1G   104.9G   209.7G        N/A     134K     500K   1,000K        N/A    
+    /home/vault        191.7G  1048.6G  2097.2G        N/A  30,871      200K     400K        N/A    
+    atuin.rrze.uni-erlangen.de:/srv/home     0.0K     0.0K     0.0K        N/A       1                           N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+NVIDIA A100-SXM4-40GB, 00000000:90:00.0, 77674, 79 %, 0 %, 34624 MiB, 925000 ms
+NVIDIA A100-SXM4-40GB, 00000000:90:00.0, 79819, 80 %, 0 %, 40210 MiB, 1821856 ms
+NVIDIA A100-SXM4-40GB, 00000000:90:00.0, 85305, 81 %, 0 %, 37686 MiB, 1957188 ms
+NVIDIA A100-SXM4-40GB, 00000000:90:00.0, 93358, 77 %, 0 %, 40322 MiB, 3331262 ms

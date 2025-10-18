@@ -1,0 +1,36 @@
+/home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/lib/python3.10/site-packages/pytorch3d/io/mtl_io.py:102: UserWarning: Texture UV coordinates outside the range [0, 1].                 The integer part will be ignored to form a repeating pattern.
+  warnings.warn(msg)
+/home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/lib/python3.10/site-packages/pytorch3d/io/mtl_io.py:480: UserWarning: Texture file does not exist: texture.png
+  warnings.warn(msg)
+/home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/lib/python3.10/site-packages/pytorch3d/io/mtl_io.py:480: UserWarning: Texture file does not exist: SS05_MeD.jpg
+  warnings.warn(msg)
+/home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/lib/python3.10/site-packages/pytorch3d/io/mtl_io.py:480: UserWarning: Texture file does not exist: /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/dresser/b81e30aa5b5101930730416cfeeee8707ba1dd5ec856809c6138beba2b82b3a6/Bake/Bedroom_furniture1/Unity/Bedroom_furniture1_a.tif
+  warnings.warn(msg)
+/home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/lib/python3.10/site-packages/pytorch3d/io/mtl_io.py:102: UserWarning: Texture UV coordinates outside the range [0, 1].                 The integer part will be ignored to form a repeating pattern.
+  warnings.warn(msg)
+/home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/lib/python3.10/site-packages/pytorch3d/io/mtl_io.py:480: UserWarning: Texture file does not exist: /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/bookcase/d360284290c1f498d27d981c8772876aca5b0bbff944003983cf197da278d6df/raw/E:/SK Hentry/Piccola Libreria/end1/Shelf-Albedo.jpg
+  warnings.warn(msg)
+/home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/lib/python3.10/site-packages/pytorch3d/io/mtl_io.py:480: UserWarning: Texture file does not exist: Diffuse_Texture.png
+  warnings.warn(msg)
+/home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/lib/python3.10/site-packages/pytorch3d/io/mtl_io.py:102: UserWarning: Texture UV coordinates outside the range [0, 1].                 The integer part will be ignored to form a repeating pattern.
+  warnings.warn(msg)
+/home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/lib/python3.10/site-packages/pytorch3d/io/mtl_io.py:480: UserWarning: Texture file does not exist: /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/table_lamp/9d4779581396cf07705e4fb77d1a6306fcc3687e6bc622082968c0d9af81b5cb/raw/D:/Projects/AssetStore/unity-asset-store/Unity Asset Store/Assets/VictorianHomePack/Textures/Atlas.png
+  warnings.warn(msg)
+/home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/lib/python3.10/site-packages/pytorch3d/io/mtl_io.py:480: UserWarning: Texture file does not exist: -s -2.6 1 textures/Jern2.png
+  warnings.warn(msg)
+/home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/lib/python3.10/site-packages/pytorch3d/io/mtl_io.py:480: UserWarning: Texture file does not exist: /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/lamp/4479f784ace61b39c7c1e9fe430f179d042862e597f01ba904692a436e38c840/raw/C:/Users/GBM/Palitra/18875677-e048-41b7-a98b-ab98542f8e38.png
+  warnings.warn(msg)
+/home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/lib/python3.10/site-packages/pytorch3d/io/mtl_io.py:480: UserWarning: Texture file does not exist: /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/lamp/788ddac335d34ec8a7afd99d7ed7dbdd0408a100f48ff82ab6da962815925cb8/raw/Volumes/MAC HD/Angelica/FALL 2020/CAP3220/Projects/Angelica_Roque_Project_4/Textures/windwheel.jpg
+  warnings.warn(msg)
+/home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/lib/python3.10/site-packages/pytorch3d/io/mtl_io.py:480: UserWarning: Texture file does not exist: /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/lamp/788ddac335d34ec8a7afd99d7ed7dbdd0408a100f48ff82ab6da962815925cb8/raw/Volumes/MAC HD/Angelica/FALL 2020/CAP3220/Projects/Angelica_Roque_Project_4/Textures/wood_1.jpg
+  warnings.warn(msg)
+/home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/lib/python3.10/site-packages/pytorch3d/io/mtl_io.py:102: UserWarning: Texture UV coordinates outside the range [0, 1].                 The integer part will be ignored to form a repeating pattern.
+  warnings.warn(msg)
+/home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/lib/python3.10/site-packages/pytorch3d/io/mtl_io.py:480: UserWarning: Texture file does not exist: /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/lamp/d51c10e84b8d0b4f1a437ff3ad11cb977c0e6c1708343ccefd9299030b9a2ec8/raw/textures/6_old dirty metal texture-seamless.jpg
+  warnings.warn(msg)
+/home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/lib/python3.10/site-packages/pytorch3d/io/mtl_io.py:480: UserWarning: Texture file does not exist: /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/lamp/d51c10e84b8d0b4f1a437ff3ad11cb977c0e6c1708343ccefd9299030b9a2ec8/raw/textures/58_painted dirty metal texture-seamless.jpg
+  warnings.warn(msg)
+/home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/lib/python3.10/site-packages/pytorch3d/io/mtl_io.py:480: UserWarning: Texture file does not exist: /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/lamp/de59d98683fab1d3a5f5673da9e09846025d14e1d5b9f58beba1c28d6a51a3c5/Textures/PirateTextures_B.tga
+  warnings.warn(msg)
+/home/hpc/v100dd/v100dd26/miniconda3/envs/shapecanon/lib/python3.10/site-packages/pytorch3d/io/mtl_io.py:480: UserWarning: Texture file does not exist: /home/vault/v100dd/v100dd26/Dataset/ObjaverseXL_github/lamp/de5e0aa44a6019857607b2d9979450a0296d0f9e13ce6be4d5d3a52ec53ca853/Textures/PirateTextures_B.tga
+  warnings.warn(msg)
